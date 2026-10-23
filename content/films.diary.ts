@@ -527,6 +527,7 @@ export const diary: FilmEntry[] = [
       "I can’t quite put into words how much I enjoyed the scene where Nikki says she’s going to commit suicide if Bear leaves her. The obsession, anxiety and feeling of being trapped in your own body yet unable to escape – because that’s you and you are YOU. It’s just a guess, but in this scene where Nikki describes the feeling of death as a sign of her true self saying “kill me”, wouldn’t it be possible? Later that night she even begged Bear to kill her. I’m really excited to psychoanalyse Bear and Nikki after the wish. It’s fun to delve deep into these characters and imagine their feelings and motivations!!"
     ],
     "poster": {
+      "src": "/images/films/obsession-2025.webp",
       "alt": "Poster for Obsession",
       "aspect": 0.6666666666666666,
       "tone": "green"
@@ -543,6 +544,7 @@ export const diary: FilmEntry[] = [
       "Who is the sinner and who is the Christ?"
     ],
     "poster": {
+      "src": "/images/films/there-will-be-blood-2007.webp",
       "alt": "Poster for There Will Be Blood",
       "aspect": 0.6666666666666666,
       "tone": "brass"
@@ -553,11 +555,13 @@ export const diary: FilmEntry[] = [
     "title": "Heartstopper Forever",
     "year": "2026",
     "watched": "2026-07-26",
+    "director": "Wash Westmoreland",
     "note": "Where’s the Queen?",
     "body": [
       "Where’s the Queen?"
     ],
     "poster": {
+      "src": "/images/films/heartstopper-forever-2026.webp",
       "alt": "Poster for Heartstopper Forever",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
