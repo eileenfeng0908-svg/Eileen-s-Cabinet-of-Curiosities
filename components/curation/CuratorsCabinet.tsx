@@ -107,9 +107,9 @@ export function CuratorsCabinet() {
                 style={{ height: `${u(s.h)}cqw` }}
               >
                 <DrawerFrontArt seed={40 + i * 13} />
-                <span className="absolute inset-x-[28%] top-[14%] flex flex-col items-center text-wine">
-                  <span className="font-sans text-[max(0.55rem,1.5cqw)] uppercase tracking-[0.14em]">Drawer {d.number}</span>
-                  <span className="font-display text-[max(0.95rem,3.3cqw)] leading-tight transition-colors duration-500 group-hover:text-vermilion group-focus-visible:text-vermilion">
+                <span className="absolute inset-x-[27%] top-[14%] flex flex-col items-center text-wine @max-md:inset-x-[29%] @max-md:top-[9%]">
+                  <span className="font-sans text-[max(0.55rem,1.5cqw)] uppercase tracking-[0.14em] @max-md:hidden">Exhibition {d.number}</span>
+                  <span className="max-w-full text-balance font-display text-[max(0.78rem,3cqw)] leading-[1.05] transition-colors duration-500 group-hover:text-vermilion group-focus-visible:text-vermilion">
                     {d.title}
                   </span>
                 </span>
@@ -142,7 +142,7 @@ export function CuratorsCabinet() {
         ))}
       </ul>
       <p aria-live="polite" className="mx-auto mt-5 min-h-[3.2em] max-w-[40rem] text-center font-display text-lede italic text-wine">
-        {openIndex >= 0 ? drawers[openIndex].note : "Pull a handle to open a drawer."}
+        {openIndex >= 0 ? drawers[openIndex].note : "Three drawers, one for each exhibition I have curated. Pull a handle to open one."}
         {openIndex >= 0 && <span className="label mt-1 block not-italic">Choose an object to look closer · push the drawer to close it</span>}
       </p>
 
@@ -234,24 +234,12 @@ function ObjectDetail({ obj, drawer, onClose }: { obj: DrawerObject; drawer: Dra
       </div>
       <div className="flex flex-col">
         <p className="label text-wine">
-          Drawer {drawer.number} · {drawer.title}
+          Exhibition {drawer.number} · {drawer.title}
         </p>
         <h3 id="curio-title" className="mt-3 text-display-m">{obj.title}</h3>
         <p className="mt-2 font-display text-lede italic">{[kindLabel[obj.kind], obj.date].filter(Boolean).join(", ")}</p>
         {obj.description && <p className="mt-6 border-t border-wine/25 pt-5 text-body">{obj.description}</p>}
         {obj.image?.caption && <p className="mt-3 text-caption">{obj.image.caption}</p>}
-        {obj.list && (
-          <ol className="mt-6 space-y-3">
-            {obj.list.map((l, i) => (
-              <li key={l.href}>
-                <Link href={l.href} className="group flex items-baseline gap-4 font-display text-title text-wine">
-                  <span className="label w-6">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="transition-colors group-hover:text-vermilion">{l.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        )}
         <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-8">
           {obj.exhibition ? (
             <Link href={`/exhibitions/${obj.exhibition}`} className="label link-draw text-wine">

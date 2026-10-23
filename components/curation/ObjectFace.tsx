@@ -30,12 +30,12 @@ export function ObjectFace({ obj, aspect, sizes }: { obj: DrawerObject; aspect: 
   const Face = faces[obj.kind];
   return (
     <svg viewBox={`0 0 100 ${h.toFixed(2)}`} className="absolute inset-0 h-full w-full overflow-visible" aria-hidden>
-      <Face h={h} r={r} title={obj.title} tint={obj.tint} ink={obj.ink} list={obj.list?.map((l) => l.label)} />
+      <Face h={h} r={r} title={obj.title} tint={obj.tint} ink={obj.ink} />
     </svg>
   );
 }
 
-type FaceProps = { h: number; r: Rng; title: string; tint?: string; ink?: string; list?: string[] };
+type FaceProps = { h: number; r: Rng; title: string; tint?: string; ink?: string };
 
 /** Breaks a title into short lines for small painted labels. */
 function lines(text: string, max: number) {
@@ -83,21 +83,6 @@ const faces: Record<ObjectKind, (p: FaceProps) => React.ReactNode> = {
       <Label x={54} y={h * 0.34} size={11.5} text={title} max={9} fill={ink} />
       <text x={54} y={h - 18} fontSize={6.4} fill="var(--brass)" textAnchor="middle" fontFamily="var(--font-sans)" letterSpacing="0.6">CATALOGUE</text>
       <path d={heart(3)} transform={`translate(54 ${h - 30})`} fill="var(--vermilion)" />
-    </>
-  ),
-  index: ({ h, r, title, list = [] }) => (
-    <>
-      <Sheet h={h} r={r} fill="color-mix(in srgb, var(--aged-ivory) 65%, white)" />
-      <path d={handLine([[4, 17], [96, 17]], r, 0.4)} stroke="var(--vermilion)" strokeWidth={0.8} fill="none" />
-      {list.map((_, i) => (
-        <path key={i} d={handLine([[4, 30 + i * 13], [96, 30 + i * 13]], r, 0.3)} stroke="var(--powder-blue)" strokeWidth={0.5} fill="none" />
-      ))}
-      <Label x={8} y={12} size={8} text={title} max={30} anchor="start" />
-      {list.map((l, i) => (
-        <text key={l} x={8} y={27 + i * 13} fontSize={7.2} fill="var(--wine)" fontFamily="var(--font-display)" fontStyle="italic">
-          {i + 1}. {l}
-        </text>
-      ))}
     </>
   ),
   poster: ({ h, r, title }) => (
