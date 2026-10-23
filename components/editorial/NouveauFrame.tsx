@@ -20,12 +20,12 @@ export function NouveauFrame({
   return (
     <div className={cn("relative p-[clamp(8px,1.1vw,16px)]", className)}>
       {/* outer rule */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 border border-velvet/35" style={{ borderRadius: arch }} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 border border-prussian/35" style={{ borderRadius: arch }} />
       {/* image window */}
       <div className="relative overflow-hidden" style={{ borderRadius: arch }}>
         {children}
       </div>
-      <span aria-hidden className={cn("absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 px-1.5 text-velvet", paper)}>
+      <span aria-hidden className={cn("absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 px-1.5 text-prussian", paper)}>
         <Star />
       </span>
     </div>

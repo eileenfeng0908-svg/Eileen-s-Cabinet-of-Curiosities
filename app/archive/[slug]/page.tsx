@@ -32,7 +32,7 @@ export default async function ArchiveItemPage({ params }: Props) {
           <dl className="space-y-4 border-t border-ink/70 pt-4">
             <div>
               <dt className="label text-ink-soft">Catalogue</dt>
-              <dd className="label text-velvet">{catalogueNumber(item.number)}</dd>
+              <dd className="label text-prussian">{catalogueNumber(item.number)}</dd>
             </div>
             <div>
               <dt className="label text-ink-soft">Category</dt>

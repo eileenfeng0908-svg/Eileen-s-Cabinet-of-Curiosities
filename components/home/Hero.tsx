@@ -22,13 +22,13 @@ const heroImages: { main: ImageAsset; inset: ImageAsset } = {
   main: {
     alt: "[Hero image — a photograph or archival image of your choosing]",
     aspect: 3 / 4,
-    tone: "haze",
+    tone: "dust",
     motif: "horizon",
   },
   inset: {
     alt: "[Small inset image — a postcard, a detail, a still]",
     aspect: 4 / 5,
-    tone: "bloom",
+    tone: "blush",
     motif: "sun",
   },
 };
@@ -43,13 +43,13 @@ export function Hero() {
   const [first, last] = site.name.split(" ");
 
   return (
-    <section aria-labelledby="hero-title" className="haze-wash relative overflow-hidden pt-[calc(var(--header-h)+1.5rem)] lg:min-h-[100svh]">
+    <section aria-labelledby="hero-title" className="dust-wash relative overflow-hidden pt-[calc(var(--header-h)+1.5rem)] lg:min-h-[100svh]">
       <div className="frame">
         {/* Running head, like the top of a printed page */}
-        <motion.div {...fade(0.05)} className="grid-editorial items-center border-b border-velvet/25 pb-3 text-velvet">
+        <motion.div {...fade(0.05)} className="grid-editorial items-center border-b border-prussian/25 pb-3 text-prussian">
           <span className="label col-span-2 md:col-span-3">No. 01 — Index</span>
           <span className="label col-span-2 md:col-span-3 lg:col-span-4 flex items-center justify-end gap-2 md:justify-start">
-            <Star className="h-2.5 w-2.5 text-bloom" /> A Personal Digital Archive
+            <Star className="h-2.5 w-2.5 text-blush" /> A Personal Digital Archive
           </span>
           <span className="label hidden md:block md:col-span-2 lg:col-span-5 text-right">Works · Writings · Objects</span>
         </motion.div>
@@ -66,11 +66,11 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            <h1 id="hero-title" className="title-script relative text-[clamp(5.5rem,14vw,14rem)] leading-[0.95] text-mozart">
+            <h1 id="hero-title" className="title-script relative text-[clamp(5.5rem,14vw,14rem)] leading-[0.95] text-prussian">
               <motion.span {...fade(0.25, 30)} className="block pl-[2%]">
                 {first}
               </motion.span>
-              <motion.span {...fade(0.45, 30)} className="-mt-[0.12em] block pl-[30%] text-velvet">
+              <motion.span {...fade(0.45, 30)} className="-mt-[0.12em] block pl-[30%] text-bean">
                 {last}
               </motion.span>
             </h1>
@@ -78,10 +78,10 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.div {...fade(0.8)} className="relative col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-1 lg:row-start-2">
-            <p className="max-w-[24ch] font-display text-[clamp(1.35rem,2vw,1.85rem)] italic leading-snug text-velvet">
+            <p className="max-w-[24ch] font-display text-[clamp(1.35rem,2vw,1.85rem)] italic leading-snug text-prussian">
               {site.tagline}
             </p>
-            <Flourish className="mt-4 text-fern" />
+            <Flourish className="mt-4 text-bean" />
           </motion.div>
 
           {/* Arched frame, a print on its corner, a stem beside it */}
@@ -94,7 +94,7 @@ export function Hero() {
                 <Plate image={heroImages.main} number={1} priority sizes="(min-width: 64rem) 33vw, 75vw" zoom={false} grain />
               </NouveauFrame>
               <figcaption className="mt-3 flex justify-between gap-4 text-caption text-ink-soft">
-                <span className="label whitespace-nowrap text-velvet">Fig. 1</span>
+                <span className="label whitespace-nowrap text-prussian">Fig. 1</span>
                 <span className="text-right font-display italic">[Caption for the hero image]</span>
               </figcaption>
             </figure>
@@ -114,11 +114,11 @@ export function Hero() {
             aria-label="Contents"
             className="hidden lg:block lg:col-span-2 lg:col-start-6 lg:row-start-2 lg:self-end"
           >
-            <p className="label mb-3 text-velvet">Contents</p>
+            <p className="label mb-3 text-prussian">Contents</p>
             <ol className="space-y-1.5 text-caption">
               {navigation.slice(0, 4).map((item, i) => (
                 <li key={item.href} className="group flex items-baseline gap-3">
-                  <span className="label w-5 text-bloom-ink">{["II", "III", "IV", "V"][i]}</span>
+                  <span className="label w-5 text-blush-ink">{["II", "III", "IV", "V"][i]}</span>
                   <Link href={item.href} className="link-draw text-ink">
                     {item.label}
                   </Link>
@@ -133,10 +133,10 @@ export function Hero() {
             href="#selected-works"
             className="group col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3 flex items-end gap-3 self-end lg:pb-12"
           >
-            <span aria-hidden className="relative block h-14 w-px overflow-hidden bg-velvet/20">
-              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-velvet" />
+            <span aria-hidden className="relative block h-14 w-px overflow-hidden bg-prussian/20">
+              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-prussian" />
             </span>
-            <span className="label text-velvet transition-colors duration-500 group-hover:text-bloom-ink">Scroll</span>
+            <span className="label text-prussian transition-colors duration-500 group-hover:text-blush-ink">Scroll</span>
           </motion.a>
         </div>
       </div>

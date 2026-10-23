@@ -36,11 +36,11 @@ export function SectionHeading({
 
   return (
     <header className={cn("grid-editorial items-end gap-y-6", className)}>
-      <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-velvet">
-        <span className="label text-bloom-ink">{number}</span>
-        <span aria-hidden className="h-px w-10 bg-velvet/30" />
+      <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-prussian">
+        <span className="label text-blush-ink">{number}</span>
+        <span aria-hidden className="h-px w-10 bg-prussian/30" />
         <span aria-hidden className="transition-transform duration-[1200ms] ease-gallery group-hover:rotate-90">
-          <Star className="h-3 w-3 text-haze" />
+          <Star className="h-3 w-3 text-dust" />
         </span>
         <span className="label">{kicker}</span>
       </Reveal>
