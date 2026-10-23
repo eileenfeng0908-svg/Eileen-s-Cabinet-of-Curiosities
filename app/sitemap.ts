@@ -4,6 +4,7 @@ import { projects } from "@/content/projects";
 import { articles } from "@/content/writing";
 import { archive } from "@/content/archive";
 import { collections } from "@/content/collections";
+import { exhibitions } from "@/content/exhibitions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = ["", "/work", "/writing", "/archive", "/about", "/contact"];
@@ -13,5 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...articles.map((a) => ({ url: `${site.url}/writing/${a.slug}` })),
     ...archive.map((a) => ({ url: `${site.url}/archive/${a.slug}` })),
     ...collections.map((c) => ({ url: `${site.url}/collections/${c.slug}` })),
+    ...exhibitions.map((e) => ({ url: `${site.url}/exhibitions/${e.slug}` })),
   ];
 }

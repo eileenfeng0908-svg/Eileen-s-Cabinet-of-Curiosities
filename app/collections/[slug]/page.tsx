@@ -12,6 +12,9 @@ import { FilmLog } from "@/components/cinema/FilmLog";
 import { FilmReviews } from "@/components/cinema/FilmReviews";
 import { TopFive } from "@/components/cinema/TopFive";
 import { films, filmsArePlaceholders, topFive } from "@/content/films";
+import { SectionHeading } from "@/components/editorial/SectionHeading";
+import { CuratorsCabinet } from "@/components/curation/CuratorsCabinet";
+import { Sketchbook } from "@/components/art/Sketchbook";
 
 export const generateStaticParams = () => collections.map((c) => ({ slug: c.slug }));
 
@@ -29,6 +32,8 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
   if (!c) notFound();
   const { projects, writing, archive } = collectionContents(c);
   const index = collections.indexOf(c);
+  // Collections with their own interactive rooms skip the plain listings below.
+  const custom = c.slug === "cinema" || c.slug === "art-and-curation";
   const empty = !projects.length && !writing.length && !archive.length;
 
   return (
@@ -50,7 +55,26 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           />
         )}
 
-        {c.slug !== "cinema" && projects.length > 0 && (
+        {c.slug === "art-and-curation" && (
+          <>
+            <nav aria-label="In this collection" className="flex flex-wrap gap-x-10 gap-y-2 border-y border-wine/25 py-4">
+              <a href="#curation" className="label link-draw text-wine">01 Curation · The Curator’s Cabinet</a>
+              <a href="#art" className="label link-draw text-wine">02 Art · The Artist’s Sketchbook</a>
+            </nav>
+            <section id="curation" aria-labelledby="curation-title" className="scroll-mt-24">
+              <SectionHeading id="curation-title" number="01" kicker="Curation" title="The Curator’s" italic="Cabinet" />
+              <p className="mb-14 mt-6 font-display text-lede italic text-wine">Things I Collect, Connect, and Give Meaning To.</p>
+              <CuratorsCabinet />
+            </section>
+            <section id="art" aria-labelledby="art-title" className="scroll-mt-24">
+              <SectionHeading id="art-title" number="02" kicker="Art" title="The Artist’s" italic="Sketchbook" align="offset" />
+              <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Things I Create.</p>
+              <Sketchbook />
+            </section>
+          </>
+        )}
+
+        {!custom && projects.length > 0 && (
           <section aria-labelledby="c-projects">
             <h2 id="c-projects" className="label mb-8 border-b border-wine/25 pb-3 text-wine">
               Projects
@@ -73,7 +97,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           </section>
         )}
 
-        {c.slug !== "cinema" && writing.length > 0 && (
+        {!custom && writing.length > 0 && (
           <section aria-labelledby="c-writing">
             <h2 id="c-writing" className="label mb-2 border-b border-wine/25 pb-3 text-wine">
               Writing
@@ -95,7 +119,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           </section>
         )}
 
-        {archive.length > 0 && (
+        {!custom && archive.length > 0 && (
           <section aria-labelledby="c-archive">
             <h2 id="c-archive" className="label mb-8 border-b border-wine/25 pb-3 text-wine">
               From the archive
@@ -114,7 +138,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           </section>
         )}
 
-        {empty && c.slug !== "cinema" && <p className="font-display text-lede italic text-wine">[Nothing in this collection yet. Add projects, writing or archive objects to it in content/collections.ts.]</p>}
+        {empty && !custom && <p className="font-display text-lede italic text-wine">[Nothing in this collection yet. Add projects, writing or archive objects to it in content/collections.ts.]</p>}
 
         <nav aria-label="Other collections" className="border-t border-wine/25 pt-6">
           <p className="label mb-4 text-wine">Elsewhere in the cabinet</p>
