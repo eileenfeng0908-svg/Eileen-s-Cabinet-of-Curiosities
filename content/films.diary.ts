@@ -475,7 +475,7 @@ export const diary: FilmEntry[] = [
       "Two stars are for the visual beauty and its poster; other than that, I’d rather not watch it."
     ],
     "poster": {
-      "src": "/images/films/melancholia-2011.webp",
+      "src": "/images/films/melancholia-2011-2.webp",
       "alt": "Poster for Melancholia",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
@@ -574,7 +574,7 @@ export const diary: FilmEntry[] = [
       "I genuinely think he could have done better."
     ],
     "poster": {
-      "src": "/images/films/the-odyssey-2026.webp",
+      "src": "/images/films/the-odyssey-2026-2.webp",
       "alt": "Poster for The Odyssey",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
