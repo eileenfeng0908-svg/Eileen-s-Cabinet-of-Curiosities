@@ -252,6 +252,7 @@ export const diary: FilmEntry[] = [
       "Cléo is surrounded by people who adore and indulge her, yet no one truly understands the fear consuming her. Throughout the film, those around her try to distract, reassure, or comfort her, but rarely acknowledge the reality of her anxiety. Only Antoine, a stranger, does not attempt to soothe or dismiss her fears. Instead, he accompanies her as she confronts the possibility of illness and mortality, allowing her to face her uncertainty with honesty and acceptance."
     ],
     "poster": {
+      "src": "/images/films/cleo-from-5-to-7-1962.webp",
       "alt": "Poster for Cléo from 5 to 7",
       "aspect": 0.6666666666666666,
       "tone": "blue"
@@ -378,6 +379,7 @@ export const diary: FilmEntry[] = [
       "I can’t say this film is terrible because I love Kane’s art style, but the narrative is simply boring and a bit strange. It tries very hard to explore Clark and Mary’s mental states and that persistent feeling of insistence and frustration is actually a highlight. However, Kane Parsons and Will Soodik don’t quite reach that level of prominence. Frankly, the film ends quite abruptly, at least for me and my friend. Perhaps I’m not quite grasping the film’s message, but it could be better."
     ],
     "poster": {
+      "src": "/images/films/backrooms-2026.webp",
       "alt": "Poster for Backrooms",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
@@ -396,6 +398,7 @@ export const diary: FilmEntry[] = [
       "I guess next time I watch it, it will make me cry."
     ],
     "poster": {
+      "src": "/images/films/sentimental-value-2025.webp",
       "alt": "Poster for Sentimental Value",
       "aspect": 0.6666666666666666,
       "tone": "green"
@@ -412,6 +415,7 @@ export const diary: FilmEntry[] = [
       "I laughed as fuck when the assassin accidentally killed a bunch of people and kept doing things that made his situation worse."
     ],
     "poster": {
+      "src": "/images/films/mulholland-drive-2001.webp",
       "alt": "Poster for Mulholland Drive",
       "aspect": 0.6666666666666666,
       "tone": "brass"
@@ -433,6 +437,7 @@ export const diary: FilmEntry[] = [
       "Two stars are for the visual beauty and its poster; other than that, I’d rather not watch it."
     ],
     "poster": {
+      "src": "/images/films/melancholia-2011.webp",
       "alt": "Poster for Melancholia",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
