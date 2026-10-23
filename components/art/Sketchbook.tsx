@@ -55,7 +55,7 @@ export function Sketchbook() {
   // The turning leaf's angle drives everything: its rotation, how far it lifts off the
   // page, and the light and shadow passing over it.
   const rot = useMotionValue(0);
-  const lift = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 26);
+  const lift = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 14);
   const shade = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 0.5);
   const cast = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 0.35);
   const token = useRef(0);
@@ -136,6 +136,7 @@ export function Sketchbook() {
   const onDown = (dir: 1 | -1) => (e: React.PointerEvent) => {
     if (!begin(dir)) return;
     token.current++;
+    rot.stop();
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     drag.current = { dir, x0: e.clientX, moved: false, p: 0 };
   };
@@ -208,7 +209,7 @@ export function Sketchbook() {
       <div
         ref={book}
         className={cn("relative mx-auto select-none", wide ? "w-full" : "w-[min(100%,26rem)]")}
-        style={{ aspectRatio: wide ? "1.46" : "0.73", perspective: "2600px" }}
+        style={{ aspectRatio: wide ? "1.46" : "0.73", perspective: "3400px" }}
       >
         {/* cloth-covered board, a little larger than the pages, with its elastic band */}
         <div aria-hidden className="absolute -inset-[1.6%] rounded-[3px] bg-wine shadow-[0_24px_40px_-24px_rgb(113_63_72_/_0.8)]">
@@ -239,7 +240,7 @@ export function Sketchbook() {
             style={{ rotateY: rot, z: lift, transformStyle: "preserve-3d", transformOrigin: leaf.side === "right" ? "left center" : "right center", zIndex: 5 }}
           >
             <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
-              <PageView leaf={at(leaf.front)} side={leaf.side} index={leaf.front} onOpen={setOpen} busy single={!wide} />
+              <PageView leaf={at(leaf.front)} side={leaf.side} index={leaf.front} onOpen={setOpen} busy single={!wide} fill />
               {/* light falls off as the paper curves away from the spine */}
               <motion.div
                 aria-hidden
@@ -255,7 +256,7 @@ export function Sketchbook() {
             </div>
             {leaf.back !== undefined && (
               <div className="absolute inset-0" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
-                <PageView leaf={at(leaf.back)} side={leaf.side === "right" ? "left" : "right"} index={leaf.back} onOpen={setOpen} busy />
+                <PageView leaf={at(leaf.back)} side={leaf.side === "right" ? "left" : "right"} index={leaf.back} onOpen={setOpen} busy fill />
                 <motion.div
                   aria-hidden
                   className="pointer-events-none absolute inset-0"
@@ -325,11 +326,11 @@ export function Sketchbook() {
   );
 }
 
-function PageView({ leaf, side, index, onOpen, busy, single }: { leaf: Leaf; side: "left" | "right"; index: number; onOpen: (a: Artwork) => void; busy?: boolean; single?: boolean }) {
+function PageView({ leaf, side, index, onOpen, busy, single, fill }: { leaf: Leaf; side: "left" | "right"; index: number; onOpen: (a: Artwork) => void; busy?: boolean; single?: boolean; /** Fill the turning leaf rather than one half of the book. */ fill?: boolean }) {
   const clip = useMemo(() => deckle(index * 7 + 3, side), [index, side]);
   return (
     <div
-      className={cn("absolute top-0 h-full", single ? "left-0 w-full" : side === "left" ? "left-0 w-1/2" : "left-1/2 w-1/2")}
+      className={cn("absolute top-0 h-full", single || fill ? "left-0 w-full" : side === "left" ? "left-0 w-1/2" : "left-1/2 w-1/2")}
       style={{ clipPath: clip }}
       inert={busy}
     >
