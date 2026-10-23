@@ -53,7 +53,7 @@ export function Statement() {
               <LaceHeart className="mt-0.5 h-5 w-5 shrink-0 text-lily" />
               {site.statement.signature}
             </p>
-            <ArrowLink href="/about" className="text-water">About Eileen</ArrowLink>
+            <ArrowLink href="/about" className="text-ink">About Eileen</ArrowLink>
           </Reveal>
         </div>
       </div>

@@ -75,7 +75,7 @@ export function FeaturedArchive() {
         </ul>
 
         <div className="mt-20 flex justify-end md:mt-28">
-          <ArrowLink href="/archive" className="text-water">
+          <ArrowLink href="/archive" className="text-ink">
             Enter the archive
           </ArrowLink>
         </div>

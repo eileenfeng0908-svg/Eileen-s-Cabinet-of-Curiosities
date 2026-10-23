@@ -14,14 +14,14 @@ import type { ImageAsset, PlateMotif, PlateTone } from "@/lib/types";
 
 // Placeholder tones: the palette, faded toward the paper like old printing inks.
 const tones: Record<PlateTone, { bg: string; ink: string }> = {
-  ivory: { bg: "#efe9dc", ink: "#553c4b" },
-  parchment: { bg: "#e7ddc9", ink: "#553c4b" },
-  glare: { bg: "#dcdcdf", ink: "#553c4b" },
+  ivory: { bg: "#cbcbce", ink: "#553c4b" },
+  parchment: { bg: "#c3c6c1", ink: "#553c4b" },
+  glare: { bg: "#e2e2e4", ink: "#553c4b" },
   roseleaf: { bg: "#a3b0a9", ink: "#2f3f3c" },
   lily: { bg: "#c2cab8", ink: "#3f4838" },
-  mist: { bg: "#cdd5df", ink: "#3f526d" },
-  rosebud: { bg: "#a8949f", ink: "#f6f2e9" },
-  ink: { bg: "#7d8aa0", ink: "#f6f2e9" },
+  mist: { bg: "#b1bccb", ink: "#3f526d" },
+  rosebud: { bg: "#a8949f", ink: "#e6e6e8" },
+  ink: { bg: "#7d8aa0", ink: "#e6e6e8" },
 };
 
 function Motif({ motif, ink }: { motif: PlateMotif; ink: string }) {

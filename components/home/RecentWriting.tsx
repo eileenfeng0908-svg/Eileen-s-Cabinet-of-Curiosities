@@ -48,7 +48,7 @@ export function RecentWriting() {
         </ol>
 
         <div className="mt-12 flex md:justify-start">
-          <ArrowLink href="/writing" className="text-water">All writing</ArrowLink>
+          <ArrowLink href="/writing" className="text-ink">All writing</ArrowLink>
         </div>
       </div>
     </section>

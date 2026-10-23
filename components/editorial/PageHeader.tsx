@@ -5,8 +5,8 @@ import { Star } from "./Ornaments";
 /** Each section of the site owns one colour of the palette. */
 export const pageTones = {
   glare: { bg: "glare-wash" },
-  mist: { bg: "bg-mist/30" },
-  rosebud: { bg: "bg-glare/45" },
+  mist: { bg: "bg-mist/10" },
+  rosebud: { bg: "bg-rosebud/[0.06]" },
   roseleaf: { bg: "bg-lily/12" },
   lily: { bg: "bg-lily/15" },
 } as const;

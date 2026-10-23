@@ -14,22 +14,22 @@
 @theme {
   /* --- Colour ------------------------------------------------------------
      Monet's Nymphéas: the water-lily pond, faded as if printed in an
-     illustrated book. Ivory dominates; Rosebud carries text and structure;
-     Deep Water carries headings; Glare is the soft signature; Rose Leaf and
+     illustrated book. Glare is the page; Rosebud carries text and structure;
+     Deep Water carries headings; Rose Leaf and
      Lily Leaf are the botanical accents. */
-  --color-ivory: #f6f2e9;        /* Warm Ivory — the page */
-  --color-ivory-deep: #eee7d8;   /* A second sheet */
-  --color-ivory-pale: #fbf8f1;   /* Lace, print borders */
+  --color-ivory: #d7d7d9;        /* Glare — the page */
+  --color-ivory-deep: #caccca;   /* Glare shaded with Lily Leaf — a second sheet */
+  --color-ivory-pale: #e6e6e8;   /* Glare, lightened — lace, print borders */
   --color-ink: #553c4b;          /* Rosebud — body text */
-  --color-ink-soft: #6f5a66;     /* Rosebud, lighter — captions (AA on ivory) */
+  --color-ink-soft: #5c4653;     /* Rosebud, a touch lighter — captions (AA on Glare) */
   --color-rosebud: #553c4b;      /* Rosebud — structure, accent words */
   --color-water: #51698a;        /* Deep Water — headings, links, the title */
-  --color-glare: #d7d7d9;        /* Glare — signature accent: doily, washes (decorative) */
+  --color-glare: #d7d7d9;        /* Glare — the paper colour itself */
   --color-roseleaf: #425854;     /* Rose Leaf — botanical linework */
   --color-lily: #829076;         /* Lily Leaf — leaves, stars, hover (decorative) */
-  --color-mist: #c3cdd9;         /* Deep Water faded toward the paper — soft details */
+  --color-mist: #51698a;         /* Deep Water, used as a faint wash */
   --color-roseleaf-ink: #425854; /* Accent colours deepened for small text */
-  --color-lily-ink: #5a6650;
+  --color-lily-ink: #4a5541;     /* Lily Leaf deepened for small text */
   --color-mist-ink: #51698a;
   --color-rule: rgb(85 60 75 / 0.18); /* Hairlines */
 

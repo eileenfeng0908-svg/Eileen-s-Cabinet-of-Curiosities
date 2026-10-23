@@ -4,20 +4,20 @@
 An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
-Monet's *Nymphéas*, faded as if printed in an illustrated book. Ivory dominates; avoid colour blocking.
+Monet's *Nymphéas*, and only these five colours (plus their tints). Glare is the page; avoid colour blocking.
 
 | Token | Hex | Use |
 |---|---|---|
-| `ivory` | #F6F2E9 | Warm Ivory — the page, almost everywhere |
-| `ivory-deep` | #EEE7D8 | A second sheet: the statement, the footer |
-| `ivory-pale` | #FBF8F1 | Print borders, lace |
+| `ivory` | #D7D7D9 | Glare — the page, almost everywhere (token name kept for compatibility) |
+| `ivory-deep` | #CACCCA | Glare shaded with Lily Leaf: the statement, the footer |
+| `ivory-pale` | #E6E6E8 | Glare lightened: print borders, lace, the doily |
 | `rosebud` / `ink` | #553C4B | Rosebud — body text, structure, rules, italic accent words |
-| `ink-soft` | #6F5A66 | Captions (passes AA on ivory) |
-| `water` | #51698A | Deep Water — headings, links, the site title |
-| `glare` | #D7D7D9 | Glare — soft signature: the doily, washes (`glare-wash`). Decorative only, never for text |
+| `ink-soft` | #5C4653 | Captions (passes AA on Glare) |
+| `water` | #51698A | Deep Water — large headings and the site title only (too light for small text on Glare) |
+| `glare` | #D7D7D9 | Glare — same as the page |
 | `roseleaf` | #425854 | Rose Leaf — botanical linework, small labels |
-| `lily` | #829076 | Lily Leaf — leaves, stars, the lace heart, selection (`lily-ink` #5A6650 for numerals and hover text) |
-| `mist` | #C3CDD9 | Deep Water faded toward the paper — soft details (`mist-ink` = Deep Water) |
+| `lily` | #829076 | Lily Leaf — leaves, stars, the lace heart, selection (`lily-ink` #4A5541 for numerals and hover text) |
+| `mist` | #51698A | Deep Water, used only as a faint wash (`bg-mist/10`) |
 
 Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 

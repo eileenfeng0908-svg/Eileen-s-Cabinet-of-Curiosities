@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { Plate } from "@/components/editorial/Plate";
+import { NouveauFrame } from "@/components/editorial/NouveauFrame";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,7 +15,18 @@ export default function AboutPage() {
       <PageHeader tone="mist" number="05" kicker="About" title="About" italic="Eileen" />
       <div className="frame grid-editorial gap-y-12 pb-[var(--section-space)]">
         <div className="col-span-3 md:col-span-3 lg:col-span-4">
-          <Plate image={{ alt: "[Portrait of Eileen]", aspect: 3 / 4, tone: "ivory", motif: "figure" }} zoom={false} />
+          <NouveauFrame>
+            <Plate
+              image={{
+                src: "/images/about/eileen-portrait.jpg",
+                alt: "Portrait of Eileen Feng in a city park, a fountain and a stone arch behind her",
+                aspect: 3 / 4,
+              }}
+              priority
+              sizes="(min-width: 64rem) 33vw, 75vw"
+              zoom={false}
+            />
+          </NouveauFrame>
         </div>
         <div className="col-span-4 md:col-span-5 lg:col-span-6 lg:col-start-6 space-y-6">
           <p className="font-display text-statement">[A personal introduction, in your own words.]</p>
