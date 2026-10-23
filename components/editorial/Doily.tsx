@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 /**
  * A round paper doily, die-cut in SVG: scalloped rim, rings of punched
  * eyelets, a band of petal cut-outs, and a plain centre. Drawn in the
- * current text colour (Haze by default) and meant to sit behind type or an
+ * current text colour (Glare by default) and meant to sit behind type or an
  * image, the way a doily sits under a cake on an old poster.
  */
 
@@ -58,7 +58,7 @@ const path = buildDoily();
 
 export function Doily({ className }: { className?: string }) {
   return (
-    <svg aria-hidden viewBox="0 0 400 400" className={cn("pointer-events-none text-haze", className)}>
+    <svg aria-hidden viewBox="0 0 400 400" className={cn("pointer-events-none text-glare", className)}>
       <path d={path} fill="currentColor" fillRule="evenodd" />
     </svg>
   );

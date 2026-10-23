@@ -4,20 +4,20 @@
 An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
-Faded Impressionist inks on warm paper. Ivory dominates; avoid colour blocking.
+Monet's *Nymphéas*, faded as if printed in an illustrated book. Ivory dominates; avoid colour blocking.
 
 | Token | Hex | Use |
 |---|---|---|
 | `ivory` | #F6F2E9 | Warm Ivory — the page, almost everywhere |
 | `ivory-deep` | #EEE7D8 | A second sheet: the statement, the footer |
 | `ivory-pale` | #FBF8F1 | Print borders, lace |
-| `velvet` / `ink` | #4A446F | Body text, structure, rules |
-| `ink-soft` | #666186 | Captions (passes AA on ivory) |
-| `mozart` | #475480 | Headings, links, the site title |
-| `haze` | #9FA4C9 | Soft signature accent: the doily, stars, washes (`haze-wash`). Decorative only, never for text |
-| `fern` | #627655 | Botanical linework (`fern-ink` #56684A for small text) |
-| `bloom` | #CF809E | Flowers, the lace heart, selection (`bloom-ink` #9B5A72 for numerals and hover text) |
-| `amber` | #E0AC82 | The heart of a bloom, warm details (`amber-ink` #8A5A33 for text) |
+| `rosebud` / `ink` | #553C4B | Rosebud — body text, structure, rules, italic accent words |
+| `ink-soft` | #6F5A66 | Captions (passes AA on ivory) |
+| `water` | #51698A | Deep Water — headings, links, the site title |
+| `glare` | #D7D7D9 | Glare — soft signature: the doily, washes (`glare-wash`). Decorative only, never for text |
+| `roseleaf` | #425854 | Rose Leaf — botanical linework, small labels |
+| `lily` | #829076 | Lily Leaf — leaves, stars, the lace heart, selection (`lily-ink` #5A6650 for numerals and hover text) |
+| `mist` | #C3CDD9 | Deep Water faded toward the paper — soft details (`mist-ink` = Deep Water) |
 
 Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 

@@ -81,14 +81,14 @@ export function LaceFrame({
         {children}
       </div>
       <svg aria-hidden viewBox={`0 0 ${W} ${H}`} className="pointer-events-none absolute inset-0 h-full w-full">
-        <path d={d} fillRule="evenodd" fill="var(--color-ivory-pale)" stroke="rgb(52 51 47 / 0.22)" strokeWidth="0.5" />
+        <path d={d} fillRule="evenodd" fill="var(--color-ivory-pale)" stroke="rgb(85 60 75 / 0.22)" strokeWidth="0.5" />
         <rect
           x={inset - 3}
           y={inset - 3}
           width={W - (inset - 3) * 2}
           height={H - (inset - 3) * 2}
           fill="none"
-          stroke="rgb(52 51 47 / 0.18)"
+          stroke="rgb(85 60 75 / 0.18)"
           strokeWidth="0.4"
         />
       </svg>

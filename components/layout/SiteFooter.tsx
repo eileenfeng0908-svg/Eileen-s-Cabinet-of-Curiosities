@@ -6,13 +6,13 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-ivory-deep text-ink">
-      <Fleuron ornament="rosette" className="frame absolute inset-x-0 top-0 -translate-y-1/2 text-velvet" />
+      <Fleuron ornament="rosette" className="frame absolute inset-x-0 top-0 -translate-y-1/2 text-rosebud" />
       <div className="frame pb-10 pt-20 md:pt-28">
         <div className="grid-editorial gap-y-14">
           <div className="col-span-4 md:col-span-5 lg:col-span-6">
-            <p className="label mb-6 text-bloom-ink">Colophon</p>
-            <p className="font-display text-display-m text-mozart">
-              Thank you for <em className="title-script text-[1.3em] text-velvet">looking</em>.
+            <p className="label mb-6 text-lily-ink">Colophon</p>
+            <p className="font-display text-display-m text-water">
+              Thank you for <em className="title-script text-[1.3em] text-rosebud">looking</em>.
             </p>
             <p className="mt-6 max-w-sm text-caption text-ink">
               {site.name}. {site.tagline}
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-24 flex flex-col gap-3 border-t border-ink/25 pt-6 sm:flex-row sm:items-end sm:justify-between">
-          <span className="title-script text-[clamp(4rem,12vw,9rem)] leading-[0.9] text-mozart">
+          <span className="title-script text-[clamp(4rem,12vw,9rem)] leading-[0.9] text-water">
             {site.monogram}
           </span>
           <div className="flex flex-col gap-1 sm:items-end">
