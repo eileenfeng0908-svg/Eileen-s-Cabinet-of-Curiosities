@@ -85,7 +85,7 @@ function ShelfCell({ c, cell, onOpen, i }: { c: Collection; cell: (typeof cells)
       <Obj className="cabinet-object relative mb-[5%] w-[72%] transition-transform duration-700 ease-gallery group-hover:-translate-y-[3%] group-hover:-rotate-[1.5deg] group-focus-visible:-translate-y-[3%]" />
       <span
         className="cabinet-tag mb-[4%] border border-wine/40 bg-ivory px-[0.6em] py-[0.15em] font-display italic leading-tight text-wine transition-colors duration-500 group-hover:bg-ivory-pale group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-vermilion"
-        style={{ fontSize: "max(11px, 2.5cqw)", transform: `rotate(${i % 2 ? 1.2 : -1.4}deg)` }}
+        style={{ fontSize: "max(13px, 3.5cqw)", transform: `rotate(${i % 2 ? 1.2 : -1.4}deg)` }}
       >
         {c.title}
       </span>
@@ -154,7 +154,7 @@ function Drawer({ c, box, onOpen, i }: { c: Collection; box: (typeof drawers)[nu
               onOpen(c, e.currentTarget.closest(".absolute") as HTMLElement);
             }}
             className="cabinet-tag whitespace-nowrap border border-wine/50 bg-ivory px-[0.7em] py-[0.2em] font-display italic text-wine underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vermilion"
-            style={{ fontSize: "max(11px, 2.4cqw)" }}
+            style={{ fontSize: "max(12px, 3.2cqw)" }}
           >
             Open {c.title} →
           </a>
@@ -179,7 +179,7 @@ function Drawer({ c, box, onOpen, i }: { c: Collection; box: (typeof drawers)[nu
         </span>
         <span
           className="absolute inset-x-0 top-[55%] text-center font-display italic text-wine"
-          style={{ fontSize: "max(10px, 2.2cqw)" }}
+          style={{ fontSize: "max(12px, 3.3cqw)" }}
           aria-hidden
         >
           {c.title}
@@ -204,7 +204,7 @@ export function Interior({ items, onOpen, open }: { items: Collection[]; onOpen:
       <Shelves />
       <p
         className="absolute left-[31.8%] top-[1.8%] flex h-[4.1%] w-[36.4%] items-center justify-center whitespace-nowrap font-sans uppercase tracking-[0.1em] text-wine"
-        style={{ fontSize: "max(5.5px, 1.25cqw)" }}
+        style={{ fontSize: "max(6.5px, 1.6cqw)" }}
       >
         Cabinet of Curiosities
       </p>
