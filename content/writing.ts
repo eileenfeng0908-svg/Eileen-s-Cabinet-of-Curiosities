@@ -390,6 +390,16 @@ export const articles: Article[] = [
         "text": "Accordingly, for Sartre, what makes a human being ‘human’ does not stem from any pre-existing nature or purpose, but from the process of encountering the world, making choices, and assuming responsibility. Human essence is not given, and it is continuously generated after existence, through experience and self-definition."
       },
       {
+        "type": "image",
+        "size": "inset",
+        "image": {
+          "src": "/images/writing/truman-show/poster.webp",
+          "alt": "Poster: Christof stands before a wall of screens showing Truman’s face",
+          "caption": "The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures.",
+          "aspect": 0.6667
+        }
+      },
+      {
         "type": "paragraph",
         "text": "This essay, therefore, examines the transformation of the concept of ‘essence’ through the narrative of the movie The Truman Show, and from an existentialist perspective, further explores the philosophical question of what it means to be human."
       },
@@ -424,6 +434,16 @@ export const articles: Article[] = [
       {
         "type": "paragraph",
         "text": "In The Truman Show, however, bad faith does not originate from Truman himself, but is produced and sustained by the world in which he lives. Within the reality-show system, the director artificially constructs a form of bad faith and disguises it as good faith. Under this disguise, Truman gradually internalises the imposed belief and accepts his roles as an office worker, husband, and citizen."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/truman-show/mirror.webp",
+          "alt": "Truman winks at his bathroom mirror, soap drawings on the glass",
+          "caption": "The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures.",
+          "aspect": 1.6667
+        }
       },
       {
         "type": "paragraph",
@@ -466,6 +486,16 @@ export const articles: Article[] = [
         "text": "For Truman, Fiji represents a doorway to the self; for human beings more broadly, each of us possesses our own ‘Fiji.’ It is in moving towards that doorway that we come to realise that essence is not pre-determined, but must be reconstructed through freedom and choice. The obstacles encountered along the way constitute manifestations of the absurd—yet these very obstacles also propel us towards essence."
       },
       {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/truman-show/beach.webp",
+          "alt": "Truman sits alone on the beach at night beneath a full moon",
+          "caption": "The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures.",
+          "aspect": 1.464
+        }
+      },
+      {
         "type": "paragraph",
         "text": "In the film, once Truman senses abnormalities in his world, he begins to attempt to reach Fiji, a place symbolising his ‘true self.’ Fiji gains this significance not because of its geographical location, but because Lauren is there—the only person Truman has genuinely loved within the constructed world. Guided by this emotional connection, Fiji becomes imbued with the meaning of authenticity and selfhood."
       },
@@ -500,6 +530,16 @@ export const articles: Article[] = [
       {
         "type": "paragraph",
         "text": "Truman’s decision to leave the show, therefore, marks the moment at which he truly becomes human. By rejecting an identity defined by others, he refuses to remain in bad faith and instead chooses to confront the absurdity, uncertainty, and responsibility that accompany freedom. In doing so, Truman does not discover a pre-existing meaning in life; he begins to create his own. His choice affirms the core existentialist claim: what makes us human is not a meaning granted before birth, but the meaning we actively construct through our encounters with the world and with ourselves."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/truman-show/exit-door.webp",
+          "alt": "Truman, arms outstretched, at the exit door in the painted sky",
+          "caption": "The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures.",
+          "aspect": 1.7668
+        }
       },
       {
         "type": "heading",
