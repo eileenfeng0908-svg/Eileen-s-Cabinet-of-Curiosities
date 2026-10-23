@@ -581,6 +581,7 @@ export const diary: FilmEntry[] = [
       "Peace and Love."
     ],
     "poster": {
+      "src": "/images/films/everything-everywhere-all-at-once-2022.webp",
       "alt": "Poster for Everything Everywhere All at Once",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
