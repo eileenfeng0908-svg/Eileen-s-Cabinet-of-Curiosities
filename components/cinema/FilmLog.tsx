@@ -166,7 +166,7 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
 
       {/* the contact sheet */}
       {shown.length ? (
-        <motion.ul layout className="mt-6 grid grid-cols-2 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+        <motion.ul layout className="mt-6 grid grid-cols-2 gap-y-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           <AnimatePresence initial={false}>
             {shown.map((f) => {
               const n = frameNo.get(f.slug) ?? 0;
@@ -193,7 +193,7 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                     <span className="block bg-wine px-[7%] pb-1 pt-1">
                       <Sprockets />
                       <span className="relative my-1.5 block">
-                        <Plate image={f.poster} sizes="(min-width: 64rem) 18vw, 45vw" showPlaceholderLabel={false} zoom={false} />
+                        <Plate image={f.poster} sizes="(min-width: 64rem) 15vw, (min-width: 48rem) 22vw, 45vw" showPlaceholderLabel={false} zoom={false} />
                         {!f.poster.src && (
                           <span className="absolute inset-0 flex items-center justify-center p-3 text-center font-display italic text-ivory" style={{ fontSize: "clamp(0.8rem, 1.2vw, 1rem)" }}>
                             {f.title}
