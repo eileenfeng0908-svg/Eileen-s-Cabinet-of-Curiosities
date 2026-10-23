@@ -105,3 +105,28 @@ export interface ArchiveItem {
   /** Appears in "Featured Archive" on the homepage. */
   featured?: boolean;
 }
+
+/** One entry in the Cinema collection's Film Log (a personal film diary). */
+export interface FilmEntry {
+  /** Unique id, used in the URL hash (#film-<slug>). */
+  slug: string;
+  title: string;
+  director?: string;
+  /** Release year, e.g. "1980". */
+  year?: string;
+  /** ISO date you watched it, e.g. "2026-03-14". */
+  watched?: string;
+  /** 0.5 – 5 in half steps. Leave undefined for unrated. */
+  rating?: number;
+  rewatch?: boolean;
+  /** A short note, a line or a paragraph. */
+  note?: string;
+  poster: ImageAsset;
+  tags?: string[];
+  /** Link to the entry on Letterboxd, if any. */
+  letterboxd?: string;
+  /** Slug of a piece in /content/writing.ts that reviews this film. */
+  review?: string;
+  /** True for the sample entries that show the layout until real ones are added. */
+  placeholder?: boolean;
+}

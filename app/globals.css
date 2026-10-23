@@ -306,3 +306,28 @@
 @media (prefers-reduced-motion: reduce) {
   [data-hover="true"] .cabinet-tassel { animation: none; transform: rotate(4deg); }
 }
+
+/* --- Cinema: contact sheet and film entry (components/cinema) ------------- */
+.film-sprockets {
+  background-color: var(--wine);
+  background-image: radial-gradient(ellipse 3.5px 2.6px at center, var(--aged-ivory) 92%, transparent 100%);
+  background-size: 14px 9px;
+  background-repeat: repeat-x;
+  background-position: 4px center;
+  opacity: 0.95;
+}
+.film-entry::backdrop {
+  background: rgb(113 63 72 / 0.55);
+  backdrop-filter: blur(2px);
+}
+.film-entry[open] {
+  animation: film-entry-in 500ms var(--ease-gallery) both;
+  box-shadow: 0 30px 60px -30px rgb(113 63 72 / 0.6);
+}
+@keyframes film-entry-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .film-entry[open] { animation: none; }
+}

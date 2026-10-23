@@ -27,7 +27,7 @@ export const collections: Collection[] = [
     slug: "cinema",
     title: "Cinema",
     object: "reel",
-    intro: "[A sentence about what film means to you, and what you look for in it.]",
+    intro: "An imagination of imaginations, a gateway to another life, another world.",
     holds: {
       projects: (p) => p.category === "Cinema & Research",
       writing: (a) => a.category === "Film Criticism",

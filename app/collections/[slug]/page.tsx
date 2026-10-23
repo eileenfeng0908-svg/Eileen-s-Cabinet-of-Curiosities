@@ -7,6 +7,10 @@ import { Plate } from "@/components/editorial/Plate";
 import { Reveal } from "@/components/motion/Reveal";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { catalogueNumber, formatDate } from "@/lib/format";
+import { CinemaCompartments } from "@/components/cinema/CinemaCompartments";
+import { FilmLog } from "@/components/cinema/FilmLog";
+import { FilmReviews } from "@/components/cinema/FilmReviews";
+import { films, filmsArePlaceholders } from "@/content/films";
 
 export const generateStaticParams = () => collections.map((c) => ({ slug: c.slug }));
 
@@ -36,7 +40,14 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
       <PageHeader number={`Collection ${index + 1} of ${collections.length}`} kicker="From the cabinet" title={c.title} intro={c.intro} tone="blue" />
 
       <div className="frame space-y-24 pb-[var(--section-space)]">
-        {projects.length > 0 && (
+        {c.slug === "cinema" && (
+          <CinemaCompartments
+            log={<FilmLog films={films} placeholders={filmsArePlaceholders} />}
+            reviews={<FilmReviews writing={writing} projects={projects} />}
+          />
+        )}
+
+        {c.slug !== "cinema" && projects.length > 0 && (
           <section aria-labelledby="c-projects">
             <h2 id="c-projects" className="label mb-8 border-b border-wine/25 pb-3 text-wine">
               Projects
@@ -59,7 +70,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           </section>
         )}
 
-        {writing.length > 0 && (
+        {c.slug !== "cinema" && writing.length > 0 && (
           <section aria-labelledby="c-writing">
             <h2 id="c-writing" className="label mb-2 border-b border-wine/25 pb-3 text-wine">
               Writing
@@ -100,7 +111,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           </section>
         )}
 
-        {empty && <p className="font-display text-lede italic text-wine">[Nothing in this collection yet. Add projects, writing or archive objects to it in content/collections.ts.]</p>}
+        {empty && c.slug !== "cinema" && <p className="font-display text-lede italic text-wine">[Nothing in this collection yet. Add projects, writing or archive objects to it in content/collections.ts.]</p>}
 
         <nav aria-label="Other collections" className="border-t border-wine/25 pt-6">
           <p className="label mb-4 text-wine">Elsewhere in the cabinet</p>
