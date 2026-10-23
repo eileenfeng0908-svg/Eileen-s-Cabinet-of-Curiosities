@@ -45,7 +45,7 @@ export default async function ArticlePage({ params }: Props) {
       </header>
 
       {article.cover && !article.hideCover && (
-        <figure className="mx-auto mt-16 max-w-5xl">
+        <figure className={`mx-auto mt-16 ${article.cover.aspect < 1 ? "max-w-md" : "max-w-5xl"}`}>
           <Plate image={article.cover} priority sizes="(min-width: 64rem) 64rem, 100vw" zoom={false} />
         </figure>
       )}

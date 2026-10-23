@@ -14,12 +14,11 @@ export const articles: Article[] = [
     "dek": "This essay argues that The Truman Show represents both continuity and change in how Peter Weir expresses his directorial vision.",
     "category": "Film Criticism",
     "cover": {
-      "src": "/images/writing/peter-weir/colour-palettes.webp",
-      "alt": "Stills from The Truman Show (left) and Dead Poets Society (right), each set beside its colour palette",
-      "caption": "Left: The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures. Right: Dead Poets Society (dir. Peter Weir, 1989) © Touchstone Pictures.",
-      "aspect": 1.2358
+      "src": "/images/writing/peter-weir/cover-carpe-diem.webp",
+      "alt": "Carpe Diem, handwritten in pink over a still from Dead Poets Society, above a row of lit candles",
+      "caption": "Dead Poets Society (dir. Peter Weir, 1989) © Touchstone Pictures.",
+      "aspect": 0.8
     },
-    "hideCover": true,
     "body": [
       {
         "type": "paragraph",
