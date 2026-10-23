@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="frame flex min-h-[80svh] flex-col justify-center pb-24 pt-[calc(var(--header-h)+4rem)]">
-      <p className="label text-mozart">06 — Contact</p>
+      <p className="label text-slate-ink">06 — Contact</p>
       <h1 className="mt-8 max-w-[14ch] text-display-l">
-        For collaborations, <em className="font-light text-mozart">or simply a conversation.</em>
+        For collaborations, <em className="font-light text-slate">or simply a conversation.</em>
       </h1>
       <a href={`mailto:${site.email}`} className="link-draw mt-12 self-start font-display text-title break-all">
         {site.email}

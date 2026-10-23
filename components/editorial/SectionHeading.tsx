@@ -36,7 +36,7 @@ export function SectionHeading({
   return (
     <header className={cn("grid-editorial items-end gap-y-6", className)}>
       <Reveal className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-        <span className="label text-mozart">{number}</span>
+        <span className="label text-slate-ink">{number}</span>
         <span aria-hidden className="h-px w-10 bg-charcoal/30" />
         <span className="label text-charcoal-soft">{kicker}</span>
       </Reveal>
@@ -46,7 +46,7 @@ export function SectionHeading({
           {italic && (
             <>
               {" "}
-              <em className="text-mozart">{italic}</em>
+              <em className="text-slate">{italic}</em>
             </>
           )}
         </h2>

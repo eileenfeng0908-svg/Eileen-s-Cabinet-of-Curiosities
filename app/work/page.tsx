@@ -38,7 +38,7 @@ export default function WorkPage() {
                   <p className="label text-charcoal-soft">
                     {p.category} · {p.year ?? "Year —"}
                   </p>
-                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-mozart">{p.title}</h2>
+                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-slate-ink">{p.title}</h2>
                   {p.subtitle && <p className="font-display text-lg italic text-charcoal-soft">{p.subtitle}</p>}
                   <p className="mt-3 max-w-md text-caption text-charcoal-soft">{p.summary}</p>
                 </div>

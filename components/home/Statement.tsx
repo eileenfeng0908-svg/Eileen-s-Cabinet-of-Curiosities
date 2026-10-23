@@ -11,7 +11,7 @@ export function Statement() {
     <section aria-labelledby="statement-title" className="section-space bg-ivory-deep/70">
       <div className="frame grid-editorial gap-y-16">
         <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-          <span className="label text-mozart">03</span>
+          <span className="label text-slate-ink">03</span>
           <span aria-hidden className="h-px w-10 bg-charcoal/30" />
           <h2 id="statement-title" className="label text-charcoal-soft font-sans">
             A Note on This Collection
@@ -41,7 +41,7 @@ export function Statement() {
         <div className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-7 lg:col-start-6 lg:pt-16">
           <Reveal>
             <p className="font-display text-statement text-charcoal serif-figures">
-              <em className="text-mozart">{site.statement.lead} —</em> {site.statement.body}
+              <em className="text-slate">{site.statement.lead} —</em> {site.statement.body}
             </p>
           </Reveal>
           <Reveal delay={0.12} className="mt-12 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">

@@ -56,7 +56,7 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label={`${site.name} — Index`}
-            className="font-display text-[1.75rem] leading-none tracking-tight text-charcoal transition-colors duration-500 hover:text-mozart"
+            className="font-display text-[1.75rem] leading-none tracking-tight text-charcoal transition-colors duration-500 hover:text-slate-ink"
           >
             {site.monogram}
           </Link>
@@ -72,7 +72,7 @@ export function SiteHeader() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
                       "link-draw pb-0.5 transition-colors duration-500",
-                      isActive(item.href) ? "text-mozart" : "text-charcoal hover:text-mozart",
+                      isActive(item.href) ? "text-slate-ink" : "text-charcoal hover:text-slate-ink",
                     )}
                   >
                     {item.label}
@@ -118,13 +118,13 @@ export function SiteHeader() {
                     transition={{ duration: duration.base, ease, delay: 0.05 + i * 0.05 }}
                     className="flex items-baseline gap-4 border-b border-rule py-3"
                   >
-                    <span className="label w-6 text-mozart">0{i + 2}</span>
+                    <span className="label w-6 text-slate-ink">0{i + 2}</span>
                     <Link
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
                         "font-display text-[2.75rem] leading-none",
-                        isActive(item.href) ? "italic text-mozart" : "text-charcoal",
+                        isActive(item.href) ? "italic text-slate-ink" : "text-charcoal",
                       )}
                     >
                       {item.label}

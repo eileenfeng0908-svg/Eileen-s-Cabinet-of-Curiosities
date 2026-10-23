@@ -30,13 +30,13 @@ export default async function ProjectPage({ params }: Props) {
       <header className="frame pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+5rem)]">
         <div className="grid-editorial gap-y-8 border-t border-rule pt-4">
           <p className="label col-span-4 md:col-span-8 lg:col-span-12 flex flex-wrap gap-x-4 text-charcoal-soft">
-            <span className="text-mozart">No. 0{index + 1}</span>
+            <span className="text-slate-ink">No. 0{index + 1}</span>
             <span>{project.category}</span>
             <span>{project.year ?? "Year —"}</span>
           </p>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-9">
             <h1 className="text-display-l">{project.title}</h1>
-            {project.subtitle && <p className="mt-4 font-display text-title italic text-mozart">{project.subtitle}</p>}
+            {project.subtitle && <p className="mt-4 font-display text-title italic text-slate">{project.subtitle}</p>}
           </Reveal>
           <Reveal delay={0.1} className="col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-1">
             <p className="text-lede">{project.summary}</p>
@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: Props) {
         <ArrowLink href="/work">All work</ArrowLink>
         <Link href={`/work/${next.slug}`} className="group text-right">
           <span className="label block text-charcoal-soft">Next</span>
-          <span className="font-display text-title transition-colors duration-500 group-hover:text-mozart">{next.title}</span>
+          <span className="font-display text-title transition-colors duration-500 group-hover:text-slate-ink">{next.title}</span>
         </Link>
       </nav>
     </article>

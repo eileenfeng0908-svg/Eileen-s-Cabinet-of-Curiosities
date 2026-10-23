@@ -14,12 +14,12 @@ import type { ImageAsset, PlateMotif, PlateTone } from "@/lib/types";
 
 const tones: Record<PlateTone, { bg: string; ink: string }> = {
   ivory: { bg: "#efe8d9", ink: "#34332f" },
-  parchment: { bg: "#e3d6bb", ink: "#34332f" },
-  masterkey: { bg: "#d9cc8a", ink: "#34332f" },
-  pear: { bg: "#a7993c", ink: "#f6f2e9" },
-  mozart: { bg: "#475480", ink: "#f6f2e9" },
-  sunburn: { bg: "#b57056", ink: "#f6f2e9" },
-  copper: { bg: "#7f3b25", ink: "#f6f2e9" },
+  parchment: { bg: "#e9dcc3", ink: "#34332f" },
+  sunset: { bg: "#f7c97f", ink: "#34332f" },
+  jordy: { bg: "#91c0ef", ink: "#34332f" },
+  slate: { bg: "#62768e", ink: "#f6f2e9" },
+  pumpkin: { bg: "#e87425", ink: "#34332f" },
+  sealbrown: { bg: "#571801", ink: "#f6f2e9" },
   charcoal: { bg: "#3b3a35", ink: "#ede6d6" },
 };
 

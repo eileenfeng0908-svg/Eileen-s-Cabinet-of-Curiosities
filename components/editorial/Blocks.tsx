@@ -34,8 +34,8 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "quote":
             return (
-              <blockquote key={i} className="reading-column border-l border-mozart py-2 pl-6">
-                <p className="font-display text-statement italic text-mozart">{block.text}</p>
+              <blockquote key={i} className="reading-column border-l border-slate py-2 pl-6">
+                <p className="font-display text-statement italic text-slate">{block.text}</p>
                 {block.source && <footer className="label mt-4 text-charcoal-soft">— {block.source}</footer>}
               </blockquote>
             );

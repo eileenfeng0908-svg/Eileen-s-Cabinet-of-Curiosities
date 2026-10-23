@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="frame pb-10 pt-20 md:pt-28">
         <div className="grid-editorial gap-y-14">
           <div className="col-span-4 md:col-span-5 lg:col-span-6">
-            <p className="label mb-6 text-mozart">Colophon</p>
+            <p className="label mb-6 text-slate-ink">Colophon</p>
             <p className="font-display text-display-m text-charcoal">
               Thank you for <em>looking</em>.
             </p>

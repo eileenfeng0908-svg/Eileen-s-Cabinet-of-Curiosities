@@ -8,11 +8,11 @@
 export type PlateTone =
   | "ivory"
   | "parchment"
-  | "masterkey"
-  | "pear"
-  | "mozart"
-  | "sunburn"
-  | "copper"
+  | "sunset"
+  | "jordy"
+  | "slate"
+  | "pumpkin"
+  | "sealbrown"
   | "charcoal";
 
 /** Simple motifs drawn on placeholder plates. */

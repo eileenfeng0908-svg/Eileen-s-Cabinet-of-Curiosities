@@ -23,7 +23,7 @@ const heroImages: { main: ImageAsset; inset: ImageAsset } = {
   inset: {
     alt: "[Small inset image — a postcard, a detail, a still]",
     aspect: 3 / 4,
-    tone: "mozart",
+    tone: "slate",
     motif: "sun",
   },
 };
@@ -50,7 +50,7 @@ export function Hero() {
       <div className="frame">
         {/* Running head, like the top of a printed page */}
         <motion.div {...fade(0.05)} className="grid-editorial border-b border-rule pb-3">
-          <span className="label col-span-2 md:col-span-3 text-mozart">01 — Index</span>
+          <span className="label col-span-2 md:col-span-3 text-slate-ink">01 — Index</span>
           <span className="label col-span-2 md:col-span-3 lg:col-span-4 text-right md:text-left text-charcoal-soft">
             A Personal Digital Archive
           </span>
@@ -118,7 +118,7 @@ export function Hero() {
             <ol className="space-y-1.5 text-caption">
               {navigation.slice(0, 4).map((item, i) => (
                 <li key={item.href} className="flex gap-3">
-                  <span className="label w-5 pt-[3px] text-mozart">0{i + 2}</span>
+                  <span className="label w-5 pt-[3px] text-slate-ink">0{i + 2}</span>
                   <Link href={item.href} className="link-draw">
                     {item.label}
                   </Link>
@@ -134,9 +134,9 @@ export function Hero() {
             className="group col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3 flex items-end gap-3 self-end pb-8 lg:pb-12"
           >
             <span aria-hidden className="relative block h-14 w-px overflow-hidden bg-charcoal/15">
-              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-charcoal" />
+              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-pumpkin" />
             </span>
-            <span className="label text-charcoal-soft transition-colors duration-500 group-hover:text-mozart">Scroll</span>
+            <span className="label text-charcoal-soft transition-colors duration-500 group-hover:text-slate-ink">Scroll</span>
           </motion.a>
         </div>
       </div>

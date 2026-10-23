@@ -20,8 +20,8 @@ export const site = {
 
   email: "eileen20080908@outlook.com",
   socials: [
-    { label: "Instagram", href: "#", placeholder: true },
-    { label: "Letterboxd", href: "#", placeholder: true },
+    { label: "Instagram", href: "https://www.instagram.com/eileennnnn.08/", placeholder: false },
+    { label: "Letterboxd", href: "https://letterboxd.com/fiveforcrying/", placeholder: false },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/eileen-feng-790713379", placeholder: false },
   ],
 } as const;

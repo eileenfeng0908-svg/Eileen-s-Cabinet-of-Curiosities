@@ -13,18 +13,18 @@
 
 @theme {
   /* --- Colour ------------------------------------------------------------
-     Distribution guide: ~70% ivory · 15% charcoal · 10% mozart · 5% accents */
+     Distribution guide: ~70% ivory · 15% charcoal · 10% slate · 5% accents */
   --color-ivory: #f6f2e9;        /* Warm Ivory — the paper */
   --color-ivory-deep: #ede6d6;   /* A second sheet: alternate sections */
   --color-ivory-pale: #fbf9f3;   /* Lace, highlights */
   --color-charcoal: #34332f;     /* Soft Charcoal — ink */
   --color-charcoal-soft: #6b6860;/* Secondary ink for captions */
-  --color-mozart: #475480;       /* Muted Blue — the signature accent */
-  --color-mozart-deep: #3a456b;
-  --color-masterkey: #d9cc8a;    /* Master Key — warm yellow */
-  --color-pear: #a7993c;         /* Prickly Pear — olive */
-  --color-sunburn: #b57056;      /* Sunburn — terracotta */
-  --color-copper: #7f3b25;       /* Copper Red */
+  --color-slate: #62768e;        /* Slate Gray — the signature accent */
+  --color-slate-ink: #4f6078;    /* Slate, deepened so small text stays readable */
+  --color-jordy: #91c0ef;        /* Jordy Blue — sky, used lightly */
+  --color-sunset: #f7c97f;       /* Sunset — warm highlight */
+  --color-pumpkin: #e87425;      /* Pumpkin — the brightest note: tiny doses */
+  --color-sealbrown: #571801;    /* Seal Brown — deep accent ink */
   --color-rule: rgb(52 51 47 / 0.16); /* Hairlines */
 
   /* --- Type families (set by next/font in app/layout.tsx) --------------- */
@@ -95,11 +95,11 @@
     overflow-x: clip;
   }
   ::selection {
-    background: var(--color-masterkey);
+    background: var(--color-sunset);
     color: var(--color-charcoal);
   }
   :focus-visible {
-    outline: 1px solid var(--color-mozart);
+    outline: 1px solid var(--color-slate-ink);
     outline-offset: 4px;
   }
   h1, h2, h3, h4 {

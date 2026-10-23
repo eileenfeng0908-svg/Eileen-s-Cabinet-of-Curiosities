@@ -29,8 +29,8 @@ export function RecentWriting() {
                 className="group grid-editorial items-baseline gap-y-2 py-7 md:py-9"
               >
                 <span className="label col-span-2 md:col-span-2 text-charcoal-soft">{formatDate(a.date)}</span>
-                <span className="label col-span-2 md:col-span-2 text-right md:text-left text-sunburn">{a.category}</span>
-                <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title text-charcoal transition-[color,translate] duration-700 ease-gallery group-hover:translate-x-2 group-hover:text-mozart">
+                <span className="label col-span-2 md:col-span-2 text-right md:text-left text-sealbrown">{a.category}</span>
+                <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title text-charcoal transition-[color,translate] duration-700 ease-gallery group-hover:translate-x-2 group-hover:text-slate-ink">
                   {a.title}
                   {a.dek && (
                     <span className="mt-2 block font-sans text-caption text-charcoal-soft lg:max-w-[48ch]">{a.dek}</span>
@@ -38,7 +38,7 @@ export function RecentWriting() {
                 </span>
                 <span className="label col-span-4 md:col-span-1 lg:col-span-2 md:text-right text-charcoal-soft">
                   {readingTime(a.body)}
-                  <span aria-hidden className="ml-2 inline-block text-mozart opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <span aria-hidden className="ml-2 inline-block text-pumpkin opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     →
                   </span>
                 </span>

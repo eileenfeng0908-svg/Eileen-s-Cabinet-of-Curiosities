@@ -81,7 +81,7 @@ export const projects: Project[] = [
     cover: {
       alt: "[Describe the show image]",
       aspect: 3 / 2,
-      tone: "sunburn",
+      tone: "sunset",
       motif: "figure",
       caption: "[Runway or backstage — caption]",
     },
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     cover: {
       alt: "[Describe the project image]",
       aspect: 4 / 5,
-      tone: "mozart",
+      tone: "slate",
       motif: "sun",
       caption: "[Image — caption]",
     },

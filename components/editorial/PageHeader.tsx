@@ -18,7 +18,7 @@ export function PageHeader({
     <header className="frame pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
       <div className="grid-editorial gap-y-8 border-t border-rule pt-4">
         <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-          <span className="label text-mozart">{number}</span>
+          <span className="label text-slate-ink">{number}</span>
           <span aria-hidden className="h-px w-10 bg-charcoal/30" />
           <span className="label text-charcoal-soft">{kicker}</span>
         </div>
@@ -28,7 +28,7 @@ export function PageHeader({
             {italic && (
               <>
                 {" "}
-                <em className="font-light text-mozart">{italic}</em>
+                <em className="font-light text-slate">{italic}</em>
               </>
             )}
           </h1>
