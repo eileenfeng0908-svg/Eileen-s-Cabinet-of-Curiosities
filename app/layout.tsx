@@ -1,16 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { DM_Mono, Fraunces, Inter, Send_Flowers } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 
-const cormorant = Cormorant_Garamond({
+// Fraunces: a soft, slightly "wonky" old-style display face with optical sizes.
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  axes: ["SOFT", "WONK", "opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+// DM Mono: the typewriter voice of archival labels and catalogue numbers.
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
+});
+
+// Send Flowers: a curly, hand-drawn script for accent words only
+// (the free stand-in for Whimsy May).
+const sendFlowers = Send_Flowers({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-send-flowers",
   display: "swap",
 });
 
@@ -42,7 +60,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${dmMono.variable} ${sendFlowers.variable} ${inter.variable}`}>
       <body>
         <MotionProvider>
           <SiteHeader />

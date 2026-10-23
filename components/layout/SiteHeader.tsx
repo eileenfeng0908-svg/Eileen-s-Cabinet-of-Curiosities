@@ -56,7 +56,7 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label={`${site.name} — Index`}
-            className="font-display text-[1.75rem] leading-none tracking-tight text-charcoal transition-colors duration-500 hover:text-slate-ink"
+            className="font-display text-[1.75rem] leading-none tracking-tight text-charcoal transition-colors duration-500 hover:text-sealbrown"
           >
             {site.monogram}
           </Link>
@@ -72,7 +72,7 @@ export function SiteHeader() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
                       "link-draw pb-0.5 transition-colors duration-500",
-                      isActive(item.href) ? "text-slate-ink" : "text-charcoal hover:text-slate-ink",
+                      isActive(item.href) ? "text-sealbrown" : "text-charcoal hover:text-sealbrown",
                     )}
                   >
                     {item.label}

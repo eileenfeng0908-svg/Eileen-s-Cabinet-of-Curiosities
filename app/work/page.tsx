@@ -23,6 +23,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         number="02"
+        tone="jordy"
         kicker="Work"
         title="Work,"
         italic="in four rooms"

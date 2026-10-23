@@ -28,23 +28,25 @@
   --color-rule: rgb(52 51 47 / 0.16); /* Hairlines */
 
   /* --- Type families (set by next/font in app/layout.tsx) --------------- */
-  --font-display: var(--font-cormorant), "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), "DM Mono", ui-monospace, monospace;
+  --font-script: var(--font-send-flowers), "Send Flowers", cursive;
 
   /* --- Type scale: fluid, deliberately uneven --------------------------- */
-  --text-display-xl: clamp(4.75rem, 15.5vw, 15rem);
-  --text-display-xl--line-height: 0.82;
-  --text-display-xl--letter-spacing: -0.035em;
-  --text-display-l: clamp(3rem, 8vw, 7.5rem);
-  --text-display-l--line-height: 0.92;
+  --text-display-xl: clamp(4.25rem, 13.5vw, 13.5rem);
+  --text-display-xl--line-height: 0.86;
+  --text-display-xl--letter-spacing: -0.045em;
+  --text-display-l: clamp(2.75rem, 7vw, 6.75rem);
+  --text-display-l--line-height: 0.95;
   --text-display-l--letter-spacing: -0.025em;
-  --text-display-m: clamp(2.25rem, 4.6vw, 4.25rem);
+  --text-display-m: clamp(2.1rem, 4.2vw, 3.9rem);
   --text-display-m--line-height: 1;
   --text-display-m--letter-spacing: -0.015em;
-  --text-title: clamp(1.6rem, 2.4vw, 2.25rem);
+  --text-title: clamp(1.45rem, 2.1vw, 2rem);
   --text-title--line-height: 1.08;
-  --text-statement: clamp(1.75rem, 3.6vw, 3.4rem);
-  --text-statement--line-height: 1.16;
+  --text-statement: clamp(1.6rem, 3.1vw, 2.9rem);
+  --text-statement--line-height: 1.2;
   --text-lede: clamp(1.15rem, 1.5vw, 1.4rem);
   --text-lede--line-height: 1.45;
   --text-body: 1rem;
@@ -52,8 +54,8 @@
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
   --text-label: 0.6875rem;
-  --text-label--line-height: 1.4;
-  --text-label--letter-spacing: 0.16em;
+  --text-label--line-height: 1.45;
+  --text-label--letter-spacing: 0.1em;
 
   /* --- Motion ----------------------------------------------------------- */
   --ease-gallery: cubic-bezier(0.22, 1, 0.36, 1);  /* slow out: things settle */
@@ -104,7 +106,24 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
+    font-weight: 350;
+  }
+  /* Fraunces: softened corners everywhere; italics get the "wonky" swash forms. */
+  .font-display, h1, h2, h3, h4 {
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 100, "WONK" 0;
+  }
+  em, .italic {
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+  }
+  /* Accent words inside headings switch to the hand-drawn script. */
+  h1 em, h2 em, .script {
+    font-family: var(--font-script);
+    font-style: normal;
     font-weight: 400;
+    font-size: 1.12em;
+    letter-spacing: 0;
+    line-height: 0.9;
   }
   img {
     user-select: none;
@@ -152,13 +171,12 @@
 
 /* Archival label — small uppercase sans, generously tracked. */
 @utility label {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: var(--text-label);
   line-height: var(--text-label--line-height);
   letter-spacing: var(--text-label--letter-spacing);
   text-transform: uppercase;
-  font-weight: 500;
-  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-weight: 400;
 }
 
 /* Hairline rule. */

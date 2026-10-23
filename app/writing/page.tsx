@@ -17,6 +17,7 @@ export default function WritingPage() {
     <>
       <PageHeader
         number="03"
+        tone="sealbrown"
         kicker="Writing"
         title="A small"
         italic="journal"

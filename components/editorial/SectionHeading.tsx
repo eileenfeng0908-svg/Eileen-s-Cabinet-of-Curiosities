@@ -15,6 +15,7 @@ export function SectionHeading({
   className,
   aside,
   id,
+  invert = false,
 }: {
   number: string;
   kicker: string;
@@ -26,6 +27,8 @@ export function SectionHeading({
   aside?: React.ReactNode;
   /** id for the h2, so the section can point aria-labelledby at it. */
   id?: string;
+  /** Light text, for headings on dark section backgrounds. */
+  invert?: boolean;
 }) {
   const titleCols = {
     left: "lg:col-start-1 lg:col-span-8",
@@ -36,17 +39,17 @@ export function SectionHeading({
   return (
     <header className={cn("grid-editorial items-end gap-y-6", className)}>
       <Reveal className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-        <span className="label text-slate-ink">{number}</span>
-        <span aria-hidden className="h-px w-10 bg-charcoal/30" />
-        <span className="label text-charcoal-soft">{kicker}</span>
+        <span className={cn("label", invert ? "text-sunset" : "text-slate-ink")}>{number}</span>
+        <span aria-hidden className={cn("h-px w-10", invert ? "bg-ivory/40" : "bg-charcoal/30")} />
+        <span className={cn("label", invert ? "text-ivory/85" : "text-charcoal-soft")}>{kicker}</span>
       </Reveal>
       <Reveal delay={0.08} className={cn("col-span-4 md:col-span-6", titleCols)}>
-        <h2 id={id} className="text-display-l text-charcoal">
+        <h2 id={id} className={cn("text-display-l", invert ? "text-ivory" : "text-charcoal")}>
           {title}
           {italic && (
             <>
               {" "}
-              <em className="text-slate">{italic}</em>
+              <em className={invert ? "text-sunset" : "text-slate"}>{italic}</em>
             </>
           )}
         </h2>

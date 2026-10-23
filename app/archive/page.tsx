@@ -18,6 +18,7 @@ export default function ArchivePage() {
     <>
       <PageHeader
         number="04"
+        tone="slate"
         kicker="Archive"
         title="Cabinet of"
         italic="curiosities"

@@ -5,7 +5,7 @@
 ## Colour
 | Token | Hex | Use |
 |---|---|---|
-| `ivory` | #F6F2E9 | The page. ~70% of everything. |
+| `ivory` | #F6F2E9 | The page. The reading surface: Selected Works and long-form pages. |
 | `ivory-deep` | #EDE6D6 | A second sheet: alternate sections, footer |
 | `ivory-pale` | #FBF9F3 | Lace, photo borders |
 | `charcoal` | #34332F | Ink. Text, rules. ~15% |
@@ -14,16 +14,23 @@
 | `slate-ink` | #4F6078 | Slate deepened for small text (labels, links, hover) so it passes WCAG AA on ivory |
 | `jordy` | #91C0EF | Sky blue, used lightly: placeholder tones, occasional details |
 | `sunset` | #F7C97F | Text selection, labels on slate, warm highlights |
-| `pumpkin` | #E87425 | The brightest note. Tiny doses only: the scroll cue, hover arrows. Never for text |
+| `pumpkin` | #E87425 | Footer and Contact page background; hover colour on Seal Brown. Never for small text on ivory |
 | `sealbrown` | #571801 | Deep accent ink: writing categories |
 
 Hairlines are charcoal at 16% opacity (`border-rule`). A fixed SVG fibre grain sits over the whole site at very low opacity.
 
 ## Type
-- **Cormorant Garamond** (display): names, titles, statements, quotations. Italic is the second voice, usually in slate.
-- **Inter** (sans): navigation, body copy, captions, and the archival `label` (11px, uppercase, 0.16em tracking).
+- **Fraunces** (display): names, titles, statements, quotations. A soft, slightly wonky old-style serif with optical sizes; corners are softened (`SOFT 100`) and italics use the wonky forms.
+- **Send Flowers** (script): accent words only — the `<em>` inside a heading, "Feng" in the hero, the opening of the statement. A free stand-in for Whimsy May; if you buy a Whimsy May webfont licence, drop the files in and load them with `next/font/local` as `--font-send-flowers`'s replacement.
+- **DM Mono**: the archival `label` voice (11px, uppercase, tracked): catalogue numbers, dates, categories.
+- **Inter**: navigation, body copy and captions.
 
 Scale (fluid, deliberately uneven): `display-xl` (hero name) → `display-l` (section titles) → `display-m` → `statement` → `title` → `lede` → `body` → `caption` → `label`. Section openings rotate alignment (left / offset / right) so no two read alike.
+
+## Colour by section
+Each section owns one colour, like the bands of a palette card:
+Hero & Work → Jordy Blue · Selected Works & reading pages → Ivory · Statement & About → Sunset · Archive → Slate Gray · Writing → Seal Brown · Contact & footer → Pumpkin.
+On Jordy and Sunset the ink is charcoal with seal-brown accents; on Slate and Seal Brown it is ivory with sunset accents; on Pumpkin it is seal brown.
 
 ## Grid & spacing
 - `frame`: outer margins, `clamp(1.25rem, 4.5vw, 4rem)`.
