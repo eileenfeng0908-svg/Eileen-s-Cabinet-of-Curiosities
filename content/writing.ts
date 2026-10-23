@@ -206,7 +206,7 @@ export const articles: Article[] = [
     "category": "Film Criticism",
     "cover": {
       "src": "/images/writing/in-the-mood-for-love/cover.webp",
-      "alt": "Su in a red coat at the end of a hotel corridor hung with red curtains",
+      "alt": "Chow and Su in the back seat of a taxi at night, her head resting on his shoulder",
       "aspect": 1.7778
     },
     "hideCover": true,
