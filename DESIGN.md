@@ -1,55 +1,52 @@
 # Design system
 
-**65% contemporary museum, 35% romantic archive.** The museum half is the grid, the white space and the restraint. The archive half is the paper, the catalogue numbers, the lace frame and the italics.
+**50% editorial minimalism · 30% romantic vintage illustration · 20% Art Nouveau.**
+An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
+Faded Impressionist inks on warm paper. Ivory dominates; avoid colour blocking.
+
 | Token | Hex | Use |
 |---|---|---|
-| `ivory` | #F6F2E9 | The page. The reading surface: Selected Works and long-form pages. |
-| `ivory-deep` | #EDE6D6 | A second sheet: alternate sections, footer |
-| `ivory-pale` | #FBF9F3 | Lace, photo borders |
-| `charcoal` | #34332F | Ink. Text, rules. ~15% |
-| `charcoal-soft` | #6B6860 | Captions, secondary labels |
-| `slate` | #62768E | Signature accent: display italics, the one full-bleed section per page. ~10% |
-| `slate-ink` | #4F6078 | Slate deepened for small text (labels, links, hover) so it passes WCAG AA on ivory |
-| `jordy` | #91C0EF | Sky blue, used lightly: placeholder tones, occasional details |
-| `sunset` | #F7C97F | Text selection, labels on slate, warm highlights |
-| `pumpkin` | #E87425 | Footer and Contact page background; hover colour on Seal Brown. Never for small text on ivory |
-| `sealbrown` | #571801 | Deep accent ink: writing categories |
+| `ivory` | #F6F2E9 | Warm Ivory — the page, almost everywhere |
+| `ivory-deep` | #EEE7D8 | A second sheet: the statement, the footer |
+| `ivory-pale` | #FBF8F1 | Print borders, lace |
+| `velvet` / `ink` | #4A446F | Body text, structure, rules |
+| `ink-soft` | #666186 | Captions (passes AA on ivory) |
+| `mozart` | #475480 | Headings, links, the site title |
+| `haze` | #9FA4C9 | Soft signature accent: the doily, stars, washes (`haze-wash`). Decorative only, never for text |
+| `fern` | #627655 | Botanical linework (`fern-ink` #56684A for small text) |
+| `bloom` | #CF809E | Flowers, the lace heart, selection (`bloom-ink` #9B5A72 for numerals and hover text) |
+| `amber` | #E0AC82 | The heart of a bloom, warm details (`amber-ink` #8A5A33 for text) |
 
-Hairlines are charcoal at 16% opacity (`border-rule`). A fixed SVG fibre grain sits over the whole site at very low opacity.
+Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 
 ## Type
-- **Fraunces** (display): names, titles, statements, quotations. A soft, slightly wonky old-style serif with optical sizes; corners are softened (`SOFT 100`) and italics use the wonky forms.
-- **Send Flowers** (script): accent words only — the `<em>` inside a heading, "Feng" in the hero, the opening of the statement. A free stand-in for Whimsy May; if you buy a Whimsy May webfont licence, drop the files in and load them with `next/font/local` as `--font-send-flowers`'s replacement.
-- **DM Mono**: the archival `label` voice (11px, uppercase, tracked): catalogue numbers, dates, categories.
-- **Inter**: navigation, body copy and captions.
+- **IM Fell English** — headings. Digitised 17th-century letterpress, with real ink spread. Italic for accent words.
+- **IM Fell English SC** — the `label` voice: numerals, categories, navigation, captions' small print.
+- **Pinyon Script** — the site title ("Eileen Feng"), the monogram, and one or two words per page at most.
+- **Inter** — body text and long-form reading. No decorative faces in running text.
 
-Scale (fluid, deliberately uneven): `display-xl` (hero name) → `display-l` (section titles) → `display-m` → `statement` → `title` → `lede` → `body` → `caption` → `label`. Section openings rotate alignment (left / offset / right) so no two read alike.
+## Ornament (components/editorial)
+- `Doily` — round die-cut paper doily in Haze, behind the title (rotates very slowly).
+- `NouveauFrame` — arched Art Nouveau window with a fine outer rule and a star at the apex. One per section at most.
+- `LaceFrame` — rectangular paper-lace frame, for the portrait.
+- `BotanicalVine` — a whiplash stem whose line draws as you scroll, then leaves, then a bloom.
+- `Star`, `Rosette`, `Fleuron`, `Flourish`, `LaceHeart` — small marks; the star and rosette turn a quarter when their section is hovered.
+- `print` utility — a pale photographic border with the faintest lift, for objects laid on the page at slight angles.
 
-## Colour by section
-Each section owns one colour, like the bands of a palette card:
-Hero & Work → Jordy Blue · Selected Works & reading pages → Ivory · Statement & About → Sunset · Archive → Slate Gray · Writing → Seal Brown · Contact & footer → Pumpkin.
-On Jordy and Sunset the ink is charcoal with seal-brown accents; on Slate and Seal Brown it is ivory with sunset accents; on Pumpkin it is seal brown.
+## Texture
+- Paper grain: a fixed SVG fibre texture over the whole site, almost invisible.
+- Film grain: `grain` prop on `Plate` — gentle animated noise on a few selected images. Off with reduced motion.
 
 ## Grid & spacing
 - `frame`: outer margins, `clamp(1.25rem, 4.5vw, 4rem)`.
-- `grid-editorial`: 4 columns (phone), 8 (tablet, ≥48rem), 12 (laptop, ≥64rem). Asymmetry comes from `col-start-*`, `col-span-*` and vertical offsets, recomposed at each breakpoint rather than shrunk.
-- `section-space`: `clamp(6rem, 14vw, 13rem)` vertical rhythm.
-- `reading-column`: 38rem measure for long-form text.
-
-## Components
-- **Plate**: every image. Responsive `next/image`, or a toned placeholder with a faint motif and plate number.
-- **LaceFrame**: die-cut paper doily in SVG. Once per page at most.
-- **Label / SectionHeading / PageHeader**: the numbering system (`01 — Index`, `No. 01`, `Pl. II`).
-- **Museum tag**: archive hover label. On touch screens it is always visible.
-- No rounded corners, no shadows beyond a 1px hairline, no gradients except a faint print vignette.
+- `grid-editorial`: 4 / 8 / 12 columns; asymmetry comes from column starts, spans and vertical offsets, recomposed per breakpoint.
+- `section-space`: `clamp(6rem, 14vw, 13rem)`. `reading-column`: 38rem.
 
 ## Motion
-1. One easing curve, `cubic-bezier(0.22, 1, 0.36, 1)`: things settle, they don't bounce.
-2. Small distances (10–24px); opacity carries most of the effect.
-3. 0.45s for UI, 0.9s for reveals, 1.3s for the hero.
-4. Hover: 1.035 image zoom over 1.4s, drawn underlines, colour shifts to slate.
-5. Parallax on at most two elements per page, ±30–60px.
-6. Only the scroll cue loops.
-7. `prefers-reduced-motion` turns all of it off (Motion's `reducedMotion="user"` plus a CSS override).
+1. One easing curve, `cubic-bezier(0.22, 1, 0.36, 1)`: things settle like paper.
+2. Text lifts 10–24px into place; images use the `ink` reveal: from soft focus and low saturation to clear, like a print developing.
+3. Linework draws with scroll; ornaments answer hover with a slow quarter-turn.
+4. Parallax on at most two elements per page, ±30px.
+5. `prefers-reduced-motion` turns all of it off.

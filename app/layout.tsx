@@ -1,40 +1,40 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Mono, Fraunces, Inter, Send_Flowers } from "next/font/google";
+import { IM_Fell_English, IM_Fell_English_SC, Inter, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 
-// Fraunces: a soft, slightly "wonky" old-style display face with optical sizes.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["SOFT", "WONK", "opsz"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-// DM Mono: the typewriter voice of archival labels and catalogue numbers.
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
-  display: "swap",
-});
-
-// Send Flowers: a curly, hand-drawn script for accent words only
-// (the free stand-in for Whimsy May).
-const sendFlowers = Send_Flowers({
+// IM Fell: digitised 17th-century types, with the ink spread of real letterpress.
+const fell = IM_Fell_English({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-send-flowers",
+  style: ["normal", "italic"],
+  variable: "--font-fell",
   display: "swap",
 });
 
+// Its true small caps: archival labels and navigation.
+const fellSC = IM_Fell_English_SC({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fell-sc",
+  display: "swap",
+});
+
+// Inter: clean, quiet body text.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Pinyon Script: a readable copperplate, for the site title only.
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -60,7 +60,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${dmMono.variable} ${sendFlowers.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fell.variable} ${fellSC.variable} ${inter.variable} ${pinyon.variable}`}>
       <body>
         <MotionProvider>
           <SiteHeader />

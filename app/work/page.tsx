@@ -23,7 +23,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         number="02"
-        tone="jordy"
+        tone="haze"
         kicker="Work"
         title="Work,"
         italic="in four rooms"
@@ -36,12 +36,12 @@ export default function WorkPage() {
               <Link href={`/work/${p.slug}`} className="group block">
                 <Plate image={p.cover} number={i + 1} />
                 <div className="mt-5">
-                  <p className="label text-charcoal-soft">
+                  <p className="label text-ink-soft">
                     {p.category} · {p.year ?? "Year —"}
                   </p>
-                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-slate-ink">{p.title}</h2>
-                  {p.subtitle && <p className="font-display text-lg italic text-charcoal-soft">{p.subtitle}</p>}
-                  <p className="mt-3 max-w-md text-caption text-charcoal-soft">{p.summary}</p>
+                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-velvet">{p.title}</h2>
+                  {p.subtitle && <p className="font-display text-lg italic text-ink-soft">{p.subtitle}</p>}
+                  <p className="mt-3 max-w-md text-caption text-ink-soft">{p.summary}</p>
                 </div>
               </Link>
             </Reveal>

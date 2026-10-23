@@ -56,7 +56,7 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label={`${site.name} — Index`}
-            className="font-display text-[1.75rem] leading-none tracking-tight text-charcoal transition-colors duration-500 hover:text-sealbrown"
+            className="font-display text-[1.75rem] leading-none tracking-tight text-ink transition-colors duration-500 hover:text-velvet"
           >
             {site.monogram}
           </Link>
@@ -66,13 +66,13 @@ export function SiteHeader() {
             <ul className="flex items-center gap-1 label">
               {navigation.map((item, i) => (
                 <li key={item.href} className="flex items-center">
-                  {i > 0 && <span aria-hidden className="px-2 text-charcoal/35">/</span>}
+                  {i > 0 && <span aria-hidden className="px-2 text-ink/35">/</span>}
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
                       "link-draw pb-0.5 transition-colors duration-500",
-                      isActive(item.href) ? "text-sealbrown" : "text-charcoal hover:text-sealbrown",
+                      isActive(item.href) ? "text-velvet" : "text-ink hover:text-velvet",
                     )}
                   >
                     {item.label}
@@ -118,13 +118,13 @@ export function SiteHeader() {
                     transition={{ duration: duration.base, ease, delay: 0.05 + i * 0.05 }}
                     className="flex items-baseline gap-4 border-b border-rule py-3"
                   >
-                    <span className="label w-6 text-slate-ink">0{i + 2}</span>
+                    <span className="label w-6 text-velvet">0{i + 2}</span>
                     <Link
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
                         "font-display text-[2.75rem] leading-none",
-                        isActive(item.href) ? "italic text-slate-ink" : "text-charcoal",
+                        isActive(item.href) ? "italic text-velvet" : "text-ink",
                       )}
                     >
                       {item.label}
@@ -132,7 +132,7 @@ export function SiteHeader() {
                   </motion.li>
                 ))}
               </ul>
-              <p className="font-display text-lg italic text-charcoal-soft">{site.tagline}</p>
+              <p className="font-display text-lg italic text-ink-soft">{site.tagline}</p>
             </nav>
           </motion.div>
         )}

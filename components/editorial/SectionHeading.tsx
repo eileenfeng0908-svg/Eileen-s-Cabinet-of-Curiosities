@@ -1,10 +1,11 @@
 import { cn } from "@/lib/cn";
 import { Reveal } from "@/components/motion/Reveal";
+import { Star } from "./Ornaments";
 
 /**
- * Section opener: a numbered archival label sitting above (or beside) a
- * serif title. `align` shifts the title across the grid so consecutive
- * sections never open the same way.
+ * Section opener: a numbered small-caps label with a star between rules,
+ * above a serif title. `align` shifts the title across the grid so
+ * consecutive sections never open the same way.
  */
 export function SectionHeading({
   number,
@@ -15,7 +16,6 @@ export function SectionHeading({
   className,
   aside,
   id,
-  invert = false,
 }: {
   number: string;
   kicker: string;
@@ -27,8 +27,6 @@ export function SectionHeading({
   aside?: React.ReactNode;
   /** id for the h2, so the section can point aria-labelledby at it. */
   id?: string;
-  /** Light text, for headings on dark section backgrounds. */
-  invert?: boolean;
 }) {
   const titleCols = {
     left: "lg:col-start-1 lg:col-span-8",
@@ -38,18 +36,21 @@ export function SectionHeading({
 
   return (
     <header className={cn("grid-editorial items-end gap-y-6", className)}>
-      <Reveal className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-        <span className={cn("label", invert ? "text-sunset" : "text-slate-ink")}>{number}</span>
-        <span aria-hidden className={cn("h-px w-10", invert ? "bg-ivory/40" : "bg-charcoal/30")} />
-        <span className={cn("label", invert ? "text-ivory/85" : "text-charcoal-soft")}>{kicker}</span>
+      <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-velvet">
+        <span className="label text-bloom-ink">{number}</span>
+        <span aria-hidden className="h-px w-10 bg-velvet/30" />
+        <span aria-hidden className="transition-transform duration-[1200ms] ease-gallery group-hover:rotate-90">
+          <Star className="h-3 w-3 text-haze" />
+        </span>
+        <span className="label">{kicker}</span>
       </Reveal>
       <Reveal delay={0.08} className={cn("col-span-4 md:col-span-6", titleCols)}>
-        <h2 id={id} className={cn("text-display-l", invert ? "text-ivory" : "text-charcoal")}>
+        <h2 id={id} className="text-display-l">
           {title}
           {italic && (
             <>
               {" "}
-              <em className={invert ? "text-sunset" : "text-slate"}>{italic}</em>
+              <em>{italic}</em>
             </>
           )}
         </h2>

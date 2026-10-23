@@ -4,41 +4,38 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { navigation, site } from "@/content/site";
 import { Plate } from "@/components/editorial/Plate";
+import { NouveauFrame } from "@/components/editorial/NouveauFrame";
+import { Doily } from "@/components/editorial/Doily";
+import { Flourish, Star } from "@/components/editorial/Ornaments";
+import { BotanicalVine } from "@/components/editorial/BotanicalVine";
 import { Parallax } from "@/components/motion/Parallax";
 import { duration, ease } from "@/components/motion/tokens";
 import type { ImageAsset } from "@/lib/types";
 
 /**
- * The opening spread. Built on the 12-column grid with explicit rows on
- * large screens so the name, the plates and the small print can overlap.
- * Replace the two plates with real images in the `heroImages` object.
+ * The opening spread: the name set in copperplate over a paper doily, an
+ * arched Art Nouveau frame, a small print laid across its corner, and a
+ * botanical stem that grows as the page begins to scroll.
+ * Replace the two plates with real images in `heroImages`.
  */
 const heroImages: { main: ImageAsset; inset: ImageAsset } = {
   main: {
     alt: "[Hero image — a photograph or archival image of your choosing]",
-    aspect: 4 / 5,
-    tone: "sunset",
+    aspect: 3 / 4,
+    tone: "haze",
     motif: "horizon",
   },
   inset: {
     alt: "[Small inset image — a postcard, a detail, a still]",
-    aspect: 3 / 4,
-    tone: "pumpkin",
+    aspect: 4 / 5,
+    tone: "bloom",
     motif: "sun",
   },
 };
 
-const line = {
-  hidden: { y: "105%" },
-  show: (i: number) => ({
-    y: "0%",
-    transition: { duration: duration.slow, ease, delay: 0.15 + i * 0.12 },
-  }),
-};
-
-const fade = (delay: number) => ({
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
+const fade = (delay: number, y = 0) => ({
+  initial: { opacity: 0, y },
+  animate: { opacity: 1, y: 0 },
   transition: { duration: duration.slow, ease, delay },
 });
 
@@ -46,80 +43,83 @@ export function Hero() {
   const [first, last] = site.name.split(" ");
 
   return (
-    <section aria-labelledby="hero-title" className="relative min-h-[100svh] bg-jordy pt-[calc(var(--header-h)+1.5rem)]">
+    <section aria-labelledby="hero-title" className="haze-wash relative overflow-hidden pt-[calc(var(--header-h)+1.5rem)] lg:min-h-[100svh]">
       <div className="frame">
         {/* Running head, like the top of a printed page */}
-        <motion.div {...fade(0.05)} className="grid-editorial border-b border-charcoal/25 pb-3">
-          <span className="label col-span-2 md:col-span-3 text-sealbrown">01 — Index</span>
-          <span className="label col-span-2 md:col-span-3 lg:col-span-4 text-right md:text-left text-charcoal">
-            A Personal Digital Archive
+        <motion.div {...fade(0.05)} className="grid-editorial items-center border-b border-velvet/25 pb-3 text-velvet">
+          <span className="label col-span-2 md:col-span-3">No. 01 — Index</span>
+          <span className="label col-span-2 md:col-span-3 lg:col-span-4 flex items-center justify-end gap-2 md:justify-start">
+            <Star className="h-2.5 w-2.5 text-bloom" /> A Personal Digital Archive
           </span>
-          <span className="label hidden md:block md:col-span-2 lg:col-span-5 text-right text-charcoal">
-            Works · Writings · Objects
-          </span>
+          <span className="label hidden md:block md:col-span-2 lg:col-span-5 text-right">Works · Writings · Objects</span>
         </motion.div>
 
-        <div className="grid-editorial relative mt-8 gap-y-8 lg:mt-10 lg:grid-rows-[auto_auto_1fr]">
-          {/* Name */}
-          <h1
-            id="hero-title"
-            className="relative z-10 col-span-4 md:col-span-8 lg:col-span-11 lg:col-start-1 lg:row-start-1 font-display text-display-xl max-md:text-[25vw] text-charcoal"
-          >
-            <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span className="block" variants={line} initial="hidden" animate="show" custom={0}>
+        <div className="grid-editorial relative mt-6 gap-y-10 pb-16 lg:mt-4 lg:grid-rows-[auto_auto_1fr] lg:pb-0">
+          {/* Name over a doily */}
+          <div className="relative isolate col-span-4 md:col-span-8 lg:col-span-8 lg:row-start-1">
+            <motion.div
+              {...fade(0.1)}
+              className="pointer-events-none absolute -left-[10%] -top-[4%] -z-0 w-[72%] max-w-[36rem] md:-left-[4%] md:w-[50%] lg:-top-[8%] lg:w-[52%]"
+            >
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 240, ease: "linear", repeat: Infinity }}>
+                <Doily className="w-full opacity-[0.32]" />
+              </motion.div>
+            </motion.div>
+
+            <h1 id="hero-title" className="title-script relative text-[clamp(5.5rem,14vw,14rem)] leading-[0.95] text-mozart">
+              <motion.span {...fade(0.25, 30)} className="block pl-[2%]">
                 {first}
               </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-[0.12em] pl-[18%] md:pl-[30%] lg:pl-[44%]">
-              <motion.span className="script block text-sealbrown" variants={line} initial="hidden" animate="show" custom={1}>
+              <motion.span {...fade(0.45, 30)} className="-mt-[0.12em] block pl-[30%] text-velvet">
                 {last}
               </motion.span>
-            </span>
-          </h1>
+            </h1>
+          </div>
 
-          {/* Main plate: sits behind the second line of the name on large screens */}
+          {/* Subtitle */}
+          <motion.div {...fade(0.8)} className="relative col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-1 lg:row-start-2">
+            <p className="max-w-[24ch] font-display text-[clamp(1.35rem,2vw,1.85rem)] italic leading-snug text-velvet">
+              {site.tagline}
+            </p>
+            <Flourish className="mt-4 text-fern" />
+          </motion.div>
+
+          {/* Arched frame, a print on its corner, a stem beside it */}
           <motion.div
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.6, ease, delay: 0.35 }}
-            className="relative col-span-3 col-start-2 md:col-span-4 md:col-start-5 lg:col-span-4 lg:col-start-9 lg:row-span-3 lg:row-start-1 lg:mt-[clamp(5rem,9vw,9rem)]"
+            {...fade(0.4, 24)}
+            className="relative col-span-3 col-start-2 md:col-span-4 md:col-start-5 lg:col-span-4 lg:col-start-9 lg:row-span-3 lg:row-start-1 lg:mt-[clamp(2rem,5vw,5rem)]"
           >
             <figure>
-              <Plate image={heroImages.main} number={1} priority sizes="(min-width: 64rem) 33vw, 75vw" zoom={false} />
-              <figcaption className="mt-3 flex justify-between gap-4 text-caption text-charcoal">
-                <span className="label whitespace-nowrap">Fig. 1</span>
-                <span className="text-right italic font-display text-base">[Caption for the hero image]</span>
+              <NouveauFrame paper="bg-ivory">
+                <Plate image={heroImages.main} number={1} priority sizes="(min-width: 64rem) 33vw, 75vw" zoom={false} grain />
+              </NouveauFrame>
+              <figcaption className="mt-3 flex justify-between gap-4 text-caption text-ink-soft">
+                <span className="label whitespace-nowrap text-velvet">Fig. 1</span>
+                <span className="text-right font-display italic">[Caption for the hero image]</span>
               </figcaption>
             </figure>
 
-            {/* Inset plate, layered over the corner and drifting slightly on scroll */}
-            <Parallax distance={40} className="absolute -left-[22%] bottom-[18%] w-[42%] md:-left-[30%] lg:-left-[34%] lg:w-[46%]">
-              <div className="border-[6px] border-ivory-pale shadow-[0_1px_0_rgb(52_51_47/0.08)]">
+            <Parallax distance={30} className="absolute -left-[24%] bottom-[22%] w-[40%] lg:-left-[30%] lg:w-[44%]">
+              <div className="print -rotate-[5deg] transition-transform duration-1000 ease-gallery hover:-rotate-[2deg]">
                 <Plate image={heroImages.inset} number={2} zoom={false} showPlaceholderLabel={false} sizes="20vw" />
               </div>
             </Parallax>
+
+            <BotanicalVine className="absolute -right-[8%] -top-[6%] hidden w-[18%] lg:block" />
           </motion.div>
 
-          {/* Subtitle */}
-          <motion.p
-            {...fade(0.75)}
-            className="col-span-4 md:col-span-4 lg:col-span-5 lg:col-start-1 lg:row-start-2 font-display text-lede italic text-charcoal md:text-[1.6rem] md:leading-snug max-w-[26ch]"
-          >
-            {site.tagline}
-          </motion.p>
-
-          {/* Contents, set like a magazine's table of contents */}
+          {/* Contents, set like the table of contents of an old book */}
           <motion.nav
-            {...fade(0.95)}
+            {...fade(1)}
             aria-label="Contents"
             className="hidden lg:block lg:col-span-2 lg:col-start-6 lg:row-start-2 lg:self-end"
           >
-            <p className="label mb-3 text-charcoal">Contents</p>
+            <p className="label mb-3 text-velvet">Contents</p>
             <ol className="space-y-1.5 text-caption">
               {navigation.slice(0, 4).map((item, i) => (
-                <li key={item.href} className="flex gap-3">
-                  <span className="label w-5 pt-[3px] text-sealbrown">0{i + 2}</span>
-                  <Link href={item.href} className="link-draw">
+                <li key={item.href} className="group flex items-baseline gap-3">
+                  <span className="label w-5 text-bloom-ink">{["II", "III", "IV", "V"][i]}</span>
+                  <Link href={item.href} className="link-draw text-ink">
                     {item.label}
                   </Link>
                 </li>
@@ -131,12 +131,12 @@ export function Hero() {
           <motion.a
             {...fade(1.2)}
             href="#selected-works"
-            className="group col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3 flex items-end gap-3 self-end pb-8 lg:pb-12"
+            className="group col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-3 flex items-end gap-3 self-end lg:pb-12"
           >
-            <span aria-hidden className="relative block h-14 w-px overflow-hidden bg-charcoal/20">
-              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-sealbrown" />
+            <span aria-hidden className="relative block h-14 w-px overflow-hidden bg-velvet/20">
+              <span className="scroll-cue-line absolute inset-x-0 top-0 block h-5 bg-velvet" />
             </span>
-            <span className="label text-charcoal transition-colors duration-500 group-hover:text-sealbrown">Scroll</span>
+            <span className="label text-velvet transition-colors duration-500 group-hover:text-bloom-ink">Scroll</span>
           </motion.a>
         </div>
       </div>

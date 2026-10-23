@@ -26,25 +26,25 @@ export default async function ArchiveItemPage({ params }: Props) {
       <div className="grid-editorial gap-y-12">
         <figure className="col-span-4 md:col-span-5 lg:col-span-7">
           <Plate image={item.image} priority sizes="(min-width: 64rem) 58vw, 100vw" zoom={false} />
-          {item.image.caption && <figcaption className="mt-3 text-caption text-charcoal-soft">{item.image.caption}</figcaption>}
+          {item.image.caption && <figcaption className="mt-3 text-caption text-ink-soft">{item.image.caption}</figcaption>}
         </figure>
         <div className="col-span-4 md:col-span-3 lg:col-span-4 lg:col-start-9 md:sticky md:top-28 self-start">
-          <dl className="space-y-4 border-t border-charcoal/70 pt-4">
+          <dl className="space-y-4 border-t border-ink/70 pt-4">
             <div>
-              <dt className="label text-charcoal-soft">Catalogue</dt>
-              <dd className="label text-slate-ink">{catalogueNumber(item.number)}</dd>
+              <dt className="label text-ink-soft">Catalogue</dt>
+              <dd className="label text-velvet">{catalogueNumber(item.number)}</dd>
             </div>
             <div>
-              <dt className="label text-charcoal-soft">Category</dt>
+              <dt className="label text-ink-soft">Category</dt>
               <dd className="label">{item.category}</dd>
             </div>
             <div>
-              <dt className="label text-charcoal-soft">Date</dt>
+              <dt className="label text-ink-soft">Date</dt>
               <dd className="label">{item.date ?? "Date unknown"}</dd>
             </div>
           </dl>
           <h1 className="mt-10 text-display-m">{item.title}</h1>
-          {item.note && <p className="mt-6 font-display text-lede italic text-charcoal-soft">{item.note}</p>}
+          {item.note && <p className="mt-6 font-display text-lede italic text-ink-soft">{item.note}</p>}
           <div className="mt-12">
             <ArrowLink href="/archive">Back to the archive</ArrowLink>
           </div>

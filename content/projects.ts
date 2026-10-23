@@ -46,7 +46,7 @@ export const projects: Project[] = [
     cover: {
       alt: "[Describe the project image]",
       aspect: 4 / 5,
-      tone: "slate",
+      tone: "bloom",
       motif: "sun",
       caption: "[Image — caption]",
     },
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     cover: {
       alt: "[Describe the cover image]",
       aspect: 3 / 2,
-      tone: "charcoal",
+      tone: "ink",
       motif: "frame",
       caption: "[Still or research image — caption]",
     },
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       {
         type: "gallery",
         images: [
-          { alt: "[Image 1]", aspect: 3 / 2, tone: "charcoal", motif: "frame" },
+          { alt: "[Image 1]", aspect: 3 / 2, tone: "ink", motif: "frame" },
           { alt: "[Image 2]", aspect: 3 / 2, tone: "parchment", motif: "figure" },
         ],
       },
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     cover: {
       alt: "[Describe the show image]",
       aspect: 4 / 5,
-      tone: "sunset",
+      tone: "amber",
       motif: "figure",
       caption: "[Runway or backstage — caption]",
     },

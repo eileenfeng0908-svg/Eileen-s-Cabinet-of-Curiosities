@@ -65,7 +65,7 @@ Until `src` is set, a toned "plate" placeholder is shown instead. The `tone` and
 
 ## Status
 
-- **Phase 1 — Design system**: done (palette: Slate Gray, Jordy Blue, Sunset, Pumpkin, Seal Brown; type: Fraunces, Send Flowers, DM Mono, Inter) (`app/globals.css`, `DESIGN.md`).
+- **Phase 1 — Design system**: done, refined to the romantic Art Nouveau direction (see `DESIGN.md`).
 - **Phase 2 — Homepage**: done.
 - **Phase 3 — Internal pages**: Work, Writing, Archive, About and Contact exist and render real content with working detail routes, but are preliminary layouts. Still to build: the Archive Grid/Index toggle, category filters, the full About page and CV download.
 - **Phase 4 — Refinement**: not started.

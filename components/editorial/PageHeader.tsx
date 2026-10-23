@@ -1,13 +1,14 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
+import { Star } from "./Ornaments";
 
 /** Each section of the site owns one colour of the palette. */
 export const pageTones = {
-  jordy: { bg: "bg-jordy", text: "text-charcoal", accent: "text-sealbrown", soft: "text-charcoal", rule: "border-charcoal/25", bar: "bg-charcoal/30" },
-  sunset: { bg: "bg-sunset", text: "text-charcoal", accent: "text-sealbrown", soft: "text-charcoal", rule: "border-charcoal/25", bar: "bg-sealbrown/40" },
-  slate: { bg: "bg-slate", text: "text-ivory", accent: "text-sunset", soft: "text-ivory/90", rule: "border-ivory/30", bar: "bg-ivory/40" },
-  sealbrown: { bg: "bg-sealbrown", text: "text-ivory", accent: "text-sunset", soft: "text-ivory/85", rule: "border-ivory/25", bar: "bg-ivory/40" },
-  pumpkin: { bg: "bg-pumpkin", text: "text-sealbrown", accent: "text-sealbrown", soft: "text-sealbrown", rule: "border-sealbrown/30", bar: "bg-sealbrown/40" },
+  haze: { bg: "haze-wash" },
+  amber: { bg: "bg-amber/20" },
+  velvet: { bg: "bg-haze/25" },
+  fern: { bg: "bg-fern/10" },
+  bloom: { bg: "bg-bloom/15" },
 } as const;
 
 export type PageTone = keyof typeof pageTones;
@@ -19,7 +20,7 @@ export function PageHeader({
   title,
   italic,
   intro,
-  tone = "jordy",
+  tone = "haze",
 }: {
   number: string;
   kicker: string;
@@ -32,26 +33,27 @@ export function PageHeader({
   return (
     <header className={cn(t.bg, "mb-16 md:mb-24")}>
       <div className="frame pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
-        <div className={cn("grid-editorial gap-y-8 border-t pt-4", t.rule)}>
-          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-            <span className={cn("label", t.accent)}>{number}</span>
-            <span aria-hidden className={cn("h-px w-10", t.bar)} />
-            <span className={cn("label", t.soft)}>{kicker}</span>
+        <div className="grid-editorial gap-y-8 border-t border-velvet/25 pt-4">
+          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-velvet">
+            <span className="label text-bloom-ink">{number}</span>
+            <span aria-hidden className="h-px w-10 bg-velvet/30" />
+          <Star className="h-3 w-3 text-haze" />
+            <span className="label">{kicker}</span>
           </div>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-10">
-            <h1 className={cn("text-display-l md:text-display-xl", t.text)}>
+            <h1 className="text-display-l md:text-display-xl">
               {title}
               {italic && (
                 <>
                   {" "}
-                  <em className={t.accent}>{italic}</em>
+                  <em>{italic}</em>
                 </>
               )}
             </h1>
           </Reveal>
           {intro && (
             <Reveal delay={0.1} className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-8">
-              <p className={cn("font-display text-lede italic", t.soft)}>{intro}</p>
+              <p className="font-display text-lede italic text-velvet">{intro}</p>
             </Reveal>
           )}
         </div>

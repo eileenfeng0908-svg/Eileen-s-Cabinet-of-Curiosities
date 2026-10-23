@@ -8,12 +8,12 @@
 export type PlateTone =
   | "ivory"
   | "parchment"
-  | "sunset"
-  | "jordy"
-  | "slate"
-  | "pumpkin"
-  | "sealbrown"
-  | "charcoal";
+  | "haze"
+  | "fern"
+  | "bloom"
+  | "amber"
+  | "velvet"
+  | "ink";
 
 /** Simple motifs drawn on placeholder plates. */
 export type PlateMotif = "horizon" | "arch" | "sun" | "frame" | "figure" | "none";

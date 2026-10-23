@@ -18,7 +18,7 @@ export default function ArchivePage() {
     <>
       <PageHeader
         number="04"
-        tone="slate"
+        tone="velvet"
         kicker="Archive"
         title="Cabinet of"
         italic="curiosities"
@@ -30,9 +30,9 @@ export default function ArchivePage() {
             <Reveal as="li" key={item.slug} delay={(i % 4) * 0.05} className={i % 2 ? "mt-12" : ""}>
               <Link href={`/archive/${item.slug}`} className="group block">
                 <Plate image={item.image} showPlaceholderLabel={false} sizes="(min-width: 64rem) 25vw, 50vw" />
-                <p className="label mt-3 text-slate-ink">{catalogueNumber(item.number)}</p>
-                <p className="label text-charcoal">{item.title}</p>
-                <p className="label text-charcoal-soft">{item.date ?? "Date unknown"}</p>
+                <p className="label mt-3 text-velvet">{catalogueNumber(item.number)}</p>
+                <p className="label text-ink">{item.title}</p>
+                <p className="label text-ink-soft">{item.date ?? "Date unknown"}</p>
               </Link>
             </Reveal>
           ))}

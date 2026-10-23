@@ -25,13 +25,13 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <article className="frame pb-[var(--section-space)] pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+6rem)]">
       <header className="reading-column text-center">
-        <p className="label flex flex-wrap justify-center gap-x-4 text-charcoal-soft">
-          <span className="text-sealbrown">{article.category}</span>
+        <p className="label flex flex-wrap justify-center gap-x-4 text-ink-soft">
+          <span className="text-velvet">{article.category}</span>
           <span>{formatDate(article.date)}</span>
           <span>{readingTime(article.body)}</span>
         </p>
         <h1 className="mt-8 text-display-m md:text-display-l">{article.title}</h1>
-        {article.dek && <p className="mt-6 font-display text-lede italic text-charcoal-soft">{article.dek}</p>}
+        {article.dek && <p className="mt-6 font-display text-lede italic text-ink-soft">{article.dek}</p>}
       </header>
 
       {article.cover && (
@@ -46,8 +46,8 @@ export default async function ArticlePage({ params }: Props) {
 
       {article.footnotes && (
         <section aria-label="Notes" className="reading-column mt-20 border-t border-rule pt-6">
-          <p className="label mb-4 text-charcoal-soft">Notes</p>
-          <ol className="list-decimal space-y-2 pl-5 text-caption text-charcoal-soft">
+          <p className="label mb-4 text-ink-soft">Notes</p>
+          <ol className="list-decimal space-y-2 pl-5 text-caption text-ink-soft">
             {article.footnotes.map((f) => (
               <li key={f}>{f}</li>
             ))}

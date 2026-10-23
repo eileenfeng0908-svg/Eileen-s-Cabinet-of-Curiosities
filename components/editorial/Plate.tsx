@@ -12,15 +12,16 @@ import type { ImageAsset, PlateMotif, PlateTone } from "@/lib/types";
  * Hover zoom is applied when an ancestor has the `group` class.
  */
 
+// Placeholder tones: the palette, faded toward the paper like old printing inks.
 const tones: Record<PlateTone, { bg: string; ink: string }> = {
-  ivory: { bg: "#efe8d9", ink: "#34332f" },
-  parchment: { bg: "#e9dcc3", ink: "#34332f" },
-  sunset: { bg: "#f7c97f", ink: "#34332f" },
-  jordy: { bg: "#91c0ef", ink: "#34332f" },
-  slate: { bg: "#62768e", ink: "#f6f2e9" },
-  pumpkin: { bg: "#e87425", ink: "#34332f" },
-  sealbrown: { bg: "#571801", ink: "#f6f2e9" },
-  charcoal: { bg: "#3b3a35", ink: "#ede6d6" },
+  ivory: { bg: "#efe9dc", ink: "#4a446f" },
+  parchment: { bg: "#e7ddc9", ink: "#4a446f" },
+  haze: { bg: "#c7c9df", ink: "#4a446f" },
+  fern: { bg: "#a9b49c", ink: "#3c4733" },
+  bloom: { bg: "#e3b8c6", ink: "#4a446f" },
+  amber: { bg: "#ecc9ab", ink: "#4a446f" },
+  velvet: { bg: "#8f8aae", ink: "#f6f2e9" },
+  ink: { bg: "#6d6890", ink: "#f6f2e9" },
 };
 
 function Motif({ motif, ink }: { motif: PlateMotif; ink: string }) {
@@ -84,6 +85,7 @@ export function Plate({
   className,
   zoom = true,
   showPlaceholderLabel = true,
+  grain = false,
 }: {
   image: ImageAsset;
   /** Plate number for the placeholder (rendered in Roman numerals). */
@@ -93,6 +95,8 @@ export function Plate({
   className?: string;
   zoom?: boolean;
   showPlaceholderLabel?: boolean;
+  /** Gentle animated film grain over the image. Use on a few images per page. */
+  grain?: boolean;
 }) {
   const zoomClass = zoom
     ? "transition-transform duration-[1400ms] ease-gallery group-hover:scale-[1.035] motion-reduce:transform-none"
@@ -107,8 +111,9 @@ export function Plate({
           fill
           sizes={sizes}
           priority={priority}
-          className={cn("object-cover", zoomClass)}
+          className={cn("object-cover faded-print", zoomClass)}
         />
+        {grain && <div aria-hidden className="film-grain" />}
       </div>
     );
   }
@@ -119,7 +124,7 @@ export function Plate({
       role="img"
       aria-label={`Placeholder: ${image.alt}`}
       className={cn("relative overflow-hidden", className)}
-      style={{ aspectRatio: image.aspect, backgroundColor: tone.bg, color: tone.ink }}
+      style={{ aspectRatio: image.aspect, backgroundColor: tone.bg, color: tone.ink, filter: "saturate(0.85)" }}
     >
       <div className={cn("absolute inset-0", zoomClass)}>
         <div className="plate-tooth absolute inset-0" />
@@ -130,6 +135,7 @@ export function Plate({
         />
         <Motif motif={image.motif ?? "none"} ink={tone.ink} />
       </div>
+      {grain && <div aria-hidden className="film-grain" />}
       {showPlaceholderLabel && (
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 sm:p-4">
           <span className="label opacity-70">{number ? `Pl. ${roman(number)}` : "Plate"}</span>

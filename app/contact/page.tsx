@@ -8,16 +8,16 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="bg-pumpkin text-sealbrown">
+    <section className="bg-bloom/15 text-ink">
       <div className="frame flex min-h-[100svh] flex-col justify-center pb-24 pt-[calc(var(--header-h)+4rem)]">
-      <p className="label text-sealbrown">06 — Contact</p>
+      <p className="label text-ink">06 — Contact</p>
       <h1 className="mt-8 max-w-[14ch] text-display-l">
-        For collaborations, <em className="text-charcoal">or simply a conversation.</em>
+        For collaborations, <em className="text-ink">or simply a conversation.</em>
       </h1>
       <a href={`mailto:${site.email}`} className="link-draw mt-12 self-start font-display text-title break-all">
         {site.email}
       </a>
-      <ul className="label mt-8 flex flex-wrap gap-6 text-sealbrown">
+      <ul className="label mt-8 flex flex-wrap gap-6 text-ink">
         {site.socials.map((s) => (
           <li key={s.label}>
             <a href={s.href} className="link-draw" {...(s.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>

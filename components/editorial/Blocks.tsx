@@ -34,16 +34,16 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "quote":
             return (
-              <blockquote key={i} className="reading-column border-l border-slate py-2 pl-6">
-                <p className="font-display text-statement italic text-slate">{block.text}</p>
-                {block.source && <footer className="label mt-4 text-charcoal-soft">— {block.source}</footer>}
+              <blockquote key={i} className="reading-column border-l border-velvet py-2 pl-6">
+                <p className="font-display text-statement italic text-velvet">{block.text}</p>
+                {block.source && <footer className="label mt-4 text-ink-soft">— {block.source}</footer>}
               </blockquote>
             );
           case "image":
             return (
               <figure key={i} className={cn("py-6", block.size === "inset" ? "reading-column" : block.size === "full" ? "" : "mx-auto max-w-5xl")}>
                 <Plate image={block.image} sizes="(min-width: 64rem) 70vw, 100vw" zoom={false} />
-                {block.image.caption && <figcaption className="mt-3 text-caption text-charcoal-soft">{block.image.caption}</figcaption>}
+                {block.image.caption && <figcaption className="mt-3 text-caption text-ink-soft">{block.image.caption}</figcaption>}
               </figure>
             );
           case "gallery":
@@ -52,7 +52,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
                 {block.images.map((img, j) => (
                   <figure key={j} className={j % 2 ? "sm:mt-16" : ""}>
                     <Plate image={img} number={j + 1} sizes="(min-width: 40rem) 40vw, 100vw" zoom={false} />
-                    {img.caption && <figcaption className="mt-3 text-caption text-charcoal-soft">{img.caption}</figcaption>}
+                    {img.caption && <figcaption className="mt-3 text-caption text-ink-soft">{img.caption}</figcaption>}
                   </figure>
                 ))}
               </div>
@@ -61,7 +61,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             return (
               <figure key={i} className="mx-auto max-w-5xl py-6">
                 {block.url ? (
-                  <div className="relative aspect-video bg-charcoal">
+                  <div className="relative aspect-video bg-ink">
                     <iframe
                       src={embedUrl(block.url)}
                       title={block.title}
@@ -71,17 +71,17 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
                     />
                   </div>
                 ) : (
-                  <div className="flex aspect-video items-center justify-center bg-charcoal text-ivory/70">
+                  <div className="flex aspect-video items-center justify-center bg-ink text-ivory/70">
                     <span className="label">Video forthcoming — {block.title}</span>
                   </div>
                 )}
-                {block.caption && <figcaption className="mt-3 text-caption text-charcoal-soft">{block.caption}</figcaption>}
+                {block.caption && <figcaption className="mt-3 text-caption text-ink-soft">{block.caption}</figcaption>}
               </figure>
             );
           case "links":
             return (
               <div key={i} className="reading-column border-t border-rule pt-6">
-                {block.title && <p className="label mb-3 text-charcoal-soft">{block.title}</p>}
+                {block.title && <p className="label mb-3 text-ink-soft">{block.title}</p>}
                 <ul className="space-y-2">
                   {block.items.map((l) => (
                     <li key={l.label}>
