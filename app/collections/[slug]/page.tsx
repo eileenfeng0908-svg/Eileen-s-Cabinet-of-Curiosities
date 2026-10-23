@@ -10,7 +10,8 @@ import { catalogueNumber, formatDate } from "@/lib/format";
 import { CinemaCompartments } from "@/components/cinema/CinemaCompartments";
 import { FilmLog } from "@/components/cinema/FilmLog";
 import { FilmReviews } from "@/components/cinema/FilmReviews";
-import { films, filmsArePlaceholders } from "@/content/films";
+import { TopFive } from "@/components/cinema/TopFive";
+import { films, filmsArePlaceholders, topFive } from "@/content/films";
 
 export const generateStaticParams = () => collections.map((c) => ({ slug: c.slug }));
 
@@ -40,6 +41,8 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
       <PageHeader number={`Collection ${index + 1} of ${collections.length}`} kicker="From the cabinet" title={c.title} intro={c.intro} tone="blue" />
 
       <div className="frame space-y-24 pb-[var(--section-space)]">
+        {c.slug === "cinema" && <TopFive films={topFive} />}
+
         {c.slug === "cinema" && (
           <CinemaCompartments
             log={<FilmLog films={films} placeholders={filmsArePlaceholders} />}

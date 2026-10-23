@@ -14,7 +14,7 @@ interface Review {
 }
 
 /**
- * Film reviews, essays and research: everything Cinema holds that is meant
+ * Film analysis, essays and research: everything Cinema holds that is meant
  * to be read. Writing filed under Film Criticism and projects filed under
  * Cinema & Research both appear here, each opening its full page.
  */
@@ -22,7 +22,7 @@ export function FilmReviews({ writing, projects }: { writing: Article[]; project
   const reviews: Review[] = [
     ...writing.map((a) => ({
       href: `/writing/${a.slug}`,
-      kind: a.category === "Film Criticism" ? "Review" : a.category,
+      kind: a.category === "Film Criticism" ? "Analysis" : a.category,
       title: a.title,
       excerpt: a.dek,
       still: a.cover ?? { alt: `Film still for ${a.title}`, aspect: 16 / 9, tone: "walnut" as const, motif: "horizon" as const },
@@ -41,7 +41,7 @@ export function FilmReviews({ writing, projects }: { writing: Article[]; project
   ];
 
   if (!reviews.length)
-    return <p className="font-display text-lede italic text-wine">[No reviews yet. Add a piece filed under Film Criticism in content/writing.ts.]</p>;
+    return <p className="font-display text-lede italic text-wine">[No film analysis yet. Add a piece filed under Film Criticism in content/writing.ts.]</p>;
 
   return (
     <ol className="grid gap-x-8 gap-y-14 md:grid-cols-2">

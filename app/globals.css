@@ -331,3 +331,5 @@
 @media (prefers-reduced-motion: reduce) {
   .film-entry[open] { animation: none; }
 }
+/* Top 5 posters: grain light enough to leave the posters' own colours alone. */
+.top-five-grain { opacity: 0.12; }

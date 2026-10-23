@@ -4,26 +4,26 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/cn";
 
-type Key = "film-log" | "film-reviews";
+type Key = "film-log" | "film-analysis";
 const tabs: { key: Key; no: string; title: string; note: string }[] = [
   { key: "film-log", no: "01", title: "Film Log", note: "A diary of everything watched" },
-  { key: "film-reviews", no: "02", title: "Film Reviews", note: "Reviews, essays and research" },
+  { key: "film-analysis", no: "02", title: "Film Analysis", note: "Analysis, essays and research" },
 ];
 
 /**
  * The Cinema collection's two compartments, drawn like the cabinet's drawer
  * fronts: a walnut-edged front with a brass knob for each. The open one sits
  * forward onto its contents; the other rests back. #film-log and
- * #film-reviews (and a film's own #film-<slug>) open the right one.
+ * #film-analysis (and a film's own #film-<slug>) open the right one.
  */
 export function CinemaCompartments({ log, reviews }: { log: ReactNode; reviews: ReactNode }) {
   const [active, setActive] = useState<Key>("film-log");
-  const refs = useRef<Record<Key, HTMLButtonElement | null>>({ "film-log": null, "film-reviews": null });
+  const refs = useRef<Record<Key, HTMLButtonElement | null>>({ "film-log": null, "film-analysis": null });
 
   useEffect(() => {
     const sync = () => {
       const h = location.hash.slice(1);
-      if (h === "film-reviews") setActive("film-reviews");
+      if (h === "film-analysis" || h === "film-reviews") setActive("film-analysis");
       else if (h === "film-log" || h.startsWith("film-")) setActive("film-log");
     };
     sync();
