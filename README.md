@@ -1,4 +1,4 @@
-# Eileen Feng — A Personal Digital Archive
+# Eileen’s Cabinet of Curiosities
 
 Next.js (App Router) · TypeScript · Tailwind CSS v4 · Motion for React. No CMS, no database: all content lives in `/content`.
 

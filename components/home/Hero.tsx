@@ -49,7 +49,7 @@ export function Hero() {
         <motion.div {...fade(0.05)} className="grid-editorial items-center border-b border-prussian/25 pb-3 text-prussian">
           <span className="label col-span-2 md:col-span-3">No. 01 — Index</span>
           <span className="label col-span-2 md:col-span-3 lg:col-span-4 flex items-center justify-end gap-2 md:justify-start">
-            <Star className="h-2.5 w-2.5 text-blush" /> A Personal Digital Archive
+            <Star className="h-2.5 w-2.5 text-blush" /> Eileen’s Cabinet of Curiosities
           </span>
           <span className="label hidden md:block md:col-span-2 lg:col-span-5 text-right">Works · Writings · Objects</span>
         </motion.div>

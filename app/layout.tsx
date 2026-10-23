@@ -41,14 +41,14 @@ const pinyon = Pinyon_Script({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — A Personal Digital Archive`,
+    default: "Eileen’s Cabinet of Curiosities",
     template: `%s — ${site.name}`,
   },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — A Personal Digital Archive`,
+    title: "Eileen’s Cabinet of Curiosities",
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
