@@ -447,7 +447,7 @@ export const diary: FilmEntry[] = [
   {
     "slug": "talk-show-2026",
     "title": "TALK SHOW",
-    "link": { "label": "On Instagram", "href": "https://www.instagram.com/p/DVi02vjjbh9/?img_index=3" },
+    "link": { "label": "On Fluentum", "href": "https://www.fluentum.org/en/collection/talk_show/" },
     "year": "2026",
     "watched": "2026-07-11",
     "rating": 5,
@@ -457,7 +457,8 @@ export const diary: FilmEntry[] = [
       "I really enjoyed this film; it felt like a therapy session. My favourite scene is the therapeutic talk show about the child within us. I literally cried – without a clue. But my tears fell, so… I guess this film is a 5."
     ],
     "poster": {
-      "alt": "Poster for TALK SHOW",
+      "src": "/images/films/talk-show-2026.webp",
+      "alt": "A still from TALK SHOW: a blonde woman half in shadow",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
     }
