@@ -8,6 +8,8 @@ function embedUrl(url: string) {
   if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}`;
   const vimeo = url.match(/vimeo\.com\/(\d+)/);
   if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
+  const bili = url.match(/bilibili\.com\/video\/(BV\w+)/);
+  if (bili) return `https://player.bilibili.com/player.html?bvid=${bili[1]}&autoplay=0&high_quality=1`;
   return url;
 }
 

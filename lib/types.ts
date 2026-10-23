@@ -79,6 +79,8 @@ export interface Article {
   /** ISO date, e.g. "2026-03-14". Leave undefined for drafts. */
   date?: string;
   cover?: ImageAsset;
+  /** Shown in place of the reading time for pieces that aren't read, e.g. "Video essay". */
+  format?: string;
   /** True when the cover also appears in the body, so the page doesn't show it twice. */
   hideCover?: boolean;
   body: ContentBlock[];

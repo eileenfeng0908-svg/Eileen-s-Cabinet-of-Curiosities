@@ -11,6 +11,7 @@ interface Review {
   still: ImageAsset;
   date?: string;
   minutes: string;
+  format?: string;
 }
 
 /**
@@ -27,7 +28,8 @@ export function FilmReviews({ writing, projects }: { writing: Article[]; project
       excerpt: a.dek,
       still: a.cover ?? { alt: `Film still for ${a.title}`, aspect: 16 / 9, tone: "walnut" as const, motif: "horizon" as const },
       date: a.date,
-      minutes: readingTime(a.body),
+      minutes: a.format ?? readingTime(a.body),
+      format: a.format,
     })),
     ...projects.map((p) => ({
       href: `/work/${p.slug}`,
@@ -52,7 +54,7 @@ export function FilmReviews({ writing, projects }: { writing: Article[]; project
               <Plate image={{ ...r.still, aspect: 16 / 9 }} number={i + 1} grain sizes="(min-width: 48rem) 45vw, 90vw" />
             </div>
             <p className="label mt-4 text-wine">
-              {r.kind} · {r.date ? (r.date.length > 4 ? formatDate(r.date) : r.date) : "Undated"} · {r.minutes}
+              {[r.kind, r.date ? (r.date.length > 4 ? formatDate(r.date) : r.date) : !r.format && "Undated", r.minutes].filter(Boolean).join(" · ")}
             </p>
             <h3 className="mt-1 text-title transition-colors duration-500 group-hover:text-vermilion">{r.title}</h3>
             {r.excerpt && <p className="mt-2 max-w-[56ch] text-body text-wine">{r.excerpt}</p>}

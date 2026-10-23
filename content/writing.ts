@@ -133,6 +133,71 @@ export const articles: Article[] = [
       }
     ]
   },
+  // Eileen's video essay, published 10 April 2026.
+  {
+    "slug": "when-obsession-pulls-us-into-the-abyss-of-self-destruction",
+    "title": "When Obsession Pulls Us Into the Abyss of Self-destruction",
+    "dek": "A film narrative comparison examining obsession and self-destruction.",
+    "category": "Film Criticism",
+    "format": "Video essay",
+    "cover": {
+      "src": "/images/writing/obsession-self-destruction-cover.webp",
+      "alt": "Title card: Film Comparison, Black Swan & Farewell My Concubine, over a dancer in a spotlight",
+      "aspect": 1.7778
+    },
+    "hideCover": true,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Format: Video essay / comparative analysis. Films: Black Swan (2010); Farewell My Concubine (1993)."
+      },
+      {
+        "type": "video",
+        "url": "https://www.bilibili.com/video/BV1m7MFzJEyj/?share_source=copy_web&vd_source=98acf37274eea5a703ea7f7264e3a8f8",
+        "title": "When Obsession Pulls Us Into the Abyss of Self-destruction",
+        "caption": "Black Swan (dir. Darren Aronofsky, 2010) and Farewell My Concubine (dir. Chen Kaige, 1993)."
+      },
+      {
+        "type": "links",
+        "items": [
+          {
+            "label": "Watch the video essay on Bilibili",
+            "href": "https://www.bilibili.com/video/BV1m7MFzJEyj/?share_source=copy_web&vd_source=98acf37274eea5a703ea7f7264e3a8f8"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "the-social-network-scene-analysis",
+    title: "The Social Network Scene Analysis",
+    dek: "An in-depth scene analysis of The Social Network (2010) and the scene comparison with The Shining (1980) through the 5 elements of film analysis.",
+    category: "Film Criticism",
+    format: "Video essay",
+    cover: {
+      src: "/images/writing/social-network-scene-analysis-cover.webp",
+      alt: "Title card: The Social Network Scene Analysis, Eileen Feng, over a wall of screens showing fireworks",
+      aspect: 902 / 507,
+    },
+    hideCover: true,
+    body: [
+      {
+        type: "quote",
+        text: "“We lived on farms, then we lived in cities, and now we’re going to live on the internet!”",
+        source: "Sean Parker",
+      },
+      {
+        type: "video",
+        url: "https://www.bilibili.com/video/BV1nywVeMEyF/?share_source=copy_web&vd_source=98acf37274eea5a703ea7f7264e3a8f8",
+        title: "The Social Network Scene Analysis",
+        caption: "The Social Network (dir. David Fincher, 2010) and The Shining (dir. Stanley Kubrick, 1980).",
+      },
+      {
+        type: "links",
+        items: [{ label: "Watch the video essay on Bilibili", href: "https://www.bilibili.com/video/BV1nywVeMEyF/?share_source=copy_web&vd_source=98acf37274eea5a703ea7f7264e3a8f8" }],
+      },
+    ],
+  },
   {
     slug: "on-the-ethics-of-looking",
     title: "On the Ethics of Looking",
