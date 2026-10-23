@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="bg-blush/15 text-ink">
+    <section className="bg-bloom/15 text-ink">
       <div className="frame flex min-h-[100svh] flex-col justify-center pb-24 pt-[calc(var(--header-h)+4rem)]">
       <p className="label text-ink">06 — Contact</p>
       <h1 className="mt-8 max-w-[14ch] text-display-l">

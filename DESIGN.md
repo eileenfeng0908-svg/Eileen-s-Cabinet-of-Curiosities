@@ -4,19 +4,20 @@
 An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
-A faded romantic interior on warm paper: powder-blue walls, navy porcelain, peach silk, rose velvet, dark walnut. Ivory dominates; avoid colour blocking.
+Faded Impressionist inks on warm paper. Ivory dominates; avoid colour blocking.
 
 | Token | Hex | Use |
 |---|---|---|
 | `ivory` | #F6F2E9 | Warm Ivory — the page, almost everywhere |
 | `ivory-deep` | #EEE7D8 | A second sheet: the statement, the footer |
 | `ivory-pale` | #FBF8F1 | Print borders, lace |
-| `prussian` / `ink` | #1C2F4D | Prussian Blue — body text, headings, structure, rules, the site title |
-| `ink-soft` | #4D5D78 | Captions (passes AA on ivory) |
-| `dust` | #93AEBF | Blue Dust — soft signature accent: the doily, stars, washes (`dust-wash`). Decorative only, never for text |
-| `blush` | #D48D91 | Matte Light Red — flowers, the lace heart, selection (`blush-ink` #93505A for numerals and hover text) |
-| `pistachio` | #F2CEAE | Pistachio Shell — warm washes, the heart of a bloom (`pistachio-ink` #8A5A33 for text) |
-| `bean` | #400D01 | Bean — botanical linework, flourishes, italic accent words in headings |
+| `velvet` / `ink` | #4A446F | Body text, structure, rules |
+| `ink-soft` | #666186 | Captions (passes AA on ivory) |
+| `mozart` | #475480 | Headings, links, the site title |
+| `haze` | #9FA4C9 | Soft signature accent: the doily, stars, washes (`haze-wash`). Decorative only, never for text |
+| `fern` | #627655 | Botanical linework (`fern-ink` #56684A for small text) |
+| `bloom` | #CF809E | Flowers, the lace heart, selection (`bloom-ink` #9B5A72 for numerals and hover text) |
+| `amber` | #E0AC82 | The heart of a bloom, warm details (`amber-ink` #8A5A33 for text) |
 
 Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 

@@ -32,9 +32,9 @@ function Leaf({ d, at, progress, still }: { d: string; at: number; progress: Mot
   return (
     <motion.path
       d={d}
-      fill="var(--color-bean)"
+      fill="var(--color-fern)"
       fillOpacity={0.22}
-      stroke="var(--color-bean)"
+      stroke="var(--color-fern)"
       strokeWidth={0.8}
       style={still ? undefined : { opacity, scale, transformBox: "fill-box", transformOrigin: "center" }}
     />
@@ -51,9 +51,9 @@ export function BotanicalVine({ className }: { className?: string }) {
   return (
     <div ref={ref} aria-hidden className={cn("pointer-events-none w-[clamp(3.5rem,7vw,6.5rem)]", className)}>
     <svg viewBox="0 0 120 610" fill="none" strokeLinecap="round" className="block h-auto w-full overflow-visible">
-      <motion.path d={stem} stroke="var(--color-bean)" strokeWidth={1.1} style={still ? undefined : { pathLength: draw }} />
+      <motion.path d={stem} stroke="var(--color-fern)" strokeWidth={1.1} style={still ? undefined : { pathLength: draw }} />
       {tendrils.map((d) => (
-        <motion.path key={d} d={d} stroke="var(--color-bean)" strokeWidth={0.8} style={still ? undefined : { pathLength: draw }} />
+        <motion.path key={d} d={d} stroke="var(--color-fern)" strokeWidth={0.8} style={still ? undefined : { pathLength: draw }} />
       ))}
       {leaves.map(([d, at]) => (
         <Leaf key={d} d={d} at={at} progress={scrollYProgress} still={still} />
@@ -61,9 +61,9 @@ export function BotanicalVine({ className }: { className?: string }) {
       {/* The bloom at the tip */}
       <motion.g style={still ? undefined : { opacity: bloomOpacity }}>
         {[0, 72, 144, 216, 288].map((r) => (
-          <ellipse key={r} cx="58" cy="2" rx="5" ry="9" transform={`rotate(${r} 58 10)`} fill="var(--color-blush)" fillOpacity={0.55} stroke="var(--color-blush-ink)" strokeWidth={0.5} />
+          <ellipse key={r} cx="58" cy="2" rx="5" ry="9" transform={`rotate(${r} 58 10)`} fill="var(--color-bloom)" fillOpacity={0.55} stroke="var(--color-bloom-ink)" strokeWidth={0.5} />
         ))}
-        <circle cx="58" cy="10" r="3" fill="var(--color-pistachio)" />
+        <circle cx="58" cy="10" r="3" fill="var(--color-amber)" />
       </motion.g>
     </svg>
     </div>

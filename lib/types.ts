@@ -8,11 +8,11 @@
 export type PlateTone =
   | "ivory"
   | "parchment"
-  | "dust"
-  | "bean"
-  | "blush"
-  | "pistachio"
-  | "prussian"
+  | "haze"
+  | "fern"
+  | "bloom"
+  | "amber"
+  | "velvet"
   | "ink";
 
 /** Simple motifs drawn on placeholder plates. */

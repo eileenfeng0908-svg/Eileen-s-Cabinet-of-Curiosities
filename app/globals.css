@@ -13,24 +13,24 @@
 
 @theme {
   /* --- Colour ------------------------------------------------------------
-     A faded, romantic interior: powder-blue walls, navy porcelain, peach
-     silk, rose velvet, dark walnut. Ivory stays the page; Prussian carries
-     type and structure; Blue Dust is the soft signature; Blush, Pistachio
-     and Bean are sparing accents. */
+     Impressionist, slightly faded, as if printed in an illustrated book.
+     Ivory dominates; Velvet & Mozart carry type and structure; Haze is the
+     soft signature; Fern, Bloom, Amber are sparing decorative accents. */
   --color-ivory: #f6f2e9;        /* Warm Ivory — the page */
   --color-ivory-deep: #eee7d8;   /* A second sheet */
   --color-ivory-pale: #fbf8f1;   /* Lace, print borders */
-  --color-ink: #1c2f4d;          /* Prussian Blue — body text */
-  --color-ink-soft: #4d5d78;     /* Prussian, lighter — captions (AA on ivory) */
-  --color-prussian: #1c2f4d;     /* Prussian Blue — headings, structure */
-  --color-dust: #93aebf;         /* Blue Dust — signature accent (decorative) */
-  --color-blush: #d48d91;        /* Matte Light Red — flowers, hover */
-  --color-pistachio: #f2ceae;    /* Pistachio Shell — warm washes */
-  --color-bean: #400d01;         /* Bean — linework, italic accents */
-  --color-bean-ink: #400d01;
-  --color-blush-ink: #93505a;    /* Accent colours deepened for small text */
-  --color-pistachio-ink: #8a5a33;
-  --color-rule: rgb(28 47 77 / 0.16); /* Hairlines */
+  --color-ink: #4a446f;          /* Velvet — body text */
+  --color-ink-soft: #666186;     /* Velvet, lighter — captions (AA on ivory) */
+  --color-velvet: #4a446f;       /* Velvet — structure */
+  --color-mozart: #475480;       /* Mozart Blue — headings, links */
+  --color-haze: #9fa4c9;         /* Haze — signature accent (decorative) */
+  --color-fern: #627655;         /* Fern — botanical linework */
+  --color-bloom: #cf809e;        /* Bloom — flowers, hover */
+  --color-amber: #e0ac82;        /* Amber — warm details */
+  --color-fern-ink: #56684a;     /* Accent colours deepened for small text */
+  --color-bloom-ink: #9b5a72;
+  --color-amber-ink: #8a5a33;
+  --color-rule: rgb(74 68 111 / 0.18); /* Hairlines */
 
   /* --- Type families (set by next/font in app/layout.tsx) --------------- */
   --font-display: var(--font-fell), "IM Fell English", Georgia, serif;     /* headings: letterpress serif */
@@ -102,21 +102,21 @@
     overflow-x: clip;
   }
   ::selection {
-    background: rgb(212 141 145 / 0.4);
-    color: var(--color-prussian);
+    background: rgb(207 128 158 / 0.45);
+    color: var(--color-velvet);
   }
   :focus-visible {
-    outline: 1px solid var(--color-prussian);
+    outline: 1px solid var(--color-velvet);
     outline-offset: 4px;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    color: var(--color-prussian);
+    color: var(--color-mozart);
   }
-  /* Italic accent words in headings: Fell italic, in Bean. */
+  /* Italic accent words in headings: Fell italic, in Velvet. */
   h1 em, h2 em {
-    color: var(--color-bean);
+    color: var(--color-velvet);
   }
   .title-script {
     font-family: var(--font-title);
@@ -237,19 +237,19 @@
    Textures & frames
    ========================================================================== */
 
-/* A soft wash of Blue Dust over the page — the signature tint, never a block. */
-@utility dust-wash {
+/* A soft wash of Haze over the page — the signature tint, never a block. */
+@utility haze-wash {
   background-color: var(--color-ivory);
   background-image:
-    radial-gradient(70% 60% at 85% 10%, rgb(147 174 191 / 0.32), transparent 70%),
-    radial-gradient(50% 50% at 5% 95%, rgb(242 206 174 / 0.28), transparent 70%);
+    radial-gradient(70% 60% at 85% 10%, rgb(159 164 201 / 0.28), transparent 70%),
+    radial-gradient(50% 50% at 5% 95%, rgb(207 128 158 / 0.10), transparent 70%);
 }
 
 /* A photographic print: a pale paper border with the faintest lift. */
 @utility print {
   background: var(--color-ivory-pale);
   padding: clamp(6px, 0.8vw, 12px);
-  box-shadow: 0 1px 1px rgb(28 47 77 / 0.07), 0 10px 22px -16px rgb(28 47 77 / 0.4);
+  box-shadow: 0 1px 1px rgb(74 68 111 / 0.07), 0 10px 22px -16px rgb(74 68 111 / 0.4);
 }
 
 /* Faded print: images sit slightly into the paper, like book illustrations. */
