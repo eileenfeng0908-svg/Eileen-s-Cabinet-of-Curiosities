@@ -307,6 +307,7 @@ export const diary: FilmEntry[] = [
       "THE GOAT"
     ],
     "poster": {
+      "src": "/images/films/the-social-network-2010.webp",
       "alt": "Poster for The Social Network",
       "aspect": 0.6666666666666666,
       "tone": "brass"
