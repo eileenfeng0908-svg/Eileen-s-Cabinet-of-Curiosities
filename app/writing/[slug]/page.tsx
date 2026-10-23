@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArticlePage({ params }: Props) {
   const article = getArticle((await params).slug);
   if (!article) notFound();
+  const [main, ...rest] = article.title.split(": ");
+  const title = { main, sub: article.title.length > 60 && rest.length ? rest.join(": ") : undefined };
 
   return (
     <article className="frame pb-[var(--section-space)] pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+6rem)]">
@@ -30,11 +32,19 @@ export default async function ArticlePage({ params }: Props) {
           <span>{formatDate(article.date)}</span>
           <span>{readingTime(article.body)}</span>
         </p>
-        <h1 className="mt-8 text-display-m md:text-display-l">{article.title}</h1>
+        {/* A long title with a subtitle sets the subtitle smaller, so the heading stays in scale. */}
+        {title.sub ? (
+          <h1 className="mt-8">
+            <span className="block text-display-m">{title.main}:</span>
+            <span className="mt-3 block font-display text-[clamp(1.35rem,2.2vw,1.9rem)] leading-snug">{title.sub}</span>
+          </h1>
+        ) : (
+          <h1 className="mt-8 text-display-m md:text-display-l">{article.title}</h1>
+        )}
         {article.dek && <p className="mt-6 font-display text-lede italic text-ink-soft">{article.dek}</p>}
       </header>
 
-      {article.cover && (
+      {article.cover && !article.hideCover && (
         <figure className="mx-auto mt-16 max-w-5xl">
           <Plate image={article.cover} priority sizes="(min-width: 64rem) 64rem, 100vw" zoom={false} />
         </figure>

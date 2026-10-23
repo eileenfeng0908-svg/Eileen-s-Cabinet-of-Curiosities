@@ -72,10 +72,14 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
     [films],
   );
 
+  // Ratings only earn their controls once enough films carry one.
+  const rated = useMemo(() => films.filter((f) => f.rating != null).length >= 3, [films]);
+  const sortChoices = rated ? sorts : sorts.filter((s) => !s.value.startsWith("rating"));
+
   const shown = useMemo(() => {
     const needle = q.trim().toLowerCase();
     let list = films.filter((f) => {
-      if (needle && ![f.title, f.director, f.note, f.year, ...(f.tags ?? [])].some((v) => v?.toLowerCase().includes(needle))) return false;
+      if (needle && ![f.title, f.director, f.note, f.year, ...(f.tags ?? []), ...(f.body ?? [])].some((v) => v?.toLowerCase().includes(needle))) return false;
       if (rating === "unrated" && f.rating != null) return false;
       if (rating !== "all" && rating !== "unrated" && (f.rating ?? -1) < Number(rating)) return false;
       if (year !== "all" && f.watched?.slice(0, 4) !== year) return false;
@@ -132,18 +136,18 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
       <form role="search" onSubmit={(e) => e.preventDefault()} className="grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-4">
         <label className="col-span-2 block">
           <span className="label text-wine">Search</span>
-          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Title, director, note…" className={`${field} placeholder:text-wine/60`} />
+          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Title, director, review…" className={`${field} placeholder:text-wine/60`} />
         </label>
-        <label className="block">
+        {rated && <label className="block">
           <span className="label text-wine">Rating</span>
           <select value={rating} onChange={(e) => setRating(e.target.value)} className={field}>
             {ratingFilters.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
-        </label>
+        </label>}
         <label className="block">
           <span className="label text-wine">Sort</span>
           <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} className={field}>
-            {sorts.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
+            {sortChoices.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
           </select>
         </label>
         {years.length > 1 && (
@@ -190,7 +194,7 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                       <Sprockets />
                       <span className="relative my-1.5 block">
                         <Plate image={f.poster} sizes="(min-width: 64rem) 18vw, 45vw" showPlaceholderLabel={false} zoom={false} />
-                        {f.placeholder && (
+                        {!f.poster.src && (
                           <span className="absolute inset-0 flex items-center justify-center p-3 text-center font-display italic text-ivory" style={{ fontSize: "clamp(0.8rem, 1.2vw, 1rem)" }}>
                             {f.title}
                           </span>
@@ -209,7 +213,10 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                       <span className="label mt-1 block text-wine">
                         {[f.director, f.year].filter(Boolean).join(", ") || " "}
                       </span>
-                      <Stars value={f.rating} className="mt-1.5 text-[0.85rem]" />
+                      {f.rating != null && <Stars value={f.rating} className="mt-1.5 text-[0.85rem]" />}
+                      {f.note && !f.placeholder && (
+                        <span className="mt-2 line-clamp-3 block font-display text-[0.98rem] italic leading-snug text-wine">{f.note}</span>
+                      )}
                     </span>
                   </button>
                 </motion.li>
@@ -231,7 +238,7 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
       >
         {open && (
           <article className="grid gap-8 p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:p-10">
-            <div className="bg-wine px-[6%] py-1">
+            <div className="self-start bg-wine px-[6%] py-1 md:sticky md:top-0">
               <Sprockets />
               <div className="my-2">
                 <Plate image={open.poster} sizes="(min-width: 48rem) 22rem, 90vw" zoom={false} showPlaceholderLabel={false} />
@@ -241,12 +248,16 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
             <div className="flex flex-col">
               <p className="label text-wine">Frame {frameNo.get(open.slug)} · Film Log</p>
               <h3 id="film-entry-title" className="mt-3 text-display-m">{open.title}</h3>
-              <p className="mt-2 font-display text-lede italic">{[open.director, open.year].filter(Boolean).join(", ") || "[Director, year]"}</p>
+              <p className="mt-2 font-display text-lede italic">{[open.director, open.year].filter(Boolean).join(", ")}</p>
               <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-y border-wine/25 py-4 text-caption">
                 <dt className="label pt-0.5">Watched</dt>
                 <dd>{open.watched ? formatDate(open.watched) : "[Date]"}{open.rewatch ? " · rewatch" : ""}</dd>
-                <dt className="label pt-0.5">Rating</dt>
-                <dd><Stars value={open.rating} /></dd>
+                {open.rating != null && (
+                  <>
+                    <dt className="label pt-0.5">Rating</dt>
+                    <dd><Stars value={open.rating} /></dd>
+                  </>
+                )}
                 {open.tags?.length ? (
                   <>
                     <dt className="label pt-0.5">Tags</dt>
@@ -254,7 +265,21 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                   </>
                 ) : null}
               </dl>
-              {open.note && <p className="mt-6 whitespace-pre-line text-body">{open.note}</p>}
+              {open.body?.length ? (
+                <div className="mt-6 space-y-4 text-body">
+                  {open.body.map((para, i) =>
+                    para === "—" ? (
+                      <hr key={i} className="mx-auto w-16 border-wine/30" />
+                    ) : /^[“"].*[”"]$/.test(para) ? (
+                      <blockquote key={i} className="border-l-2 border-vermilion pl-4 font-display text-lede italic">{para}</blockquote>
+                    ) : (
+                      <p key={i}>{para}</p>
+                    ),
+                  )}
+                </div>
+              ) : (
+                open.note && <p className="mt-6 whitespace-pre-line text-body">{open.note}</p>
+              )}
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-8">
                 {open.review && (
                   <a href={`/writing/${open.review}`} className="label link-draw text-wine">Read my review →</a>

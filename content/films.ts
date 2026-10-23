@@ -1,5 +1,6 @@
 import type { FilmEntry } from "@/lib/types";
 import imported from "./films.letterboxd.json";
+import { diary } from "./films.diary";
 
 /**
  * FILM LOG — the diary in the Cinema collection (/collections/cinema).
@@ -17,7 +18,7 @@ import imported from "./films.letterboxd.json";
  * The sample entries (placeholder: true) disappear as soon as there is one real entry.
  */
 
-const entries: FilmEntry[] = [];
+const entries: FilmEntry[] = diary.map((f) => ({ letterboxd: "https://letterboxd.com/fiveforcrying/", ...f }));
 
 /** Extra details for imported films, keyed by slug (e.g. posters, directors, a review link). */
 const extras: Record<string, Partial<FilmEntry>> = {};

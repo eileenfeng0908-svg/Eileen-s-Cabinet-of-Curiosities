@@ -79,6 +79,8 @@ export interface Article {
   /** ISO date, e.g. "2026-03-14". Leave undefined for drafts. */
   date?: string;
   cover?: ImageAsset;
+  /** True when the cover also appears in the body, so the page doesn't show it twice. */
+  hideCover?: boolean;
   body: ContentBlock[];
   footnotes?: string[];
 }
@@ -119,8 +121,10 @@ export interface FilmEntry {
   /** 0.5 – 5 in half steps. Leave undefined for unrated. */
   rating?: number;
   rewatch?: boolean;
-  /** A short note, a line or a paragraph. */
+  /** A short note or excerpt, shown under the frame. */
   note?: string;
+  /** The full review, one paragraph per string ("—" separates two reviews of one viewing). */
+  body?: string[];
   poster: ImageAsset;
   tags?: string[];
   /** Link to the entry on Letterboxd, if any. */
