@@ -441,6 +441,7 @@ export const diary: FilmEntry[] = [
   {
     "slug": "talk-show-2026",
     "title": "TALK SHOW",
+    "link": { "label": "On Instagram", "href": "https://www.instagram.com/p/DVi02vjjbh9/?img_index=3" },
     "year": "2026",
     "watched": "2026-07-11",
     "rating": 5,
@@ -481,6 +482,7 @@ export const diary: FilmEntry[] = [
       "Perhaps The Elephant Man is not a story about a deformed man at all. It is a mirror held before us. John Merrick is never the true monstrosity; our gaze is."
     ],
     "poster": {
+      "src": "/images/films/the-elephant-man-1980.webp",
       "alt": "Poster for The Elephant Man",
       "aspect": 0.6666666666666666,
       "tone": "blue"
@@ -508,6 +510,7 @@ export const diary: FilmEntry[] = [
       "I genuinely think he could have done better."
     ],
     "poster": {
+      "src": "/images/films/the-odyssey-2026.webp",
       "alt": "Poster for The Odyssey",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"

@@ -284,6 +284,9 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                 {open.review && (
                   <a href={`/writing/${open.review}`} className="label link-draw text-wine">Read my review →</a>
                 )}
+                {open.link && (
+                  <a href={open.link.href} target="_blank" rel="noreferrer" className="label link-draw text-wine">{open.link.label} ↗</a>
+                )}
                 {open.letterboxd && (
                   <a href={open.letterboxd} target="_blank" rel="noreferrer" className="label link-draw text-wine">On Letterboxd ↗</a>
                 )}

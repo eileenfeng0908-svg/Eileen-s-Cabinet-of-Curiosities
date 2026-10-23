@@ -129,6 +129,8 @@ export interface FilmEntry {
   tags?: string[];
   /** Link to the entry on Letterboxd, if any. */
   letterboxd?: string;
+  /** Any other link worth following, e.g. where the film can be seen. */
+  link?: { label: string; href: string };
   /** Slug of a piece in /content/writing.ts that reviews this film. */
   review?: string;
   /** True for the sample entries that show the layout until real ones are added. */
