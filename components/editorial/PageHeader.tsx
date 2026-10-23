@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
-import { Star } from "./Ornaments";
+import { PaintedBand, PaintedGarland, PaintedTulip } from "./Painted";
 
 /** Each section of the site owns one colour of the palette. */
 export const pageTones = {
@@ -37,7 +37,7 @@ export function PageHeader({
           <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-wine">
             <span className="label text-wine">{number}</span>
             <span aria-hidden className="h-px w-10 bg-brass/50" />
-          <Star className="h-3 w-3 text-brass" />
+            <PaintedTulip seed={5} />
             <span className="label">{kicker}</span>
           </div>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-10">
@@ -57,6 +57,11 @@ export function PageHeader({
             </Reveal>
           )}
         </div>
+      </div>
+      {/* edged like the plinth of the painted cabinet, with its garland */}
+      <div className="relative">
+        <PaintedBand />
+        <PaintedGarland className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2 bg-ivory px-3" />
       </div>
     </header>
   );

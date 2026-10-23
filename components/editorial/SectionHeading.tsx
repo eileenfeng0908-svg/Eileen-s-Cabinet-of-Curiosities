@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 import { Reveal } from "@/components/motion/Reveal";
-import { Star } from "./Ornaments";
+import { PaintedTulip } from "./Painted";
 
 /**
  * Section opener: a numbered small-caps label with a star between rules,
@@ -39,8 +39,8 @@ export function SectionHeading({
       <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-wine">
         <span className="label text-wine">{number}</span>
         <span aria-hidden className="h-px w-10 bg-brass/50" />
-        <span aria-hidden className="transition-transform duration-[1200ms] ease-gallery group-hover:rotate-90">
-          <Star className="h-3 w-3 text-brass" />
+        <span aria-hidden className="origin-bottom transition-transform duration-[1200ms] ease-gallery group-hover:-rotate-6">
+          <PaintedTulip seed={number.length * 7 + 3} />
         </span>
         <span className="label">{kicker}</span>
       </Reveal>

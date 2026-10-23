@@ -1,3 +1,4 @@
+import { PaintDefs } from "@/components/cabinet/PaintDefs";
 import type { Metadata, Viewport } from "next";
 import { IM_Fell_English, IM_Fell_English_SC, Inter, Pinyon_Script } from "next/font/google";
 import "./globals.css";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fell.variable} ${fellSC.variable} ${inter.variable} ${pinyon.variable}`}>
       <body>
+        <PaintDefs />
         <MotionProvider>
           <SiteHeader />
           <main id="main">{children}</main>

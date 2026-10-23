@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { navigation, site } from "@/content/site";
-import { Fleuron } from "@/components/editorial/Ornaments";
+import { PaintedBand, PaintedGarland } from "@/components/editorial/Painted";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-ivory-deep text-ink">
-      <Fleuron ornament="rosette" className="frame absolute inset-x-0 top-0 -translate-y-1/2 text-wine" />
+      <div className="absolute inset-x-0 top-0 -translate-y-1/2">
+        <PaintedBand seed={21} />
+        <PaintedGarland seed={57} className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2 bg-ivory-deep px-3" />
+      </div>
       <div className="frame pb-10 pt-20 md:pt-28">
         <div className="grid-editorial gap-y-14">
           <div className="col-span-4 md:col-span-5 lg:col-span-6">
             <p className="label mb-6 text-wine">Colophon</p>
             <p className="font-display text-display-m text-wine">
-              Thank you for <em className="title-script text-[1.3em] text-wine">looking</em>.
+              Thank you for <em className="text-vermilion">looking</em>.
             </p>
             <p className="mt-6 max-w-sm text-caption text-ink">
               {site.name}. {site.tagline}

@@ -8,7 +8,6 @@ import type { CabinetItem as Collection } from "@/content/collections";
 import { Carcass, OPENING } from "./Carcass";
 import { DoorBack, DoorFront } from "./Door";
 import { Interior } from "./Interior";
-import { PaintDefs } from "./PaintDefs";
 
 const pct = (v: number, of: number) => `${(v / of) * 100}%`;
 const RETURN_KEY = "ec-cabinet-open";
@@ -74,7 +73,6 @@ export function Cabinet({ items }: { items: Collection[] }) {
 
   return (
     <div className="flex flex-col items-center">
-      <PaintDefs />
       <div
         className="cabinet-scene relative w-full"
         data-hover={hover && !open ? "true" : undefined}
