@@ -14,11 +14,12 @@ export const articles: Article[] = [
     "dek": "This essay argues that The Truman Show represents both continuity and change in how Peter Weir expresses his directorial vision.",
     "category": "Film Criticism",
     "cover": {
-      "src": "/images/writing/peter-weir/cover-carpe-diem.webp",
-      "alt": "Carpe Diem, handwritten in pink over a still from Dead Poets Society, above a row of lit candles",
+      "src": "/images/writing/peter-weir/cover-classroom.webp",
+      "alt": "John Keating stands on his desk in front of his students",
       "caption": "Dead Poets Society (dir. Peter Weir, 1989) © Touchstone Pictures.",
-      "aspect": 0.8
+      "aspect": 1.7789
     },
+    "hideCover": true,
     "body": [
       {
         "type": "paragraph",

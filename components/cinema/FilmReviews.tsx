@@ -49,7 +49,7 @@ export function FilmReviews({ writing, projects }: { writing: Article[]; project
         <li key={r.href}>
           <Link href={r.href} className="group block">
             <div className="relative overflow-hidden">
-              <Plate image={{ ...r.still, aspect: r.still.src && r.still.aspect < 1 ? 4 / 5 : 16 / 9 }} number={i + 1} grain sizes="(min-width: 48rem) 45vw, 90vw" />
+              <Plate image={{ ...r.still, aspect: 16 / 9 }} number={i + 1} grain sizes="(min-width: 48rem) 45vw, 90vw" />
             </div>
             <p className="label mt-4 text-wine">
               {r.kind} · {r.date ? (r.date.length > 4 ? formatDate(r.date) : r.date) : "Undated"} · {r.minutes}
