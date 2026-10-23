@@ -47,6 +47,6 @@ export const topFive: { title: string; director: string; year: string; poster: s
   { title: "La Haine", director: "Mathieu Kassovitz", year: "1995", poster: "/images/cinema/top5/la-haine.webp" },
   { title: "The Social Network", director: "David Fincher", year: "2010", poster: "/images/cinema/top5/the-social-network.webp" },
   { title: "In the Mood for Love", director: "Wong Kar-wai", year: "2000", poster: "/images/cinema/top5/in-the-mood-for-love.webp" },
-  { title: "Girl, Interrupted", director: "James Mangold", year: "1999", poster: "/images/cinema/top5/girl-interrupted.jpg" },
   { title: "Mulholland Drive", director: "David Lynch", year: "2001", poster: "/images/cinema/top5/mulholland-drive.webp" },
+  { title: "Girl, Interrupted", director: "James Mangold", year: "1999", poster: "/images/cinema/top5/girl-interrupted.jpg" },
 ];
