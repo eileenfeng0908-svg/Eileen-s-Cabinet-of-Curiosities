@@ -20,6 +20,7 @@ export const diary: FilmEntry[] = [
       "Furthermore, the film’s romantic storyline strategically conceals the colonial and class hierarchies that structure the characters’ interactions. All the Asian women in the film appear as prostitutes, and their clients are overwhelmingly white men—an arrangement that lays bare the colonial power dynamic in which white male desire dominates while Asian women are positioned as objects to be consumed and controlled. Although Robert himself is not wealthy, he nonetheless benefits from a form of “racial privilege” inherent to colonial society, maintaining a higher social position than the Asian women and other working-class residents of Hong Kong. Early in the film, when Robert is told by the guard that “the district you’re going to isn’t for people like you,” the exchange reveals the unquestioned superiority attached to white identity in the colonial context—Robert’s whiteness allows him to traverse social and spatial boundaries even when he lacks economic power. By framing the story as a “forbidden romance,” the film romanticises and softens this fundamental inequality, rendering the colonial power structure not only invisible but almost natural and justified."
     ],
     "poster": {
+      "src": "/images/films/the-world-of-suzie-wong-1960.webp",
       "alt": "Poster for The World of Suzie Wong",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
@@ -40,6 +41,7 @@ export const diary: FilmEntry[] = [
       "The film’s use of costume plays a central role in constructing this racialised fantasy of ‘exotic femininity.’ Ling Moy’s wardrobe is saturated with orientalist motifs—silk cheongsams embroidered with typical Eastern patterns—that signal both sensuality and danger. The glimmer of her dresses under dim light evokes an almost mystical aura, turning her into an object of spectacle. These garments are not only designed to highlight her personality but also to emphasise her Chinese identity, which visualises a Western imagined ‘Oriental woman’ image. In contrast, the Western female characters wear plain, modern attire that symbolises purity and civilisation. This visual opposition reinforces the colonial binary between the West and the ‘mysterious’ East."
     ],
     "poster": {
+      "src": "/images/films/daughter-of-the-dragon-1931.webp",
       "alt": "Poster for Daughter of the Dragon",
       "aspect": 0.6666666666666666,
       "tone": "blue"
@@ -56,6 +58,7 @@ export const diary: FilmEntry[] = [
       "Great reference to the history of America. A quite interesting thing to realise."
     ],
     "poster": {
+      "src": "/images/films/zootopia-2-2025.webp",
       "alt": "Poster for Zootopia 2",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
@@ -77,6 +80,7 @@ export const diary: FilmEntry[] = [
       "It's hard to say this movie is bad after watching all of it; though I still hate the phone sex part, even though it's to emphasise how lonely Theo was. Eh, I kinda just hate sexual intimacy maybe. But the film itself is pretty good."
     ],
     "poster": {
+      "src": "/images/films/her-2013.webp",
       "alt": "Poster for Her",
       "aspect": 0.6666666666666666,
       "tone": "green"
@@ -153,6 +157,7 @@ export const diary: FilmEntry[] = [
       "Thus, rather than signalling the disappearance of Orientalism, the film demonstrates its transformation. The earlier, overtly exoticising and dehumanising form of Orientalism gives way to a more subtle mode—one that seeks to humanise China, but does so through a lens of paternalistic sympathy. This reframing does not establish equality; instead, it repositions China as an object of compassion. What emerges is not genuine recognition, but a form of emotional hierarchy, in which China is rendered relatable precisely through its suffering, inviting not identification, but pity."
     ],
     "poster": {
+      "src": "/images/films/the-good-earth-1937.webp",
       "alt": "Poster for The Good Earth",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
@@ -282,6 +287,7 @@ export const diary: FilmEntry[] = [
       "I love documentary films."
     ],
     "poster": {
+      "src": "/images/films/bloody-sunday-2002.webp",
       "alt": "Poster for Bloody Sunday",
       "aspect": 0.6666666666666666,
       "tone": "green"
@@ -319,6 +325,7 @@ export const diary: FilmEntry[] = [
       "Inside Out reminds me that growing up is beautiful, but it is also a process of loss. Perhaps that’s why the film still devastates me after all these years."
     ],
     "poster": {
+      "src": "/images/films/inside-out-2015.webp",
       "alt": "Poster for Inside Out",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
@@ -337,6 +344,7 @@ export const diary: FilmEntry[] = [
       "The panic attack part was quite real, but it didn't touch me. I don't know what's going on with Pixar; their films are terrible nowadays."
     ],
     "poster": {
+      "src": "/images/films/inside-out-2-2024.webp",
       "alt": "Poster for Inside Out 2",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
@@ -354,6 +362,7 @@ export const diary: FilmEntry[] = [
       "This is the most depressing film ever made."
     ],
     "poster": {
+      "src": "/images/films/manchester-by-the-sea-2016.webp",
       "alt": "Poster for Manchester by the Sea",
       "aspect": 0.6666666666666666,
       "tone": "blue"
