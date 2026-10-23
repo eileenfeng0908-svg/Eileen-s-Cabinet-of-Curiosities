@@ -14,10 +14,10 @@ export function Statement() {
     <section aria-labelledby="statement-title" className="section-space relative overflow-hidden bg-ivory-deep">
       <div className="frame grid-editorial gap-y-16">
         <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-          <span className="label text-rosebud">III</span>
-          <span aria-hidden className="h-px w-10 bg-lily/50" />
-          <Star className="h-3 w-3 text-lily" />
-          <h2 id="statement-title" className="label font-[family-name:var(--font-sc)] text-water">
+          <span className="label text-wine">III</span>
+          <span aria-hidden className="h-px w-10 bg-brass/50" />
+          <Star className="h-3 w-3 text-brass" />
+          <h2 id="statement-title" className="label font-[family-name:var(--font-sc)] text-wine">
             A Note on This Collection
           </h2>
         </div>
@@ -28,7 +28,7 @@ export function Statement() {
               <figure className="-rotate-[1.2deg]">
                 <LaceFrame aspect={3 / 3.9}>
                   <Plate
-                    image={{ alt: "[Portrait of Eileen]", aspect: 3 / 4, tone: "glare", motif: "figure" }}
+                    image={{ alt: "[Portrait of Eileen]", aspect: 3 / 4, tone: "blue", motif: "figure" }}
                     className="h-full w-full"
                     showPlaceholderLabel={false}
                     zoom={false}
@@ -44,13 +44,13 @@ export function Statement() {
 
         <div className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-7 lg:col-start-6 lg:pt-16">
           <Reveal>
-            <p className="font-display text-statement text-water">
-              <span className="title-script text-[1.35em] leading-none text-water">{site.statement.lead}</span> — {site.statement.body}
+            <p className="font-display text-statement text-wine">
+              <span className="title-script text-[1.35em] leading-none text-wine">{site.statement.lead}</span> — {site.statement.body}
             </p>
           </Reveal>
           <Reveal delay={0.12} className="mt-12 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <p className="flex max-w-sm items-start gap-3 text-caption text-ink-soft">
-              <LaceHeart className="mt-0.5 h-5 w-5 shrink-0 text-lily" />
+              <LaceHeart className="mt-0.5 h-5 w-5 shrink-0 text-brass" />
               {site.statement.signature}
             </p>
             <ArrowLink href="/about" className="text-ink">About Eileen</ArrowLink>

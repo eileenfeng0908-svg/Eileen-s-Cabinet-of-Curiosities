@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader tone="mist" number="05" kicker="About" title="About" italic="Eileen" />
+      <PageHeader tone="walnut" number="05" kicker="About" title="About" italic="Eileen" />
       <div className="frame grid-editorial gap-y-12 pb-[var(--section-space)]">
         <div className="col-span-3 md:col-span-3 lg:col-span-4">
           <NouveauFrame>

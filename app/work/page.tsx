@@ -23,7 +23,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         number="02"
-        tone="glare"
+        tone="blue"
         kicker="Projects"
         title="Projects,"
         italic="in four rooms"
@@ -39,7 +39,7 @@ export default function WorkPage() {
                   <p className="label text-ink-soft">
                     {p.category} · {p.year ?? "Year —"}
                   </p>
-                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-rosebud">{p.title}</h2>
+                  <h2 className="mt-2 text-title transition-colors duration-500 group-hover:text-vermilion">{p.title}</h2>
                   {p.subtitle && <p className="font-display text-lg italic text-ink-soft">{p.subtitle}</p>}
                   <p className="mt-3 max-w-md text-caption text-ink-soft">{p.summary}</p>
                 </div>

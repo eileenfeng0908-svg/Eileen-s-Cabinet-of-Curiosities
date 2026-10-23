@@ -4,11 +4,11 @@ import { Star } from "./Ornaments";
 
 /** Each section of the site owns one colour of the palette. */
 export const pageTones = {
-  glare: { bg: "glare-wash" },
-  mist: { bg: "bg-mist/10" },
-  rosebud: { bg: "bg-rosebud/[0.06]" },
-  roseleaf: { bg: "bg-lily/12" },
-  lily: { bg: "bg-lily/15" },
+  blue: { bg: "blue-wash" },
+  walnut: { bg: "bg-walnut/10" },
+  vermilion: { bg: "bg-vermilion/[0.06]" },
+  green: { bg: "bg-brass/12" },
+  brass: { bg: "bg-brass/15" },
 } as const;
 
 export type PageTone = keyof typeof pageTones;
@@ -20,7 +20,7 @@ export function PageHeader({
   title,
   italic,
   intro,
-  tone = "glare",
+  tone = "blue",
 }: {
   number: string;
   kicker: string;
@@ -33,11 +33,11 @@ export function PageHeader({
   return (
     <header className={cn(t.bg, "mb-16 md:mb-24")}>
       <div className="frame pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
-        <div className="grid-editorial gap-y-8 border-t border-water/25 pt-4">
-          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-water">
-            <span className="label text-rosebud">{number}</span>
-            <span aria-hidden className="h-px w-10 bg-lily/50" />
-          <Star className="h-3 w-3 text-lily" />
+        <div className="grid-editorial gap-y-8 border-t border-wine/25 pt-4">
+          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-wine">
+            <span className="label text-wine">{number}</span>
+            <span aria-hidden className="h-px w-10 bg-brass/50" />
+          <Star className="h-3 w-3 text-brass" />
             <span className="label">{kicker}</span>
           </div>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-10">
@@ -53,7 +53,7 @@ export function PageHeader({
           </Reveal>
           {intro && (
             <Reveal delay={0.1} className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-8">
-              <p className="font-display text-lede italic text-water">{intro}</p>
+              <p className="font-display text-lede italic text-wine">{intro}</p>
             </Reveal>
           )}
         </div>

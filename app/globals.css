@@ -11,36 +11,35 @@
    text-display-xl, ease-gallery …). See DESIGN.md for the reasoning.
    ========================================================================== */
 
-/* The five Nymphéas pigments, plus the paper. Use these everywhere. */
+/* The painted-cabinet palette. Exact pigments: never desaturate them,
+   never put grey over them. Every token in @theme points here. */
 :root {
-  --rosebud: rgb(85, 60, 75);       /* #553C4B */
-  --deep-water: rgb(81, 105, 138);  /* #51698A */
-  --glare: rgb(215, 215, 217);      /* #D7D7D9 */
-  --rose-leaf: rgb(66, 88, 84);     /* #425854 */
-  --lily-leaf: rgb(130, 144, 118);  /* #829076 */
-  --ivory: rgb(243, 241, 239);      /* #F3F1EF — warm archival paper */
+  --powder-blue: #91aeb5;   /* Antique Powder Blue — the cabinet body, washes */
+  --vermilion: #c56558;     /* Faded Vermilion — tulips, trim, accent words */
+  --botanical-green: #657b53; /* Botanical Green — stems, leaves, large type */
+  --aged-ivory: #f2e4c8;    /* Aged Ivory — the page, the painted panels */
+  --walnut: #a87950;        /* Honeyed Walnut — wood, shelves, floor */
+  --wine: #713f48;          /* Antique Wine — text, headings, the interior */
+  --brass: #b18a48;         /* Burnished Brass — handles, hinges, stars */
 }
 
 @theme {
   /* --- Colour ------------------------------------------------------------
-     Monet's Nymphéas on aged archival paper. The five pigments are defined
-     once in :root (below) and every token here points to them.
-     Hierarchy: Ivory ~60% · Deep Water ~20% (headings, navigation, body,
-     interactive) · Rosebud ~8% (romantic details, numerals, hover, accent
-     words) · Rose Leaf ~5% (secondary type, botanical linework) · Lily Leaf
-     ~4% (ornaments, dividers) · Glare ~3% (cards, borders, layers). */
-  --color-ivory: var(--ivory);                 /* Warm Ivory — the page */
-  --color-ivory-deep: color-mix(in srgb, var(--ivory) 70%, var(--glare)); /* a layered sheet */
-  --color-ivory-pale: color-mix(in srgb, var(--ivory) 60%, white);        /* print borders, lace */
-  --color-ink: var(--deep-water);              /* body text */
-  --color-ink-soft: var(--rose-leaf);          /* secondary text, captions */
-  --color-water: var(--deep-water);            /* headings, navigation, links */
-  --color-rosebud: var(--rosebud);             /* romantic details, hover */
-  --color-roseleaf: var(--rose-leaf);          /* botanical linework */
-  --color-lily: var(--lily-leaf);              /* ornaments, dividers (decorative) */
-  --color-glare: var(--glare);                 /* cards, borders, the doily */
-  --color-mist: var(--deep-water);             /* Deep Water as a faint wash */
-  --color-rule: rgb(81 105 138 / 0.2);         /* hairlines, in Deep Water */
+     Aged Ivory is the page. Antique Wine carries all running text (6.7:1 on
+     ivory). Vermilion, Green and Walnut are for large type and painting;
+     Powder Blue and Brass are decorative only. */
+  --color-ivory: var(--aged-ivory);
+  --color-ivory-deep: color-mix(in srgb, var(--aged-ivory) 82%, var(--walnut));
+  --color-ivory-pale: color-mix(in srgb, var(--aged-ivory) 55%, white);
+  --color-ink: var(--wine);
+  --color-ink-soft: var(--wine);
+  --color-wine: var(--wine);
+  --color-vermilion: var(--vermilion);
+  --color-green: var(--botanical-green);
+  --color-brass: var(--brass);
+  --color-blue: var(--powder-blue);
+  --color-walnut: var(--walnut);
+  --color-rule: rgb(113 63 72 / 0.22);
 
   /* --- Type families (set by next/font in app/layout.tsx) --------------- */
   --font-display: var(--font-fell), "IM Fell English", Georgia, serif;     /* headings: letterpress serif */
@@ -112,21 +111,21 @@
     overflow-x: clip;
   }
   ::selection {
-    background: rgb(130 144 118 / 0.35);
-    color: var(--color-rosebud);
+    background: rgb(197 101 88 / 0.3);
+    color: var(--color-vermilion);
   }
   :focus-visible {
-    outline: 1px solid var(--color-rosebud);
+    outline: 1px solid var(--color-vermilion);
     outline-offset: 4px;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    color: var(--color-water);
+    color: var(--color-wine);
   }
   /* Italic accent words in headings: Fell italic, in Rosebud. */
   h1 em, h2 em {
-    color: var(--color-rosebud);
+    color: var(--color-vermilion);
   }
   .title-script {
     font-family: var(--font-title);
@@ -180,11 +179,12 @@
 
 /* Archival label — true small caps, lightly tracked. */
 @utility label {
-  font-family: var(--font-sc);
-  font-size: var(--text-label);
-  line-height: var(--text-label--line-height);
-  letter-spacing: var(--text-label--letter-spacing);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* Hairline rule. */
@@ -248,23 +248,23 @@
    ========================================================================== */
 
 /* A soft wash of Deep Water and Lily Leaf over the page — the signature tint, never a block. */
-@utility glare-wash {
+@utility blue-wash {
   background-color: var(--color-ivory);
   background-image:
-    radial-gradient(70% 60% at 85% 10%, rgb(81 105 138 / 0.10), transparent 70%),
-    radial-gradient(50% 50% at 5% 95%, rgb(130 144 118 / 0.10), transparent 70%);
+    radial-gradient(70% 60% at 85% 10%, rgb(177 138 72 / 0.12), transparent 70%),
+    radial-gradient(50% 50% at 5% 95%, rgb(197 101 88 / 0.07), transparent 70%);
 }
 
 /* A photographic print: a pale paper border with the faintest lift. */
 @utility print {
   background: var(--color-ivory-pale);
   padding: clamp(6px, 0.8vw, 12px);
-  box-shadow: 0 1px 1px rgb(81 105 138 / 0.07), 0 10px 22px -16px rgb(81 105 138 / 0.4);
+  box-shadow: 0 1px 1px rgb(113 63 72 / 0.07), 0 10px 22px -16px rgb(113 63 72 / 0.4);
 }
 
 /* Faded print: images sit slightly into the paper, like book illustrations. */
 @utility faded-print {
-  filter: saturate(0.82) contrast(0.96);
+  filter: none; /* colours stay as photographed */
 }
 
 /* Gentle animated film grain, laid over selected imagery. */
@@ -286,4 +286,23 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .film-grain { animation: none; }
+}
+
+/* --- The painted cabinet (components/cabinet) ---------------------------- */
+.cabinet-knob,
+.cabinet-tassel {
+  transform-box: fill-box;
+  transition: transform 700ms var(--ease-gallery);
+}
+.cabinet-knob { transform-origin: center; }
+.cabinet-tassel { transform-origin: 50% 0; }
+[data-hover="true"] .cabinet-knob { transform: scale(1.14); }
+[data-hover="true"] .cabinet-tassel { animation: tassel-sway 2.4s ease-in-out infinite; }
+@keyframes tassel-sway {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(7deg); }
+  70% { transform: rotate(-5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-hover="true"] .cabinet-tassel { animation: none; transform: rotate(4deg); }
 }

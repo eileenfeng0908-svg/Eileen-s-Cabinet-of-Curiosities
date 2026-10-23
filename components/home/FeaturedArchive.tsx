@@ -26,14 +26,14 @@ export function FeaturedArchive() {
   const items = featuredArchive().slice(0, layout.length);
 
   return (
-    <section aria-labelledby="archive-title" className="section-space glare-wash relative overflow-hidden text-ink">
+    <section aria-labelledby="archive-title" className="section-space blue-wash relative overflow-hidden text-ink">
       <div className="frame">
         <header className="grid-editorial gap-y-6">
-          <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-water">
-            <span className="label text-rosebud">IV</span>
-            <span aria-hidden className="h-px w-10 bg-lily/50" />
+          <Reveal className="group col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-wine">
+            <span className="label text-wine">IV</span>
+            <span aria-hidden className="h-px w-10 bg-brass/50" />
             <span aria-hidden className="transition-transform duration-[1200ms] ease-gallery group-hover:rotate-90">
-              <Rosette className="h-3.5 w-3.5 text-lily" />
+              <Rosette className="h-3.5 w-3.5 text-brass" />
             </span>
             <span className="label">Featured Archive</span>
           </Reveal>
@@ -59,14 +59,14 @@ export function FeaturedArchive() {
                   {/* Museum tag */}
                   <div
                     aria-hidden
-                    className="mt-3 border border-glare bg-ivory px-3 py-2.5 text-ink outline outline-1 outline-offset-2 outline-rosebud/15 transition-all duration-700 ease-gallery can-hover:absolute can-hover:bottom-3 can-hover:left-3 can-hover:mt-0 can-hover:translate-y-2 can-hover:opacity-0 can-hover:group-hover:translate-y-0 can-hover:group-hover:opacity-100 can-hover:group-focus-visible:translate-y-0 can-hover:group-focus-visible:opacity-100"
+                    className="mt-3 border border-blue bg-ivory px-3 py-2.5 text-ink outline outline-1 outline-offset-2 outline-vermilion/15 transition-all duration-700 ease-gallery can-hover:absolute can-hover:bottom-3 can-hover:left-3 can-hover:mt-0 can-hover:translate-y-2 can-hover:opacity-0 can-hover:group-hover:translate-y-0 can-hover:group-hover:opacity-100 can-hover:group-focus-visible:translate-y-0 can-hover:group-focus-visible:opacity-100"
                   >
-                    <span className="label block text-rosebud">{catalogueNumber(item.number)}</span>
+                    <span className="label block text-wine">{catalogueNumber(item.number)}</span>
                     <span className="label block">{item.category === "Postcard" ? "Postcard Collection" : item.category}</span>
                     <span className="label block text-ink-soft">{item.date ?? "Date unknown"}</span>
                   </div>
                 </div>
-                <span aria-hidden className="label mt-4 hidden text-water transition-colors duration-500 group-hover:text-rosebud can-hover:block">
+                <span aria-hidden className="label mt-4 hidden text-wine transition-colors duration-500 group-hover:text-vermilion can-hover:block">
                   {catalogueNumber(item.number)}
                 </span>
               </Link>

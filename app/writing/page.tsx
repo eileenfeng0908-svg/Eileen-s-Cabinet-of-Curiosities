@@ -17,7 +17,7 @@ export default function WritingPage() {
     <>
       <PageHeader
         number="03"
-        tone="roseleaf"
+        tone="green"
         kicker="Writing"
         title="A small"
         italic="journal"
@@ -29,8 +29,8 @@ export default function WritingPage() {
             <Reveal as="li" key={a.slug} y={10} className="border-b border-rule">
               <Link href={`/writing/${a.slug}`} className="group grid-editorial items-baseline gap-y-2 py-8">
                 <span className="label col-span-2 text-ink-soft">{formatDate(a.date)}</span>
-                <span className="label col-span-2 text-right md:text-left text-water">{a.category}</span>
-                <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title transition-colors duration-500 group-hover:text-rosebud">
+                <span className="label col-span-2 text-right md:text-left text-wine">{a.category}</span>
+                <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title transition-colors duration-500 group-hover:text-vermilion">
                   {a.title}
                 </span>
                 <span className="label col-span-4 md:col-span-1 lg:col-span-2 md:text-right text-ink-soft">{readingTime(a.body)}</span>

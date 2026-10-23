@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <article>
-      <header className="glare-wash pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
+      <header className="blue-wash pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
         <div className="frame">
         <div className="grid-editorial gap-y-8 border-t border-ink/25 pt-4">
           <p className="label col-span-4 md:col-span-8 lg:col-span-12 flex flex-wrap gap-x-4 text-ink">
@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: Props) {
           </p>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-9">
             <h1 className="text-display-l">{project.title}</h1>
-            {project.subtitle && <p className="mt-4 font-display text-title italic text-water">{project.subtitle}</p>}
+            {project.subtitle && <p className="mt-4 font-display text-title italic text-wine">{project.subtitle}</p>}
           </Reveal>
           <Reveal delay={0.1} className="col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-1">
             <p className="text-lede">{project.summary}</p>
@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: Props) {
         <ArrowLink href="/work">All projects</ArrowLink>
         <Link href={`/work/${next.slug}`} className="group text-right">
           <span className="label block text-ink-soft">Next</span>
-          <span className="font-display text-title transition-colors duration-500 group-hover:text-rosebud">{next.title}</span>
+          <span className="font-display text-title transition-colors duration-500 group-hover:text-vermilion">{next.title}</span>
         </Link>
       </nav>
     </article>

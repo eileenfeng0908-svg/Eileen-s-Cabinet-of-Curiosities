@@ -12,16 +12,16 @@ import type { ImageAsset, PlateMotif, PlateTone } from "@/lib/types";
  * Hover zoom is applied when an ancestor has the `group` class.
  */
 
-// Placeholder tones: the palette, faded toward the paper like old printing inks.
+// Placeholder tones: washes of the cabinet palette.
 const tones: Record<PlateTone, { bg: string; ink: string }> = {
-  ivory: { bg: "#e6e5e5", ink: "#51698a" },
-  parchment: { bg: "#dddcdd", ink: "#51698a" },
-  glare: { bg: "#d7d7d9", ink: "#51698a" },
-  roseleaf: { bg: "#a3aca9", ink: "#f3f1ef" },
-  lily: { bg: "#afb7a6", ink: "#425854" },
-  mist: { bg: "#aab4c2", ink: "#51698a" },
-  rosebud: { bg: "#b4a9ad", ink: "#553c4b" },
-  ink: { bg: "#7a8ba3", ink: "#f3f1ef" },
+  ivory: { bg: "#e9d7ba", ink: "#713f48" },
+  parchment: { bg: "#ddc6a6", ink: "#713f48" },
+  blue: { bg: "#91aeb5", ink: "#713f48" },
+  green: { bg: "#8f9a76", ink: "#f2e4c8" },
+  brass: { bg: "#c8aa75", ink: "#713f48" },
+  walnut: { bg: "#a87950", ink: "#f2e4c8" },
+  vermilion: { bg: "#d28b7a", ink: "#713f48" },
+  ink: { bg: "#9b796d", ink: "#f2e4c8" },
 };
 
 function Motif({ motif, ink }: { motif: PlateMotif; ink: string }) {
@@ -124,14 +124,14 @@ export function Plate({
       role="img"
       aria-label={`Placeholder: ${image.alt}`}
       className={cn("relative overflow-hidden", className)}
-      style={{ aspectRatio: image.aspect, backgroundColor: tone.bg, color: tone.ink, filter: "saturate(0.85)" }}
+      style={{ aspectRatio: image.aspect, backgroundColor: tone.bg, color: tone.ink }}
     >
       <div className={cn("absolute inset-0", zoomClass)}>
         <div className="plate-tooth absolute inset-0" />
         {/* Soft vignette, like light falling off a print */}
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(81 105 138 / 0.14))" }}
+          style={{ background: "radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(113 63 72 / 0.14))" }}
         />
         <Motif motif={image.motif ?? "none"} ink={tone.ink} />
       </div>

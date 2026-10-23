@@ -4,16 +4,17 @@
 An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
-Monet's *Nymphéas* on aged archival paper. The five pigments are CSS variables in `:root` (app/globals.css): `--rosebud`, `--deep-water`, `--glare`, `--rose-leaf`, `--lily-leaf`, plus `--ivory`. Every Tailwind token points to them. Avoid large solid blocks of dark colour.
+The painted-cabinet palette, used at full strength. Never desaturate these, never lay grey over them. Defined once as CSS variables in `:root` (app/globals.css); every Tailwind token points to them.
 
-| Pigment | Hex | Share | Tokens / use |
+| Pigment | Hex | Variable / token | Use |
 |---|---|---|---|
-| Warm Ivory | #F3F1EF | ~60% | `ivory` — the page. `ivory-deep` (ivory + 30% Glare) for layered sections, `ivory-pale` for print borders and lace |
-| Deep Water | #51698A | ~20% | `water`, `ink` — headings, navigation, body text, links and interactive accents (4.99:1 on ivory) |
-| Rosebud | #553C4B | ~8% | `rosebud` — italic accent words, "Feng", numerals, hover states, the arched frame's border |
-| Rose Leaf | #425854 | ~5% | `roseleaf`, `ink-soft` — captions and secondary type, botanical linework |
-| Lily Leaf | #829076 | ~4% | `lily` — stars, small dividers, leaves, selection. Decorative only |
-| Glare | #D7D7D9 | ~3% | `glare` — the doily, card borders, row rules, layered backgrounds |
+| Aged Ivory | #F2E4C8 | `--aged-ivory` / `ivory` | The page; the painted door panels |
+| Antique Wine | #713F48 | `--wine` / `wine`, `ink` | All running text and headings (6.7:1 on ivory); the cabinet interior |
+| Faded Vermilion | #C56558 | `--vermilion` / `vermilion` | Tulips, pinstripes, accent words, hover on large type (large text only, 3.1:1) |
+| Botanical Green | #657B53 | `--botanical-green` / `green` | Stems and leaves; large type only |
+| Antique Powder Blue | #91AEB5 | `--powder-blue` / `blue` | The cabinet body; decorative only |
+| Honeyed Walnut | #A87950 | `--walnut` / `walnut` | Shelves, the inside of the doors, wood |
+| Burnished Brass | #B18A48 | `--brass` / `brass` | Knobs, the key, stars; decorative only |
 
 Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 
@@ -46,3 +47,12 @@ Placeholder plates use the same colours faded toward the paper. Real images get 
 3. Linework draws with scroll; ornaments answer hover with a slow quarter-turn.
 4. Parallax on at most two elements per page, ±30px.
 5. `prefers-reduced-motion` turns all of it off.
+
+
+## The painted cabinet (components/cabinet)
+The homepage opens on an illustrated Tyrolean-style cabinet. It is drawn in SVG and "painted" by shared filters in `PaintDefs.tsx`:
+- **Watercolour wash** (`#ec-wash-a/b/c`): wobbly edges, uneven pigment, granulation and a darker drying rim. Pools are the colour multiplied by itself, so they deepen rather than grey.
+- **Coloured pencil** (`#ec-pencil`): a wandering, grainy line for outlines and details. `#ec-hatch` patterns give shadow.
+- Shapes come from `paint.ts` (freehand rectangles, notched panels, tulips, leaves, hearts) with a seeded random source, so the two doors are siblings, not twins.
+
+Interaction: the closed doors are one button; they swing on their hinges (3D rotateY, fading instead under reduced motion). Inside, four shelves link straight to their collection and two drawers slide out first. Choosing a collection spreads the paper out from that compartment, then opens `/collections/<slug>`, a plain editorial page. A list of the same six collections sits beside the cabinet for anyone who prefers not to open doors. Collections are defined in `content/collections.ts` and gather existing projects, writing and archive objects.
