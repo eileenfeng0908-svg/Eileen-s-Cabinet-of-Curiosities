@@ -6,6 +6,7 @@ import { drawers, kindAspect, kindLabel, type Drawer, type DrawerObject } from "
 import { PaintDefs } from "@/components/cabinet/PaintDefs";
 import { BailPull, CHEST, ChestCarcass, DrawerFrontArt, SLOTS } from "./CabinetArt";
 import { ObjectFace } from "./ObjectFace";
+import { Stationery } from "./Stationery";
 import { cn } from "@/lib/cn";
 
 /**
@@ -179,6 +180,7 @@ function Tray({ drawer, held, onPick }: { drawer: Drawer; held?: string; onPick:
             <DrawerItem key={o.id} obj={o} drawer={drawer} lifted={held === o.id} onPick={onPick} />
           ))}
         </ul>
+        {drawer.stationery?.map((p, i) => <Stationery key={i} piece={p} />)}
       </div>
     </div>
   );
@@ -197,8 +199,9 @@ function DrawerItem({ obj, lifted, onPick }: { obj: DrawerObject; drawer: Drawer
   const cls = cn("drawer-object group absolute block outline-none", lifted && "is-lifted");
   const inner = (
     <>
-      <span className="drawer-object-body absolute inset-0">
+      <span className="drawer-object-body absolute inset-0 [--k:1]">
         <ObjectFace obj={obj} aspect={aspect} />
+        {obj.fixings?.map((p, i) => <Stationery key={i} piece={p} />)}
       </span>
       <span className="pointer-events-none absolute inset-[-4%] border-2 border-vermilion opacity-0 transition-opacity group-focus-visible:opacity-100" />
     </>
@@ -237,6 +240,18 @@ function ObjectDetail({ obj, drawer, onClose }: { obj: DrawerObject; drawer: Dra
         <p className="mt-2 font-display text-lede italic">{[kindLabel[obj.kind], obj.date].filter(Boolean).join(", ")}</p>
         {obj.description && <p className="mt-6 border-t border-wine/25 pt-5 text-body">{obj.description}</p>}
         {obj.image?.caption && <p className="mt-3 text-caption">{obj.image.caption}</p>}
+        {obj.list && (
+          <ol className="mt-6 space-y-3">
+            {obj.list.map((l, i) => (
+              <li key={l.href}>
+                <Link href={l.href} className="group flex items-baseline gap-4 font-display text-title text-wine">
+                  <span className="label w-6">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="transition-colors group-hover:text-vermilion">{l.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        )}
         <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-8">
           {obj.exhibition ? (
             <Link href={`/exhibitions/${obj.exhibition}`} className="label link-draw text-wine">

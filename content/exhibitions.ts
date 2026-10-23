@@ -72,6 +72,30 @@ export const exhibitions: Exhibition[] = [
       { alt: "[Installation view]", aspect: 3 / 2, tone: "vermilion", motif: "arch", caption: "[Documentation photograph — caption]" },
     ],
   },
+  {
+    slug: "you-will-never-walk-alone",
+    title: "You Will Never Walk Alone",
+    cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "green", motif: "arch" },
+    introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
+    statement: ["[Curatorial statement, in your own words.]"],
+    sections: [],
+    documentation: [
+      { alt: "[Installation view]", aspect: 3 / 2, tone: "green", motif: "arch", caption: "[Documentation photograph — caption]" },
+      { alt: "[Installation view]", aspect: 4 / 5, tone: "parchment", motif: "frame", caption: "[Documentation photograph — caption]" },
+    ],
+  },
+  {
+    slug: "the-other-the-same",
+    title: "The Other, the Same",
+    cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "blue", motif: "arch" },
+    introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
+    statement: ["[Curatorial statement, in your own words.]"],
+    sections: [],
+    documentation: [
+      { alt: "[Installation view]", aspect: 3 / 2, tone: "blue", motif: "arch", caption: "[Documentation photograph — caption]" },
+      { alt: "[Installation view]", aspect: 4 / 5, tone: "vermilion", motif: "frame", caption: "[Documentation photograph — caption]" },
+    ],
+  },
 ];
 
 export const getExhibition = (slug: string) => exhibitions.find((e) => e.slug === slug);

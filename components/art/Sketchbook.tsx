@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { animate, motion, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { sketchbook, type Artwork, type PlacedWork, type SketchbookPage } from "@/content/sketchbook";
 import { Plate } from "@/components/editorial/Plate";
@@ -40,6 +40,9 @@ function deckle(seed: number, side: "left" | "right") {
   return `polygon(${pts.join(",")})`;
 }
 
+/** How far the corner lifts when the pointer rests on a page edge (degrees). */
+const PEEK = 18;
+
 export function Sketchbook() {
   const [wide, setWide] = useState(true);
   const [pos, setPos] = useState(0); // spread index when wide, page index when narrow
@@ -47,6 +50,17 @@ export function Sketchbook() {
   const [open, setOpen] = useState<Artwork | null>(null);
   const reduce = useReducedMotion();
   const dialog = useRef<HTMLDialogElement>(null);
+  const book = useRef<HTMLDivElement>(null);
+
+  // The turning leaf's angle drives everything: its rotation, how far it lifts off the
+  // page, and the light and shadow passing over it.
+  const rot = useMotionValue(0);
+  const lift = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 26);
+  const shade = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 0.5);
+  const cast = useTransform(rot, (r) => Math.sin((Math.abs(r) * Math.PI) / 180) * 0.35);
+  const token = useRef(0);
+  const settling = useRef(false);
+  const drag = useRef<{ dir: 1 | -1; x0: number; moved: boolean; p: number } | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 48rem)");
@@ -69,21 +83,81 @@ export function Sketchbook() {
   }, [open]);
 
   const last = wide ? leaves.length / 2 - 1 : leaves.length - 1;
-  const go = useCallback(
-    (dir: 1 | -1) => {
-      if (turn) return;
-      if ((dir === 1 && pos >= last) || (dir === -1 && pos <= 0)) return;
+  const can = (dir: 1 | -1) => (dir === 1 ? pos < last : pos > 0);
+  /** Angle of the leaf at rest (a) and once turned (b). */
+  const range = useCallback((dir: 1 | -1): [number, number] => (wide || dir === 1 ? [0, dir === 1 ? -180 : 180] : [-180, 0]), [wide]);
+
+  const begin = (dir: 1 | -1) => {
+    if (!can(dir) || settling.current || (turn && turn !== dir)) return false;
+    if (!turn) {
       setTurn(dir);
-    },
-    [turn, pos, last],
-  );
-  const done = () => {
-    setPos((p) => p + (turn ?? 0));
-    setTurn(null);
+      rot.set(range(dir)[0]);
+    }
+    return true;
+  };
+
+  /** Let the leaf fall, either over (complete) or back to where it was. */
+  const settle = (dir: 1 | -1, complete: boolean, velocity = 0) => {
+    const [a, b] = range(dir);
+    const t = ++token.current;
+    settling.current = complete;
+    animate(rot, complete ? b : a, reduce ? { duration: 0 } : { type: "spring", stiffness: 62, damping: 16, mass: 1.05, velocity, restDelta: 0.2 }).then(() => {
+      if (t !== token.current) return;
+      settling.current = false;
+      if (complete) setPos((p) => p + dir);
+      setTurn(null);
+      rot.set(0);
+    });
+  };
+
+  const go = (dir: 1 | -1) => {
+    if (begin(dir)) settle(dir, true);
+  };
+
+  // A resting pointer on the edge lifts the corner a little, as a hand would.
+  const peek = (dir: 1 | -1) => {
+    if (drag.current || !begin(dir)) return;
+    const [a, b] = range(dir);
+    token.current++;
+    animate(rot, a + (b - a) * (PEEK / 180), reduce ? { duration: 0 } : { type: "spring", stiffness: 140, damping: 18 });
+  };
+  const unpeek = (dir: 1 | -1) => {
+    if (drag.current || settling.current || turn !== dir) return;
+    settle(dir, false);
+  };
+
+  // Dragging from the edge: the leaf follows the hand; let go past a third of the way and it turns.
+  const progress = (dir: 1 | -1, x: number) => {
+    const r = book.current!.getBoundingClientRect();
+    const span = r.width;
+    const p = dir === 1 ? (r.right - x) / span : (x - r.left) / span;
+    return Math.min(1, Math.max(0, p * (wide ? 1 : 1.15)));
+  };
+  const onDown = (dir: 1 | -1) => (e: React.PointerEvent) => {
+    if (!begin(dir)) return;
+    token.current++;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    drag.current = { dir, x0: e.clientX, moved: false, p: 0 };
+  };
+  const onMove = (e: React.PointerEvent) => {
+    const d = drag.current;
+    if (!d) return;
+    if (Math.abs(e.clientX - d.x0) > 6) d.moved = true;
+    if (!d.moved) return;
+    d.p = progress(d.dir, e.clientX);
+    const [a, b] = range(d.dir);
+    rot.set(a + (b - a) * Math.max(d.p, PEEK / 180));
+  };
+  const onUp = () => {
+    const d = drag.current;
+    if (!d) return;
+    drag.current = null;
+    const v = rot.getVelocity();
+    const flung = d.dir === 1 ? v < -260 : v > 260;
+    settle(d.dir, !d.moved || d.p > 0.33 || flung, v);
   };
 
   const at = (i: number) => leaves[i];
-  const duration = reduce ? 0 : 0.9;
   const status = wide ? `Pages ${pos * 2 + 1}–${pos * 2 + 2} of ${leaves.length}` : `Page ${pos + 1} of ${leaves.length}`;
 
   // What lies beneath and what turns, for the current state.
@@ -108,6 +182,20 @@ export function Sketchbook() {
     } else below = { right: pos };
   }
 
+  const edge = (dir: 1 | -1) =>
+    can(dir) && (
+      <div
+        aria-hidden
+        className={cn("absolute inset-y-0 z-20 w-[9%] cursor-grab touch-pan-y active:cursor-grabbing", dir === 1 ? "right-0" : "left-0", !wide && "w-[14%]")}
+        onPointerEnter={(e) => e.pointerType === "mouse" && peek(dir)}
+        onPointerLeave={(e) => e.pointerType === "mouse" && unpeek(dir)}
+        onPointerDown={onDown(dir)}
+        onPointerMove={onMove}
+        onPointerUp={onUp}
+        onPointerCancel={onUp}
+      />
+    );
+
   return (
     <div
       className="mx-auto w-full max-w-[68rem]"
@@ -117,7 +205,11 @@ export function Sketchbook() {
       }}
     >
       {/* the book: board, pages and the turning leaf */}
-      <div className={cn("relative mx-auto", wide ? "w-full" : "w-[min(100%,26rem)]")} style={{ aspectRatio: wide ? "1.46" : "0.73", perspective: "2400px" }}>
+      <div
+        ref={book}
+        className={cn("relative mx-auto select-none", wide ? "w-full" : "w-[min(100%,26rem)]")}
+        style={{ aspectRatio: wide ? "1.46" : "0.73", perspective: "2600px" }}
+      >
         {/* cloth-covered board, a little larger than the pages, with its elastic band */}
         <div aria-hidden className="absolute -inset-[1.6%] rounded-[3px] bg-wine shadow-[0_24px_40px_-24px_rgb(113_63_72_/_0.8)]">
           <div className="plate-tooth absolute inset-0 opacity-60" />
@@ -127,42 +219,72 @@ export function Sketchbook() {
         {wide && below.left !== undefined && <PageView leaf={at(below.left)} side="left" index={below.left} onOpen={setOpen} busy={!!turn} />}
         {below.right !== undefined && at(below.right) && <PageView leaf={at(below.right)} side="right" index={below.right} onOpen={setOpen} busy={!!turn} single={!wide} />}
 
+        {/* the shadow the lifted leaf throws across the pages beneath */}
         {leaf && (
           <motion.div
-            key={`${pos}-${turn}`}
-            className={cn("absolute top-0 h-full", wide ? "w-1/2" : "w-full", leaf.side === "right" ? (wide ? "left-1/2" : "left-0") : "left-0")}
-            style={{ transformStyle: "preserve-3d", transformOrigin: leaf.side === "right" ? "left center" : "right center", zIndex: 5 }}
-            initial={{ rotateY: !wide && turn === -1 ? -180 : 0 }}
-            animate={{ rotateY: wide ? (turn === 1 ? -180 : 180) : turn === 1 ? -180 : 0 }}
-            transition={{ duration, ease: [0.65, 0, 0.35, 1] }}
-            onAnimationComplete={done}
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-[4]"
+            style={{
+              opacity: cast,
+              background: wide
+                ? "linear-gradient(to right, transparent 20%, rgb(113 63 72 / 0.45) 50%, transparent 80%)"
+                : "linear-gradient(to right, rgb(113 63 72 / 0.5), transparent 60%)",
+            }}
+          />
+        )}
+
+        {leaf && (
+          <motion.div
+            className={cn("absolute top-0 h-full", wide ? "w-1/2" : "w-full", leaf.side === "right" && wide ? "left-1/2" : "left-0")}
+            style={{ rotateY: rot, z: lift, transformStyle: "preserve-3d", transformOrigin: leaf.side === "right" ? "left center" : "right center", zIndex: 5 }}
           >
             <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
               <PageView leaf={at(leaf.front)} side={leaf.side} index={leaf.front} onOpen={setOpen} busy single={!wide} />
-              <motion.div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-l from-wine/40 to-transparent" initial={{ opacity: 0 }} animate={{ opacity: [0, 0.6, 0] }} transition={{ duration }} />
+              {/* light falls off as the paper curves away from the spine */}
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  opacity: shade,
+                  background:
+                    leaf.side === "right"
+                      ? "linear-gradient(to left, rgb(113 63 72 / 0.55), rgb(113 63 72 / 0.12) 40%, rgb(255 255 255 / 0.18) 70%, transparent)"
+                      : "linear-gradient(to right, rgb(113 63 72 / 0.55), rgb(113 63 72 / 0.12) 40%, rgb(255 255 255 / 0.18) 70%, transparent)",
+                }}
+              />
             </div>
             {leaf.back !== undefined && (
               <div className="absolute inset-0" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
                 <PageView leaf={at(leaf.back)} side={leaf.side === "right" ? "left" : "right"} index={leaf.back} onOpen={setOpen} busy />
+                <motion.div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    opacity: shade,
+                    background:
+                      leaf.side === "right"
+                        ? "linear-gradient(to right, rgb(113 63 72 / 0.5), rgb(113 63 72 / 0.1) 40%, transparent)"
+                        : "linear-gradient(to left, rgb(113 63 72 / 0.5), rgb(113 63 72 / 0.1) 40%, transparent)",
+                  }}
+                />
               </div>
             )}
           </motion.div>
         )}
 
-        {/* page corners: click to turn (the buttons below do the same for keyboards) */}
-        {pos < last && (
-          <button type="button" tabIndex={-1} aria-hidden onClick={() => go(1)} className="page-corner absolute bottom-0 right-0 z-10 h-[16%] w-[11%] cursor-pointer" style={{ ["--curl" as string]: "to top left" }} />
-        )}
-        {pos > 0 && (
-          <button type="button" tabIndex={-1} aria-hidden onClick={() => go(-1)} className="page-corner absolute bottom-0 left-0 z-10 h-[16%] w-[11%] cursor-pointer" style={{ ["--curl" as string]: "to top right" }} />
-        )}
+        {/* the paper's edges: rest on one to lift the corner, tap or drag it to turn */}
+        {edge(1)}
+        {edge(-1)}
       </div>
 
       <div className="mt-10 flex items-center justify-between gap-4">
         <button type="button" onClick={() => go(-1)} disabled={pos <= 0} className="label link-draw text-wine disabled:opacity-35">
           ← Turn back
         </button>
-        <p aria-live="polite" className="label text-wine">{status}</p>
+        <p aria-live="polite" className="label text-center text-wine">
+          {status}
+          <span className="mt-1 block normal-case tracking-normal opacity-75">Drag or tap the edge of the paper</span>
+        </p>
         <button type="button" onClick={() => go(1)} disabled={pos >= last} className="label link-draw text-wine disabled:opacity-35">
           Turn the page →
         </button>

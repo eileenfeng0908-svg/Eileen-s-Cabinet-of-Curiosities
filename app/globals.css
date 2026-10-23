@@ -395,8 +395,6 @@
   clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 2%, 30% 8%, 100% 0, 96% 20%, 100% 40%, 95% 60%, 100% 80%, 96% 100%, 0 100%, 4% 80%, 0 60%, 5% 40%, 0 20%);
   mix-blend-mode: multiply;
 }
-.page-corner { background: transparent; transition: background 400ms var(--ease-gallery); }
-.page-corner:hover { background: linear-gradient(var(--curl), rgb(113 63 72 / 0.22) 0%, rgb(242 228 200 / 0.9) 18%, transparent 42%); }
 @media (prefers-reduced-motion: reduce) {
-  .sketch-work, .page-corner { transition: none; }
+  .sketch-work { transition: none; }
 }

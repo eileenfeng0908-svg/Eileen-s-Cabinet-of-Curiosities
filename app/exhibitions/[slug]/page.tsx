@@ -79,6 +79,13 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             </div>
           </section>
 
+          {!e.sections.length && (
+            <section className="scroll-mt-28">
+              <h2 className="label border-b border-wine/25 pb-3 text-wine">The exhibition</h2>
+              <p className="mt-6 max-w-[38rem] text-lede">[The sections and artworks of this exhibition, to come.]</p>
+            </section>
+          )}
+
           {e.sections.map((s, i) => (
             <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28">
               <header className="flex items-baseline gap-5 border-b border-wine/25 pb-4">
@@ -124,9 +131,21 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             </ul>
           </section>
 
-          <Link href="/collections/art-and-curation#curation" className="label link-draw inline-block text-wine">
-            ← Return the catalogue to its drawer
-          </Link>
+          <nav aria-label="Other exhibitions" className="border-t border-wine/25 pt-6">
+            <p className="label mb-4 text-wine">Also in the Exhibitions drawer</p>
+            <ul className="flex flex-wrap gap-x-8 gap-y-3 font-display text-title">
+              {exhibitions
+                .filter((o) => o.slug !== e.slug)
+                .map((o) => (
+                  <li key={o.slug}>
+                    <Link href={`/exhibitions/${o.slug}`} className="text-wine transition-colors hover:text-vermilion">{o.title}</Link>
+                  </li>
+                ))}
+            </ul>
+            <Link href="/collections/art-and-curation#curation" className="label link-draw mt-8 inline-block text-wine">
+              ← Return the catalogue to its drawer
+            </Link>
+          </nav>
         </div>
       </div>
     </article>
