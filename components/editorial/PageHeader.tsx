@@ -61,7 +61,7 @@ export function PageHeader({
       {/* edged like the plinth of the painted cabinet, with its garland */}
       <div className="relative">
         <PaintedBand />
-        <PaintedGarland className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2 bg-ivory px-3" />
+        <PaintedGarland className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2" />
       </div>
     </header>
   );

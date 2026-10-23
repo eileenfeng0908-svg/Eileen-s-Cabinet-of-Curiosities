@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="relative bg-ivory-deep text-ink">
       <div className="absolute inset-x-0 top-0 -translate-y-1/2">
         <PaintedBand seed={21} />
-        <PaintedGarland seed={57} className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2 bg-ivory-deep px-3" />
+        <PaintedGarland seed={57} className="absolute left-1/2 top-1/2 h-9 w-56 -translate-x-1/2 -translate-y-1/2" />
       </div>
       <div className="frame pb-10 pt-20 md:pt-28">
         <div className="grid-editorial gap-y-14">
