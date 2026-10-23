@@ -281,7 +281,7 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Project Hail Mary",
       "aspect": 0.6666666666666666,
       "tone": "vermilion",
-      "src": "/images/films/project-hail-mary-2026.webp"
+      "src": "/images/films/project-hail-mary-2026-2.webp"
     },
     "rating": 5
   },
