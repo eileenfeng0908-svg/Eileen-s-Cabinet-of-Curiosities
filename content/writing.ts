@@ -366,11 +366,12 @@ export const articles: Article[] = [
     "category": "Film Criticism",
     "format": "Philosophical film essay",
     "cover": {
-      "alt": "Cover still for The Truman Show essay",
-      "aspect": 1.7778,
-      "tone": "blue",
-      "motif": "horizon"
+      "src": "/images/writing/truman-show-cover.webp",
+      "alt": "Truman climbs the painted staircase at the edge of the sky set",
+      "caption": "The Truman Show (dir. Peter Weir, 1998) © Paramount Pictures.",
+      "aspect": 1.7778
     },
+    "hideCover": true,
     "body": [
       {
         "type": "paragraph",
