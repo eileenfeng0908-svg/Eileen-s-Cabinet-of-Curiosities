@@ -60,41 +60,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "the-elephant-man",
-    title: "The Elephant Man",
-    subtitle: "Cinema, Spectatorship & the Ethics of Looking",
-    category: "Cinema & Research",
-    year: undefined,
-    featured: 3,
-    cover: {
-      alt: "[Describe the cover image]",
-      aspect: 3 / 2,
-      tone: "ink",
-      motif: "frame",
-      caption: "[Still or research image — caption]",
-    },
-    summary:
-      "A study of how cinema positions its audience as onlookers, and what it asks of us when the camera turns toward a body it has made strange. [Replace with your own summary.]",
-    credits: [
-      { label: "Format", value: "[Research essay / video essay / presentation]" },
-      { label: "Context", value: "[Course, independent study, or programme]" },
-    ],
-    body: [
-      { type: "paragraph", text: "[Opening paragraph: the question this research begins with.]" },
-      { type: "paragraph", text: "[Second paragraph: method, sources, the films or texts you worked with.]" },
-      { type: "quote", text: "[A passage or line that anchors the project.]", source: "[Source]" },
-      {
-        type: "gallery",
-        images: [
-          { alt: "[Image 1]", aspect: 3 / 2, tone: "ink", motif: "frame" },
-          { alt: "[Image 2]", aspect: 3 / 2, tone: "parchment", motif: "figure" },
-        ],
-      },
-      { type: "paragraph", text: "[Findings, reflections, what remains unresolved.]" },
-    ],
-    references: ["[Reference 1 — Author, Title, Year]", "[Reference 2]"],
-  },
-  {
     slug: "identity",
     title: "Identity",
     subtitle: "Fashion Show & Creative Direction",

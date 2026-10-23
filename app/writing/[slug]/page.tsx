@@ -29,7 +29,7 @@ export default async function ArticlePage({ params }: Props) {
       <header className="reading-column text-center">
         <p className="label flex flex-wrap justify-center gap-x-4 text-ink-soft">
           <span className="text-wine">{article.category}</span>
-          {(article.date || !article.format) && <span>{formatDate(article.date)}</span>}
+          {article.date && <span>{formatDate(article.date)}</span>}
           <span>{article.format ?? readingTime(article.body)}</span>
         </p>
         {/* A long title with a subtitle sets the subtitle smaller, so the heading stays in scale. */}

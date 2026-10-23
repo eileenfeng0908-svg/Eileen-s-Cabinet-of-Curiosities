@@ -198,17 +198,317 @@ export const articles: Article[] = [
       },
     ],
   },
+  // Eileen's mise-en-scène analysis. Text as she wrote it (typos fixed); images laid out as in her PDF.
   {
-    slug: "on-the-ethics-of-looking",
-    title: "On the Ethics of Looking",
-    dek: "[One sentence that tells the reader what this piece is about.]",
-    category: "Film Criticism",
-    date: undefined,
-    body: [
-      { type: "paragraph", text: "[Placeholder. Replace with your essay. Paragraphs are separate blocks so images, quotes and headings can sit between them.]" },
-      { type: "paragraph", text: "[Second paragraph.]" },
-    ],
-    footnotes: ["[Footnote 1]"],
+    "slug": "in-a-fading-mood-for-love",
+    "title": "In a Fading Mood for Love: A Cinematic Analysis of Wong Kar-wai’s In the Mood for Love",
+    "dek": "Explores the relationship between Chow Mo-wan and Su Li-zhen through frames within frames, voyeurism, cigarette smoke, slow motion, clocks, and the symbolism of red and green. The analysis connects visual restraint to longing, memory and the passage of time.",
+    "category": "Film Criticism",
+    "cover": {
+      "src": "/images/writing/in-the-mood-for-love/cover.webp",
+      "alt": "Su in a red coat at the end of a hotel corridor hung with red curtains",
+      "aspect": 1.7778
+    },
+    "hideCover": true,
+    "body": [
+      {
+        "type": "quote",
+        "text": "‘He remembers those vanished years. As though looking through a dusty window pane, the past is something he could see but not touch.’",
+        "source": "In the Mood for Love"
+      },
+      {
+        "type": "paragraph",
+        "text": "Wong Kar-wai’s movie, In the Mood for Love, tells the story of Chow Mo-wan and Su Li-zhen, who, after discovering that their spouses are having an affair, attempt to reenact their partners’ relationship to understand the betrayal. However, as the act gradually becomes real, their emotions flow between repression and ambiguity, eventually dissolving in silence."
+      },
+      {
+        "type": "paragraph",
+        "text": "The film’s mise en scène presents the complexity and subtlety of their relationship in a hazy and restrained manner. It concludes with the scene of Chow whispering into a stone hollow at Angkor Wat, merging narrative and imagery, and burying his unspoken sorrow within the passage of vanished time."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the film, Wong Kar-wai repeatedly employs the ‘frames within frames’ technique, allowing the audience to experience the hazy and restrained emotions between Chow and Su from the perspective of a voyeur. The sense of ‘being watched’ echoes the narrative setting in which the two characters reenact the affairs of their unfaithful spouses, casting a delicate veil of ambiguity that cannot be pierced over their relationship. They seem to be free, yet are bound by moral constraints, struggling between desire and rationality."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the scene where Su and Chow meet and converse (40:00-42:34), the voyeuristic perspective further intensifies the ambiguity of their relationship. It remains uncertain whether they have already fallen in love, or whether they, like the partners they resent, have betrayed the fidelity of love itself. Through the use of frames within frames, the presence of bars visually transforms their emotions into a state of confinement. Trapped within the moral framework of society, they suppress their desires, yet gradually sink deeper into them."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/frames-within-frames.webp",
+          "alt": "Chow and Su talk, framed behind dark bars",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.7483
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "The repression of feeling within Chow and Su is symbolised through the imagery of smoke. The hazy, drifting smoke mirrors their restrained emotions—intangible and impossible to grasp. Therefore, in the film, cigarettes not only represent self-control but also embody suppression and escape."
+      },
+      {
+        "type": "paragraph",
+        "text": "In their first dinner together (28:00-31:00)—the beginning of their play—the cigarette in Chow’s hand symbolises his fear and repression upon realising his spouse’s infidelity. As the smoke slowly disperses, it becomes both a metaphor for the growing intimacy between the two and a foreshadowing of how their relationship will eventually fade with time. Yet, even after the smoke has cleared, a faint scent and delicate wisps remain in the air, just like their love, hidden, fleeting, yet leaving an indelible trace in Chow’s heart."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/cigarette-smoke.webp",
+          "alt": "Chow smoking, the smoke drifting across a red background",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.759
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "The passage of time gradually buries the emotions between Su and Chow. Wong Kar-wai uses the imagery of the clock to present the passage of time in the most direct way to the audience (7:04, 20:41, 37:10, 1:16:00), creating a sharp contrast with the delicate and floating emotions between the two. At the same time, through slow-motion scenes, he renders their romantic entanglement ambiguous and interwoven between reality and illusion."
+      },
+      {
+        "type": "image",
+        "size": "inset",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/clocks.webp",
+          "alt": "Four close-ups of clocks from across the film",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.1975
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "In the mahjong scene at the beginning of the film (5:20-7:00), the interaction between Su and Chow, as well as their spouses, becomes subtle and dreamlike due to the combination of slow-motion long shots and the melody. The slow motion slows down and prolongs their relationship, yet within this illusory prolongation, their connection gradually fades away until it is finally swallowed by time."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/mahjong.webp",
+          "alt": "Su and Chow pass each other in a narrow, warmly lit hallway",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.773
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "Although Wong Kar-wai has already revealed the subtle distance between Chow and Su through the cinematography and visual imagery, the use of colour in In the Mood for Love especially symbolises the tension between their desire and restraint. While red in the film represents passion and impulse, green signifies rational suppression and emotional control."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the scene where Su goes to the hotel to find Chow after answering his call (54:02-56:00), she can no longer suppress her feelings for him, rushing to the hotel in a striking red coat. The hotel curtains are a deep, vivid red, while the floor is interspersed with faded shades of green. Against this background, the red of Su’s coat stands out even more prominently, symbolising the inner confrontation between her desire and restraint."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/red-hotel-corridor.webp",
+          "alt": "Su in a red coat at the end of a hotel corridor hung with red curtains",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.7123
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "In the later scene where Su and Chow spend time together in the hotel (57:06), although she is dressed in a green cheongsam, everything around her is bathed in red. The green on her body suggests that a trace of restraint still lingers within her, yet desire has already drawn her deeply into the intoxicating joy of this forbidden love, from which she can no longer escape."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/green-cheongsam.webp",
+          "alt": "Su, in green, laughs beside Chow in a room bathed in red",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.7153
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "The love between Su and Chow has long simmered with the passage of time, and their blossoming years become a tragedy shaped by time and repression."
+      },
+      {
+        "type": "paragraph",
+        "text": "At the end of the movie (1:29:00-1:33:00), as the archival footage of Charles de Gaulle’s visit to Cambodia plays, the story of Chow and Su appears increasingly minor. Under repression, Chow’s feelings for Su grow deeper and more vigorous, yet all he can do is whisper his unspeakable love into the stone hollow of Angkor Wat. When the camera shifts to a higher angle, a young monk silently watches Chow from above. The love between Chow and Su seems to have always been stared at, and has been eternally sealed within time and memory."
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/angkor-wat-monk.webp",
+          "alt": "A young monk, seen from behind, looks down on Chow at Angkor Wat",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.7794
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "Through the meticulously crafted mise en scène, the use of frames within frames, drifting smoke, and the contrast and symbolism of colour, Wong Kar-wai gradually reveals Chow’s descent from rational restraint into emotional entrapment, unfolding like the slow diffusion of smoke."
+      },
+      {
+        "type": "paragraph",
+        "text": "He can neither possess Su nor escape the emotional prison they have built together. As the film’s opening lines say: ‘It is a restless moment. She has kept her head lowered to give him a chance to get closer. But he could not, for lack of courage. She turns and walks away.’"
+      },
+      {
+        "type": "image",
+        "size": "wide",
+        "image": {
+          "src": "/images/writing/in-the-mood-for-love/closing-lines.webp",
+          "alt": "The film’s opening lines in Chinese, white text on black",
+          "caption": "In the Mood for Love (dir. Wong Kar-wai, 2000) © Block 2 Pictures / Jet Tone Production.",
+          "aspect": 1.845
+        }
+      }
+    ]
+  },
+  // Eileen's philosophy essay, translated from her Chinese original. Text as she wrote it.
+  {
+    "slug": "the-truman-show-what-does-it-mean-to-be-human",
+    "title": "The Truman Show: What Does It Mean to Be Human?",
+    "dek": "Reads Truman’s awakening through Sartrean existentialism, the priority of existence over essence, bad faith, freedom and responsibility, alongside Camus’s notion of the absurd. The essay treats Truman’s exit as an embrace of uncertainty and self-definition.",
+    "category": "Film Criticism",
+    "format": "Philosophical film essay",
+    "cover": {
+      "alt": "Cover still for The Truman Show essay",
+      "aspect": 1.7778,
+      "tone": "blue",
+      "motif": "horizon"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "In late October 1945, Jean-Paul Sartre delivered his lecture Existentialism is a Humanism in Club Maintenant, Paris. The lecture was subsequently edited and published in 1946 as a philosophical work under the same title. In the lecture, the first core concept that Sartre introduced is: existence precedes essence."
+      },
+      {
+        "type": "paragraph",
+        "text": "To Christians, ‘essence’ means the mission and purpose that God assigns to each individual before their birth. Yet, regardless of belief in God, philosophers such as Diderot, Voltaire, and Kant all proposed the concept of ‘human nature.’ In their view, ‘human nature’ is a universal essence among all men, and each individual is a representation of this universal ‘human nature.’ For Sartre and existentialists, however, such a pre-established human nature does not exist."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sartre believes that humans do not have an essence that is a priori. Instead, he proposes the idea that existence precedes essence: human beings are first thrown into the world, gradually come to know themselves through encounters with the world and with themselves, and only then define who they are through their actions and choices. This position is closely connected to Sartre’s inheritance of Cartesian philosophy, particularly his emphasis on the cogito—the idea that the subject emerges through consciousness and self-reflection rather than through any innate or pre-determined essence."
+      },
+      {
+        "type": "paragraph",
+        "text": "Accordingly, for Sartre, what makes a human being ‘human’ does not stem from any pre-existing nature or purpose, but from the process of encountering the world, making choices, and assuming responsibility. Human essence is not given, and it is continuously generated after existence, through experience and self-definition."
+      },
+      {
+        "type": "paragraph",
+        "text": "This essay, therefore, examines the transformation of the concept of ‘essence’ through the narrative of the movie The Truman Show, and from an existentialist perspective, further explores the philosophical question of what it means to be human."
+      },
+      {
+        "type": "heading",
+        "text": "1. A Being Thrown into the World"
+      },
+      {
+        "type": "paragraph",
+        "text": "In his lecture, Sartre mentions that human beings are thrown into the world and that existence itself carries no pre-established meaning. This existentialist claim, however, does not fully apply in The Truman Show. For Truman, his meaning is not constructed after existence through his own actions, but pre-determined before his birth. He is defined as a ‘character’ who grows under the gaze of cameras and audiences, rather than as a free subject who genuinely lives in the real world."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this sense, Truman more closely resembles a character inserted into a system. His life trajectory, behavioural logic, and even life goals are planned and guided by the enclosed system of the television set. Although his actions appear to be freely chosen, under conditions of deception and manipulation, any ‘variable’ he produces is continuously corrected and optimised by the system, ultimately leading towards a pre-determined narrative outcome. Truman’s choices are therefore not genuinely free, but rather permitted choices within a pre-structured framework."
+      },
+      {
+        "type": "paragraph",
+        "text": "However, this does not mean that the film denies the presence of absolute freedom or multiple possibilities emphasised by Sartre. Rather, before Truman becomes aware of his freedom and choice, his consciousness can operate only within the established framework, leading him to comply with and fulfil every assigned role. It is only when Truman gradually recognises the falsity of his situation and perceives the possibility of freedom and choice that he truly confronts multiple existential paths and begins to make non-preordained decisions that no longer serve the existing narrative."
+      },
+      {
+        "type": "paragraph",
+        "text": "In Sartre’s famous example of the café waiter, the waiter’s understanding of his own essence does not arise from authentic self-knowledge, but from bad faith—a self-deception. By identifying himself entirely with the social role of ‘café waiter,’ he convinces himself that this role constitutes his essence, thereby evading the responsibility and anxiety inherent in being a free subject."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike the tray in his hands, the food upon it, or the coffee cups he serves, the waiter is not a fixed object. He is not fully defined by function or purpose, but remains a subject characterised by fluidity and change. For this reason, human beings cannot be assigned a stable, a priori essence in the way objects can. Human existence is perpetually in flux, and essence can only emerge through experience, choice, and self-awareness."
+      },
+      {
+        "type": "paragraph",
+        "text": "For Sartre, self-awareness is not a static act of introspection, but an ongoing process of interaction between the individual and themselves. Through recognising, denying, or assuming responsibility for one’s condition, a person continuously shapes their mode of existence. Thus, being human does not lie in the roles one performs, but in the fact that no role can ever exhaust the individual."
+      },
+      {
+        "type": "paragraph",
+        "text": "In The Truman Show, however, bad faith does not originate from Truman himself, but is produced and sustained by the world in which he lives. Within the reality-show system, the director artificially constructs a form of bad faith and disguises it as good faith. Under this disguise, Truman gradually internalises the imposed belief and accepts his roles as an office worker, husband, and citizen."
+      },
+      {
+        "type": "paragraph",
+        "text": "This acceptance does not arise from free choice, but from passive compliance with an assigned essence. In this respect, Truman closely resembles Sartre’s café waiter: both identify themselves with pre-defined roles and unconsciously avoid the responsibility inherent in freedom. Although both retain a degree of awareness of their own subjectivity, they nevertheless choose to understand themselves as stable, unchanging objects rather than as continuously evolving subjects. It is precisely this misrecognition that allows them to coexist, temporarily, with a world structured by certainty and predictability."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because Truman exists within a fully controlled environment, his understanding of his own existence is shaped into an illusion—he believes that he has possessed a fixed and immutable essence since birth. In reality, however, the question of who Truman ‘is’ only becomes meaningful once he leaves the fabricated world. If everything he previously experienced was founded upon deception and fiction, then the self-knowledge and so-called ‘essence’ formed within that world must also remain fundamentally revisable."
+      },
+      {
+        "type": "paragraph",
+        "text": "In other words, Truman’s previously assumed essence does not arise from genuine and free encounters with reality, but is instead dependent upon a constructed and false world. Such an essence lacks existential legitimacy. Only by departing from the fictional world and confronting real uncertainty and freedom can Truman redefine his existence through his own choices."
+      },
+      {
+        "type": "heading",
+        "text": "2. An Absurd World and Freedom"
+      },
+      {
+        "type": "paragraph",
+        "text": "Truman’s freedom does not reveal itself through action, but through doubt. It is at the moment doubt arises that Truman first becomes aware of his existence as a subject, and the world before him begins to reveal its absurdity. This awakening does not immediately grant him absolute freedom, but it creates the condition under which freedom becomes possible."
+      },
+      {
+        "type": "paragraph",
+        "text": "Human beings persistently seek their own ‘essence,’ yet this pursuit itself constitutes a resistance against an absolutely absurd world. We struggle to accept that our existence lacks pre-determined meaning and that the world remains silent in response to our demand for significance. Consequently, we attempt to locate a non-existent a priori essence to counteract this absence of meaning. As Albert Camus points out, the absurd does not reside solely in the world nor solely in human consciousness, but arises from the relationship between the two. Humans seek meaning, order, and explanation, while the world refuses to answer. It is precisely this tension that constitutes the absurd."
+      },
+      {
+        "type": "paragraph",
+        "text": "In The Truman Show, the absurd does not manifest as chaos or disorder, but as Truman’s gradual realisation that the world he inhabits lacks genuine reality. Absurdity does not appear at the moment of collapse, but at the moment when the façade begins to fall away. For instance, the director’s and crew’s responses to unexpected incidents function as a metaphor for human psychological defence mechanisms—how individuals instinctively strive to preserve the coherence of their existing worldview when confronted with threats."
+      },
+      {
+        "type": "paragraph",
+        "text": "When the stage light labelled ‘star’ falls from the sky, Truman does not interpret it as an ominous sign. Instead, he quickly rationalises it and incorporates it into his everyday experience. This response echoes another of Sartre’s key claims: the meaning of signs in life is not inherent, but is assigned by the subject. How we understand an event depends not on the event itself, but on how we choose to interpret it (cogito). Through this reconstruction of meaning, Truman temporarily sustains his trust in the world."
+      },
+      {
+        "type": "paragraph",
+        "text": "Similarly, when Truman turns on the car radio and accidentally hears the production team’s communication error, he does not immediately perceive it as abnormal. Rather, he absorbs it into the familiar and stable logic of his daily life. In this process, the absurd remains incomplete—the world continues, albeit precariously, to function as an ‘understandable’ world."
+      },
+      {
+        "type": "paragraph",
+        "text": "For Truman, Fiji represents a doorway to the self; for human beings more broadly, each of us possesses our own ‘Fiji.’ It is in moving towards that doorway that we come to realise that essence is not pre-determined, but must be reconstructed through freedom and choice. The obstacles encountered along the way constitute manifestations of the absurd—yet these very obstacles also propel us towards essence."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the film, once Truman senses abnormalities in his world, he begins to attempt to reach Fiji, a place symbolising his ‘true self.’ Fiji gains this significance not because of its geographical location, but because Lauren is there—the only person Truman has genuinely loved within the constructed world. Guided by this emotional connection, Fiji becomes imbued with the meaning of authenticity and selfhood."
+      },
+      {
+        "type": "paragraph",
+        "text": "However, the resistance Truman encounters does not originate from a single force, but from the entire world itself: his wife, his friends, and even the city’s transport system all obstruct his pursuit of selfhood at various levels. These obstacles are not accidental, but deliberate mechanisms designed to preserve the existing order."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this sense, they function as tests of individual freedom. When one chooses to submit to these barriers, one enters what Sartre terms bad faith—deciding to believe in a ‘truth’ that no longer requires questioning or resistance, thereby accepting irrationalities that ought to be challenged. Through ignoring, rationalising, or accepting these obstacles, individuals relinquish the responsibility inherent in freedom and reposition themselves within a seemingly stable yet fundamentally inauthentic world."
+      },
+      {
+        "type": "heading",
+        "text": "3. ‘To Be or Not to Be’: Freedom, Choice, and Responsibility"
+      },
+      {
+        "type": "paragraph",
+        "text": "Within existentialism, the question of ‘to be or not to be’ does not merely concern survival, but centres on whether an individual is willing to assume the responsibility that accompanies freedom and choice. For Sartre, human beings exist in a state of absolute freedom; even refusing to choose constitutes a choice. In this sense, the dilemma Truman faces at the end of the film—whether to stay or leave—functions as a classic existentialist metaphor. It concerns not physical departure, but whether the individual chooses to confront freedom or to flee from it."
+      },
+      {
+        "type": "paragraph",
+        "text": "After Truman has overcome all physical obstacles in his life, what ultimately stands before him is not a safe exit, but absolute freedom. The final scenes at sea do not signify escape on a physical level, but operate as a profound existential metaphor. The violent waves, uncontrolled storm, and fragile boat symbolise the ultimate obstacles encountered in the pursuit of selfhood—forces that compel us towards submission and bad faith. Once these external threats no longer dominate, the individual must face the most terrifying truth of all: freedom itself."
+      },
+      {
+        "type": "paragraph",
+        "text": "At the end of the film, Truman confronts not merely the exposure of the reality show but the truth of human existence. The reality he faces—marked by uncertainty, absurdity, and the absence of guarantees—constitutes the fundamental human condition. What makes Truman human is not his fame, his visibility, or the identity imposed upon him by the director, but his courage to confront uncertainty and assume absolute freedom."
+      },
+      {
+        "type": "paragraph",
+        "text": "Moreover, the director ultimately reveals to Truman that he is the centre of global attention, adored and followed by millions. This revelation offers Truman a pre-determined identity, entirely defined by external authority. From an existentialist perspective, this closely resembles the theological notion of God-given essence—an identity established before choice, experience, and self-definition. Yet this identity fails to answer Truman’s question, because it is imposed rather than chosen, a role assigned rather than an essence generated through lived existence."
+      },
+      {
+        "type": "paragraph",
+        "text": "Truman’s decision to leave the show, therefore, marks the moment at which he truly becomes human. By rejecting an identity defined by others, he refuses to remain in bad faith and instead chooses to confront the absurdity, uncertainty, and responsibility that accompany freedom. In doing so, Truman does not discover a pre-existing meaning in life; he begins to create his own. His choice affirms the core existentialist claim: what makes us human is not a meaning granted before birth, but the meaning we actively construct through our encounters with the world and with ourselves."
+      },
+      {
+        "type": "heading",
+        "text": "4. What Makes Us Human?"
+      },
+      {
+        "type": "paragraph",
+        "text": "In existentialism, freedom is not a state of liberation, but a responsibility that must be borne. Thus, Truman’s departure does not lead to a certain meaning, but to an uncertain yet authentic mode of existence. To ask what makes us human is not to ask whether humans possess a unique essence, but whether they are willing to refuse having their choices made by others. Truman becomes human not because he discovers his true self, but because he refuses to continue living a life defined for him. In a world that offers no inherent meaning, the decision to act and to assume responsibility is precisely what makes us human."
+      }
+    ]
   },
   {
     slug: "what-the-museum-remembers",
