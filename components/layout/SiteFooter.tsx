@@ -32,11 +32,13 @@ export function SiteFooter() {
 
           <div className="col-span-2 md:col-span-2 md:col-start-7 lg:col-start-10 lg:col-span-3">
             <p className="label mb-5 text-charcoal-soft">Correspondence</p>
-            <p className="text-caption break-words">{site.email}</p>
+            <a href={`mailto:${site.email}`} className="link-draw text-caption break-all">
+              {site.email}
+            </a>
             <ul className="mt-4 space-y-2 text-caption">
               {site.socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} className="link-draw">
+                  <a href={s.href} className="link-draw" {...(s.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>
                     {s.label}
                     {s.placeholder && <span className="text-charcoal-soft"> [link]</span>}
                   </a>

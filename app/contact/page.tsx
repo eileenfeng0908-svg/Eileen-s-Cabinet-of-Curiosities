@@ -13,11 +13,13 @@ export default function ContactPage() {
       <h1 className="mt-8 max-w-[14ch] text-display-l">
         For collaborations, <em className="font-light text-mozart">or simply a conversation.</em>
       </h1>
-      <p className="mt-12 font-display text-title">{site.email}</p>
+      <a href={`mailto:${site.email}`} className="link-draw mt-12 self-start font-display text-title break-all">
+        {site.email}
+      </a>
       <ul className="label mt-8 flex flex-wrap gap-6 text-charcoal-soft">
         {site.socials.map((s) => (
           <li key={s.label}>
-            <a href={s.href} className="link-draw">
+            <a href={s.href} className="link-draw" {...(s.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>
               {s.label}
               {s.placeholder && " [link]"}
             </a>

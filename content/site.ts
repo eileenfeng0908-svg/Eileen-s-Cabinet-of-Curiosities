@@ -18,12 +18,11 @@ export const site = {
     signature: "[A line or two about yourself — replace in content/site.ts]",
   },
 
-  /** Contact. Do not publish until replaced with real details. */
-  email: "[your-email@example.com]",
+  email: "eileen20080908@outlook.com",
   socials: [
     { label: "Instagram", href: "#", placeholder: true },
     { label: "Letterboxd", href: "#", placeholder: true },
-    { label: "LinkedIn", href: "#", placeholder: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/eileen-feng-790713379", placeholder: false },
   ],
 } as const;
 
