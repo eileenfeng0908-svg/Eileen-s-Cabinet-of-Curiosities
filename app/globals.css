@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* Only devices with a real pointer get hover-dependent reveals;
+   touch screens see the same information without hovering. */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+
+/* ==========================================================================
+   EILEEN FENG — DESIGN SYSTEM
+   All tokens live here. Tailwind v4 turns every --color-*, --font-*,
+   --text-* and --ease-* below into utilities (bg-ivory, font-display,
+   text-display-xl, ease-gallery …). See DESIGN.md for the reasoning.
+   ========================================================================== */
+
+@theme {
+  /* --- Colour ------------------------------------------------------------
+     Distribution guide: ~70% ivory · 15% charcoal · 10% mozart · 5% accents */
+  --color-ivory: #f6f2e9;        /* Warm Ivory — the paper */
+  --color-ivory-deep: #ede6d6;   /* A second sheet: alternate sections */
+  --color-ivory-pale: #fbf9f3;   /* Lace, highlights */
+  --color-charcoal: #34332f;     /* Soft Charcoal — ink */
+  --color-charcoal-soft: #6b6860;/* Secondary ink for captions */
+  --color-mozart: #475480;       /* Muted Blue — the signature accent */
+  --color-mozart-deep: #3a456b;
+  --color-masterkey: #d9cc8a;    /* Master Key — warm yellow */
+  --color-pear: #a7993c;         /* Prickly Pear — olive */
+  --color-sunburn: #b57056;      /* Sunburn — terracotta */
+  --color-copper: #7f3b25;       /* Copper Red */
+  --color-rule: rgb(52 51 47 / 0.16); /* Hairlines */
+
+  /* --- Type families (set by next/font in app/layout.tsx) --------------- */
+  --font-display: var(--font-cormorant), "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Type scale: fluid, deliberately uneven --------------------------- */
+  --text-display-xl: clamp(4.75rem, 15.5vw, 15rem);
+  --text-display-xl--line-height: 0.82;
+  --text-display-xl--letter-spacing: -0.035em;
+  --text-display-l: clamp(3rem, 8vw, 7.5rem);
+  --text-display-l--line-height: 0.92;
+  --text-display-l--letter-spacing: -0.025em;
+  --text-display-m: clamp(2.25rem, 4.6vw, 4.25rem);
+  --text-display-m--line-height: 1;
+  --text-display-m--letter-spacing: -0.015em;
+  --text-title: clamp(1.6rem, 2.4vw, 2.25rem);
+  --text-title--line-height: 1.08;
+  --text-statement: clamp(1.75rem, 3.6vw, 3.4rem);
+  --text-statement--line-height: 1.16;
+  --text-lede: clamp(1.15rem, 1.5vw, 1.4rem);
+  --text-lede--line-height: 1.45;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.16em;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-gallery: cubic-bezier(0.22, 1, 0.36, 1);  /* slow out: things settle */
+  --ease-turn: cubic-bezier(0.65, 0, 0.35, 1);     /* page-turn in/out */
+
+  /* --- Breakpoints ------------------------------------------------------ */
+  --breakpoint-sm: 40rem;  /* large phone / small tablet */
+  --breakpoint-md: 48rem;  /* tablet */
+  --breakpoint-lg: 64rem;  /* laptop */
+  --breakpoint-xl: 80rem;  /* desktop */
+  --breakpoint-2xl: 96rem;
+}
+
+/* --- Layout tokens (used through the utilities below) ------------------- */
+:root {
+  --page-margin: clamp(1.25rem, 4.5vw, 4rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+  --section-space: clamp(6rem, 14vw, 13rem);
+  --header-h: 4.5rem;
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-masterkey);
+    color: var(--color-charcoal);
+  }
+  :focus-visible {
+    outline: 1px solid var(--color-mozart);
+    outline-offset: 4px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+  img {
+    user-select: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Utilities — the editorial grid and recurring typographic voices
+   ========================================================================== */
+
+/* Page frame: consistent outer margins everywhere. */
+@utility frame {
+  padding-inline: var(--page-margin);
+  margin-inline: auto;
+  width: 100%;
+  max-width: 120rem;
+}
+
+/* Editorial grid: 4 columns on phones, 8 on tablets, 12 from laptop up.
+   Place content with col-start-* / col-span-* to build asymmetry. */
+@utility grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  @media (width >= 64rem) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+@utility section-space {
+  padding-block: var(--section-space);
+}
+
+/* Archival label — small uppercase sans, generously tracked. */
+@utility label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* Hairline rule. */
+@utility hairline {
+  border-color: var(--color-rule);
+}
+
+/* Old-style numerals & ligatures for serif settings. */
+@utility serif-figures {
+  font-feature-settings: "onum" 1, "liga" 1, "dlig" 1;
+}
+
+/* Underline that draws itself on hover — used for links and navigation. */
+@utility link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 0% 1px;
+  transition: background-size 600ms var(--ease-gallery);
+  &:hover, &:focus-visible, &[aria-current="page"], .group:hover &, .group:focus-visible & {
+    background-position: 0% 100%;
+    background-size: 100% 1px;
+  }
+}
+
+/* ==========================================================================
+   Paper grain — a fixed, near-invisible fibre texture over everything.
+   ========================================================================== */
+.paper-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.19 0 0 0 0 0.17 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Placeholder plates get their own, slightly stronger tooth. */
+.plate-tooth {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.18 0 0 0 0 0.15 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scroll indicator: a thin line with a travelling bead of ink. */
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(260%); }
+}
+.scroll-cue-line {
+  animation: scroll-cue 2.6s var(--ease-turn) infinite;
+}
+
+/* A comfortable measure for long-form reading. */
+@utility reading-column {
+  max-width: 38rem;
+  margin-inline: auto;
+}

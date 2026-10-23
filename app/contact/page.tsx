@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { site } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Eileen Feng.",
+};
+
+export default function ContactPage() {
+  return (
+    <section className="frame flex min-h-[80svh] flex-col justify-center pb-24 pt-[calc(var(--header-h)+4rem)]">
+      <p className="label text-mozart">06 — Contact</p>
+      <h1 className="mt-8 max-w-[14ch] text-display-l">
+        For collaborations, <em className="font-light text-mozart">or simply a conversation.</em>
+      </h1>
+      <p className="mt-12 font-display text-title">{site.email}</p>
+      <ul className="label mt-8 flex flex-wrap gap-6 text-charcoal-soft">
+        {site.socials.map((s) => (
+          <li key={s.label}>
+            <a href={s.href} className="link-draw">
+              {s.label}
+              {s.placeholder && " [link]"}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
