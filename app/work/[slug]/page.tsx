@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <nav aria-label="Next project" className="frame border-t border-rule py-12 flex flex-wrap items-baseline justify-between gap-6">
-        <ArrowLink href="/work">All work</ArrowLink>
+        <ArrowLink href="/work">All projects</ArrowLink>
         <Link href={`/work/${next.slug}`} className="group text-right">
           <span className="label block text-ink-soft">Next</span>
           <span className="font-display text-title transition-colors duration-500 group-hover:text-prussian">{next.title}</span>

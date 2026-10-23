@@ -6,7 +6,7 @@ import { Plate } from "@/components/editorial/Plate";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Projects",
   description: "Cinema & research, art & curation, photography and creative experiments.",
 };
 
@@ -24,8 +24,8 @@ export default function WorkPage() {
       <PageHeader
         number="02"
         tone="dust"
-        kicker="Work"
-        title="Work,"
+        kicker="Projects"
+        title="Projects,"
         italic="in four rooms"
         intro="Cinema & Research · Art & Curation · Photography · Creative Experiments"
       />

@@ -27,7 +27,7 @@ export const site = {
 } as const;
 
 export const navigation = [
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/work" },
   { label: "Writing", href: "/writing" },
   { label: "Archive", href: "/archive" },
   { label: "About", href: "/about" },

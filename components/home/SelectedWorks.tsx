@@ -31,7 +31,7 @@ export function SelectedWorks() {
           kicker="Selected Works"
           title="Things made,"
           italic="looked at, and arranged"
-          aside={<ArrowLink href="/work">All work</ArrowLink>}
+          aside={<ArrowLink href="/work">All projects</ArrowLink>}
         />
 
         <ul className="grid-editorial mt-20 gap-y-20 md:mt-28 md:gap-y-28">
