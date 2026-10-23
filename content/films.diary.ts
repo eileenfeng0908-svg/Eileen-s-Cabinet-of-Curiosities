@@ -2,9 +2,8 @@ import type { FilmEntry } from "@/lib/types";
 
 /**
  * Eileen's Letterboxd reviews (fiveforcrying), from her export of all her
- * reviews. The words are hers, with typos corrected; two reviews of the same
- * viewing are joined under one entry. A rating appears only where she gave
- * one in the review itself. To add a poster, set `poster.src`
+ * reviews. The words are hers, with typos corrected; each review is its own entry.
+ * Ratings are hers (her list of 23 October 2026). To add a poster, set `poster.src`
  * (e.g. "/images/films/<slug>.jpg").
  */
 export const diary: FilmEntry[] = [
@@ -24,7 +23,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for The World of Suzie Wong",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
-    }
+    },
+    "rating": 2
   },
   {
     "slug": "daughter-of-the-dragon-1931",
@@ -45,7 +45,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Daughter of the Dragon",
       "aspect": 0.6666666666666666,
       "tone": "blue"
-    }
+    },
+    "rating": 1.5
   },
   {
     "slug": "zootopia-2-2025",
@@ -62,7 +63,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Zootopia 2",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
-    }
+    },
+    "rating": 4.5
   },
   {
     "slug": "her-2013",
@@ -84,7 +86,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Her",
       "aspect": 0.6666666666666666,
       "tone": "green"
-    }
+    },
+    "rating": 4
   },
   {
     "slug": "project-hail-mary-2026",
@@ -104,7 +107,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Project Hail Mary",
       "aspect": 0.6666666666666666,
       "tone": "brass"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "before-sunrise-1995",
@@ -123,7 +127,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Before Sunrise",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "dead-poets-society-1989",
@@ -141,7 +146,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Dead Poets Society",
       "aspect": 0.6666666666666666,
       "tone": "blue"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "the-good-earth-1937",
@@ -161,7 +167,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for The Good Earth",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
-    }
+    },
+    "rating": 3.5
   },
   {
     "slug": "little-miss-sunshine-2006",
@@ -180,7 +187,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Little Miss Sunshine",
       "aspect": 0.6666666666666666,
       "tone": "green"
-    }
+    },
+    "rating": 4.5
   },
   {
     "slug": "toy-story-5-2026",
@@ -196,7 +204,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Toy Story 5",
       "aspect": 0.6666666666666666,
       "tone": "brass"
-    }
+    },
+    "rating": 3
   },
   {
     "slug": "paris-texas-1984",
@@ -215,7 +224,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Paris, Texas",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "napoleon-dynamite-2004",
@@ -232,7 +242,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Napoleon Dynamite",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
-    }
+    },
+    "rating": 4
   },
   {
     "slug": "cleo-from-5-to-7-1962",
@@ -251,7 +262,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Cléo from 5 to 7",
       "aspect": 0.6666666666666666,
       "tone": "blue"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "project-hail-mary-2026-2",
@@ -270,7 +282,8 @@ export const diary: FilmEntry[] = [
       "aspect": 0.6666666666666666,
       "tone": "vermilion",
       "src": "/images/films/project-hail-mary-2026.webp"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "bloody-sunday-2002",
@@ -291,7 +304,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Bloody Sunday",
       "aspect": 0.6666666666666666,
       "tone": "green"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "the-social-network-2010",
@@ -308,7 +322,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for The Social Network",
       "aspect": 0.6666666666666666,
       "tone": "brass"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "inside-out-2015",
@@ -329,7 +344,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Inside Out",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "inside-out-2-2024",
@@ -348,7 +364,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Inside Out 2",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
-    }
+    },
+    "rating": 3
   },
   {
     "slug": "manchester-by-the-sea-2016",
@@ -366,7 +383,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Manchester by the Sea",
       "aspect": 0.6666666666666666,
       "tone": "blue"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "backrooms-2026",
@@ -384,7 +402,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Backrooms",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
-    }
+    },
+    "rating": 3
   },
   {
     "slug": "sentimental-value-2025",
@@ -403,7 +422,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Sentimental Value",
       "aspect": 0.6666666666666666,
       "tone": "green"
-    }
+    },
+    "rating": 4
   },
   {
     "slug": "mulholland-drive-2001",
@@ -420,7 +440,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Mulholland Drive",
       "aspect": 0.6666666666666666,
       "tone": "brass"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "melancholia-2011",
@@ -428,11 +449,27 @@ export const diary: FilmEntry[] = [
     "year": "2011",
     "watched": "2026-07-03",
     "director": "Lars von Trier",
-    "rating": 2,
+    "rating": 3,
     "note": "I guess I’m just not a von Trier person",
     "body": [
-      "I guess I’m just not a von Trier person",
-      "—",
+      "I guess I’m just not a von Trier person"
+    ],
+    "poster": {
+      "src": "/images/films/melancholia-2011.webp",
+      "alt": "Poster for Melancholia",
+      "aspect": 0.6666666666666666,
+      "tone": "parchment"
+    }
+  },
+  {
+    "slug": "melancholia-2011-2",
+    "title": "Melancholia",
+    "year": "2011",
+    "watched": "2026-07-03",
+    "director": "Lars von Trier",
+    "rating": 2,
+    "note": "Watched this film a year ago, and that’s the worst decision I’ve ever made.",
+    "body": [
       "Watched this film a year ago, and that’s the worst decision I’ve ever made.",
       "What kind of DEPRESSION is von Trier trying to portray? I’d rather die than watch this film. Just… I don’t know why people are acclaiming this film; this film is not about depression; it’s about torturing the audience. I’ve never felt so bad watching a movie—in a freaking negative way.",
       "Two stars are for the visual beauty and its poster; other than that, I’d rather not watch it."
@@ -496,7 +533,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for The Elephant Man",
       "aspect": 0.6666666666666666,
       "tone": "blue"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "the-odyssey-2026",
@@ -509,8 +547,24 @@ export const diary: FilmEntry[] = [
       "Watched the 70mm presentation at Coolidge Corner Theatre this afternoon. During bright or white scenes, the entire screen kept flickering. I was surprised to learn afterwards that many people who saw the film in both 70mm and 35mm experienced the same issue. Strange, but ultimately tolerable.",
       "Narratively, there are few surprises, as it remains a fairly faithful adaptation of The Odyssey. That said, the sequence in the Underworld is exceptional, offering one of the film’s most imaginative reinterpretations of the original text.",
       "There has been plenty of debate surrounding the casting of Helen, but I don’t think she is the film’s problem. Nor do I find it convincing to argue that Nolan made such choices simply to satisfy DEI expectations or chase awards. To me, this simply isn’t one of his strongest films. Much of the enthusiastic reception feels like the initial excitement that naturally accompanies a new Christopher Nolan release.",
-      "Still, the film is unmistakably Nolan. Whether one loves it or not, his visual language, narrative ambition, and sense of scale are so distinctive that it’s difficult to imagine another director making this same film in quite the same way.",
-      "—",
+      "Still, the film is unmistakably Nolan. Whether one loves it or not, his visual language, narrative ambition, and sense of scale are so distinctive that it’s difficult to imagine another director making this same film in quite the same way."
+    ],
+    "poster": {
+      "src": "/images/films/the-odyssey-2026.webp",
+      "alt": "Poster for The Odyssey",
+      "aspect": 0.6666666666666666,
+      "tone": "vermilion"
+    },
+    "rating": 3.5
+  },
+  {
+    "slug": "the-odyssey-2026-2",
+    "title": "The Odyssey",
+    "year": "2026",
+    "watched": "2026-07-17",
+    "director": "Christopher Nolan",
+    "note": "It’s just personally hard for me to give this film a high score.",
+    "body": [
       "It’s just personally hard for me to give this film a high score.",
       "Having read and studied The Odyssey twice, I walked out of the cinema without experiencing the same feelings that Nolan’s previous films have always given me.",
       "Everything just felt too Nolan. While that’s not necessarily a bad thing, I wasn’t nearly as surprised or impressed as I was by his earlier masterpieces.",
@@ -524,7 +578,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for The Odyssey",
       "aspect": 0.6666666666666666,
       "tone": "vermilion"
-    }
+    },
+    "rating": 3.5
   },
   {
     "slug": "obsession-2025",
@@ -544,7 +599,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Obsession",
       "aspect": 0.6666666666666666,
       "tone": "green"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "there-will-be-blood-2007",
@@ -561,7 +617,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for There Will Be Blood",
       "aspect": 0.6666666666666666,
       "tone": "brass"
-    }
+    },
+    "rating": 5
   },
   {
     "slug": "heartstopper-forever-2026",
@@ -578,7 +635,8 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Heartstopper Forever",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
-    }
+    },
+    "rating": 2.5
   },
   {
     "slug": "everything-everywhere-all-at-once-2022",
@@ -602,6 +660,7 @@ export const diary: FilmEntry[] = [
       "alt": "Poster for Everything Everywhere All at Once",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
-    }
+    },
+    "rating": 5
   }
 ];

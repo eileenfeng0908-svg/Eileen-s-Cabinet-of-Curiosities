@@ -103,6 +103,8 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
     const d = dialog.current;
     if (!d) return;
     if (open && !d.open) d.showModal();
+    // Start each entry at its top, even though focus lands on Close at the bottom.
+    if (open) requestAnimationFrame(() => d.scrollTo({ top: 0 }));
     if (!open && d.open) d.close();
   }, [open]);
 
