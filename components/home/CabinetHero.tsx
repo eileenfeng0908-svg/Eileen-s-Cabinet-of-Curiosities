@@ -9,7 +9,7 @@ import { Cabinet } from "@/components/cabinet/Cabinet";
  */
 export function CabinetHero() {
   return (
-    <section id="cabinet" aria-labelledby="cabinet-title" className="relative overflow-x-clip pb-20 pt-[calc(var(--header-h)+1rem)] lg:pb-28">
+    <section id="cabinet" aria-labelledby="cabinet-title" className="relative overflow-x-clip pb-16 pt-[calc(var(--header-h)+0.75rem)] lg:min-h-[100svh] lg:pb-8">
       <div className="frame relative grid-editorial gap-y-10 lg:grid-rows-[auto_1fr]">
         <div className="col-span-4 md:col-span-8 lg:col-span-4 lg:row-start-1 lg:self-end">
           <p className="label text-wine">An archive kept by {site.name}</p>
@@ -23,7 +23,7 @@ export function CabinetHero() {
         </div>
 
         <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-6 lg:col-start-6 lg:row-span-2 lg:row-start-1">
-          <div className="mx-auto w-full max-w-[min(40rem,calc((100svh-var(--header-h)-2rem)*0.76))]">
+          <div className="mx-auto w-full max-w-[min(40rem,calc((100svh-var(--header-h)-6.5rem)*0.6667))]">
             <Cabinet items={cabinetItems} />
           </div>
         </div>

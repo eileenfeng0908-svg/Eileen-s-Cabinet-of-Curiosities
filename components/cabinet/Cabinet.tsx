@@ -138,7 +138,7 @@ export function Cabinet({ items }: { items: Collection[] }) {
         onClick={toggle}
         aria-controls="cabinet-interior"
         aria-expanded={open}
-        className="label mt-6 inline-flex items-center gap-2 border-b border-wine/40 pb-1 text-wine transition-colors duration-500 hover:border-vermilion hover:text-vermilion focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-vermilion"
+        className="label mt-4 inline-flex items-center gap-2 border-b border-wine/40 pb-1 text-wine transition-colors duration-500 hover:border-vermilion hover:text-vermilion focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-vermilion"
       >
         <KeyIcon /> {open ? "Close the doors" : "Open the cabinet"}
       </button>
