@@ -96,6 +96,7 @@ export const diary: FilmEntry[] = [
       "One thing I personally loved about this movie is how it portrays losing someone. Recently, I found out that one of the most important people in my life is leaving—not dying, but slowly disappearing from my everyday life. When Rocky was asleep and Grace thought he might never wake up, I saw myself in Grace. That feeling of possibly losing someone you love is quiet, heavy, and unbearable in a very silent way. That scene made me cry. It touched me very deeply."
     ],
     "poster": {
+      "src": "/images/films/project-hail-mary-2026.webp",
       "alt": "Poster for Project Hail Mary",
       "aspect": 0.6666666666666666,
       "tone": "brass"
@@ -114,26 +115,10 @@ export const diary: FilmEntry[] = [
       "But a dream will never last forever, my love, too."
     ],
     "poster": {
+      "src": "/images/films/before-sunrise-1995.webp",
       "alt": "Poster for Before Sunrise",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
-    }
-  },
-  {
-    "slug": "the-brutalist-2024",
-    "title": "The Brutalist",
-    "year": "2024",
-    "watched": "2026-04-06",
-    "director": "Brady Corbet",
-    "note": "Long as fuck, and uses AI",
-    "body": [
-      "Long as fuck, and uses AI",
-      "But the cinematography is legendary"
-    ],
-    "poster": {
-      "alt": "Poster for The Brutalist",
-      "aspect": 0.6666666666666666,
-      "tone": "walnut"
     }
   },
   {
@@ -148,6 +133,7 @@ export const diary: FilmEntry[] = [
       "O Captain! My Captain!"
     ],
     "poster": {
+      "src": "/images/films/dead-poets-society-1989.webp",
       "alt": "Poster for Dead Poets Society",
       "aspect": 0.6666666666666666,
       "tone": "blue"
@@ -185,6 +171,7 @@ export const diary: FilmEntry[] = [
       "I sometimes wish I were perfect, but looking back, my genuine self is actually the best."
     ],
     "poster": {
+      "src": "/images/films/little-miss-sunshine-2006.webp",
       "alt": "Poster for Little Miss Sunshine",
       "aspect": 0.6666666666666666,
       "tone": "green"
@@ -200,6 +187,7 @@ export const diary: FilmEntry[] = [
       "It’s enjoyable but I can’t feel anything else. I love watching these lovely toys, having grown up with them. However, the film somehow loses its emotional core. Anyway, I love Buzz and Woody!"
     ],
     "poster": {
+      "src": "/images/films/toy-story-5-2026.webp",
       "alt": "Poster for Toy Story 5",
       "aspect": 0.6666666666666666,
       "tone": "brass"
@@ -218,6 +206,7 @@ export const diary: FilmEntry[] = [
       "Imagination has always been one of the things that soothes me most. Sometimes the version of someone we carry in our minds feels safer than the real person. For Travis and Jane, I think it is the same. They can no longer live in the same life, but they can still live in each other’s imagination."
     ],
     "poster": {
+      "src": "/images/films/paris-texas-1984.webp",
       "alt": "Poster for Paris, Texas",
       "aspect": 0.6666666666666666,
       "tone": "parchment"
@@ -234,6 +223,7 @@ export const diary: FilmEntry[] = [
       "Unconventional but genuine"
     ],
     "poster": {
+      "src": "/images/films/napoleon-dynamite-2004.webp",
       "alt": "Poster for Napoleon Dynamite",
       "aspect": 0.6666666666666666,
       "tone": "walnut"
@@ -273,7 +263,8 @@ export const diary: FilmEntry[] = [
     "poster": {
       "alt": "Poster for Project Hail Mary",
       "aspect": 0.6666666666666666,
-      "tone": "vermilion"
+      "tone": "vermilion",
+      "src": "/images/films/project-hail-mary-2026.webp"
     }
   },
   {
@@ -447,7 +438,10 @@ export const diary: FilmEntry[] = [
   {
     "slug": "talk-show-2026",
     "title": "TALK SHOW",
-    "link": { "label": "On Fluentum", "href": "https://www.fluentum.org/en/collection/talk_show/" },
+    "link": {
+      "label": "On Fluentum",
+      "href": "https://www.fluentum.org/en/collection/talk_show/"
+    },
     "year": "2026",
     "watched": "2026-07-11",
     "rating": 5,
