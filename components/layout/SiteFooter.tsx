@@ -6,13 +6,13 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-ivory-deep text-ink">
-      <Fleuron ornament="rosette" className="frame absolute inset-x-0 top-0 -translate-y-1/2 text-rosebud" />
+      <Fleuron ornament="rosette" className="frame absolute inset-x-0 top-0 -translate-y-1/2 text-water" />
       <div className="frame pb-10 pt-20 md:pt-28">
         <div className="grid-editorial gap-y-14">
           <div className="col-span-4 md:col-span-5 lg:col-span-6">
-            <p className="label mb-6 text-lily-ink">Colophon</p>
+            <p className="label mb-6 text-rosebud">Colophon</p>
             <p className="font-display text-display-m text-water">
-              Thank you for <em className="title-script text-[1.3em] text-rosebud">looking</em>.
+              Thank you for <em className="title-script text-[1.3em] text-water">looking</em>.
             </p>
             <p className="mt-6 max-w-sm text-caption text-ink">
               {site.name}. {site.tagline}

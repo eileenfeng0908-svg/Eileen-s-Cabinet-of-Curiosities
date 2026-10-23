@@ -72,7 +72,7 @@ export function SiteHeader() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
                       "link-draw pb-0.5 transition-colors duration-500",
-                      isActive(item.href) ? "text-rosebud" : "text-ink hover:text-rosebud",
+                      isActive(item.href) ? "text-water" : "text-ink hover:text-rosebud",
                     )}
                   >
                     {item.label}
@@ -118,13 +118,13 @@ export function SiteHeader() {
                     transition={{ duration: duration.base, ease, delay: 0.05 + i * 0.05 }}
                     className="flex items-baseline gap-4 border-b border-rule py-3"
                   >
-                    <span className="label w-6 text-rosebud">0{i + 2}</span>
+                    <span className="label w-6 text-water">0{i + 2}</span>
                     <Link
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
                         "font-display text-[2.75rem] leading-none",
-                        isActive(item.href) ? "italic text-rosebud" : "text-ink",
+                        isActive(item.href) ? "italic text-water" : "text-ink",
                       )}
                     >
                       {item.label}

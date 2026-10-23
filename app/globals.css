@@ -11,27 +11,36 @@
    text-display-xl, ease-gallery …). See DESIGN.md for the reasoning.
    ========================================================================== */
 
+/* The five Nymphéas pigments, plus the paper. Use these everywhere. */
+:root {
+  --rosebud: rgb(85, 60, 75);       /* #553C4B */
+  --deep-water: rgb(81, 105, 138);  /* #51698A */
+  --glare: rgb(215, 215, 217);      /* #D7D7D9 */
+  --rose-leaf: rgb(66, 88, 84);     /* #425854 */
+  --lily-leaf: rgb(130, 144, 118);  /* #829076 */
+  --ivory: rgb(243, 241, 239);      /* #F3F1EF — warm archival paper */
+}
+
 @theme {
   /* --- Colour ------------------------------------------------------------
-     Monet's Nymphéas: the water-lily pond, faded as if printed in an
-     illustrated book. Glare is the page; Rosebud carries text and structure;
-     Deep Water carries headings; Rose Leaf and
-     Lily Leaf are the botanical accents. */
-  --color-ivory: #d7d7d9;        /* Glare — the page */
-  --color-ivory-deep: #caccca;   /* Glare shaded with Lily Leaf — a second sheet */
-  --color-ivory-pale: #e6e6e8;   /* Glare, lightened — lace, print borders */
-  --color-ink: #553c4b;          /* Rosebud — body text */
-  --color-ink-soft: #5c4653;     /* Rosebud, a touch lighter — captions (AA on Glare) */
-  --color-rosebud: #553c4b;      /* Rosebud — structure, accent words */
-  --color-water: #51698a;        /* Deep Water — headings, links, the title */
-  --color-glare: #d7d7d9;        /* Glare — the paper colour itself */
-  --color-roseleaf: #425854;     /* Rose Leaf — botanical linework */
-  --color-lily: #829076;         /* Lily Leaf — leaves, stars, hover (decorative) */
-  --color-mist: #51698a;         /* Deep Water, used as a faint wash */
-  --color-roseleaf-ink: #425854; /* Accent colours deepened for small text */
-  --color-lily-ink: #4a5541;     /* Lily Leaf deepened for small text */
-  --color-mist-ink: #51698a;
-  --color-rule: rgb(85 60 75 / 0.18); /* Hairlines */
+     Monet's Nymphéas on aged archival paper. The five pigments are defined
+     once in :root (below) and every token here points to them.
+     Hierarchy: Ivory ~60% · Deep Water ~20% (headings, navigation, body,
+     interactive) · Rosebud ~8% (romantic details, numerals, hover, accent
+     words) · Rose Leaf ~5% (secondary type, botanical linework) · Lily Leaf
+     ~4% (ornaments, dividers) · Glare ~3% (cards, borders, layers). */
+  --color-ivory: var(--ivory);                 /* Warm Ivory — the page */
+  --color-ivory-deep: color-mix(in srgb, var(--ivory) 70%, var(--glare)); /* a layered sheet */
+  --color-ivory-pale: color-mix(in srgb, var(--ivory) 60%, white);        /* print borders, lace */
+  --color-ink: var(--deep-water);              /* body text */
+  --color-ink-soft: var(--rose-leaf);          /* secondary text, captions */
+  --color-water: var(--deep-water);            /* headings, navigation, links */
+  --color-rosebud: var(--rosebud);             /* romantic details, hover */
+  --color-roseleaf: var(--rose-leaf);          /* botanical linework */
+  --color-lily: var(--lily-leaf);              /* ornaments, dividers (decorative) */
+  --color-glare: var(--glare);                 /* cards, borders, the doily */
+  --color-mist: var(--deep-water);             /* Deep Water as a faint wash */
+  --color-rule: rgb(81 105 138 / 0.2);         /* hairlines, in Deep Water */
 
   /* --- Type families (set by next/font in app/layout.tsx) --------------- */
   --font-display: var(--font-fell), "IM Fell English", Georgia, serif;     /* headings: letterpress serif */
@@ -250,7 +259,7 @@
 @utility print {
   background: var(--color-ivory-pale);
   padding: clamp(6px, 0.8vw, 12px);
-  box-shadow: 0 1px 1px rgb(85 60 75 / 0.07), 0 10px 22px -16px rgb(85 60 75 / 0.4);
+  box-shadow: 0 1px 1px rgb(81 105 138 / 0.07), 0 10px 22px -16px rgb(81 105 138 / 0.4);
 }
 
 /* Faded print: images sit slightly into the paper, like book illustrations. */

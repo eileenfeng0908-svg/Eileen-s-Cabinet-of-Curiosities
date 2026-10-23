@@ -58,7 +58,7 @@ const path = buildDoily();
 
 export function Doily({ className }: { className?: string }) {
   return (
-    <svg aria-hidden viewBox="0 0 400 400" className={cn("pointer-events-none text-ivory-pale", className)}>
+    <svg aria-hidden viewBox="0 0 400 400" className={cn("pointer-events-none text-glare", className)}>
       <path d={path} fill="currentColor" fillRule="evenodd" />
     </svg>
   );

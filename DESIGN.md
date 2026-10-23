@@ -4,20 +4,16 @@
 An independent art publication meeting an illustrated nineteenth-century storybook. Ivory paper and generous space carry the page; ornament is punctuation, never wallpaper.
 
 ## Colour
-Monet's *Nymphéas*, and only these five colours (plus their tints). Glare is the page; avoid colour blocking.
+Monet's *Nymphéas* on aged archival paper. The five pigments are CSS variables in `:root` (app/globals.css): `--rosebud`, `--deep-water`, `--glare`, `--rose-leaf`, `--lily-leaf`, plus `--ivory`. Every Tailwind token points to them. Avoid large solid blocks of dark colour.
 
-| Token | Hex | Use |
-|---|---|---|
-| `ivory` | #D7D7D9 | Glare — the page, almost everywhere (token name kept for compatibility) |
-| `ivory-deep` | #CACCCA | Glare shaded with Lily Leaf: the statement, the footer |
-| `ivory-pale` | #E6E6E8 | Glare lightened: print borders, lace, the doily |
-| `rosebud` / `ink` | #553C4B | Rosebud — body text, structure, rules, italic accent words |
-| `ink-soft` | #5C4653 | Captions (passes AA on Glare) |
-| `water` | #51698A | Deep Water — large headings and the site title only (too light for small text on Glare) |
-| `glare` | #D7D7D9 | Glare — same as the page |
-| `roseleaf` | #425854 | Rose Leaf — botanical linework, small labels |
-| `lily` | #829076 | Lily Leaf — leaves, stars, the lace heart, selection (`lily-ink` #4A5541 for numerals and hover text) |
-| `mist` | #51698A | Deep Water, used only as a faint wash (`bg-mist/10`) |
+| Pigment | Hex | Share | Tokens / use |
+|---|---|---|---|
+| Warm Ivory | #F3F1EF | ~60% | `ivory` — the page. `ivory-deep` (ivory + 30% Glare) for layered sections, `ivory-pale` for print borders and lace |
+| Deep Water | #51698A | ~20% | `water`, `ink` — headings, navigation, body text, links and interactive accents (4.99:1 on ivory) |
+| Rosebud | #553C4B | ~8% | `rosebud` — italic accent words, "Feng", numerals, hover states, the arched frame's border |
+| Rose Leaf | #425854 | ~5% | `roseleaf`, `ink-soft` — captions and secondary type, botanical linework |
+| Lily Leaf | #829076 | ~4% | `lily` — stars, small dividers, leaves, selection. Decorative only |
+| Glare | #D7D7D9 | ~3% | `glare` — the doily, card borders, row rules, layered backgrounds |
 
 Placeholder plates use the same colours faded toward the paper. Real images get `faded-print` (slightly desaturated) so they sit in the page like book illustrations.
 

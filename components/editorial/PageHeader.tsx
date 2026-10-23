@@ -33,10 +33,10 @@ export function PageHeader({
   return (
     <header className={cn(t.bg, "mb-16 md:mb-24")}>
       <div className="frame pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)]">
-        <div className="grid-editorial gap-y-8 border-t border-rosebud/25 pt-4">
-          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-rosebud">
-            <span className="label text-lily-ink">{number}</span>
-            <span aria-hidden className="h-px w-10 bg-rosebud/30" />
+        <div className="grid-editorial gap-y-8 border-t border-water/25 pt-4">
+          <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4 text-water">
+            <span className="label text-rosebud">{number}</span>
+            <span aria-hidden className="h-px w-10 bg-lily/50" />
           <Star className="h-3 w-3 text-lily" />
             <span className="label">{kicker}</span>
           </div>
@@ -53,7 +53,7 @@ export function PageHeader({
           </Reveal>
           {intro && (
             <Reveal delay={0.1} className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-8">
-              <p className="font-display text-lede italic text-rosebud">{intro}</p>
+              <p className="font-display text-lede italic text-water">{intro}</p>
             </Reveal>
           )}
         </div>

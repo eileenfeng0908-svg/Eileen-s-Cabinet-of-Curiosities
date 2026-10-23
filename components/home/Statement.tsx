@@ -14,10 +14,10 @@ export function Statement() {
     <section aria-labelledby="statement-title" className="section-space relative overflow-hidden bg-ivory-deep">
       <div className="frame grid-editorial gap-y-16">
         <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-center gap-4">
-          <span className="label text-lily-ink">III</span>
-          <span aria-hidden className="h-px w-10 bg-rosebud/30" />
+          <span className="label text-rosebud">III</span>
+          <span aria-hidden className="h-px w-10 bg-lily/50" />
           <Star className="h-3 w-3 text-lily" />
-          <h2 id="statement-title" className="label font-[family-name:var(--font-sc)] text-rosebud">
+          <h2 id="statement-title" className="label font-[family-name:var(--font-sc)] text-water">
             A Note on This Collection
           </h2>
         </div>
@@ -44,7 +44,7 @@ export function Statement() {
 
         <div className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-7 lg:col-start-6 lg:pt-16">
           <Reveal>
-            <p className="font-display text-statement text-rosebud">
+            <p className="font-display text-statement text-water">
               <span className="title-script text-[1.35em] leading-none text-water">{site.statement.lead}</span> — {site.statement.body}
             </p>
           </Reveal>

@@ -14,14 +14,14 @@ import type { ImageAsset, PlateMotif, PlateTone } from "@/lib/types";
 
 // Placeholder tones: the palette, faded toward the paper like old printing inks.
 const tones: Record<PlateTone, { bg: string; ink: string }> = {
-  ivory: { bg: "#cbcbce", ink: "#553c4b" },
-  parchment: { bg: "#c3c6c1", ink: "#553c4b" },
-  glare: { bg: "#e2e2e4", ink: "#553c4b" },
-  roseleaf: { bg: "#a3b0a9", ink: "#2f3f3c" },
-  lily: { bg: "#c2cab8", ink: "#3f4838" },
-  mist: { bg: "#b1bccb", ink: "#3f526d" },
-  rosebud: { bg: "#a8949f", ink: "#e6e6e8" },
-  ink: { bg: "#7d8aa0", ink: "#e6e6e8" },
+  ivory: { bg: "#e6e5e5", ink: "#51698a" },
+  parchment: { bg: "#dddcdd", ink: "#51698a" },
+  glare: { bg: "#d7d7d9", ink: "#51698a" },
+  roseleaf: { bg: "#a3aca9", ink: "#f3f1ef" },
+  lily: { bg: "#afb7a6", ink: "#425854" },
+  mist: { bg: "#aab4c2", ink: "#51698a" },
+  rosebud: { bg: "#b4a9ad", ink: "#553c4b" },
+  ink: { bg: "#7a8ba3", ink: "#f3f1ef" },
 };
 
 function Motif({ motif, ink }: { motif: PlateMotif; ink: string }) {
@@ -131,7 +131,7 @@ export function Plate({
         {/* Soft vignette, like light falling off a print */}
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(85 60 75 / 0.14))" }}
+          style={{ background: "radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(81 105 138 / 0.14))" }}
         />
         <Motif motif={image.motif ?? "none"} ink={tone.ink} />
       </div>

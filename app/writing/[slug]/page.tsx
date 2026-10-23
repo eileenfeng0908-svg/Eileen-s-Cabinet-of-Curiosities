@@ -26,7 +26,7 @@ export default async function ArticlePage({ params }: Props) {
     <article className="frame pb-[var(--section-space)] pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+6rem)]">
       <header className="reading-column text-center">
         <p className="label flex flex-wrap justify-center gap-x-4 text-ink-soft">
-          <span className="text-rosebud">{article.category}</span>
+          <span className="text-water">{article.category}</span>
           <span>{formatDate(article.date)}</span>
           <span>{readingTime(article.body)}</span>
         </p>

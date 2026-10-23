@@ -25,7 +25,7 @@ export function NouveauFrame({
       <div className="relative overflow-hidden" style={{ borderRadius: arch }}>
         {children}
       </div>
-      <span aria-hidden className={cn("absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 px-1.5 text-rosebud", paper)}>
+      <span aria-hidden className={cn("absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 px-1.5 text-water", paper)}>
         <Star />
       </span>
     </div>

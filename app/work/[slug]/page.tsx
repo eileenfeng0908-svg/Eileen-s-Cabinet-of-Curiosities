@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: Props) {
           </p>
           <Reveal className="col-span-4 md:col-span-8 lg:col-span-9">
             <h1 className="text-display-l">{project.title}</h1>
-            {project.subtitle && <p className="mt-4 font-display text-title italic text-rosebud">{project.subtitle}</p>}
+            {project.subtitle && <p className="mt-4 font-display text-title italic text-water">{project.subtitle}</p>}
           </Reveal>
           <Reveal delay={0.1} className="col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-1">
             <p className="text-lede">{project.summary}</p>

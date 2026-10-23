@@ -63,7 +63,7 @@ export function BotanicalVine({ className }: { className?: string }) {
         {[0, 72, 144, 216, 288].map((r) => (
           <ellipse key={r} cx="58" cy="2" rx="5" ry="9" transform={`rotate(${r} 58 10)`} fill="var(--color-rosebud)" fillOpacity={0.35} stroke="var(--color-rosebud)" strokeWidth={0.5} />
         ))}
-        <circle cx="58" cy="10" r="3" fill="var(--color-mist)" />
+        <circle cx="58" cy="10" r="3" fill="var(--color-lily)" />
       </motion.g>
     </svg>
     </div>

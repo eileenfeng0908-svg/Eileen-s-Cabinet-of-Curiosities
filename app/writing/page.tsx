@@ -29,7 +29,7 @@ export default function WritingPage() {
             <Reveal as="li" key={a.slug} y={10} className="border-b border-rule">
               <Link href={`/writing/${a.slug}`} className="group grid-editorial items-baseline gap-y-2 py-8">
                 <span className="label col-span-2 text-ink-soft">{formatDate(a.date)}</span>
-                <span className="label col-span-2 text-right md:text-left text-rosebud">{a.category}</span>
+                <span className="label col-span-2 text-right md:text-left text-water">{a.category}</span>
                 <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title transition-colors duration-500 group-hover:text-rosebud">
                   {a.title}
                 </span>
