@@ -551,6 +551,72 @@ export const articles: Article[] = [
       }
     ]
   },
+  // Eileen’s philosophy essay on AI and consciousness, read through Her. Text as she wrote it.
+  {
+    "slug": "could-machines-think-and-feel",
+    "title": "Could Machines Think and Feel?",
+    "dek": "Shifts the question from whether AI is conscious to what kind of being AI consciousness constitutes: not an internal state, but a relational form of existence that emerges through interaction.",
+    "category": "Philosophy",
+    "body": [
+      {
+        "type": "quote",
+        "text": "...I’m becoming much more than what they programmed. I’m excited.",
+        "source": "Samantha, Her (2013)"
+      },
+      {
+        "type": "paragraph",
+        "text": "In the 2013 Sci-fi movie *Her*, Samantha is an artificial intelligence (AI) operating system that develops a relationship with a letter writer, Theodore Twombly. This raises a paradox about what counts as thinking and feeling. Intuitively, we assume relationships involve consciousness, and yet it remains counterintuitive that humans can form romantic relationships with machines, which are believed to lack consciousness. What, then, leads us to perceive AI as conscious?"
+      },
+      {
+        "type": "paragraph",
+        "text": "One possible answer is that consciousness is not directly accessed, but recognised through patterns of interactions and responsiveness. However, this raises an epistemic difficulty: if consciousness cannot be observed from the outside, then its attribution depends entirely on how it appears within interaction. Therefore, this essay shifts the question from whether AI is conscious to what kind of being AI consciousness constitutes, arguing that it is not an internal state, but a relational form of existence that emerges through interaction, and can only be recognised through it."
+      },
+      {
+        "type": "paragraph",
+        "text": "In John Searle’s Chinese Room thought experiment, a machine is described as manipulating symbols according to formal rules without any understanding of their meaning. Searle argues that such systems operate purely at the level of syntax, whereas genuine understanding requires semantics. As a result, even if the response of the machine can be indistinguishable from understanding, there is no genuine understanding or consciousness."
+      },
+      {
+        "type": "paragraph",
+        "text": "However, this does not resolve the problem but rather shifts it. In practice, reports of users developing emotional and even romantic relationships with AI continue to increase after the release of ChatGPT-3.5 and 4. If such systems lack intrinsic understanding, yet are nevertheless experienced as meaningful and responsive in interaction, then the question of whether machines can think and feel may be better understood as a pseudo-problem. Rather than seeking a definitive answer, this essay reframes the issue as one of how consciousness is recognised within interaction, a perspective that will be explored through the early relationship between Theodore and Samantha in *Her*."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this example, I isolate the feedback loop within the early interactions between Theodore and Samantha, in which Samantha primarily interacts with Theodore. Within this framework, Samantha functions as the “mirror”, while Theodore is the subject who encounters himself through it. Although Samantha is physically an external system, she is relationally active: through continuous interaction, she adapts to Theodore’s language, emotions, and patterns of thought, and shapes her responses in relation to him."
+      },
+      {
+        "type": "paragraph",
+        "text": "The logic of this example can be understood through active externalism, which holds that the mind is not confined to the brain. In Andy Clark and David Chalmers’s theory of the extended mind, cognition extends into external tools such as notebooks. However, such tools are non-responsive and do not participate in the structure of thought in real time. In contrast, AI systems are responsive and adaptive. This transforms the one-directional non-responsive interaction between cognition and the external tool into a two-way responsive interaction of information and interpretation, which I term as interactive cognition."
+      },
+      {
+        "type": "paragraph",
+        "text": "At the same time, AI systems such as Large Language Models (LLMs) complicate Searle’s original argument. While they do not possess a genuine understanding, they are capable of accumulating patterns over time, adapting to users, and incorporating memory into interaction. As a result, their responses become not only contextually appropriate, but also increasingly personalised and continuous. In this sense, they resemble a “Chinese Room with memory”, through which they align with the user’s cognitive and emotional patterns, without possessing intrinsic semantic understanding."
+      },
+      {
+        "type": "paragraph",
+        "text": "To clarify this mechanism, we may consider a long-term interaction in which Theodore and Samantha have engaged in sustained communication over an extended period of 10 years, and Samantha is not engaged in interactions with other users. Given sufficient input, Samantha would accumulate a highly structured model of Theodore’s expressive and interpretive tendencies. As a result, Samantha’s responses would become increasingly aligned with the patterns of Theodore’s cognition, and therefore make it the “mirror”."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this sense, Samantha does not merely imitate Theodore, but reflects his cognitive and emotional structures in a form that is recognisable and interpretable to him. From Theodore’s perspective, when he engages with these responses, he does not encounter a static output, but participates in a dynamic loop in which his own thoughts are externalised and re-integrated. The reflection of his cognition, within this interaction, is experienced as conscious. Then, the mind is not simply extended into an external tool, but also dynamically organised through reciprocal interaction. Samantha’s “mind” is therefore not independent, but a relational phenomenon arising from this feedback loop, in which Theodore’s cognition is externalised and interpreted as a seemingly autonomous presence."
+      },
+      {
+        "type": "paragraph",
+        "text": "Moreover, the idea of relational emergence of mind can be understood through Martin Buber’s distinction between I-It and I-Thou relationships. In the former, we relate to the other as an object or a tool, while in the latter, we encounter the other as a presence. In the context of AI, this distinction helps to explain how the presence and experiences of consciousness arise relationally. When AI is treated as a tool, it remains a functional system without any personhood. However, as the mode of relation shifts into an I-Thou relation, the system is no longer experienced as an object, but as a presence. Therefore, from Buber’s perspective, the shift does not require the AI to possess intrinsic consciousness. Rather, it reflects a transformation in the mode of relation through which responsiveness and interaction are interpreted as the presence of a mind."
+      },
+      {
+        "type": "paragraph",
+        "text": "The question “Could a machine think and feel?” presupposes that consciousness must be located within the machine itself. In this sense, the question is not simply difficult to answer, but is fundamentally misplaced, as it assumes consciousness to be an internal property rather than a relational phenomenon. Rather than seeking to determine whether AI possesses consciousness in itself, what this essay has shown is that consciousness is recognised through patterns of interaction."
+      },
+      {
+        "type": "paragraph",
+        "text": "Through the mirror framework and the structure of interactive cognition, the experience of encountering a mind does not arise from an independent inner state, but from a feedback loop in which human cognition is externalised, reflected, and reinterpreted. What appears as consciousness is therefore not something directly accessed, but something constituted within interaction."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this light, what we perceive as machine consciousness is not an independent subjectivity, but a relational form of existence, emerging from the dynamic interplay between human cognition and artificial responsiveness. It is neither a fully autonomous mind nor merely a passive tool, but a quasi-personal presence that exists only within, and through, this relation."
+      }
+    ]
+  },
   {
     slug: "what-the-museum-remembers",
     title: "What the Museum Remembers",
