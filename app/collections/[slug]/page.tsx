@@ -103,7 +103,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
             </section>
             <section id="analysis" aria-labelledby="analysis-title" className="scroll-mt-24">
               <SectionHeading id="analysis-title" number="02" kicker="Analysis" title="The Reading" italic="Room" align="offset" />
-              <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Essays on film, art history, philosophy, psychology and literature, filed by subject.</p>
+              <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Essays on film, philosophy, psychology and literature, filed by subject.</p>
               <ReadingRoom essays={writing.filter(isAnalysis)} />
             </section>
             <section id="creative-writing" aria-labelledby="creative-title" className="scroll-mt-24">

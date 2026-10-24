@@ -20,15 +20,14 @@ export const isCreative = (a: Article) => creative.includes(a.category);
 export const isAnalysis = (a: Article) => a.category !== "Poetry" && !isCreative(a);
 
 /** Subjects of the Reading Room, in order. */
-export const subjects = ["Film & Cinema", "Art History", "Philosophy", "Psychology", "Literature", "Other Research"] as const;
+export const subjects = ["Film & Cinema", "Philosophy", "Psychology", "Literature"] as const;
 export type Subject = (typeof subjects)[number];
 
-export function subjectOf(a: Article): Subject {
+/** The subject a piece is filed under (a piece outside the shelves still shows its own category). */
+export function subjectOf(a: Article): string {
   switch (a.category) {
     case "Film Criticism":
       return "Film & Cinema";
-    case "Art History":
-      return "Art History";
     case "Philosophy":
       return "Philosophy";
     case "Psychology":
@@ -36,11 +35,11 @@ export function subjectOf(a: Article): Subject {
     case "Literature":
       return "Literature";
     default:
-      return "Other Research";
+      return a.category;
   }
 }
 
 /** Every shelf a piece stands on: its own, then any it is also filed under. */
-export const subjectsOf = (a: Article): Subject[] => [subjectOf(a), ...((a.alsoOn ?? []).filter((s) => (subjects as readonly string[]).includes(s)) as Subject[])];
+export const subjectsOf = (a: Article): Subject[] => [subjectOf(a), ...(a.alsoOn ?? [])].filter((s): s is Subject => (subjects as readonly string[]).includes(s));
 
 export const sectionOf = (a: Article): WritingSectionSlug => (isCreative(a) ? "creative-writing" : "analysis");

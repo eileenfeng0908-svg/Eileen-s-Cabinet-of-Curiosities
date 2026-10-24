@@ -60,7 +60,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "subheading":
             return (
-              <h3 key={i} className="reading-column pt-4 font-display text-[1.3rem] italic leading-snug">
+              <h3 key={i} id={headingId(block.text)} className="reading-column scroll-mt-[calc(var(--header-h)+2rem)] pt-4 font-display text-[1.3rem] italic leading-snug">
                 {block.text}
               </h3>
             );

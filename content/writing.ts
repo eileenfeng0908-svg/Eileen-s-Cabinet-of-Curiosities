@@ -621,14 +621,6 @@ export const articles: Article[] = [
   },
   misconceptionsOnScreen,
   whatIsSelfDeceit,
-  {
-    slug: "what-the-museum-remembers",
-    title: "What the Museum Remembers",
-    dek: "[One sentence.]",
-    category: "Art History",
-    date: undefined,
-    body: [{ type: "paragraph", text: "[Placeholder. Replace with your essay.]" }],
-  },
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "story-placeholder-1",

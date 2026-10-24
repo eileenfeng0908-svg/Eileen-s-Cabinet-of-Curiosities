@@ -5,10 +5,10 @@ import { subjects, subjectsOf } from "@/lib/writing";
 import { cn } from "@/lib/cn";
 import { BookSpine, BookStack, PencilRule, Shelf, WashBlot } from "./Painted";
 
-const spineInk = ["var(--powder-blue)", "var(--vermilion)", "var(--botanical-green)", "var(--walnut)", "var(--wine)", "var(--brass)"];
-const spineHeight = ["100%", "90%", "95%", "88%", "86%", "92%"];
+const spineInk = ["var(--powder-blue)", "var(--botanical-green)", "var(--walnut)", "var(--wine)"];
+const spineHeight = ["100%", "95%", "88%", "92%"];
 
-/** The shelf, left to right: the six subjects, with other books standing between them for company. */
+/** The shelf, left to right: the four subjects, with other books standing between them for company. */
 type Book = { kind: "subject"; n: number } | { kind: "deco"; w: string; h: string; color: string; lean?: number; wide?: boolean } | { kind: "stack"; wide?: boolean };
 const row: Book[] = [
   { kind: "stack", wide: true },
@@ -16,14 +16,12 @@ const row: Book[] = [
   { kind: "deco", w: "1.9rem", h: "74%", color: "var(--botanical-green)", wide: true },
   { kind: "subject", n: 0 },
   { kind: "deco", w: "1.3rem", h: "70%", color: "var(--brass)" },
+  { kind: "deco", w: "1.7rem", h: "80%", color: "var(--vermilion)", wide: true },
+  { kind: "deco", w: "1.2rem", h: "66%", color: "var(--powder-blue)" },
   { kind: "subject", n: 1 },
-  { kind: "deco", w: "1.7rem", h: "80%", color: "var(--powder-blue)", wide: true },
-  { kind: "deco", w: "1.2rem", h: "66%", color: "var(--wine)" },
   { kind: "subject", n: 2 },
+  { kind: "deco", w: "1.6rem", h: "77%", color: "var(--brass)", wide: true },
   { kind: "subject", n: 3 },
-  { kind: "deco", w: "1.6rem", h: "77%", color: "var(--vermilion)", wide: true },
-  { kind: "subject", n: 4 },
-  { kind: "subject", n: 5 },
   { kind: "deco", w: "1.4rem", h: "68%", color: "var(--botanical-green)", lean: 9, wide: true },
   { kind: "stack", wide: true },
 ];
