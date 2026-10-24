@@ -16,6 +16,11 @@ export const misconceptionsOnScreen: Article = {
   "contents": true,
   "body": [
     {
+      "type": "links",
+      "title": "Part of the project",
+      "items": [{ "label": "How Film Shapes Public Perceptions of Mental Illness", "href": "/work/film-and-mental-illness" }]
+    },
+    {
       "type": "heading",
       "text": "Abstract"
     },

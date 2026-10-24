@@ -166,7 +166,17 @@ export const projects: Project[] = [
     summary:
       "Qualitative research comparing film portrayals of mental illness with clinical understandings. It investigates stereotyping, narrative and environmental factors, and the ways media representations may contribute to public stigma and self-stigma.",
     credits: [{ label: "Type", value: "Cinema / psychology research" }],
-    body: [{ type: "paragraph", text: "[Method, films studied and findings.]" }],
+    body: [
+      {
+        type: "paragraph",
+        text: "The full research paper, Misconceptions on Screen, compares films’ depictions of mental illness with the DSM-5 and traces how the differences contribute to stigma and public misconceptions.",
+      },
+      {
+        type: "links",
+        title: "Read",
+        items: [{ label: "Misconceptions on Screen — the research paper", href: "/writing/misconceptions-on-screen" }],
+      },
+    ],
   },
   {
     slug: "four-mirrors",
