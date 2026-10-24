@@ -14,8 +14,14 @@
  * image instead, set `image` to a transparent PNG/WebP in /public: the white
  * outline follows its shape automatically.
  *
- * Photos (added later, phase 4): each city's `photos` list is its gallery,
- * shown in the order written here. Leave it empty until there are real ones.
+ * Photos: each city's `photos` list is its gallery, shown in the order
+ * written here. Put the files in /public/images/life/<city id>/ and add
+ * one entry per photo, e.g.
+ *   { src: "/images/life/tokyo/01.jpg", width: 1600, height: 1200,
+ *     alt: "What the photo shows", caption: "Optional words", date: "2024-05" }
+ * `width`/`height` are the file's pixel size (only the shape matters).
+ * Leave the list empty until there are real ones: the gallery then says
+ * "Photographs will find their way here."
  */
 
 export interface LifePhoto {

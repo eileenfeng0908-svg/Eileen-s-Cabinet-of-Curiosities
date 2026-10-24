@@ -1,11 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { animate, motion, useMotionValue, useTransform } from "motion/react";
-import { landmarks, type Landmark } from "@/content/life";
+import { AnimatePresence, animate, motion, useMotionValue, useTransform } from "motion/react";
+import { getCity, landmarks, type CityLandmark, type Landmark } from "@/content/life";
 import { ATLAS_H, ATLAS_W } from "@/lib/atlas/geo";
 import { project } from "@/lib/atlas/projection";
 import { cn } from "@/lib/cn";
+import { CityGallery } from "./CityGallery";
 import { landmarkArt } from "./landmarks";
 
 /** Landmarks are drawn ~110 units tall; this sets their size on the map. */
@@ -17,6 +18,11 @@ const MAX_ZOOM = 6;
  * top. Drag to wander, pinch or use the buttons to zoom. Landmarks keep a
  * steady size as you zoom, and neighbours that start nudged apart drift
  * back onto their true positions as there is room.
+ *
+ * Choosing a city flies in to it and opens its gallery in the atlas's
+ * place; "Back to Atlas" returns to the map just as it was left. Each
+ * gallery has its own address (#shenzhen, #tokyo…), so the browser's back
+ * button and shared links work too.
  */
 export function Atlas({ map }: { map: ReactNode }) {
   const view = useRef<HTMLDivElement>(null);
@@ -30,6 +36,11 @@ export function Atlas({ map }: { map: ReactNode }) {
   const fit = useRef(1);
   const fitMV = useMotionValue(1);
   const stageScale = useTransform([s, fitMV], ([a, b]: number[]) => a * b);
+  const root = useRef<HTMLDivElement>(null);
+  const [city, setCity] = useState<CityLandmark | null>(null);
+  /** Where the map was when a city was chosen, to return to. */
+  const left = useRef<{ x: number; y: number; s: number } | null>(null);
+  const flying = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const size = () => {
     const el = view.current!;
@@ -100,6 +111,7 @@ export function Atlas({ map }: { map: ReactNode }) {
     const el = view.current!;
     const refit = () => {
       const { w, h } = size();
+      if (!w) return; // hidden while a gallery is open
       const prev = fit.current;
       fit.current = Math.max(w / ATLAS_W, h / ATLAS_H);
       fitMV.set(fit.current);
@@ -196,53 +208,135 @@ export function Atlas({ map }: { map: ReactNode }) {
     keys[e.key]();
   };
 
-  /** Phase 2: a city draws you in. (Its gallery opens here in phase 3.) */
+  const toTop = useCallback(() => {
+    const el = root.current;
+    if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ behavior: reduce.current ? "auto" : "smooth", block: "start" });
+  }, []);
+
+  /** A city draws you in, then opens onto its gallery. */
   const visit = (l: Landmark) => {
-    if (gesture.current.moved > 6) return;
+    if (gesture.current.moved > 6 || !l.interactive) return;
+    left.current = { x: x.get(), y: y.get(), s: s.get() };
     const [mx, my] = project(l.lat, l.lon);
-    flyTo(mx, my, Math.max(s.get(), 3.2));
+    flyTo(mx, my, Math.max(s.get(), 4.5));
+    clearTimeout(flying.current);
+    flying.current = setTimeout(
+      () => {
+        history.pushState({ city: l.id }, "", `#${l.id}`);
+        setCity(l);
+        toTop();
+      },
+      reduce.current ? 0 : 850,
+    );
   };
 
-  return (
-    <div className="atlas relative">
-      <AtlasDefs />
-      <div
-        ref={view}
-        tabIndex={0}
-        role="region"
-        aria-label="Illustrated world atlas. Drag to move around, use plus and minus to zoom."
-        onKeyDown={onKey}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        className="atlas-frame relative aspect-[4/5] cursor-grab touch-none select-none overflow-hidden active:cursor-grabbing sm:aspect-[2000/845]"
-      >
-        <motion.div
-          className={cn("absolute left-0 top-0 origin-top-left", moving && "will-change-transform")}
-          style={{ x, y, scale: stageScale, width: ATLAS_W, height: ATLAS_H }}
-        >
-          {map}
-          <svg viewBox={`0 0 ${ATLAS_W} ${ATLAS_H}`} width={ATLAS_W} height={ATLAS_H} className="absolute left-0 top-0 overflow-visible">
-            {[...landmarks]
-              .sort((a, b) => project(a.lat, a.lon)[1] - project(b.lat, b.lon)[1])
-              .map((l) => (
-                <Mark key={l.id} l={l} zoom={zoom} onVisit={visit} />
-              ))}
-          </svg>
-        </motion.div>
-      </div>
+  /** Back to the map, zooming out to where it was. */
+  const restore = useCallback(() => {
+    setCity(null);
+    const v = left.current;
+    left.current = null;
+    requestAnimationFrame(() => {
+      if (v) apply(v.x, v.y, v.s, true);
+      toTop();
+      view.current?.focus({ preventScroll: true });
+    });
+  }, [apply, toTop]);
 
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-        <p className="font-display text-caption italic text-wine">
-          Places outlined in white pencil hold photographs. Drag to wander; pinch or use the buttons to zoom.
-        </p>
-        <div className="flex items-center gap-2">
-          <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label="Zoom out" className="atlas-btn">−</button>
-          <button type="button" onClick={() => zoomBy(1.6)} aria-label="Zoom in" className="atlas-btn">+</button>
-          <button type="button" onClick={() => apply(x.get(), y.get(), 1, true)} className="label link-draw ml-2 text-wine">
-            Whole world
-          </button>
+  const backToAtlas = () => {
+    if (history.state?.city) history.back();
+    else {
+      history.replaceState(null, "", location.pathname + location.search);
+      restore();
+    }
+  };
+
+  const otherCity = (c: CityLandmark) => {
+    history.replaceState({ city: c.id }, "", `#${c.id}`);
+    setCity(c);
+    toTop();
+  };
+
+  // Addresses: open a gallery from a shared link, and follow the browser's back and forward.
+  useEffect(() => {
+    const fromHash = () => getCity(decodeURIComponent(location.hash.slice(1)));
+    const onPop = () => {
+      const c = fromHash();
+      if (c) {
+        setCity(c);
+        toTop();
+      } else restore();
+    };
+    const first = fromHash();
+    if (first) {
+      const [mx, my] = project(first.lat, first.lon);
+      setCity(first);
+      requestAnimationFrame(() => {
+        const { w, h } = size();
+        if (w) apply(w / 2 - mx * fit.current * 3, h / 2 - my * fit.current * 3, 3);
+      });
+    }
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+      clearTimeout(flying.current);
+    };
+  }, [apply, restore, toTop]);
+
+  return (
+    <div ref={root} className="atlas relative scroll-mt-24">
+      <AtlasDefs />
+      <AnimatePresence mode="wait" initial={false}>
+        {city && (
+          <motion.div
+            key="gallery"
+            initial={{ opacity: 0, scale: 0.985 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce.current ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <CityGallery city={city} onBack={backToAtlas} onCity={otherCity} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div hidden={!!city}>
+        <div
+          ref={view}
+          tabIndex={0}
+          role="region"
+          aria-label="Illustrated world atlas. Drag to move around, use plus and minus to zoom."
+          onKeyDown={onKey}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+          className="atlas-frame relative aspect-[4/5] cursor-grab touch-none select-none overflow-hidden active:cursor-grabbing sm:aspect-[2000/845]"
+        >
+          <motion.div
+            className={cn("absolute left-0 top-0 origin-top-left", moving && "will-change-transform")}
+            style={{ x, y, scale: stageScale, width: ATLAS_W, height: ATLAS_H }}
+          >
+            {map}
+            <svg viewBox={`0 0 ${ATLAS_W} ${ATLAS_H}`} width={ATLAS_W} height={ATLAS_H} className="absolute left-0 top-0 overflow-visible">
+              {[...landmarks]
+                .sort((a, b) => project(a.lat, a.lon)[1] - project(b.lat, b.lon)[1])
+                .map((l) => (
+                  <Mark key={l.id} l={l} zoom={zoom} onVisit={visit} />
+                ))}
+            </svg>
+          </motion.div>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+          <p className="font-display text-caption italic text-wine">
+            Places outlined in white pencil hold photographs. Drag to wander; pinch or use the buttons to zoom.
+          </p>
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label="Zoom out" className="atlas-btn">−</button>
+            <button type="button" onClick={() => zoomBy(1.6)} aria-label="Zoom in" className="atlas-btn">+</button>
+            <button type="button" onClick={() => apply(x.get(), y.get(), 1, true)} className="label link-draw ml-2 text-wine">
+              Whole world
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -133,8 +133,8 @@ export const landmarkArt: Record<string, LandmarkArt> = {
   },
 
   londonEye: {
-    // The London Eye: a great spoked rim with its glass capsules, held from
-    // one side by a raked A-frame on the South Bank, the Thames below.
+    // The London Eye: a great spoked rim with its glass capsules on an
+    // A-frame, the Thames below.
     box: [54, 112],
     draw: () => {
       const R = 48, cy = -60;
@@ -149,16 +149,16 @@ export const landmarkArt: Record<string, LandmarkArt> = {
           <F d={pods.map(([x, y]) => `M${x} ${y}m-2.2 0a2.2 1.7 0 1 0 4.4 0a2.2 1.7 0 1 0 -4.4 0Z`).join("")} fill={c.pale} w="c" />
           <P d={pods.map(([x, y]) => `M${x} ${y}m-2.2 0a2.2 1.7 0 1 0 4.4 0a2.2 1.7 0 1 0 -4.4 0`).join("")} width={0.5} o={0.6} />
           <F d={`M0 ${cy}m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z`} fill={c.red} w="c" />
-          <F d={`M-2 ${cy}L-30 0H-25L1 ${cy + 2}ZM2 ${cy}L-12 0H-7L4 ${cy + 3}Z`} fill={c.bronze} w="b" />
-          <P d={`M-2 ${cy}L-30 0M2 ${cy}L-12 0M-24 -18H-15`} width={1} />
-          <F d={rect(-36, 0, 8, -3)} fill={c.stone} w="b" />
+          <F d={`M-1.5 ${cy}L-24 0H-19L1.5 ${cy + 3}ZM1.5 ${cy}L24 0H19L-1.5 ${cy + 3}Z`} fill={c.bronze} w="b" />
+          <P d={`M0 ${cy}L-22 0M0 ${cy}L22 0M-14.5 -20H14.5`} width={1} />
+          <F d={rect(-28, 0, 28, -3)} fill={c.stone} w="b" />
         </>
       );
     },
     silhouette: () => (
       <g fill="none" stroke="#000" strokeLinecap="round">
         <circle cx={0} cy={-60} r={50.5} strokeWidth={5} />
-        <path d="M-2 -60L-30 0M2 -60L-12 0M-36 -1.5H8" strokeWidth={3} />
+        <path d="M0 -60L-22 0M0 -60L22 0M-28 -1.5H28" strokeWidth={3} />
       </g>
     ),
   },
