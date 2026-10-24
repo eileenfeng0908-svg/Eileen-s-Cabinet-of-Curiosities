@@ -126,9 +126,11 @@ function Scene({ layout, className, grow, sx, sy, onOpen }: SceneProps) {
     <div className={cn("relative", className)} style={{ aspectRatio: `${W} / ${H}` }}>
       <Vines layout={layout} grow={grow} sx={sx} sy={sy} />
 
-      {verses.slice(0, layout.verses.length).map((v, i) => (
-        <Verse key={i} poem={poems[v.poem]} poemIndex={v.poem} line={v.line} index={i} style={pct(...layout.verses[i])} sx={sx} sy={sy} wide={isWide} onOpen={onOpen} />
-      ))}
+      {layout.verses.map((at, i) => {
+        // each place in the garden takes every nth line, and shows them in turn
+        const mine = verses.filter((_, k) => k % layout.verses.length === i);
+        return mine.length ? <Verse key={i} lines={mine} index={i} style={pct(...at)} sx={sx} sy={sy} wide={isWide} onOpen={onOpen} /> : null;
+      })}
 
       {poems.map((p, i) => {
         const at = layout.flowers[i % layout.flowers.length];
@@ -194,17 +196,22 @@ const verses = Array.from({ length: Math.max(...poems.map((p) => p.fragments.len
   poems.flatMap((p, i) => (p.fragments[k] ? [{ poem: i, line: p.fragments[k] }] : [])),
 ).flat();
 
-function Verse({ poem, poemIndex, line, index, style, sx, sy, wide, onOpen }: { poem: Poem; poemIndex: number; line: string; index: number; style: CSSProperties; sx: MotionValue<number>; sy: MotionValue<number>; wide: boolean; onOpen: (i: number) => void }) {
+function Verse({ lines, index, style, sx, sy, wide, onOpen }: { lines: { poem: number; line: string }[]; index: number; style: CSSProperties; sx: MotionValue<number>; sy: MotionValue<number>; wide: boolean; onOpen: (i: number) => void }) {
   // Each line floats at its own depth: nearer lines are larger, darker and move more.
   const depth = [0.9, 0.55, 0.7, 1, 0.45, 0.65][index % 6];
   const x = useTransform(sx, (v) => v * depth * 22);
   const y = useTransform(sy, (v) => v * depth * 14);
+  const [k, setK] = useState(0);
+  const { poem: poemIndex, line } = lines[k % lines.length];
+  const poem = poems[poemIndex];
 
   return (
     <motion.div className="absolute z-[2] -translate-x-1/2 -translate-y-1/2" style={{ ...style, x, y }}>
       <button
         type="button"
         onClick={() => onOpen(poemIndex)}
+        // when a line has faded almost away, it returns as a line from another poem
+        onAnimationIteration={(e) => e.animationName === "verse-breathe" && lines.length > 1 && setK((n) => n + 1)}
         aria-label={`Read “${poem.title}”`}
         className="verse-drift block cursor-pointer text-center font-display italic text-wine transition-colors duration-500 hover:text-vermilion focus-visible:text-vermilion"
         style={
@@ -212,9 +219,9 @@ function Verse({ poem, poemIndex, line, index, style, sx, sy, wide, onOpen }: { 
             "--drift": `${20 + index * 3.5}s`,
             "--breathe": `${13 + index * 2.3}s`,
             "--delay": `${-index * 2.7}s`,
-            fontSize: wide ? `${0.95 + depth * 0.55}rem` : `${0.9 + depth * 0.3}rem`,
+            fontSize: wide ? `${0.95 + depth * 0.55}rem` : `${0.85 + depth * 0.2}rem`,
             opacity: 0.55 + depth * 0.45,
-            maxWidth: wide ? "17em" : "14em",
+            maxWidth: wide ? "17em" : "9em",
           } as CSSProperties
         }
       >
@@ -226,15 +233,23 @@ function Verse({ poem, poemIndex, line, index, style, sx, sy, wide, onOpen }: { 
 
 /* --- Flowers -------------------------------------------------------------- */
 
-const flowerInk: Record<GardenFlower, string> = {
+const kindInk: Record<GardenFlower, string> = {
   tulip: "#C56558",
   blossom: "color-mix(in srgb, #C56558 55%, #F2E4C8)",
   bellflower: "#91AEB5",
   starflower: "#B18A48",
 };
+const tintInk: Record<NonNullable<Poem["tint"]>, string> = {
+  vermilion: "#C56558",
+  rose: "color-mix(in srgb, #C56558 55%, #F2E4C8)",
+  blue: "#91AEB5",
+  brass: "#B18A48",
+  wine: "#713F48",
+};
+const inkOf = (p: Poem) => (p.tint ? tintInk[p.tint] : kindInk[p.flower]);
 
 function FlowerButton({ poem, index, style, labelBelow, onOpen }: { poem: Poem; index: number; style: CSSProperties; labelBelow: boolean; onOpen: (i: number) => void }) {
-  const ink = flowerInk[poem.flower];
+  const ink = inkOf(poem);
   return (
     <button
       type="button"
@@ -336,7 +351,7 @@ function PoemIndex({ onOpen }: { onOpen: (i: number) => void }) {
           {poems.map((p, i) => (
             <li key={p.slug} className="break-inside-avoid">
               <button type="button" onClick={() => onOpen(i)} className="group flex w-full items-baseline gap-3 py-2 text-left text-wine">
-                <span aria-hidden className="h-2 w-2 shrink-0 translate-y-[-0.1em] rounded-full" style={{ background: flowerInk[p.flower] }} />
+                <span aria-hidden className="h-2 w-2 shrink-0 translate-y-[-0.1em] rounded-full" style={{ background: inkOf(p) }} />
                 <span className="font-display text-[1.15rem] italic transition-colors duration-500 group-hover:text-vermilion">{p.title}</span>
                 {p.date && <span className="label ml-auto text-ink-soft">{p.date}</span>}
               </button>
@@ -384,26 +399,15 @@ function PoemReader({ index, onChange }: { index: number | null; onChange: (i: n
 
           <article key={poem.slug} className="poem-page frame flex-1 pb-16 pt-6 md:pt-14">
             <div className="relative mx-auto w-full max-w-[40rem] px-5 pb-14 pt-12 sm:px-8 md:px-16">
-              <PaintedSheet seed={poem.slug.length * 7} bloom={flowerInk[poem.flower]} h={1500} />
+              <PaintedSheet seed={poem.slug.length * 7} bloom={inkOf(poem)} h={1500} />
               <header className="relative text-center">
                 <span aria-hidden className="mx-auto block w-14">
-                  <FlowerArt kind={poem.flower} seed={index! * 7 + 2} ink={flowerInk[poem.flower]} />
+                  <FlowerArt kind={poem.flower} seed={index! * 7 + 2} ink={inkOf(poem)} />
                 </span>
                 <h2 id="poem-title" className="mt-5 text-display-m">{poem.title}</h2>
                 {poem.date && <p className="label mt-3 text-ink-soft">{poem.date}</p>}
               </header>
-              <div className="relative mx-auto mt-10 w-fit space-y-[1.6em] font-display text-[clamp(1.05rem,1.6vw,1.35rem)] leading-[1.85]">
-                {poem.text.split(/\n\s*\n/).map((stanza, i) => (
-                  <p key={i}>
-                    {/* a line too long for a phone wraps with a hanging indent, so the poem's own breaks stay clear */}
-                    {stanza.split("\n").map((line, k) => (
-                      <span key={k} className="block pl-[1.4em] -indent-[1.4em]">
-                        {line}
-                      </span>
-                    ))}
-                  </p>
-                ))}
-              </div>
+              <PoemText text={poem.text} />
             </div>
           </article>
 
@@ -418,5 +422,35 @@ function PoemReader({ index, onChange }: { index: number | null; onChange: (i: n
         </div>
       )}
     </dialog>
+  );
+}
+
+/**
+ * A poem as written: an empty line is a stanza break; a poem written with an
+ * empty line after every line is set with a little air between lines instead.
+ * Long lines wrap with a hanging indent so the poem's own breaks stay clear;
+ * prose paragraphs simply wrap.
+ */
+function PoemText({ text }: { text: string }) {
+  const stanzas = text.split(/\n\s*\n/).map((st) => st.split("\n"));
+  const airy = stanzas.length > 3 && stanzas.every((st) => st.length === 1);
+  return (
+    <div className={cn("relative mx-auto mt-10 w-fit max-w-[34rem] font-display text-[clamp(1.05rem,1.6vw,1.3rem)] leading-[1.85]", airy ? "space-y-[0.55em]" : "space-y-[1.5em]")}>
+      {stanzas.map((lines, i) => (
+        <p key={i}>
+          {lines.map((line, k) =>
+            line.length > 140 ? (
+              <span key={k} className="block text-justify hyphens-auto">
+                {line}
+              </span>
+            ) : (
+              <span key={k} className="block pl-[1.4em] -indent-[1.4em]">
+                {line}
+              </span>
+            ),
+          )}
+        </p>
+      ))}
+    </div>
   );
 }

@@ -422,9 +422,10 @@
   70% { transform: translate(-8px, 8px) rotate(-0.2deg); }
   100% { transform: translate(10px, 4px) rotate(0.6deg); }
 }
+/* faded at the turn of each cycle, which is when a line may change */
 @keyframes verse-breathe {
-  0%, 62%, 100% { opacity: 1; filter: blur(0); }
-  78% { opacity: 0.3; filter: blur(0.6px); }
+  0%, 100% { opacity: 0.12; filter: blur(0.8px); }
+  16%, 82% { opacity: 1; filter: blur(0); }
 }
 
 .garden-sway {
@@ -505,4 +506,48 @@
   background:
     repeating-linear-gradient(to bottom, transparent 0 2.1rem, rgb(113 63 72 / 0.07) 2.1rem calc(2.1rem + 1px)),
     color-mix(in srgb, var(--aged-ivory) 70%, white);
+}
+
+/* --- Life, in Fragments: the atlas (components/life) ---------------------- */
+.atlas-frame {
+  background: color-mix(in srgb, var(--aged-ivory) 70%, white);
+  box-shadow: 0 0 0 1px rgb(113 63 72 / 0.35), 0 0 0 6px color-mix(in srgb, var(--aged-ivory) 70%, white), 0 0 0 7px rgb(177 138 72 / 0.7), 0 30px 60px -40px rgb(113 63 72 / 0.6);
+}
+.atlas-frame:focus-visible { outline: 2px dashed var(--wine); outline-offset: 10px; }
+.atlas-mark { transition: transform 600ms var(--ease-gallery); }
+.atlas-leader { transition: opacity 600ms var(--ease-gallery); }
+.atlas-city { cursor: pointer; outline: none; }
+.atlas-lift {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 500ms var(--ease-gallery);
+}
+.atlas-outline { filter: url(#ec-white-pencil); transition: opacity 500ms; }
+.atlas-city:hover .atlas-lift,
+.atlas-city:focus-visible .atlas-lift { transform: translateY(-5px) scale(1.07); }
+.atlas-city:hover .atlas-outline,
+.atlas-city:focus-visible .atlas-outline { filter: url(#ec-white-pencil-strong); }
+.atlas-city:active .atlas-lift { transform: translateY(-2px) scale(1.02); }
+.atlas-label {
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 400ms var(--ease-gallery), transform 400ms var(--ease-gallery);
+  paint-order: stroke;
+  stroke: color-mix(in srgb, var(--aged-ivory) 70%, white);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.atlas-label.is-shown,
+.atlas-city:hover .atlas-label,
+.atlas-city:focus-visible .atlas-label { opacity: 1; transform: none; }
+.atlas-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+  border: 1px solid rgb(113 63 72 / 0.4);
+  font-family: var(--font-display); font-size: 1.3rem; color: var(--wine);
+  transition: color 300ms, border-color 300ms;
+}
+.atlas-btn:hover { color: var(--vermilion); border-color: var(--vermilion); }
+@media (prefers-reduced-motion: reduce) {
+  .atlas-mark, .atlas-lift, .atlas-label { transition: none; }
 }
