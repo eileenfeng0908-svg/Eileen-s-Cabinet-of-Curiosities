@@ -118,73 +118,30 @@ function DrawerFront({ seed, title }: { seed: number; title: string }) {
 }
 
 function Drawer({ c, box, onOpen, i }: { c: Collection; box: (typeof drawers)[number]; onOpen: OpenCollection; i: number }) {
-  const [out, setOut] = useState(false);
-  const still = useReducedMotion();
-  const Obj = objects[c.object];
-  const t = { duration: still ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] as const };
-  const id = `drawer-${c.slug}`;
-
   return (
-    <div className="absolute" style={{ left: pct(box.x, W), top: pct(box.y, H), width: pct(box.w, W), height: pct(box.h, H), zIndex: out ? 5 : 1 }}>
-      {/* the drawer box, seen from above as it slides toward you */}
-      <motion.div
-        id={id}
-        initial={false}
-        animate={{ scaleY: out ? 1 : 0, opacity: out ? 1 : 0 }}
-        transition={t}
-        style={{ transformOrigin: "50% 100%", bottom: "84%", height: "96%" }}
-        className="absolute inset-x-[1%] overflow-hidden"
-        inert={!out}
-      >
-        <svg viewBox="0 0 218 160" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden>
-          <g filter={wash("a")}>
-            <path d="M0 160L10 0H208L218 160Z" fill="var(--walnut)" />
-            <path d="M14 152L22 10H196L204 152Z" fill="var(--aged-ivory)" />
-          </g>
-          <path d="M22 10H196L194 34H24Z" fill="url(#ec-hatch)" opacity={0.3} filter={pencil} />
-          <path d="M0 160L10 0H208L218 160Z M14 152L22 10H196L204 152Z" fill="none" stroke="var(--wine)" strokeWidth={1} opacity={0.6} filter={pencil} />
-        </svg>
-        <div className="relative flex h-full flex-col items-center justify-between px-[10%] pb-[6%] pt-[4%]">
-          <Obj className="w-[52%]" />
-          <a
-            href={`/collections/${c.slug}`}
-            onClick={(e) => {
-              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-              e.preventDefault();
-              onOpen(c, e.currentTarget.closest(".absolute") as HTMLElement);
-            }}
-            className="cabinet-tag whitespace-nowrap border border-wine/50 bg-ivory px-[0.7em] py-[0.2em] font-display italic text-wine underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vermilion"
-            style={{ fontSize: "max(12px, 3.2cqw)" }}
-          >
-            Open {c.title} →
-          </a>
-        </div>
-      </motion.div>
-
-      {/* the painted front */}
-      <motion.button
-        type="button"
-        aria-expanded={out}
-        aria-controls={id}
-        aria-label={`${out ? "Close" : "Pull out"} the ${c.title} drawer`}
-        onClick={() => setOut((v) => !v)}
-        initial={false}
-        animate={{ y: out ? "16%" : "0%", scale: out ? 1.05 : 1 }}
-        transition={t}
+    <div className="absolute" style={{ left: pct(box.x, W), top: pct(box.y, H), width: pct(box.w, W), height: pct(box.h, H) }}>
+      {/* the painted front: opens its collection straight away */}
+      <a
+        href={`/collections/${c.slug}`}
+        aria-label={`Open ${c.title}`}
+        onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          onOpen(c, e.currentTarget.parentElement as HTMLElement);
+        }}
         className="group absolute inset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vermilion"
-        style={{ filter: out ? "drop-shadow(0 6px 6px rgb(113 63 72 / 0.45))" : undefined }}
       >
-        <span className="absolute inset-0 transition-transform duration-500 ease-gallery group-hover:translate-y-[2%]">
+        <span className="absolute inset-0 transition-transform duration-500 ease-gallery group-hover:translate-y-[3%]">
           <DrawerFront seed={300 + i * 17} title={c.title} />
         </span>
         <span
-          className="absolute inset-x-0 top-[55%] text-center font-display italic text-wine"
+          className="absolute inset-x-0 top-[55%] text-center font-display italic text-wine underline-offset-2 group-hover:underline"
           style={{ fontSize: "max(12px, 3.3cqw)" }}
           aria-hidden
         >
           {c.title}
         </span>
-      </motion.button>
+      </a>
     </div>
   );
 }

@@ -48,7 +48,7 @@ export const collections: Collection[] = [
   },
   {
     slug: "writing-and-philosophy",
-    title: "Writing & Philosophy",
+    title: "Writings",
     object: "notebook",
     intro: "[A sentence about why you write, and the questions you write toward.]",
     holds: { writing: () => true },
@@ -66,7 +66,7 @@ export const collections: Collection[] = [
   },
   {
     slug: "fashion",
-    title: "Fashion",
+    title: "Fashion Show",
     object: "ribbon",
     intro: "[A sentence about clothing as a way of telling who we are.]",
     holds: { projects: (p) => p.slug === "identity" },

@@ -18,7 +18,7 @@ type Leaving = { c: Collection; rect: DOMRect } | null;
 /**
  * The illustrated cabinet. Closed at first; click (or press the button
  * below) and the doors swing on their hinges to show six collections.
- * Shelves open their collection directly; the two drawers slide out first.
+ * Shelves and drawers open their collection directly.
  */
 export function Cabinet({ items }: { items: Collection[] }) {
   const [open, setOpen] = useState(false);

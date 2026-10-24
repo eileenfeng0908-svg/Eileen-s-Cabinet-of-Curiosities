@@ -46,7 +46,7 @@ export default async function ArticlePage({ params }: Props) {
     <article className="frame pb-[var(--section-space)] pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+6rem)]">
       <nav aria-label="Breadcrumb" className="reading-column mb-10 text-center">
         <p className="label text-ink-soft">
-          <Link href="/collections/writing-and-philosophy" className="link-draw">Writing &amp; Philosophy</Link>
+          <Link href="/collections/writing-and-philosophy" className="link-draw">Writings</Link>
           <span aria-hidden className="mx-2">/</span>
           <Link href={`/collections/writing-and-philosophy#${section.slug}`} className="link-draw">{section.room}</Link>
         </p>

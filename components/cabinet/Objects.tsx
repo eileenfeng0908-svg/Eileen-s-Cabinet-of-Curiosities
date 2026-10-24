@@ -73,7 +73,7 @@ export function FramedPainting({ className }: { className?: string }) {
   );
 }
 
-/** Writing & Philosophy: books on end and a notebook leaning on them. */
+/** Writings: books on end and a notebook leaning on them. */
 export function Notebook({ className }: { className?: string }) {
   const r = rng(3);
   const books = [
