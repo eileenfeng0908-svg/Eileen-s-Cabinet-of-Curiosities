@@ -55,20 +55,29 @@ export const landmarkArt: Record<string, LandmarkArt> = {
   /* ---------- Eileen's eleven ---------- */
 
   orientalPearl: {
-    box: [22, 116],
-    draw: () => (
-      <>
-        <P d="M-19 0L-7 -24M19 0L7 -24M0 0V-22" stroke={c.stone} width={3.4} o={1} />
-        <F d={`${rect(-5.5, 0, -2.5, -80)}${rect(-1.5, 0, 1.5, -80)}${rect(2.5, 0, 5.5, -80)}`} fill={c.stone} w="b" />
-        <F d="M0 -14a13 13 0 1 0 0.1 0Z" fill={c.rose} />
-        <F d="M0 -59a9 9 0 1 0 0.1 0Z" fill={c.rose} w="c" />
-        <F d={rect(-1.6, -74, 1.6, -96)} fill={c.stone} />
-        <F d="M0 -88.5a4 4 0 1 0 0.1 0Z" fill={c.rose} w="b" />
-        <P d="M0 -96V-116M-2 -102H2M-1.5 -108H1.5" stroke={c.wine} width={1.1} />
-        <P d="M0 -14a13 13 0 1 0 0.1 0ZM0 -59a9 9 0 1 0 0.1 0ZM-12 -30H12M-8.4 -68H8.4" />
-        <P d="M-7 -36a8 6 0 0 1 6 -6" stroke={c.pale} width={1.4} o={0.9} />
-      </>
-    ),
+    // 东方明珠: three columns rising through two great pink spheres, three
+    // raked legs to the lower one, five small spheres between them, the
+    // little "space module" sphere above, and a long ringed mast.
+    box: [16, 126],
+    draw: () => {
+      const small: [number, number][] = [[-4.4, -36], [4.4, -41], [-4.4, -46], [4.4, -51], [0, -56]];
+      return (
+        <>
+          <F d={rect(-14, 0, 14, -3)} fill={c.stone} w="b" />
+          <P d="M-11.5 -2.5L-5.4 -20M11.5 -2.5L5.4 -20" stroke={c.stone} width={2.6} o={1} />
+          <P d="M-11.5 -2.5L-5.4 -20M11.5 -2.5L5.4 -20" width={0.6} o={0.6} />
+          <F d={`${rect(-5.6, -2, -3.2, -72)}${rect(-1.2, -2, 1.2, -72)}${rect(3.2, -2, 5.6, -72)}`} fill={c.stone} w="b" />
+          <F d="M0 -31.4a6.8 6.8 0 1 0 0.1 0Z" fill={c.rose} />
+          <F d={small.map(([x, y]) => `M${x} ${y - 1.7}a1.7 1.7 0 1 0 0.1 0Z`).join("")} fill={c.rose} w="c" />
+          <F d="M0 -76.2a6 6 0 1 0 0.1 0Z" fill={c.rose} w="c" />
+          <F d={rect(-1.3, -76, 1.3, -89)} fill={c.stone} />
+          <F d="M0 -92.6a2.6 2.6 0 1 0 0.1 0Z" fill={c.rose} w="b" />
+          <P d="M0 -95V-124M-1.1 -101H1.1M-0.9 -108H0.9M-0.7 -115H0.7" width={1} />
+          <P d={`M0 -31.4a6.8 6.8 0 1 0 0.1 0ZM0 -76.2a6 6 0 1 0 0.1 0ZM-6.6 -24.6H6.6M-5.9 -70.2H5.9M-5.6 -31.4V-63.8M5.6 -31.4V-63.8`} width={0.8} o={0.65} />
+          <P d="M-4 -28a5 4 0 0 1 4 -3M-3.4 -73a4 3 0 0 1 3.4 -2.4" stroke={c.pale} width={1.1} o={0.9} />
+        </>
+      );
+    },
   },
 
   eiffel: {
@@ -123,22 +132,34 @@ export const landmarkArt: Record<string, LandmarkArt> = {
     ),
   },
 
-  elizabethTower: {
-    box: [12, 122],
-    draw: () => (
-      <>
-        <F d={rect(-7.5, 0, 7.5, -70)} fill={c.sand} />
-        <F d={rect(-9.5, -70, 9.5, -88)} fill={c.sand} w="b" />
-        <F d="M0 -85a6.2 6.2 0 1 0 0.1 0Z" fill={c.pale} w="c" />
-        <F d={rect(-7.5, -88, 7.5, -97)} fill={c.stone} w="c" />
-        <F d="M-8.5 -97L0 -120L8.5 -97Z" fill={c.slate} />
-        <F d="M-9.5 -97L-8 -106L-6.5 -97ZM9.5 -97L8 -106L6.5 -97Z" fill={c.slate} w="b" />
-        <P d="M0 -79V-75.5M0 -79L2.6 -80.4" width={0.9} />
-        <P d={`${lines([[-4, -4, -4, -68], [0, -4, 0, -68], [4, -4, 4, -68]])}M-7.5 -24H7.5M-7.5 -48H7.5`} width={0.6} o={0.45} />
-        <P d={arches(-4, 4, 4, -89, 7, 1.2)} width={0.7} />
-        <P d="M0 -120V-124" width={1} />
-        <P d="M-7.5 0V-70H-9.5V-88H-7.5V-97L0 -120L8.5 -97H7.5V-88H9.5V-70H7.5V0" />
-      </>
+  londonEye: {
+    // The London Eye: a great spoked rim with its glass capsules, held from
+    // one side by a raked A-frame on the South Bank, the Thames below.
+    box: [54, 112],
+    draw: () => {
+      const R = 48, cy = -60;
+      const pods = range(0, 31, 1).map((i) => [Math.cos((i / 32) * Math.PI * 2) * (R + 2.6), cy + Math.sin((i / 32) * Math.PI * 2) * (R + 2.6)]);
+      return (
+        <>
+          <F d="M-54 0Q-27 -3 0 0T54 0V4H-54Z" fill={c.blue} w="c" o={0.8} />
+          <F d={`M0 ${cy}m-${R} 0a${R} ${R} 0 1 0 ${R * 2} 0a${R} ${R} 0 1 0 -${R * 2} 0Z`} fill={c.glass} w="b" o={0.35} />
+          <P d={`M0 ${cy}m-${R} 0a${R} ${R} 0 1 0 ${R * 2} 0a${R} ${R} 0 1 0 -${R * 2} 0`} stroke={c.slate} width={1.6} o={0.85} />
+          <P d={`M0 ${cy}m-${R - 3} 0a${R - 3} ${R - 3} 0 1 0 ${(R - 3) * 2} 0a${R - 3} ${R - 3} 0 1 0 -${(R - 3) * 2} 0`} stroke={c.slate} width={0.6} o={0.6} />
+          <P d={range(0, 15, 1).map((i) => { const t = (i / 16) * Math.PI * 2; return `M${Math.cos(t) * (R - 3)} ${cy + Math.sin(t) * (R - 3)}L${-Math.cos(t) * (R - 3)} ${cy - Math.sin(t) * (R - 3)}`; }).join("")} stroke={c.slate} width={0.35} o={0.5} />
+          <F d={pods.map(([x, y]) => `M${x} ${y}m-2.2 0a2.2 1.7 0 1 0 4.4 0a2.2 1.7 0 1 0 -4.4 0Z`).join("")} fill={c.pale} w="c" />
+          <P d={pods.map(([x, y]) => `M${x} ${y}m-2.2 0a2.2 1.7 0 1 0 4.4 0a2.2 1.7 0 1 0 -4.4 0`).join("")} width={0.5} o={0.6} />
+          <F d={`M0 ${cy}m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z`} fill={c.red} w="c" />
+          <F d={`M-2 ${cy}L-30 0H-25L1 ${cy + 2}ZM2 ${cy}L-12 0H-7L4 ${cy + 3}Z`} fill={c.bronze} w="b" />
+          <P d={`M-2 ${cy}L-30 0M2 ${cy}L-12 0M-24 -18H-15`} width={1} />
+          <F d={rect(-36, 0, 8, -3)} fill={c.stone} w="b" />
+        </>
+      );
+    },
+    silhouette: () => (
+      <g fill="none" stroke="#000" strokeLinecap="round">
+        <circle cx={0} cy={-60} r={50.5} strokeWidth={5} />
+        <path d="M-2 -60L-30 0M2 -60L-12 0M-36 -1.5H8" strokeWidth={3} />
+      </g>
     ),
   },
 
@@ -175,20 +196,28 @@ export const landmarkArt: Record<string, LandmarkArt> = {
     ),
   },
 
-  empireState: {
-    box: [16, 126],
-    draw: () => {
-      const outline = "M-14 0V-20H-10V-62H-7V-80H-5V-86H-3.5V-96H-1.2V-112H1.2V-96H3.5V-86H5V-80H7V-62H10V-20H14V0";
-      return (
-        <>
-          <F d={`${outline}Z`} fill={c.stone} />
-          <F d="M3 -20V-62H10V-20ZM3 -62V-80H7V-62Z" fill={c.sand} w="c" o={0.6} />
-          <P d={range(-8, 8, 2.7).map((x) => `M${x.toFixed(1)} -22V-60`).join("") + range(-5, 5, 2.5).map((x) => `M${x} -64V-78`).join("")} stroke={c.brass} width={0.6} o={0.7} />
-          <P d="M0 -112V-124" width={1} />
-          <P d={outline} />
-        </>
-      );
-    },
+  liberty: {
+    // The Statue of Liberty on her pedestal and star-shaped fort.
+    box: [20, 124],
+    draw: () => (
+      <>
+        <F d="M-24 0L-20 -4H20L24 0ZM-17 -4L-14 -8H14L17 -4Z" fill={c.stone} w="b" />
+        <F d={`${rect(-9.5, -8, 9.5, -14)}${rect(-8, -14, 8, -36)}${rect(-9.5, -36, 9.5, -40)}`} fill={c.sand} />
+        <P d={`${arches(-4, 4, 4, -18, 9, 1.4)}M-8 -30H8`} width={0.6} o={0.5} />
+        {/* the figure, in weathered copper */}
+        <F
+          d="M-6.5 -40C-6 -52 -6.4 -64 -4.6 -76C-4 -82 -3 -86 -2.6 -88L-1.6 -89.5H2.2L3.2 -86C4.2 -82 4.6 -76 4.8 -68C5.4 -58 6.2 -48 6.8 -40Z"
+          fill={c.copper}
+        />
+        <F d="M2.2 -86L4.6 -100L6.6 -110L8.2 -109.5L6.8 -99L4.8 -84Z" fill={c.copper} w="b" />
+        <F d="M0.2 -93.6a3 3.2 0 1 0 0.1 0Z" fill={c.copper} w="c" />
+        <F d="M-6.4 -70L-9.6 -66L-8.8 -58L-5 -61Z" fill={c.copper} w="c" />
+        <F d="M7.4 -110.5C6 -113 7.2 -116 8.4 -118.5C9.2 -116 10.6 -113.5 9 -110.5Z" fill={c.brass} />
+        <P d="M-2.8 -95.4L-6 -98.6M-1.6 -96.6L-3.2 -101M0.2 -97L0.2 -101.6M2 -96.6L3.6 -101M3.2 -95.4L6.4 -98.4" stroke={c.copper} width={0.9} o={1} />
+        <P d="M-3 -78C-2 -66 -1 -54 0 -42M1.4 -80C2.6 -66 3.8 -54 4.8 -42M-5 -50C-2 -52 2 -52 6 -50M6.6 -110.8H9.4" width={0.6} o={0.55} />
+        <P d="M-6.5 -40C-6 -52 -6.4 -64 -4.6 -76C-4 -82 -3 -86 -2.6 -88M3.2 -86C4.2 -82 4.6 -76 4.8 -68C5.4 -58 6.2 -48 6.8 -40" width={0.8} />
+      </>
+    ),
   },
 
   tokyoTower: {
@@ -414,6 +443,200 @@ export const landmarkArt: Record<string, LandmarkArt> = {
         <F d={rect(-5.5, -30, 5.5, -39)} fill={c.stone} w="b" />
         <F d="M-3 0V-30H3V0Z" fill={c.bronze} w="c" o={0.7} />
         <P d={`M-30 0V-6H-25V-12H-20V-18H-15V-24H-10V-30H10V-24H15V-18H20V-12H25V-6H30V0M-2 -30V-35H2V-30`} width={0.7} />
+      </>
+    ),
+  },
+
+  koutoubia: {
+    box: [12, 84],
+    draw: () => (
+      <>
+        <F d={rect(-12, 0, 12, -5)} fill={c.sand} w="b" />
+        <F d={rect(-7.5, -5, 7.5, -64)} fill={c.rose} />
+        <F d={`${rect(-8.5, -64, 8.5, -67)}${rect(-4, -67, 4, -76)}`} fill={c.rose} w="c" />
+        <F d="M-4 -76A4 3.4 0 0 1 4 -76Z" fill={c.copper} w="b" />
+        <F d="M0 -81.4a1.4 1.4 0 1 0 0.1 0ZM0 -84.6a1.1 1.1 0 1 0 0.1 0Z" fill={c.brass} w="c" />
+        <P d={`${arches(-3, 3, 6, -20, 9, 2)}${arches(-3, 3, 6, -40, 9, 2)}M-5 -54H5M-5 -58H5${range(-7, 7, 3.5).map((x) => `M${x} -64V-66`).join("")}`} width={0.6} o={0.6} />
+        <P d="M-7.5 -5V-64M7.5 -64V-5" width={0.8} />
+      </>
+    ),
+  },
+
+  djenne: {
+    box: [32, 58],
+    draw: () => {
+      const towers: [number, number][] = [[-20, 46], [0, 56], [20, 46]];
+      return (
+        <>
+          <F d={rect(-32, 0, 32, -24)} fill={c.sand} />
+          <F d={towers.map(([x, h]) => `M${x - 5} -24V${-h + 6}Q${x} ${-h - 2} ${x + 5} ${-h + 6}V-24Z`).join("")} fill={c.sand} w="b" />
+          <F d={towers.map(([x, h]) => `M${x} ${-h - 1}a1.6 1.6 0 1 0 0.1 0Z`).join("")} fill={c.pale} w="c" />
+          <P d={`${towers.flatMap(([x, h]) => range(-30, -h + 10, -7).map((y) => `M${x - 6.5} ${y}H${x - 5}M${x + 5} ${y}H${x + 6.5}`)).join("")}${range(-28, 28, 7).map((x) => `M${x} -24V-27`).join("")}M-4 0V-10H4V0`} stroke={c.bronze} width={0.9} o={0.9} />
+          <P d="M-32 0V-24H32V0" width={0.7} o={0.6} />
+        </>
+      );
+    },
+  },
+
+  kilimanjaro: {
+    box: [44, 46],
+    draw: () => (
+      <>
+        <F d="M-44 0L-12 -38Q0 -44 12 -38L44 0Z" fill={c.bronze} w="b" o={0.8} />
+        <F d="M-12 -38Q0 -44 12 -38L8 -33L4 -35L0 -31L-5 -35L-9 -32Z" fill={c.pale} />
+        <F d="M-44 0Q-20 -10 0 -6Q20 -10 44 0Z" fill={c.green} w="c" o={0.8} />
+        <P d="M30 0V-12M24 -14Q30 -18 37 -14Q30 -12 24 -14Z" stroke={c.wine} width={0.9} />
+        <F d="M23 -13Q30 -19 38 -13Q30 -11 23 -13Z" fill={c.green} w="c" />
+        <P d="M-44 0L-12 -38Q0 -44 12 -38L44 0" width={0.7} o={0.55} />
+      </>
+    ),
+  },
+
+  capeLighthouse: {
+    box: [22, 64],
+    draw: () => (
+      <>
+        <F d="M-22 0C-18 -10 -8 -16 0 -16C10 -16 18 -8 22 0Z" fill={c.green} w="b" o={0.85} />
+        <F d="M-4.5 -15L-3 -50H3L4.5 -15Z" fill={c.pale} />
+        <F d="M-4.3 -22H4.3L4.1 -28H-4.1ZM-3.7 -36H3.7L3.5 -42H-3.5Z" fill={c.red} w="c" />
+        <F d={`${rect(-3.6, -50, 3.6, -56)}M-4 -56L0 -61L4 -56Z`} fill={c.red} w="b" />
+        <P d="M-4.5 -15L-3 -50H3L4.5 -15M-5 -50H5M-2 -51V-55M2 -51V-55" width={0.7} />
+      </>
+    ),
+  },
+
+  machuPicchu: {
+    box: [38, 52],
+    draw: () => (
+      <>
+        <F d="M-38 0L-16 -26L-6 -50L4 -34L18 -18L38 0Z" fill={c.green} />
+        <F d="M-6 -50L4 -34L-2 -30L-10 -36Z" fill={c.copper} w="c" o={0.7} />
+        <F d={`${rect(-30, 0, 30, -8)}`} fill={c.sand} w="b" />
+        <F d={[-22, -12, -2, 8, 18].map((x) => `M${x} -8V-13L${x + 4} -16L${x + 8} -13V-8Z`).join("")} fill={c.stone} w="c" />
+        <P d={`M-30 -3H30M-28 -6H28${[-22, -12, -2, 8, 18].map((x) => `M${x} -8V-13L${x + 4} -16L${x + 8} -13V-8`).join("")}`} width={0.6} o={0.6} />
+        <P d="M-38 0L-16 -26L-6 -50L4 -34L18 -18L38 0" width={0.7} o={0.55} />
+      </>
+    ),
+  },
+
+  obelisco: {
+    box: [12, 80],
+    draw: () => (
+      <>
+        <F d={rect(-12, 0, 12, -4)} fill={c.stone} w="b" />
+        <F d="M-5 -4L-3.2 -70L0 -76L3.2 -70L5 -4Z" fill={c.pale} />
+        <P d="M-5 -4L-3.2 -70L0 -76L3.2 -70L5 -4M-3.2 -70H3.2M-0.8 -58H0.8V-61H-0.8Z" width={0.8} />
+      </>
+    ),
+  },
+
+  moai: {
+    box: [26, 52],
+    draw: () => {
+      const head = (x: number, h: number) =>
+        `M${x - 5} -6V${-h + 12}Q${x - 6} ${-h + 4} ${x - 3} ${-h}H${x + 4}Q${x + 6} ${-h + 4} ${x + 5.5} ${-h + 12}L${x + 7} ${-h + 18}L${x + 5} ${-h + 20}V-6Z`;
+      return (
+        <>
+          <F d={rect(-26, 0, 26, -6)} fill={c.stone} w="b" />
+          <F d={`${head(-14, 42)}${head(0, 48)}${head(14, 40)}`} fill={c.bronze} />
+          <F d="M-3 -48H4V-53H-3Z" fill={c.brick} w="c" />
+          <P d={`${[[-14, 42], [0, 48], [14, 40]].map(([x, h]) => `M${x - 2} ${-h + 10}H${x + 4}M${x + 2} ${-h + 12}V${-h + 19}M${x} ${-h + 23}H${x + 4}`).join("")}`} width={0.8} o={0.7} />
+        </>
+      );
+    },
+  },
+
+  harpa: {
+    // Harpa, Reykjavík: Olafur Eliasson's faceted glass façade.
+    box: [36, 40],
+    draw: () => (
+      <>
+        <F d="M-36 0V-20L-16 -34L20 -31L36 -16V0Z" fill={c.glass} />
+        <F d="M-16 -34L20 -31L36 -16L4 -20Z" fill={c.blue} w="c" o={0.7} />
+        <F d={[[-30, -6], [-18, -14], [-6, -8], [10, -12], [24, -6], [-24, -22], [2, -26]].map(([x, y]) => `M${x} ${y}l3 -2.4l3 2.4l-3 2.4Z`).join("")} fill={c.brass} w="b" o={0.8} />
+        <P d={`${range(-30, 30, 6).map((x) => `M${x} 0L${x + 4} -18`).join("")}${range(-14, -2, 4).map((y) => `M-36 ${y}L36 ${y + 2}`).join("")}`} stroke={c.pale} width={0.7} o={0.9} />
+        <P d="M-36 0V-20L-16 -34L20 -31L36 -16V0M4 -20L-16 -34M4 -20L36 -16" width={0.8} />
+      </>
+    ),
+  },
+
+  staveChurch: {
+    box: [20, 76],
+    draw: () => {
+      const roof = (y: number, w: number, h: number) => `M${-w} ${y}L0 ${y - h}L${w} ${y}Z`;
+      return (
+        <>
+          <F d={`${rect(-16, 0, 16, -14)}${rect(-11, -20, 11, -30)}${rect(-6, -36, 6, -46)}`} fill={c.bronze} />
+          <F d={`${roof(-14, 20, 8)}${roof(-30, 14, 7)}${roof(-46, 9, 6)}M-3.6 -52L0 -74L3.6 -52Z`} fill={c.roof} w="b" />
+          <P d="M-20 -14Q-23 -18 -21 -20M20 -14Q23 -18 21 -20M-14 -30Q-17 -34 -15 -36M14 -30Q17 -34 15 -36" stroke={c.roof} width={1.2} o={1} />
+          <P d={`${range(-12, 12, 4).map((x) => `M${x} 0V-13`).join("")}M-2 0V-8A2 2 0 0 1 2 -8V0`} width={0.6} o={0.5} />
+        </>
+      );
+    },
+  },
+
+  uluru: {
+    box: [42, 26],
+    draw: () => (
+      <>
+        <F d="M-42 0C-38 -14 -26 -22 -4 -22C20 -22 34 -14 42 0Z" fill={c.brick} />
+        <F d="M10 -22C26 -20 36 -12 42 0H22C20 -8 16 -16 10 -22Z" fill={c.roof} w="c" o={0.4} />
+        <P d={`${range(-30, 30, 7).map((x) => `M${x} -2Q${x + 2} -10 ${x + 1} ${-18 + Math.abs(x) / 5}`).join("")}`} width={0.6} o={0.5} />
+        <P d="M-42 0C-38 -14 -26 -22 -4 -22C20 -22 34 -14 42 0" width={0.7} />
+      </>
+    ),
+  },
+
+  skyTower: {
+    box: [10, 100],
+    draw: () => (
+      <>
+        <F d="M-5 0L-2.2 -62H2.2L5 0Z" fill={c.pale} />
+        <F d="M-7 -62H7L5 -68H-5ZM-4.4 -68H4.4L3.6 -72H-3.6Z" fill={c.glass} w="c" />
+        <F d={rect(-1.4, -72, 1.4, -82)} fill={c.pale} w="b" />
+        <P d="M0 -82V-100M-5 0L-2.2 -62M2.2 -62L5 0M-7 -62H7" width={0.8} />
+      </>
+    ),
+  },
+
+  boraBora: {
+    box: [40, 48],
+    draw: () => (
+      <>
+        <F d="M-24 -4L-10 -34L-4 -46L4 -30L18 -4Z" fill={c.green} w="b" />
+        <F d="M-40 0Q0 -6 40 0Q0 4 -40 0Z" fill={c.blue} w="c" o={0.8} />
+        <F d={[-26, 14, 28].map((x) => `${rect(x - 4.5, -6, x + 4.5, -11)}`).join("")} fill={c.sand} w="b" />
+        <F d={[-26, 14, 28].map((x) => `M${x - 6} -11L${x} -17L${x + 6} -11Z`).join("")} fill={c.bronze} w="c" />
+        <P d={`${[-26, 14, 28].map((x) => `M${x - 3} -6V0M${x + 3} -6V0`).join("")}M-34 0Q-36 -10 -32 -20`} width={0.7} />
+        <F d="M-32 -20Q-38 -22 -42 -18Q-36 -20 -32 -20ZM-32 -20Q-26 -24 -22 -19Q-27 -21 -32 -20ZM-32 -20Q-33 -26 -29 -29Q-31 -24 -32 -20Z" fill={c.green} w="c" />
+      </>
+    ),
+  },
+
+  ulunDanu: {
+    // Pura Ulun Danu Bratan, Bali: a tiered meru standing on the lake.
+    box: [22, 66],
+    draw: () => (
+      <>
+        <F d="M-22 0Q0 -4 22 0Q0 3 -22 0Z" fill={c.blue} w="c" o={0.8} />
+        <F d={rect(-10, -1, 10, -8)} fill={c.stone} w="b" />
+        <F d={range(0, 8, 1).map((i) => { const y = -8 - i * 5.6; const w = 17 - i * 1.6; return `M${-w} ${y}L${-w * 0.6} ${y - 4}H${w * 0.6}L${w} ${y}Z`; }).join("")} fill={c.roof} />
+        <P d="M0 -58V-64" width={1} />
+        <P d={range(0, 8, 1).map((i) => { const y = -8 - i * 5.6; const w = 17 - i * 1.6; return `M${-w} ${y}H${w}`; }).join("")} stroke={c.sand} width={0.7} o={0.9} />
+      </>
+    ),
+  },
+
+  alohaTower: {
+    box: [18, 70],
+    draw: () => (
+      <>
+        <F d={`${rect(-6, 0, 6, -52)}`} fill={c.pale} />
+        <F d={`${rect(-7.5, -52, 7.5, -56)}M-6 -56L0 -66L6 -56Z`} fill={c.copper} w="b" />
+        <F d="M0 -47a3 3 0 1 0 0.1 0Z" fill={c.ivory} w="c" />
+        <P d="M-6 0V-52M6 -52V0M0 -44V-42M-2 -10H2V0H-2Z" width={0.7} />
+        <P d="M14 0Q16 -14 12 -30" stroke={c.bronze} width={1.4} o={1} />
+        <F d="M12 -30Q4 -32 0 -27Q6 -29 12 -30ZM12 -30Q20 -34 24 -28Q18 -30 12 -30ZM12 -30Q11 -37 15 -40Q13 -35 12 -30Z" fill={c.green} w="c" />
       </>
     ),
   },

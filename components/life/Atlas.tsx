@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 import { landmarkArt } from "./landmarks";
 
 /** Landmarks are drawn ~110 units tall; this sets their size on the map. */
-const ART_SCALE = 0.7;
+const ART_SCALE = 0.95;
 const MAX_ZOOM = 6;
 
 /**
@@ -257,7 +257,7 @@ function Mark({ l, zoom, onVisit }: { l: Landmark; zoom: number; onVisit: (l: La
   // Neighbours start a little apart and settle onto their true places as you zoom in.
   const k = 1 / Math.sqrt(zoom);
   const [nx, ny] = l.nudge ? [l.nudge[0] * k, l.nudge[1] * k] : [0, 0];
-  const size = (ART_SCALE * (l.scale ?? 1)) / zoom ** 0.4;
+  const size = (ART_SCALE * (l.scale ?? (l.interactive ? 1 : 0.8))) / zoom ** 0.4;
   const showLabel = l.interactive && (zoom >= 2.4 || ("home" in l && l.home));
   const placed: CSSProperties = { transform: `translate(${px + nx}px, ${py + ny}px) scale(${size})` };
   const body = art ? art.draw() : null;

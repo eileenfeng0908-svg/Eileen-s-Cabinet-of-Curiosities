@@ -99,7 +99,7 @@ export function AtlasMap() {
           return <ellipse key={i} cx={x} cy={y} rx={t.rx * 1.25} ry={t.ry * 1.25} fill={`url(#atlas-tint-${tintColors.find(([, c]) => c === t.color)![0]})`} />;
         })}
       </g>
-      <path d={borders} fill="none" stroke="var(--wine)" strokeWidth={0.6} strokeOpacity={0.35} strokeDasharray="2 2.4" />
+      <path d={borders} fill="none" stroke="var(--wine)" strokeWidth={0.9} strokeOpacity={0.6} strokeDasharray="3.2 2.4" strokeLinecap="round" filter={pencil} />
       <path d={land} fill="none" stroke="var(--wine)" strokeWidth={1} strokeOpacity={0.55} strokeLinejoin="round" filter={pencil} clipPath="url(#atlas-sphere)" />
 
       {/* waves */}
