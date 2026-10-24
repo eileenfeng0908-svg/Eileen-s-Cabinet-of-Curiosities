@@ -82,8 +82,9 @@ export function WashBlot({ color, seed = 1, w = "c", className }: { color: strin
 }
 
 /** A book standing on the shelf: a washed spine with brass bands. */
-export function BookSpine({ color, seed = 1, className }: { color: string; seed?: number; className?: string }) {
+export function BookSpine({ color, seed = 1, plate = false, className }: { color: string; seed?: number; /** an ivory paper label down the spine, for a title */ plate?: boolean; className?: string }) {
   const r = rng(seed);
+  const dots = seed % 3 === 2;
   return (
     <svg aria-hidden viewBox="0 0 60 240" preserveAspectRatio="none" className={cn("pointer-events-none absolute inset-0 h-full w-full", className)}>
       <g filter={wash((["a", "b", "c"] as const)[seed % 3])}>
@@ -96,6 +97,19 @@ export function BookSpine({ color, seed = 1, className }: { color: string; seed?
         <path d={handLine([[6, 216], [30, 215], [54, 217]], r, 0.6)} stroke="var(--brass)" strokeWidth={3} />
         <path d={handRect(3, 3, 54, 234, r, 1.2)} stroke="var(--wine)" strokeWidth={1} opacity={0.45} />
       </g>
+      {plate && (
+        <g>
+          <path d={handRect(12, 44, 36, 150, r, 1.4)} fill="color-mix(in srgb, var(--aged-ivory) 70%, white)" filter={wash("c")} />
+          <path d={handRect(12, 44, 36, 150, r, 1)} fill="none" stroke="var(--brass)" strokeWidth={1.2} filter={pencil} />
+        </g>
+      )}
+      {!plate && dots && (
+        <g fill="var(--brass)" filter={pencil}>
+          {[60, 90, 120, 150, 180].map((y) => (
+            <circle key={y} cx={30} cy={y} r={2.6} />
+          ))}
+        </g>
+      )}
     </svg>
   );
 }
@@ -110,6 +124,34 @@ export function Shelf({ seed = 4, className }: { seed?: number; className?: stri
         <path d={handRect(10, 20, 980, 8, r, 1)} fill="var(--walnut)" opacity={0.55} />
       </g>
       <path d={handLine([[0, 8], [500, 7.5], [1000, 8.5]], r, 0.5)} stroke="var(--brass)" strokeWidth={1.4} fill="none" filter={pencil} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+/** Books lying flat, one on another. */
+export function BookStack({ seed = 6, className }: { seed?: number; className?: string }) {
+  const r = rng(seed);
+  const books = [
+    { x: 4, w: 112, h: 22, c: "var(--botanical-green)" },
+    { x: 14, w: 96, h: 18, c: "var(--vermilion)" },
+    { x: 8, w: 104, h: 20, c: "var(--powder-blue)" },
+  ];
+  let y = 80;
+  return (
+    <svg aria-hidden viewBox="0 0 120 80" className={cn("pointer-events-none block overflow-visible", className)}>
+      {books.map((b, i) => {
+        y -= b.h;
+        return (
+          <g key={i}>
+            <path d={handRect(b.x, y, b.w, b.h - 1, r, 1)} fill={b.c} filter={wash((["a", "b", "c"] as const)[i])} />
+            <g filter={pencil} fill="none" strokeLinecap="round">
+              <path d={handLine([[b.x + 10, y + 3], [b.x + 10, y + b.h - 4]], r, 0.4)} stroke="var(--brass)" strokeWidth={1.6} />
+              <path d={handLine([[b.x + b.w - 10, y + 3], [b.x + b.w - 10, y + b.h - 4]], r, 0.4)} stroke="var(--brass)" strokeWidth={1.6} />
+              <path d={handRect(b.x, y, b.w, b.h - 1, r, 0.8)} stroke="var(--wine)" strokeWidth={0.8} opacity={0.45} />
+            </g>
+          </g>
+        );
+      })}
     </svg>
   );
 }
