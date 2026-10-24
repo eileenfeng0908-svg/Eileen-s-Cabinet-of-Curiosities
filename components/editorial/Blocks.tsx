@@ -87,7 +87,12 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "image":
             return (
-              <figure key={i} className={cn("py-6", block.size === "inset" ? "reading-column" : block.size === "full" ? "" : "mx-auto max-w-5xl")}>
+              <figure
+                key={i}
+                className={cn("py-6", block.size === "inset" ? "reading-column" : block.size === "full" ? "" : "mx-auto max-w-5xl")}
+                // An upright picture set inset keeps to a comfortable height rather than filling the column.
+                style={block.size === "inset" && block.image.aspect < 1 ? { maxWidth: `min(40rem, ${Math.round(block.image.aspect * 72)}svh)` } : undefined}
+              >
                 <Plate image={block.image} sizes="(min-width: 64rem) 70vw, 100vw" zoom={false} />
                 {block.image.caption && <figcaption className="mt-3 text-caption text-ink-soft">{block.image.caption}</figcaption>}
               </figure>

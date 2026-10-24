@@ -1,6 +1,7 @@
 import type { Article } from "@/lib/types";
 import { misconceptionsOnScreen } from "./papers/misconceptions-on-screen";
 import { whatIsSelfDeceit } from "./papers/what-is-self-deceit";
+import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
  * WRITING
@@ -619,6 +620,7 @@ export const articles: Article[] = [
       }
     ]
   },
+  whatMakesUsHuman,
   misconceptionsOnScreen,
   whatIsSelfDeceit,
   // Poems live in content/poems.ts (the Poetry Garden).
