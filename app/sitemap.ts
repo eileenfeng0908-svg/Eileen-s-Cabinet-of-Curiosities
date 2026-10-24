@@ -7,7 +7,7 @@ import { collections } from "@/content/collections";
 import { exhibitions } from "@/content/exhibitions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/work", "/writing", "/archive", "/about", "/contact"];
+  const pages = ["", "/work", "/archive", "/about", "/contact"];
   return [
     ...pages.map((p) => ({ url: `${site.url}${p}` })),
     ...projects.map((p) => ({ url: `${site.url}/work/${p.slug}` })),

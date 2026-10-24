@@ -33,9 +33,9 @@ export default async function ArticlePage({ params }: Props) {
     <article className="frame pb-[var(--section-space)] pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+6rem)]">
       <nav aria-label="Breadcrumb" className="reading-column mb-10 text-center">
         <p className="label text-ink-soft">
-          <Link href="/writing" className="link-draw">Writing</Link>
+          <Link href="/collections/writing-and-philosophy" className="link-draw">Writing &amp; Philosophy</Link>
           <span aria-hidden className="mx-2">/</span>
-          <Link href={`/writing/${section.slug}`} className="link-draw">{section.room}</Link>
+          <Link href={`/collections/writing-and-philosophy#${section.slug}`} className="link-draw">{section.room}</Link>
         </p>
       </nav>
       <header className="reading-column text-center">
@@ -94,7 +94,7 @@ export default async function ArticlePage({ params }: Props) {
       )}
 
       <div className="reading-column mt-20">
-        <ArrowLink href={`/writing/${section.slug}`}>{`Back to ${section.room}`}</ArrowLink>
+        <ArrowLink href={`/collections/writing-and-philosophy#${section.slug}`}>{`Back to ${section.room}`}</ArrowLink>
       </div>
     </article>
   );

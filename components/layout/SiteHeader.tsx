@@ -36,7 +36,8 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/") || (href.endsWith("writing-and-philosophy") && pathname.startsWith("/writing/"));
 
   return (
     <>

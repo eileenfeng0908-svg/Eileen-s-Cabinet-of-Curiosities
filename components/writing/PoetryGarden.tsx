@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { motion, useMotionValue, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
 import { poems, type GardenFlower, type Poem } from "@/content/poems";
-import { PaintDefs, pencil, wash } from "@/components/cabinet/PaintDefs";
+import { pencil, wash } from "@/components/cabinet/PaintDefs";
 import { leaf, rng, tulipPetals, tulipVeins } from "@/components/cabinet/paint";
 import { leavesOf, tall, vinePath, wide, type Layout } from "./gardenPlan";
 import { cn } from "@/lib/cn";
@@ -41,8 +41,12 @@ export function PoetryGarden() {
     const i = poems.findIndex((p) => `#poem-${p.slug}` === window.location.hash);
     if (i >= 0) setOpen(i);
   }, []);
+  const wasOpen = useRef(false);
   useEffect(() => {
-    const url = window.location.pathname + window.location.search + (open === null ? "" : `#poem-${poems[open].slug}`);
+    // Only touch the address when a poem opens or closes, never on first load.
+    if (open === null && !wasOpen.current) return;
+    wasOpen.current = open !== null;
+    const url = window.location.pathname + window.location.search + (open === null ? "#poetry" : `#poem-${poems[open].slug}`);
     window.history.replaceState(null, "", url);
   }, [open]);
 
@@ -74,7 +78,7 @@ export function PoetryGarden() {
 
   return (
     <div>
-      <div className="frame mb-6 flex flex-wrap items-baseline justify-between gap-4">
+      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4">
         <p className="font-display text-caption italic text-wine">
           Hover over a flower to see its name. Click a flower, or a drifting line, to read the poem.
         </p>
@@ -93,7 +97,6 @@ export function PoetryGarden() {
         data-still={still || undefined}
         className="poetry-garden relative mx-auto max-w-[1400px] overflow-hidden"
       >
-        <PaintDefs />
         <Scene layout={wide} className="hidden md:block" {...scene} />
         <Scene layout={tall} className="md:hidden" {...scene} />
       </div>
@@ -325,7 +328,7 @@ function FlowerArt({ kind, seed, ink }: { kind: GardenFlower; seed: number; ink:
 
 function PoemIndex({ onOpen }: { onOpen: (i: number) => void }) {
   return (
-    <section aria-labelledby="poem-index" className="frame mt-16 md:mt-20">
+    <section aria-labelledby="poem-index" className="mt-16 md:mt-20">
       <div className="mx-auto max-w-2xl border-t border-wine/25 pt-6">
         <h2 id="poem-index" className="label text-center text-wine">Index of poems</h2>
         <ol className="mt-6 columns-1 gap-10 sm:columns-2">

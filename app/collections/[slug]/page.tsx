@@ -15,6 +15,10 @@ import { films, filmsArePlaceholders, topFive } from "@/content/films";
 import { SectionHeading } from "@/components/editorial/SectionHeading";
 import { CuratorsCabinet } from "@/components/curation/CuratorsCabinet";
 import { Sketchbook } from "@/components/art/Sketchbook";
+import { PoetryGarden } from "@/components/writing/PoetryGarden";
+import { StoryCollection } from "@/components/writing/StoryCollection";
+import { ReadingRoom } from "@/components/writing/ReadingRoom";
+import { isAnalysis, isCreative, writingSections } from "@/lib/writing";
 
 export const generateStaticParams = () => collections.map((c) => ({ slug: c.slug }));
 
@@ -33,7 +37,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
   const { projects, writing, archive } = collectionContents(c);
   const index = collections.indexOf(c);
   // Collections with their own interactive rooms skip the plain listings below.
-  const custom = c.slug === "cinema" || c.slug === "art-and-curation";
+  const custom = c.slug === "cinema" || c.slug === "art-and-curation" || c.slug === "writing-and-philosophy";
   const empty = !projects.length && !writing.length && !archive.length;
 
   return (
@@ -70,6 +74,33 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
               <SectionHeading id="art-title" number="02" kicker="Art" title="The Artist’s" italic="Sketchbook" align="offset" />
               <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Things I Create.</p>
               <Sketchbook />
+            </section>
+          </>
+        )}
+
+        {c.slug === "writing-and-philosophy" && (
+          <>
+            <nav aria-label="In this collection" className="flex flex-wrap gap-x-10 gap-y-2 border-y border-wine/25 py-4">
+              {writingSections.map((s) => (
+                <a key={s.slug} href={`#${s.slug}`} className="label link-draw text-wine">
+                  {s.number} {s.title} · {s.room}
+                </a>
+              ))}
+            </nav>
+            <section id="poetry" aria-labelledby="poetry-title" className="scroll-mt-24">
+              <SectionHeading id="poetry-title" number="01" kicker="Poetry" title="The Poetry" italic="Garden" />
+              <p className="mb-12 mt-6 font-display text-lede italic text-wine">Each flower is a poem. Lines from them drift through the garden.</p>
+              <PoetryGarden />
+            </section>
+            <section id="creative-writing" aria-labelledby="creative-title" className="scroll-mt-24">
+              <SectionHeading id="creative-title" number="02" kicker="Creative Writing" title="The Story" italic="Collection" align="offset" />
+              <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Stories, prose and personal pieces.</p>
+              <StoryCollection stories={writing.filter(isCreative)} />
+            </section>
+            <section id="analysis" aria-labelledby="analysis-title" className="scroll-mt-24">
+              <SectionHeading id="analysis-title" number="03" kicker="Analysis" title="The Reading" italic="Room" align="right" />
+              <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(4/12*100%)]">Essays on film, art history, philosophy and literature, filed by subject.</p>
+              <ReadingRoom essays={writing.filter(isAnalysis)} />
             </section>
           </>
         )}
