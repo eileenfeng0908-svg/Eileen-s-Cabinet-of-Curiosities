@@ -566,3 +566,10 @@
 @media (prefers-reduced-motion: reduce) {
   .photo-print, .photo-viewer[open], .photo-viewer-print { transition: none; animation: none; }
 }
+
+/* Homepage: a big numeral drawn as a coloured-pencil outline, not filled. */
+.numeral-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--vermilion);
+  opacity: 0.75;
+}
