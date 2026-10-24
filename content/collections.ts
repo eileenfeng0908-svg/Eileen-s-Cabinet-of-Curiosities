@@ -76,7 +76,10 @@ export const collections: Collection[] = [
     title: "Personal Archives",
     object: "envelope",
     intro: "[A sentence about the letters, postcards and small objects you keep.]",
-    holds: { archive: (a) => a.category !== "Exhibition Documentation" && a.category !== "Photograph" },
+    holds: {
+      projects: (p) => p.slug === "postcard-archive",
+      archive: (a) => a.category !== "Exhibition Documentation" && a.category !== "Photograph",
+    },
   },
 ];
 

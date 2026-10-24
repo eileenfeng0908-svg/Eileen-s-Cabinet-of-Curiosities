@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Cinema & research, art & curation, photography and creative experiments.",
+  description: "Exhibitions, research, interactive projects, writing and creative direction.",
 };
 
 // Preliminary layout. Phase 3 develops the full asymmetrical grid and category filters.
@@ -25,9 +25,9 @@ export default function WorkPage() {
         number="02"
         tone="blue"
         kicker="Projects"
-        title="Projects,"
-        italic="in four rooms"
-        intro="Cinema & Research · Art & Curation · Photography · Creative Experiments"
+        title="Things made,"
+        italic="researched and arranged"
+        intro={[...new Set(projects.map((p) => p.category))].join(" · ")}
       />
       <div className="frame pb-[var(--section-space)]">
         <ul className="grid-editorial gap-y-20">

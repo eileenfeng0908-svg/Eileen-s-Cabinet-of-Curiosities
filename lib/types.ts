@@ -34,7 +34,9 @@ export type WorkCategory =
   | "Cinema & Research"
   | "Art & Curation"
   | "Photography"
-  | "Creative Experiments";
+  | "Creative Experiments"
+  | "Research"
+  | "Writing & Publications";
 
 /** Blocks that make up a project or article body. */
 export type ContentBlock =
