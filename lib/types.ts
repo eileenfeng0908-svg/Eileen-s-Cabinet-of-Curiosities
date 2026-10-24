@@ -40,6 +40,7 @@ export type WorkCategory =
 export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
+  | { type: "subheading"; text: string }
   | { type: "quote"; text: string; source?: string }
   | { type: "image"; image: ImageAsset; size?: "full" | "wide" | "inset" }
   | { type: "gallery"; images: ImageAsset[] }
@@ -67,8 +68,11 @@ export type WritingCategory =
   | "Film Criticism"
   | "Art History"
   | "Philosophy"
+  | "Literature"
+  | "Research"
   | "Essays"
   | "Poetry"
+  | "Creative Writing"
   | "Personal Reflections";
 
 export interface Article {
@@ -84,7 +88,12 @@ export interface Article {
   /** True when the cover also appears in the body, so the page doesn't show it twice. */
   hideCover?: boolean;
   body: ContentBlock[];
+  /** Numbered notes. Point to one from the text with [^1], [^2]… */
   footnotes?: string[];
+  /** Works cited, shown after the notes. */
+  bibliography?: string[];
+  /** Creative Writing only: short story, prose poem, fragment… */
+  genre?: string;
 }
 
 export type ArchiveCategory =

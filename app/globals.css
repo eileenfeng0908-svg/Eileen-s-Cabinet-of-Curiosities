@@ -398,3 +398,111 @@
 @media (prefers-reduced-motion: reduce) {
   .sketch-work { transition: none; }
 }
+
+/* --- The Poetry Garden (components/writing) ------------------------------ */
+.poetry-garden {
+  background:
+    radial-gradient(38% 42% at 18% 30%, color-mix(in srgb, var(--powder-blue) 30%, transparent), transparent 70%),
+    radial-gradient(34% 38% at 82% 62%, color-mix(in srgb, var(--vermilion) 20%, transparent), transparent 70%),
+    radial-gradient(40% 30% at 50% 100%, rgb(101 123 83 / 0.16), transparent 70%),
+    radial-gradient(30% 30% at 60% 12%, rgb(177 138 72 / 0.12), transparent 70%),
+    color-mix(in srgb, var(--aged-ivory) 80%, white);
+}
+/* Lines drift slowly on their own paths, and now and then fade almost away. */
+.verse-drift {
+  text-shadow: 0 0 10px rgb(242 228 200 / 0.95), 0 0 2px rgb(242 228 200 / 0.9);
+  animation: verse-drift var(--drift, 24s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+.verse-breathe { animation: verse-breathe var(--breathe, 16s) ease-in-out var(--delay, 0s) infinite; }
+.verse-drift:hover .verse-breathe,
+.verse-drift:focus-visible .verse-breathe { animation-play-state: paused; opacity: 1; }
+@keyframes verse-drift {
+  0% { transform: translate(0, 0) rotate(-0.6deg); }
+  35% { transform: translate(14px, -10px) rotate(0.4deg); }
+  70% { transform: translate(-8px, 8px) rotate(-0.2deg); }
+  100% { transform: translate(10px, 4px) rotate(0.6deg); }
+}
+@keyframes verse-breathe {
+  0%, 62%, 100% { opacity: 1; filter: blur(0); }
+  78% { opacity: 0.3; filter: blur(0.6px); }
+}
+
+.garden-sway {
+  transform-origin: 50% 90%;
+  animation: garden-sway var(--sway, 6s) ease-in-out var(--sway-delay, 0s) infinite alternate;
+}
+@keyframes garden-sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(3deg); }
+}
+.garden-petal {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transition: transform 900ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.garden-bell { transform-box: fill-box; transform-origin: 50% 0; }
+.garden-flower:hover .garden-petal,
+.garden-flower:focus-visible .garden-petal { transform: var(--o); }
+/* the watercolour bloom that spreads behind a flower on hover */
+.garden-bloom {
+  position: absolute;
+  inset: -45%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--ink) 55%, transparent), color-mix(in srgb, var(--ink) 18%, transparent) 60%, transparent);
+  filter: url(#ec-wash-b) blur(3px);
+  opacity: 0;
+  transform: scale(0.35);
+  transition: opacity 900ms var(--ease-gallery), transform 1200ms var(--ease-gallery);
+  pointer-events: none;
+}
+.garden-flower:hover .garden-bloom,
+.garden-flower:focus-visible .garden-bloom { opacity: 0.75; transform: scale(1); }
+.garden-title {
+  text-shadow: 0 0 8px rgb(242 228 200 / 1), 0 0 2px rgb(242 228 200 / 1);
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  transition: opacity 600ms var(--ease-gallery) 120ms, transform 600ms var(--ease-gallery) 120ms;
+}
+.garden-flower:hover .garden-title,
+.garden-flower:focus-visible .garden-title { opacity: 1; transform: translate(-50%, 0); }
+@media (hover: none) {
+  .garden-title { opacity: 0.9; transform: translate(-50%, 0); }
+}
+.garden-flower:focus-visible { outline: none; }
+.garden-flower:focus-visible .garden-sway { outline: 1px dashed var(--wine); outline-offset: 4px; border-radius: 50%; }
+
+/* "Still the garden" and reduced motion: nothing drifts, sways or grows. */
+.poetry-garden[data-still] .verse-drift,
+.poetry-garden[data-still] .verse-breathe,
+.poetry-garden[data-still] .garden-sway { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .verse-drift, .verse-breathe, .garden-sway { animation: none; }
+  .garden-petal, .garden-bloom, .garden-title { transition-duration: 1ms; }
+}
+
+/* The reading view: nothing but the poem. */
+.poem-reader[open] { animation: poem-in 700ms var(--ease-gallery) both; }
+.poem-reader::backdrop { background: var(--aged-ivory); }
+.poem-page { animation: poem-in 700ms var(--ease-gallery) both; }
+@keyframes poem-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poem-reader[open], .poem-page { animation: none; }
+}
+
+/* --- The Story Collection ------------------------------------------------- */
+.story-body > div > p:first-child::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.2em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--vermilion);
+}
+.manuscript {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2.1rem, rgb(113 63 72 / 0.07) 2.1rem calc(2.1rem + 1px)),
+    color-mix(in srgb, var(--aged-ivory) 70%, white);
+}

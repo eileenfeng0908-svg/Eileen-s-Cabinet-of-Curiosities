@@ -14,6 +14,26 @@ function embedUrl(url: string) {
 }
 
 /**
+ * Light inline markup inside text blocks: *italic* and footnote marks [^1],
+ * which link to the matching note at the end of an article.
+ */
+export function inline(text: string) {
+  return text.split(/(\*[^*]+\*|\[\^\d+\])/g).map((part, i) => {
+    const fn = part.match(/^\[\^(\d+)\]$/);
+    if (fn)
+      return (
+        <sup key={i} id={`fnref-${fn[1]}`} className="ml-0.5 text-[0.7em]">
+          <a href={`#fn-${fn[1]}`} className="text-vermilion hover:underline" aria-label={`Note ${fn[1]}`}>
+            {fn[1]}
+          </a>
+        </sup>
+      );
+    if (/^\*[^*]+\*$/.test(part)) return <em key={i}>{part.slice(1, -1)}</em>;
+    return part;
+  });
+}
+
+/**
  * Renders the body of a project or article. Text sits in a comfortable
  * reading column; images and galleries break out of it.
  */
@@ -25,7 +45,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
           case "paragraph":
             return (
               <p key={i} className="reading-column text-[1.0625rem] leading-[1.8]">
-                {block.text}
+                {inline(block.text)}
               </p>
             );
           case "heading":
@@ -34,10 +54,16 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
                 {block.text}
               </h2>
             );
+          case "subheading":
+            return (
+              <h3 key={i} className="reading-column pt-4 font-display text-[1.3rem] italic leading-snug">
+                {block.text}
+              </h3>
+            );
           case "quote":
             return (
               <blockquote key={i} className="reading-column border-l border-vermilion py-2 pl-6">
-                <p className="font-display text-statement italic text-wine">{block.text}</p>
+                <p className="font-display text-statement italic text-wine">{inline(block.text)}</p>
                 {block.source && <footer className="label mt-4 text-ink-soft">— {block.source}</footer>}
               </blockquote>
             );
