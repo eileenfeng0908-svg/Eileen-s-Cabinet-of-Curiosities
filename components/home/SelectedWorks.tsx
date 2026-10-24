@@ -23,10 +23,9 @@ import { cn } from "@/lib/cn";
 import type { Project } from "@/lib/types";
 
 /**
- * Selected Works as a painted filmstrip. On wide screens the section pins
- * and scrolling down slides the works sideways past you, each one a slide of
- * watercolour paper that tilts toward the cursor. On phones, and with reduced
- * motion, it is a plain swipeable row.
+ * Selected Works as a painted filmstrip that scrolls from left to right on its
+ * own: each work is a slide of watercolour paper that tilts toward the cursor,
+ * and a pencil line underneath fills with vermilion as you go along.
  */
 
 const blooms = ["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)"];
@@ -35,67 +34,104 @@ const lifts = ["md:-translate-y-6", "md:translate-y-8", "md:-translate-y-2", "md
 
 export function SelectedWorks() {
   const works = featuredProjects().slice(0, 4);
-  const section = useRef<HTMLElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const reduce = useReducedMotion();
-  const [dist, setDist] = useState(0);
-  const [vh, setVh] = useState(0);
-  const pinned = dist > 0;
+  const [ends, setEnds] = useState({ start: true, end: false });
+
+  // The strip scrolls sideways on its own (trackpad, shift + wheel, drag, swipe or the arrows);
+  // scrolling the page up and down leaves it alone.
+  const { scrollXProgress } = useScroll({ container: track });
+  const progress = useSpring(scrollXProgress, { stiffness: 140, damping: 30, mass: 0.4 });
 
   useLayoutEffect(() => {
-    const mq = window.matchMedia("(min-width: 48rem)");
-    const measure = () => {
-      const t = track.current;
-      if (!t || reduce || !mq.matches) return setDist(0);
-      setVh(window.innerHeight);
-      setDist(Math.max(0, t.scrollWidth - window.innerWidth));
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    mq.addEventListener("change", measure);
+    const t = track.current;
+    if (!t) return;
+    const update = () => setEnds({ start: t.scrollLeft < 8, end: t.scrollLeft > t.scrollWidth - t.clientWidth - 8 });
+    update();
+    t.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
     return () => {
-      window.removeEventListener("resize", measure);
-      mq.removeEventListener("change", measure);
+      t.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
-  }, [reduce]);
+  }, []);
 
-  const { scrollYProgress } = useScroll({ target: section, offset: ["start start", "end end"] });
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
-  const x = useTransform(progress, (p) => -p * dist);
+  // With a mouse, the strip can be grabbed and dragged along.
+  const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
+  const down = (e: React.PointerEvent<HTMLUListElement>) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    drag.current = { x: e.clientX, left: e.currentTarget.scrollLeft, moved: false };
+  };
+  const move = (e: React.PointerEvent<HTMLUListElement>) => {
+    const d = drag.current;
+    if (!d) return;
+    const dx = e.clientX - d.x;
+    if (Math.abs(dx) > 5 && !d.moved) {
+      d.moved = true;
+      e.currentTarget.style.scrollSnapType = "none";
+    }
+    if (d.moved) e.currentTarget.scrollLeft = d.left - dx;
+  };
+  const up = (e: React.PointerEvent<HTMLUListElement>) => {
+    e.currentTarget.style.scrollSnapType = "";
+    setTimeout(() => (drag.current = null), 0);
+  };
+  const click = (e: React.MouseEvent) => {
+    if (drag.current?.moved) e.preventDefault();
+  };
+
+  const step = (dir: 1 | -1) => {
+    const t = track.current;
+    if (t) t.scrollBy({ left: dir * Math.min(t.clientWidth * 0.7, 560), behavior: reduce ? "auto" : "smooth" });
+  };
 
   return (
-    <section
-      ref={section}
-      id="selected-works"
-      aria-labelledby="selected-works-title"
-      className="relative scroll-mt-16"
-      style={pinned ? { height: dist + vh } : undefined}
-    >
-      <div className={cn(pinned ? "sticky top-0 flex h-svh flex-col justify-center overflow-hidden" : "section-space")}>
-        <motion.ul
-          ref={track}
-          style={pinned ? { x } : undefined}
-          className={cn(
-            "flex w-max items-center gap-6 px-[max(1.25rem,5vw)] pt-16 md:gap-16",
-            !pinned && "w-auto snap-x snap-mandatory overflow-x-auto pb-10 [scrollbar-width:none]",
-          )}
-        >
-          <li className="w-[72vw] shrink-0 snap-start md:w-[28rem]">
-            <Intro />
+    <section id="selected-works" aria-labelledby="selected-works-title" className="section-space relative scroll-mt-16">
+      <ul
+        ref={track}
+        onPointerDown={down}
+        onPointerMove={move}
+        onPointerUp={up}
+        onPointerLeave={up}
+        onClickCapture={click}
+        onDragStart={(e) => e.preventDefault()}
+        className="flex snap-x snap-mandatory items-center gap-6 overflow-x-auto overscroll-x-contain scroll-px-[max(1.25rem,5vw)] px-[max(1.25rem,5vw)] pb-14 pt-28 [scrollbar-width:none] md:cursor-grab md:gap-16 md:active:cursor-grabbing"
+      >
+        <li className="w-[72vw] shrink-0 snap-start md:w-[28rem]">
+          <Intro />
+        </li>
+        {works.map((p, i) => (
+          <li key={p.slug} className={cn("shrink-0 snap-center", lifts[i % lifts.length])}>
+            <WorkSlide project={p} i={i} progress={progress} still={!!reduce} />
           </li>
-          {works.map((p, i) => (
-            <li key={p.slug} className={cn("shrink-0 snap-center", lifts[i % lifts.length])}>
-              <WorkSlide project={p} i={i} progress={progress} still={!!reduce} />
-            </li>
-          ))}
-          <li className="shrink-0 snap-center pr-[max(1.25rem,5vw)]">
-            <Finale />
-          </li>
-        </motion.ul>
+        ))}
+        <li className="shrink-0 snap-center pr-[max(1.25rem,5vw)]">
+          <Finale />
+        </li>
+      </ul>
 
-        {pinned && <Thread progress={progress} />}
+      <div className="mx-[max(1.25rem,5vw)] mt-2 flex items-center gap-6">
+        <Thread progress={progress} />
+        <div className="hidden shrink-0 gap-3 md:flex">
+          <StepButton label="Previous works" disabled={ends.start} onClick={() => step(-1)}>←</StepButton>
+          <StepButton label="More works" disabled={ends.end} onClick={() => step(1)}>→</StepButton>
+        </div>
       </div>
     </section>
+  );
+}
+
+function StepButton({ label, disabled, onClick, children }: { label: string; disabled: boolean; onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      disabled={disabled}
+      onClick={onClick}
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-wine/40 font-display text-xl text-wine transition-all duration-500 ease-gallery hover:border-vermilion hover:bg-vermilion hover:text-ivory disabled:pointer-events-none disabled:opacity-30"
+    >
+      {children}
+    </button>
   );
 }
 
@@ -114,7 +150,7 @@ function Intro() {
       <div className="mt-10 flex items-center gap-5">
         <ScrollCue />
         <span className="font-display text-lg italic text-ink-soft">
-          <span className="hidden md:inline">keep scrolling</span>
+          <span className="hidden md:inline">scroll sideways, or drag</span>
           <span className="md:hidden">swipe along</span>
         </span>
       </div>
@@ -253,7 +289,7 @@ function Finale() {
 function Thread({ progress }: { progress: MotionValue<number> }) {
   const d = handLine([[0, 6], [250, 4.5], [500, 7], [750, 5], [1000, 6]], rng(5), 0.5);
   return (
-    <svg aria-hidden viewBox="0 0 1000 12" preserveAspectRatio="none" className="absolute bottom-8 left-[5vw] h-3 w-[90vw]">
+    <svg aria-hidden viewBox="0 0 1000 12" preserveAspectRatio="none" className="h-3 min-w-0 flex-1">
       <g filter={pencil} fill="none" strokeLinecap="round">
         <path d={d} stroke="var(--wine)" strokeWidth={1} opacity={0.3} />
         <motion.path d={d} stroke="var(--vermilion)" strokeWidth={2.4} style={{ pathLength: progress }} />
