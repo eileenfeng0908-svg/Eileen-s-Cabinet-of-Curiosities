@@ -33,6 +33,10 @@ export function inline(text: string) {
   });
 }
 
+/** An id for a heading, so a contents list can link to it. */
+export const headingId = (text: string) =>
+  "s-" + text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 /**
  * Renders the body of a project or article. Text sits in a comfortable
  * reading column; images and galleries break out of it.
@@ -50,7 +54,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "heading":
             return (
-              <h2 key={i} className="reading-column pt-8 text-title">
+              <h2 key={i} id={headingId(block.text)} className="reading-column scroll-mt-[calc(var(--header-h)+2rem)] pt-8 text-title">
                 {block.text}
               </h2>
             );
@@ -59,6 +63,20 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
               <h3 key={i} className="reading-column pt-4 font-display text-[1.3rem] italic leading-snug">
                 {block.text}
               </h3>
+            );
+          case "label":
+            return (
+              <h4 key={i} className="reading-column label pt-2 text-wine">
+                {block.text}
+              </h4>
+            );
+          case "list":
+            return (
+              <ol key={i} className="reading-column list-decimal space-y-2 pl-6 text-[1.0625rem] leading-[1.7] marker:text-ink-soft">
+                {block.items.map((item, j) => (
+                  <li key={j} className="pl-1">{inline(item)}</li>
+                ))}
+              </ol>
             );
           case "quote":
             return (

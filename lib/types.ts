@@ -41,6 +41,9 @@ export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
+  /** A small capitalised label, for the smaller divisions of a long paper. */
+  | { type: "label"; text: string }
+  | { type: "list"; items: string[] }
   | { type: "quote"; text: string; source?: string }
   | { type: "image"; image: ImageAsset; size?: "full" | "wide" | "inset" }
   | { type: "gallery"; images: ImageAsset[] }
@@ -68,6 +71,7 @@ export type WritingCategory =
   | "Film Criticism"
   | "Art History"
   | "Philosophy"
+  | "Psychology"
   | "Literature"
   | "Research"
   | "Essays"
@@ -92,6 +96,10 @@ export interface Article {
   footnotes?: string[];
   /** Works cited, shown after the notes. */
   bibliography?: string[];
+  /** Further Reading Room shelves this piece also stands on, besides its category's own. */
+  alsoOn?: string[];
+  /** Long papers: list the headings at the top, each linking to its section. */
+  contents?: boolean;
   /** Creative Writing only: short story, prose poem, fragment… */
   genre?: string;
 }

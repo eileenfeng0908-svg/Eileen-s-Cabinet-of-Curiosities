@@ -1,4 +1,6 @@
 import type { Article } from "@/lib/types";
+import { misconceptionsOnScreen } from "./papers/misconceptions-on-screen";
+import { whatIsSelfDeceit } from "./papers/what-is-self-deceit";
 
 /**
  * WRITING
@@ -617,6 +619,8 @@ export const articles: Article[] = [
       }
     ]
   },
+  misconceptionsOnScreen,
+  whatIsSelfDeceit,
   {
     slug: "what-the-museum-remembers",
     title: "What the Museum Remembers",

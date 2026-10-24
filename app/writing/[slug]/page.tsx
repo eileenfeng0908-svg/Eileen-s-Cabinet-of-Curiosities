@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { articles, getArticle } from "@/content/writing";
 import Link from "next/link";
-import { Blocks, inline } from "@/components/editorial/Blocks";
+import { Blocks, headingId, inline } from "@/components/editorial/Blocks";
 import { Plate } from "@/components/editorial/Plate";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { formatDate, readingTime } from "@/lib/format";
@@ -61,6 +61,21 @@ export default async function ArticlePage({ params }: Props) {
         <figure className={`mx-auto mt-16 ${article.cover.aspect < 1 ? "max-w-md" : "max-w-5xl"}`}>
           <Plate image={article.cover} priority sizes="(min-width: 64rem) 64rem, 100vw" zoom={false} />
         </figure>
+      )}
+
+      {article.contents && (
+        <nav aria-label="Contents" className="reading-column mt-16 border-y border-rule py-6">
+          <p className="label mb-4 text-ink-soft">Contents</p>
+          <ol className="columns-1 gap-8 text-caption sm:columns-2">
+            {article.body.flatMap((b) =>
+              b.type === "heading" ? [
+                <li key={b.text} className="mb-2 break-inside-avoid">
+                  <a href={`#${headingId(b.text)}`} className="link-draw">{b.text}</a>
+                </li>,
+              ] : [],
+            )}
+          </ol>
+        </nav>
       )}
 
       <div className={cn("mt-16 md:mt-24", creative && "story-body font-display text-[1.1rem]")}>

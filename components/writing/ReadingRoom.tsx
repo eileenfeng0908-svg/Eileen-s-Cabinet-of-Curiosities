@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { Article } from "@/lib/types";
 import { readingTime } from "@/lib/format";
-import { subjectOf, subjects } from "@/lib/writing";
+import { subjects, subjectsOf } from "@/lib/writing";
 import { cn } from "@/lib/cn";
 import { BookSpine, BookStack, PencilRule, Shelf, WashBlot } from "./Painted";
 
-const spineInk = ["var(--powder-blue)", "var(--vermilion)", "var(--botanical-green)", "var(--wine)", "var(--brass)"];
-const spineHeight = ["100%", "90%", "95%", "86%", "92%"];
+const spineInk = ["var(--powder-blue)", "var(--vermilion)", "var(--botanical-green)", "var(--walnut)", "var(--wine)", "var(--brass)"];
+const spineHeight = ["100%", "90%", "95%", "88%", "86%", "92%"];
 
-/** The shelf, left to right: the five subjects, with other books standing between them for company. */
+/** The shelf, left to right: the six subjects, with other books standing between them for company. */
 type Book = { kind: "subject"; n: number } | { kind: "deco"; w: string; h: string; color: string; lean?: number; wide?: boolean } | { kind: "stack"; wide?: boolean };
 const row: Book[] = [
   { kind: "stack", wide: true },
@@ -23,6 +23,7 @@ const row: Book[] = [
   { kind: "subject", n: 3 },
   { kind: "deco", w: "1.6rem", h: "77%", color: "var(--vermilion)", wide: true },
   { kind: "subject", n: 4 },
+  { kind: "subject", n: 5 },
   { kind: "deco", w: "1.4rem", h: "68%", color: "var(--botanical-green)", lean: 9, wide: true },
   { kind: "stack", wide: true },
 ];
@@ -34,7 +35,7 @@ export const subjectAnchor = (s: string) => "subject-" + s.toLowerCase().replace
  * table of contents.
  */
 export function ReadingRoom({ essays }: { essays: Article[] }) {
-  const shelves = subjects.map((s) => ({ subject: s, items: essays.filter((a) => subjectOf(a) === s) }));
+  const shelves = subjects.map((s) => ({ subject: s, items: essays.filter((a) => subjectsOf(a).includes(s)) }));
 
   return (
     <div className="text-wine">
