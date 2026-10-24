@@ -8,8 +8,8 @@ import type { Article, WritingCategory } from "@/lib/types";
  */
 export const writingSections = [
   { slug: "poetry", number: "01", title: "Poetry", room: "The Poetry Garden", mood: "Dreamlike, organic, interactive" },
-  { slug: "creative-writing", number: "02", title: "Creative Writing", room: "The Story Collection", mood: "Intimate, narrative, literary" },
-  { slug: "analysis", number: "03", title: "Analysis", room: "The Reading Room", mood: "Intellectual, editorial, structured" },
+  { slug: "analysis", number: "02", title: "Analysis", room: "The Reading Room", mood: "Intellectual, editorial, structured" },
+  { slug: "creative-writing", number: "03", title: "Creative Writing", room: "The Story Collection", mood: "Intimate, narrative, literary" },
 ] as const;
 
 export type WritingSectionSlug = (typeof writingSections)[number]["slug"];

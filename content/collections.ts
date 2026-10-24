@@ -15,6 +15,8 @@ export interface Collection {
   /** The object that stands for it inside the cabinet. */
   object: "reel" | "painting" | "notebook" | "camera" | "ribbon" | "envelope";
   intro: string;
+  /** Overrides the page's title, when it differs from the name in the cabinet. */
+  heading?: { title: string; italic?: string };
   holds: {
     projects?: (p: Project) => boolean;
     writing?: (a: Article) => boolean;
@@ -52,10 +54,11 @@ export const collections: Collection[] = [
     holds: { writing: () => true },
   },
   {
-    slug: "photography",
-    title: "Photography",
+    slug: "life",
+    title: "Life",
     object: "camera",
-    intro: "[A sentence about the photographs you take, and when you take them.]",
+    heading: { title: "Life, in", italic: "Fragments" },
+    intro: "An Atlas of Ordinary Days",
     holds: {
       projects: (p) => p.category === "Photography",
       archive: (a) => a.category === "Photograph",

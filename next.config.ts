@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     const to = "/collections/writing-and-philosophy";
     return [
+      { source: "/collections/photography", destination: "/collections/life", permanent: true },
       { source: "/writing", destination: to, permanent: false },
       ...["poetry", "creative-writing", "analysis"].map((s) => ({ source: `/writing/${s}`, destination: `${to}#${s}`, permanent: false })),
     ];

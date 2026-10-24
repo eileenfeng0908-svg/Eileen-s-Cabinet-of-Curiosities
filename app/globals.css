@@ -551,3 +551,7 @@
 @media (prefers-reduced-motion: reduce) {
   .atlas-mark, .atlas-lift, .atlas-label { transition: none; }
 }
+/* on touch screens there is no hover, so the cities are always named */
+@media (hover: none) {
+  .atlas-label { opacity: 1; transform: none; }
+}
