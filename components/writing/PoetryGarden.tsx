@@ -5,6 +5,7 @@ import { motion, useMotionValue, useScroll, useSpring, useTransform, type Motion
 import { poems, type GardenFlower, type Poem } from "@/content/poems";
 import { pencil, wash } from "@/components/cabinet/PaintDefs";
 import { leaf, rng, tulipPetals, tulipVeins } from "@/components/cabinet/paint";
+import { PaintedSheet } from "./Painted";
 import { leavesOf, tall, vinePath, wide, type Layout } from "./gardenPlan";
 import { cn } from "@/lib/cn";
 
@@ -36,7 +37,7 @@ export function PoetryGarden() {
       return !s;
     });
 
-  // A poem can be linked to directly: /writing/poetry#poem-small-rooms
+  // A poem can be linked to directly: /writing/poetry#poem-trust
   useEffect(() => {
     const i = poems.findIndex((p) => `#poem-${p.slug}` === window.location.hash);
     if (i >= 0) setOpen(i);
@@ -125,10 +126,9 @@ function Scene({ layout, className, grow, sx, sy, onOpen }: SceneProps) {
     <div className={cn("relative", className)} style={{ aspectRatio: `${W} / ${H}` }}>
       <Vines layout={layout} grow={grow} sx={sx} sy={sy} />
 
-      {poems.map((p, i) => {
-        const at = layout.verses[i % layout.verses.length];
-        return <Verse key={p.slug} poem={p} index={i} style={pct(...at)} sx={sx} sy={sy} wide={isWide} onOpen={onOpen} />;
-      })}
+      {verses.slice(0, layout.verses.length).map((v, i) => (
+        <Verse key={i} poem={poems[v.poem]} poemIndex={v.poem} line={v.line} index={i} style={pct(...layout.verses[i])} sx={sx} sy={sy} wide={isWide} onOpen={onOpen} />
+      ))}
 
       {poems.map((p, i) => {
         const at = layout.flowers[i % layout.flowers.length];
@@ -189,21 +189,22 @@ function Leaf({ d, p, a, at, grow, tone }: { d: string; p: [number, number]; a: 
 
 /* --- Drifting lines ------------------------------------------------------- */
 
-function Verse({ poem, index, style, sx, sy, wide, onOpen }: { poem: Poem; index: number; style: CSSProperties; sx: MotionValue<number>; sy: MotionValue<number>; wide: boolean; onOpen: (i: number) => void }) {
+/** Lines from every poem, taken in turn so neighbouring lines come from different poems. */
+const verses = Array.from({ length: Math.max(...poems.map((p) => p.fragments.length)) }, (_, k) =>
+  poems.flatMap((p, i) => (p.fragments[k] ? [{ poem: i, line: p.fragments[k] }] : [])),
+).flat();
+
+function Verse({ poem, poemIndex, line, index, style, sx, sy, wide, onOpen }: { poem: Poem; poemIndex: number; line: string; index: number; style: CSSProperties; sx: MotionValue<number>; sy: MotionValue<number>; wide: boolean; onOpen: (i: number) => void }) {
   // Each line floats at its own depth: nearer lines are larger, darker and move more.
   const depth = [0.9, 0.55, 0.7, 1, 0.45, 0.65][index % 6];
   const x = useTransform(sx, (v) => v * depth * 22);
   const y = useTransform(sy, (v) => v * depth * 14);
-  const [k, setK] = useState(0);
-  const line = poem.fragments[k % poem.fragments.length];
 
   return (
     <motion.div className="absolute z-[2] -translate-x-1/2 -translate-y-1/2" style={{ ...style, x, y }}>
       <button
         type="button"
-        onClick={() => onOpen(index)}
-        // When a line has faded and returns, it brings the next line of the poem with it.
-        onAnimationIteration={(e) => e.animationName === "verse-breathe" && poem.fragments.length > 1 && setK((n) => n + 1)}
+        onClick={() => onOpen(poemIndex)}
         aria-label={`Read “${poem.title}”`}
         className="verse-drift block cursor-pointer text-center font-display italic text-wine transition-colors duration-500 hover:text-vermilion focus-visible:text-vermilion"
         style={
@@ -368,7 +369,7 @@ function PoemReader({ index, onChange }: { index: number | null; onChange: (i: n
         if (e.key === "ArrowLeft") go(-1);
       }}
       aria-labelledby="poem-title"
-      className="curio-entry poem-reader m-0 h-[100svh] max-h-none w-full max-w-none overflow-auto bg-ivory p-0 text-wine"
+      className="curio-entry poem-reader poetry-garden m-0 h-[100svh] max-h-none w-full max-w-none overflow-auto bg-ivory p-0 text-wine"
     >
       {poem && (
         <div className="flex min-h-full flex-col">
@@ -382,17 +383,24 @@ function PoemReader({ index, onChange }: { index: number | null; onChange: (i: n
           </div>
 
           <article key={poem.slug} className="poem-page frame flex-1 pb-16 pt-6 md:pt-14">
-            <div className="mx-auto w-fit max-w-[36rem]">
-              <header className="text-center">
-                <p className="label text-ink-soft">{poem.placeholder ? "Placeholder" : "Poem"}</p>
-                <h2 id="poem-title" className="mt-4 text-display-m">{poem.title}</h2>
+            <div className="relative mx-auto w-full max-w-[40rem] px-5 pb-14 pt-12 sm:px-8 md:px-16">
+              <PaintedSheet seed={poem.slug.length * 7} bloom={flowerInk[poem.flower]} h={1500} />
+              <header className="relative text-center">
+                <span aria-hidden className="mx-auto block w-14">
+                  <FlowerArt kind={poem.flower} seed={index! * 7 + 2} ink={flowerInk[poem.flower]} />
+                </span>
+                <h2 id="poem-title" className="mt-5 text-display-m">{poem.title}</h2>
                 {poem.date && <p className="label mt-3 text-ink-soft">{poem.date}</p>}
-                <p aria-hidden className="mt-6 text-brass">❦</p>
               </header>
-              <div className="mt-10 space-y-[1.6em] font-display text-[clamp(1.15rem,1.6vw,1.35rem)] leading-[1.85]">
+              <div className="relative mx-auto mt-10 w-fit space-y-[1.6em] font-display text-[clamp(1.05rem,1.6vw,1.35rem)] leading-[1.85]">
                 {poem.text.split(/\n\s*\n/).map((stanza, i) => (
-                  <p key={i} className="whitespace-pre-line">
-                    {stanza}
+                  <p key={i}>
+                    {/* a line too long for a phone wraps with a hanging indent, so the poem's own breaks stay clear */}
+                    {stanza.split("\n").map((line, k) => (
+                      <span key={k} className="block pl-[1.4em] -indent-[1.4em]">
+                        {line}
+                      </span>
+                    ))}
                   </p>
                 ))}
               </div>
