@@ -112,7 +112,15 @@ export const drawers: Drawer[] = [
       },
       ph("what-makes-us-human", "photo-1", "photograph", "[Installation photograph]", { x: 56, y: 80, w: 14, rot: 9, z: 6 }, [{ kind: "tape", x: 50, y: 2, w: 42, rot: 4, color: "var(--brass)" }]),
       ph("what-makes-us-human", "photo-2", "photograph", "[Opening photograph]", { x: 11, y: 74, w: 11, rot: -12, z: 4, aspect: 0.8 }),
-      ph("what-makes-us-human", "notes", "notes", "[Research notes]", { x: 82, y: 34, w: 15, rot: -4, z: 3 }, [{ kind: "bulldog-clip", x: 50, y: 3, w: 36, rot: 0 }]),
+      {
+        id: "what-makes-us-human-notes",
+        kind: "notes",
+        title: "Research notes",
+        exhibition: "what-makes-us-human",
+        description: "What makes us human? I believe it is relationships that make us so special. In my research on machine consciousness, I became fascinated by the relationship between humans and machines, as Spike Jonze’s film Her (2013) shows. Within a relationship, even something non-living can seem to have feelings, and that is what is so remarkable about being human: we project our own feelings and consciousness onto others.",
+        at: { x: 82, y: 34, w: 15, rot: -4, z: 3 },
+        fixings: [{ kind: "bulldog-clip", x: 50, y: 3, w: 36, rot: 0 }],
+      },
       ph("what-makes-us-human", "floor-plan", "floor-plan", "[Exhibition floor plan]", { x: 13, y: 30, w: 21, rot: 4, z: 1 }, [{ kind: "push-pin", x: 8, y: 9, w: 9, rot: 0, color: "var(--vermilion)" }]),
     ],
     stationery: [
