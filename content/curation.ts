@@ -137,7 +137,15 @@ export const drawers: Drawer[] = [
       ph("you-will-never-walk-alone", "poster", "poster", "[Exhibition poster]", { x: 16, y: 42, w: 16, rot: -6, z: 2 }, [{ kind: "push-pin", x: 50, y: 4, w: 18, rot: 0, color: "var(--powder-blue)" }]),
       ph("you-will-never-walk-alone", "photo", "photograph", "[Installation photograph]", { x: 66, y: 36, w: 15, rot: -3, z: 2, aspect: 0.78 }, [{ kind: "peg", x: 50, y: 2, w: 12, rot: 90 }]),
       ph("you-will-never-walk-alone", "sketch", "sketch", "[Preliminary sketch]", { x: 86, y: 60, w: 14, rot: 9, z: 3 }, [{ kind: "tape", x: 50, y: 1, w: 50, rot: -6, color: "var(--botanical-green)" }]),
-      ph("you-will-never-walk-alone", "annotation", "annotation", "[Curatorial annotation]", { x: 62, y: 80, w: 16, rot: 7, z: 5 }, [{ kind: "peg", x: 86, y: 30, w: 8, rot: 10 }]),
+      {
+        id: "you-will-never-walk-alone-annotation",
+        kind: "annotation",
+        title: "Curatorial annotation",
+        exhibition: "you-will-never-walk-alone",
+        description: "This was my second exhibition, and it took us a year and a half to complete. It was through this exhibition that I began to see curation as my future: my career goal, and my passion. I would wake up in the morning excited, wondering what I might come up with that day. I found joy in every part of the process: spending time in the exhibition hall, watching the white walls being painted in different colours, putting my work and others’ onto the walls and arranging it on the shelves. I wrote quotes in every corner of the exhibition, hiding details in every word and every brushstroke I painted. Even when I was alone, placing exhibits in the dark, empty hall without help, I could see the traces of time on every painted wall, in every footprint I had left… I will never walk alone.",
+        at: { x: 62, y: 80, w: 16, rot: 7, z: 5 },
+        fixings: [{ kind: "peg", x: 86, y: 30, w: 8, rot: 10 }],
+      },
       ph("you-will-never-walk-alone", "ticket", "ticket", "[Exhibition ticket]", { x: 18, y: 80, w: 17, rot: 10, z: 3 }),
     ],
     stationery: [
