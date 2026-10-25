@@ -142,11 +142,11 @@ export const exhibitions: Exhibition[] = [
     epilogue: otherSame.epilogue,
     credits: otherSame.credits,
     documentation: [
-      { src: "/images/exhibitions/the-other-the-same/space.jpg", alt: "The exhibition space: tables of works, wooden frames along the glass wall and a strip of soil and plants", aspect: 3 / 4, caption: "The exhibition space" },
-      { src: "/images/exhibitions/the-other-the-same/installation.jpg", alt: "Wooden frames standing in a bed of soil and plants by the window", aspect: 3 / 4, caption: "Installation view" },
-      { src: "/images/exhibitions/the-other-the-same/beehive-works.jpg", alt: "Stacked wooden beehive boxes with honeycomb works on their trays", aspect: 3 / 4, caption: "Beehive works" },
-      { src: "/images/exhibitions/the-other-the-same/snail-shell-work.jpg", alt: "A snail shell studded with crystals, hanging on a wooden post", aspect: 3 / 4, caption: "Snail shell work" },
-      { src: "/images/exhibitions/the-other-the-same/soil-boxes.jpg", alt: "Clear acrylic boxes of soil on a wooden table", aspect: 3 / 4, caption: "Soil in acrylic boxes" },
+      { src: "/images/exhibitions/the-other-the-same/space.jpg", alt: "The exhibition space: tables of works, wooden frames along the glass wall and a strip of soil and plants", aspect: 3 / 4, caption: "The exhibition space · Photo: Shenzhen Nanshan Huitong School" },
+      { src: "/images/exhibitions/the-other-the-same/installation.jpg", alt: "Wooden frames standing in a bed of soil and plants by the window", aspect: 3 / 4, caption: "Installation view · Photo: Shenzhen Nanshan Huitong School" },
+      { src: "/images/exhibitions/the-other-the-same/beehive-works.jpg", alt: "Stacked wooden beehive boxes with honeycomb works on their trays", aspect: 3 / 4, caption: "Beehive works · Photo: Shenzhen Nanshan Huitong School" },
+      { src: "/images/exhibitions/the-other-the-same/snail-shell-work.jpg", alt: "A snail shell studded with crystals, hanging on a wooden post", aspect: 3 / 4, caption: "Snail shell work · Photo: Shenzhen Nanshan Huitong School" },
+      { src: "/images/exhibitions/the-other-the-same/soil-boxes.jpg", alt: "Clear acrylic boxes of soil on a wooden table", aspect: 3 / 4, caption: "Soil in acrylic boxes · Photo: Shenzhen Nanshan Huitong School" },
     ],
   },
 ];

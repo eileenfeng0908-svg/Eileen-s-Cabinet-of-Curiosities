@@ -3,7 +3,8 @@ import type { CatalogueEntry, CreditGroup, Pair } from "@/content/exhibitions";
 /**
  * THE OTHER, THE SAME — the exhibition's own texts, as Eileen gave them
  * (Chinese and English side by side). Each entry's `image` is the picture
- * Eileen chose for it: images from the internet, credited as such.
+ * Eileen chose for it: images from the internet, credited as such. `photos`
+ * are exhibition photographs, credited to Shenzhen Nanshan Huitong School.
  */
 
 export const preface: Pair[] = [
@@ -118,7 +119,7 @@ export const natureEntries: CatalogueEntry[] = [
       zh: `很多国家和地区都说我很有危害性，我很厉害，我可以打过其他所有蜜蜂！但是我也有好的方面，就像你们在超市货架上看见的我。我对地球还是很有用的哦，我可以酿造蜂蜜，还可帮助花授粉。你们利用我的蜂巢制作艺术作品，有平面的作品甚至还有立体的作品呢。`,
       en: `People in many countries and regions say that I am very harmful. But I feel that I am super because I can beat all other bees! I have some good aspects, like when you see me on the supermarket shelves. I am very useful to the earth. I can produce honey very efficiently and help flowers pollinate. You used my beehive to make works of art, including two-dimensional and even three-dimensional works.`,
     },
-    photos: [{ src: "/images/exhibitions/the-other-the-same/work-bee-1.jpg", alt: "Honeycomb wax and glue sculpture on a wooden board", aspect: 1 }, { src: "/images/exhibitions/the-other-the-same/work-bee-2.jpg", alt: "Sculpture of dark honeycomb strips bent into legs and bound with wire", aspect: 1 }],
+    photos: [{ src: "/images/exhibitions/the-other-the-same/work-bee-1.jpg", alt: "Honeycomb wax and glue sculpture on a wooden board", aspect: 1, caption: "Photo: Shenzhen Nanshan Huitong School" }, { src: "/images/exhibitions/the-other-the-same/work-bee-2.jpg", alt: "Sculpture of dark honeycomb strips bent into legs and bound with wire", aspect: 1, caption: "Photo: Shenzhen Nanshan Huitong School" }],
     body: [
       {
         zh: `我们是意大利蜂（Apis mellifera Ligustica)，大家也叫我意蜂。`,
@@ -141,7 +142,7 @@ export const natureEntries: CatalogueEntry[] = [
       zh: `我就是你们在雨后小区中常见的非洲大蜗牛，我在很多国家和地区都被人类讨厌，甚至是在我的出生地，非洲东部，被他们当作食物。你们将我和你们的生活结合在一起，将我的家改造成了雕塑、声音装置，甚至是乐器。现在，你可以透过我的家，感受你们体验到的城市。`,
       en: `I am the African giant snail that you often see in your neighborhood after it rains. I am hated by humans in many countries and regions, including my birthplace in East Africa, where they consider me a food item. You have integrated me into your lives by transforming my home into sculptures, sound installations, and even musical instruments. Now, you can experience the city through my home.`,
     },
-    photos: [{ src: "/images/exhibitions/the-other-the-same/work-snail.jpg", alt: "A snail shell set with beads and coloured clay, with its label: 作者 Author 李大方 Harry Li", aspect: 1, caption: "作者 Author: 李大方 Harry Li" }],
+    photos: [{ src: "/images/exhibitions/the-other-the-same/work-snail.jpg", alt: "A snail shell set with beads and coloured clay, with its label: 作者 Author 李大方 Harry Li", aspect: 1, caption: "作者 Author: 李大方 Harry Li · Photo: Shenzhen Nanshan Huitong School" }],
     body: [
       {
         zh: `我是非洲大蜗牛(Lissachatina fulica)`,
@@ -163,7 +164,7 @@ export const natureEntries: CatalogueEntry[] = [
       zh: `我是泥土，或许我就在你们的脚下，你们一定会想为什么自己踩在自己国家的土地上，但是我却又是属于外来“入侵物种”呢？世界上海洋占据了很大部分，而人们想要建造更多的高楼，需要更多的土地。而我呢，就是其中的一部分，人类把我用于填海造陆，而我其实是其他国家或者地区运过来的。我有很多种类，颜色不同，地质也不同。`,
       en: `I am soil. Perhaps I am right beneath your feet and you might wonder why you are standing on the soil of your own country, while I am considered an “invasive species”? With oceans occupying a large portion of the world, humans need more land to build more skyscrapers. That's where I come in. I am a part of the land reclamation process, brought in from other countries or regions. I come in many types, with different colors and geological compositions.`,
     },
-    photos: [{ src: "/images/exhibitions/the-other-the-same/work-soil.jpg", alt: "Clear acrylic cubes holding layers of different soils", aspect: 1 }],
+    photos: [{ src: "/images/exhibitions/the-other-the-same/work-soil.jpg", alt: "Clear acrylic cubes holding layers of different soils", aspect: 1, caption: "Photo: Shenzhen Nanshan Huitong School" }],
     body: [
       {
         zh: `我是这个城市里可见又不可见的记忆。`,
@@ -187,7 +188,7 @@ export const newNatureEntries: CatalogueEntry[] = [
     zh: `混凝土`,
     title: `Concrete`,
     image: { src: "/images/exhibitions/the-other-the-same/concrete.jpg", alt: "Weathered concrete with exposed stones", aspect: 333 / 500, caption: "Image from the internet" },
-    photos: [{ src: "/images/exhibitions/the-other-the-same/work-concrete.jpg", alt: "Grey concrete sculptures, a cup and broken rings, on a wooden table", aspect: 1 }],
+    photos: [{ src: "/images/exhibitions/the-other-the-same/work-concrete.jpg", alt: "Grey concrete sculptures, a cup and broken rings, on a wooden table", aspect: 1, caption: "Photo: Shenzhen Nanshan Huitong School" }],
     body: [
       {
         zh: `在前海一片无人使用的荒地上，我们采集了用来填海造陆的土壤。他们来自不同的地方，也呈现出各样的质地和色泽，我们也将非洲大蜗牛的壳烧制成石灰。之后，我们用常见的建筑材料——水泥将TA们融合到一起，把这些在刻板印象里臭名昭著或随处可见的的外来物种变成沉重、坚固而又别样的混凝土雕塑。变成这般模样的TA，与先前的TA们是“另一个”还是“同一个”呢？`,
@@ -232,7 +233,7 @@ export const newNatureEntries: CatalogueEntry[] = [
     title: `Ocean`,
     image: { src: "/images/exhibitions/the-other-the-same/ocean.jpg", alt: "Aerial view of waves meeting a sandy shore", aspect: 492 / 700, caption: "Image from the internet" },
     quote: { zh: `“锈层就是微生物生长的一个微环境。”`, en: `"Rust is a micro-environment for microbial growth."` },
-    photos: [{ src: "/images/exhibitions/the-other-the-same/work-ocean.jpg", alt: "Iron sheets rusted gold and brown by seawater", aspect: 1 }],
+    photos: [{ src: "/images/exhibitions/the-other-the-same/work-ocean.jpg", alt: "Iron sheets rusted gold and brown by seawater", aspect: 1, caption: "Photo: Shenzhen Nanshan Huitong School" }],
     body: [
       {
         zh: `填海造陆改变了深圳河流与海洋的关系。如前湾河这条在人造陆地上，被开辟出来的河流，其中有着许多自下游逆流而上的海水。我们用这些海水去侵蚀不同形态的铁片，其中的水、无机盐与铁、空气结合会加速生锈……这一片片铁片在时间的浸渍下染上各异的金斑，附着上许多微小的生命，凝结成海洋、河流、大地与深圳的一瞬。这是“同一个”与“另一个”的演变过程，也是人与自然共同完成的艺术创作。`,
@@ -384,6 +385,8 @@ export const credits: CreditGroup[] = [
     ],
   },
   {
-    roles: [{ role: `图片 Catalogue images`, names: [`图片来自网络 Images from the internet`] }],
+    roles: [
+      { role: `图片 Catalogue images`, names: [`部分图片来自网络 Some images from the internet`, `展览照片：深圳市南山区荟同学校 Exhibition photographs: Shenzhen Nanshan Huitong School`] },
+    ],
   },
 ];
