@@ -5,20 +5,22 @@ import { handLine, handPoly, handRect, heart, rng, type Rng } from "@/components
 import { pencil, wash } from "@/components/cabinet/PaintDefs";
 
 /**
- * How an object in a drawer looks. With a photograph (`image.src`) the real
- * thing is shown, framed according to its kind; without one, a painted
- * stand-in for that kind of object is drawn by hand, with the object's
- * [placeholder] title written on it so it is never mistaken for the real thing.
+ * How an object in a drawer looks. The drawer always stays painted: an object
+ * shows its watercolour rendition (`painted`) if it has one, otherwise a
+ * stand-in for that kind of object drawn by hand, with the object's title
+ * written on it. The photograph (`image.src`) appears only when the object is
+ * picked up and looked at closely (`real`).
  *
  * Every stand-in is drawn in a 100-wide box whose height follows the aspect.
  */
-export function ObjectFace({ obj, aspect, sizes }: { obj: DrawerObject; aspect: number; sizes?: string }) {
-  if (obj.image?.src) {
+export function ObjectFace({ obj, aspect, sizes, real = false }: { obj: DrawerObject; aspect: number; sizes?: string; real?: boolean }) {
+  const src = real ? (obj.image?.src ?? obj.painted) : obj.painted;
+  if (src) {
     const framed = obj.kind === "photograph" || obj.kind === "postcard";
     return (
       <span className={framed ? "absolute inset-0 bg-ivory-pale p-[5%]" : "absolute inset-0"}>
         <span className="relative block h-full w-full overflow-hidden">
-          <Image src={obj.image.src} alt="" fill sizes={sizes ?? "20vw"} className="object-cover" />
+          <Image src={src} alt="" fill sizes={sizes ?? "20vw"} className="object-cover" />
         </span>
       </span>
     );

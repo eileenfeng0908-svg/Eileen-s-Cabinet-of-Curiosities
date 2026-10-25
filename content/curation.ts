@@ -7,8 +7,10 @@ import type { StationeryPiece } from "@/components/curation/Stationery";
  * Each object is one entry in a drawer's `objects` list. Its `at` places it
  * inside the drawer (centre x / y in % of the drawer, width in % of the
  * drawer, rotation in degrees, z for what rests on what). Give it an
- * `image` with a `src` (a photograph of the real thing) and it replaces the
- * painted stand-in. Everything with `placeholder: true` is a temporary,
+ * `image` with a `src` (a photograph of the real thing) to show when it is
+ * picked up, and a `painted` watercolour version of that photo for the drawer
+ * itself; without `painted`, the drawer keeps the hand-painted stand-in.
+ * Everything with `placeholder: true` is a temporary,
  * labelled stand-in until Eileen's own material arrives.
  */
 export type ObjectKind =
@@ -33,8 +35,10 @@ export interface DrawerObject {
   title: string;
   date?: string;
   description?: string;
-  /** A photograph of the object (or of what it documents). Without `src`, a painted stand-in shows. */
+  /** A photograph of the object (or of what it documents), shown when the object is picked up. */
   image?: ImageAsset;
+  /** A watercolour rendition of the photograph, shown in the drawer. */
+  painted?: string;
   /** Slug of the exhibition catalogue this object opens (see content/exhibitions.ts). */
   exhibition?: string;
   /** Cover colour of a painted catalogue, and the colour of its lettering. */
@@ -93,6 +97,7 @@ export const drawers: Drawer[] = [
           alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on a red ground",
           aspect: 974 / 1726,
         },
+        painted: "/images/work/what-makes-us-human/poster-watercolour.jpg",
         at: { x: 57, y: 40, w: 15, rot: 5, z: 2 },
         fixings: [{ kind: "push-pin", x: 50, y: 97, w: 18, rot: 0, color: "var(--brass)" }],
       },

@@ -229,7 +229,7 @@ function ObjectDetail({ obj, drawer, onClose }: { obj: DrawerObject; drawer: Dra
     <article className="grid gap-8 p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:p-10">
       <div className="flex items-center justify-center rounded-sm bg-walnut/25 p-[8%]">
         <div className="relative w-full drop-shadow-[0_12px_14px_rgb(113_63_72_/_0.35)]" style={{ aspectRatio: `${aspect}`, maxWidth: tall ? "70%" : "100%" }}>
-          <ObjectFace obj={obj} aspect={aspect} sizes="(min-width: 48rem) 28rem, 90vw" />
+          <ObjectFace obj={obj} aspect={aspect} sizes="(min-width: 48rem) 28rem, 90vw" real />
         </div>
       </div>
       <div className="flex flex-col">
