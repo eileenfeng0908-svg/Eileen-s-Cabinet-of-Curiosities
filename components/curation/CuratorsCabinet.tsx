@@ -175,6 +175,10 @@ function Tray({ drawer, held, onPick }: { drawer: Drawer; held?: string; onPick:
         }}
       >
         <div aria-hidden className="plate-tooth absolute inset-0 opacity-70" />
+        {/* sprigged lining paper and a painted border */}
+        <div aria-hidden className="absolute inset-0 opacity-60" style={{ background: "radial-gradient(circle, rgb(101 123 83 / 0.22) 0.22cqw, transparent 0.3cqw) 0 0 / 3.2cqw 3.2cqw, radial-gradient(circle, rgb(197 101 88 / 0.18) 0.18cqw, transparent 0.26cqw) 1.6cqw 1.6cqw / 3.2cqw 3.2cqw" }} />
+        <div aria-hidden className="absolute inset-[1.4cqw] border-[0.25cqw] border-[color-mix(in_srgb,var(--vermilion)_45%,transparent)]" />
+        <div aria-hidden className="absolute inset-[2cqw] border-[0.15cqw] border-dashed border-[color-mix(in_srgb,var(--botanical-green)_50%,transparent)]" />
         <ul className="absolute inset-0">
           {drawer.objects.map((o) => (
             <DrawerItem key={o.id} obj={o} drawer={drawer} lifted={held === o.id} onPick={onPick} />
