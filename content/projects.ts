@@ -20,9 +20,9 @@ export const projects: Project[] = [
     year: undefined,
     featured: 1,
     cover: {
-      src: "/images/work/what-makes-us-human/poster.jpg",
-      alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on vermilion",
-      aspect: 1551 / 1986,
+      src: "/images/work/what-makes-us-human/poster-original.jpg",
+      alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on a red ground",
+      aspect: 1547 / 1982,
       caption: "Exhibition poster",
     },
     summary:
@@ -54,6 +54,7 @@ export const projects: Project[] = [
     category: "Creative Experiments",
     year: undefined,
     featured: 2,
+    href: "https://between-us-pi.vercel.app/",
     cover: {
       src: "/images/work/between-us/cover.jpg",
       alt: "Cover of V magazine, 20 April 1947, “Souvenirs d’amour”: Cary Grant and Priscilla Lane about to kiss, printed in red",
@@ -70,7 +71,7 @@ export const projects: Project[] = [
     body: [
       { type: "paragraph", text: "[What the experiment set out to explore.]" },
       { type: "paragraph", text: "[What happened, and what it made you think about.]" },
-      { type: "links", title: "Elsewhere", items: [{ label: "[External link]", href: "#" }] },
+      { type: "links", title: "Elsewhere", items: [{ label: "Visit Between Us", href: "https://between-us-pi.vercel.app/" }] },
     ],
   },
   {
@@ -200,6 +201,8 @@ export const getProject = (slug: string) => projects.find((p) => p.slug === slug
 
 /** Where a project's card leads: its own page, unless it points elsewhere. */
 export const projectHref = (p: Project) => p.href ?? `/work/${p.slug}`;
+/** Link props that open an external project (a live site) in a new tab. */
+export const projectTarget = (p: Project) => (p.href?.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
 export const featuredProjects = () =>
   projects

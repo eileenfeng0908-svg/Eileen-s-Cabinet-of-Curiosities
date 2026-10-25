@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projectHref, projects } from "@/content/projects";
+import { projectHref, projectTarget, projects } from "@/content/projects";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { Plate } from "@/components/editorial/Plate";
 import { Reveal } from "@/components/motion/Reveal";
@@ -33,7 +33,7 @@ export default function WorkPage() {
         <ul className="grid-editorial gap-y-20">
           {projects.map((p, i) => (
             <Reveal as="li" key={p.slug} className={spans[i % spans.length]}>
-              <Link href={projectHref(p)} className="group block">
+              <Link href={projectHref(p)} {...projectTarget(p)} className="group block">
                 <Plate image={p.cover} number={i + 1} />
                 <div className="mt-5">
                   <p className="label text-ink-soft">

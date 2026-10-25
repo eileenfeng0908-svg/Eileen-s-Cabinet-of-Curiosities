@@ -11,7 +11,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { featuredProjects, projectHref } from "@/content/projects";
+import { featuredProjects, projectHref, projectTarget } from "@/content/projects";
 import { Plate } from "@/components/editorial/Plate";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { Star } from "@/components/editorial/Ornaments";
@@ -214,7 +214,7 @@ function WorkSlide({ project, i, progress, still }: { project: Project; i: numbe
 
   return (
     <div className="[perspective:1100px]" style={{ rotate: `${rests[i % rests.length]}deg` }}>
-      <Link href={projectHref(project)} onPointerMove={move} onPointerLeave={leave} className="group relative block">
+      <Link href={projectHref(project)} {...projectTarget(project)} onPointerMove={move} onPointerLeave={leave} className="group relative block">
         <motion.article
           style={still ? undefined : { rotateX: sx, rotateY: sy, transformStyle: "preserve-3d" }}
           className="relative w-[min(78vw,22rem)] p-6 md:w-[min(28rem,calc(60svh*0.78))] md:p-8"
@@ -253,9 +253,9 @@ function WorkSlide({ project, i, progress, still }: { project: Project; i: numbe
                   <span className="mt-1 block font-display text-lg italic leading-snug text-ink-soft">{project.subtitle}</span>
                 )}
                 <span className="label mt-4 inline-flex items-center gap-2 text-wine">
-                  View project
+                  {project.href?.startsWith("http") ? "Visit the site" : "View project"}
                   <span aria-hidden className="transition-transform duration-500 ease-gallery group-hover:translate-x-1.5">
-                    →
+                    {project.href?.startsWith("http") ? "↗" : "→"}
                   </span>
                 </span>
               </span>
