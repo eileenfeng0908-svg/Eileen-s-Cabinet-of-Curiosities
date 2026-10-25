@@ -48,6 +48,7 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
           {e.image && wide && (
             <div className="print max-w-3xl">
               <Plate image={e.image} sizes="(min-width: 64rem) 48rem, 90vw" />
+              {e.image.caption && <p className="mt-2 text-caption text-ink-soft">{e.image.caption}</p>}
             </div>
           )}
           {e.quote && (
@@ -66,6 +67,7 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
         {e.image && !wide && (
           <div className="print self-start lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
             <Plate image={e.image} sizes="(min-width: 64rem) 16rem, 90vw" />
+            {e.image.caption && <p className="mt-2 text-caption text-ink-soft">{e.image.caption}</p>}
           </div>
         )}
       </div>

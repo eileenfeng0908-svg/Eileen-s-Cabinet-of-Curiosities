@@ -145,10 +145,23 @@ export const drawers: Drawer[] = [
     note: "The catalogue of The Other, the Same, with the posters, photographs and working papers from the exhibition.",
     objects: [
       { id: "other-same-catalogue", kind: "catalogue", title: "The Other, the Same", exhibition: "the-other-the-same", tint: "var(--powder-blue)", ink: "var(--wine)", at: { x: 58, y: 48, w: 21, rot: 6, z: 4 }, fixings: [{ kind: "binder-clip", x: 28, y: 3, w: 22, rot: -4, color: "var(--brass)" }] },
-      ph("the-other-the-same", "invitation", "invitation", "[Invitation]", { x: 28, y: 34, w: 17, rot: -7, z: 2 }, [{ kind: "paper-clip", x: 84, y: 6, w: 9, rot: 6, color: "var(--brass)" }]),
+      {
+        id: "the-other-the-same-invitation",
+        kind: "invitation",
+        title: "Invitation to the opening preview",
+        date: "6 May 2023",
+        exhibition: "the-other-the-same",
+        image: {
+          src: "/images/exhibitions/the-other-the-same/invitation.jpg",
+          alt: "Invitation 邀请函 to the opening preview of The Other, The Same 另一个，同一个 at Huitong School, 2023.05.06, with white daisies and green grass",
+          aspect: 1182 / 2344,
+        },
+        painted: "/images/exhibitions/the-other-the-same/invitation-watercolour.jpg",
+        at: { x: 30, y: 42, w: 12, rot: -7, z: 2 },
+        fixings: [{ kind: "paper-clip", x: 80, y: 3, w: 14, rot: 6, color: "var(--brass)" }],
+      },
       ph("the-other-the-same", "photo", "photograph", "[Installation photograph]", { x: 20, y: 72, w: 15, rot: 8, z: 3 }, [{ kind: "tape", x: 50, y: 2, w: 42, rot: -4, color: "var(--powder-blue)" }]),
       ph("the-other-the-same", "arrangement", "arrangement", "[Artwork arrangement]", { x: 85, y: 30, w: 19, rot: -4, z: 2 }, [{ kind: "binder-clip", x: 20, y: 3, w: 14, rot: -6, color: "var(--vermilion)" }]),
-      ph("the-other-the-same", "postcard", "postcard", "[Exhibition postcard]", { x: 42, y: 80, w: 17, rot: -6, z: 5 }),
       ph("the-other-the-same", "fragment", "fragment", "[Archival fragment]", { x: 86, y: 76, w: 15, rot: 4, z: 3 }, [{ kind: "safety-pin", x: 40, y: 12, w: 50, rot: -4 }]),
     ],
     stationery: [
