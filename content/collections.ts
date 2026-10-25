@@ -68,7 +68,8 @@ export const collections: Collection[] = [
     slug: "fashion",
     title: "Fashion Show",
     object: "ribbon",
-    intro: "[A sentence about clothing as a way of telling who we are.]",
+    heading: { title: "The Fashion", italic: "Atelier" },
+    intro: "From Sketches to the Runway",
     holds: { projects: (p) => p.slug === "identity" },
   },
   {

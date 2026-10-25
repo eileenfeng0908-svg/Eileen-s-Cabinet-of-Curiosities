@@ -17,6 +17,7 @@ import { CuratorsCabinet } from "@/components/curation/CuratorsCabinet";
 import { Sketchbook } from "@/components/art/Sketchbook";
 import { PoetryGarden } from "@/components/writing/PoetryGarden";
 import { Atlas } from "@/components/life/Atlas";
+import { Atelier } from "@/components/atelier/Atelier";
 import { AtlasMap } from "@/components/life/AtlasMap";
 import { StoryCollection } from "@/components/writing/StoryCollection";
 import { ReadingRoom } from "@/components/writing/ReadingRoom";
@@ -39,7 +40,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
   const { projects, writing, archive } = collectionContents(c);
   const index = collections.indexOf(c);
   // Collections with their own interactive rooms skip the plain listings below.
-  const custom = ["cinema", "art-and-curation", "writing-and-philosophy", "life"].includes(c.slug);
+  const custom = ["cinema", "art-and-curation", "writing-and-philosophy", "life", "fashion"].includes(c.slug);
   const empty = !projects.length && !writing.length && !archive.length;
 
   return (
@@ -84,6 +85,13 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           <section aria-label="The atlas">
             <p className="mb-10 max-w-xl font-display text-lede italic text-wine">Not everywhere I’ve been. Just the places I’ve kept.</p>
             <Atlas map={<AtlasMap />} />
+          </section>
+        )}
+
+        {c.slug === "fashion" && (
+          <section aria-label="The atelier">
+            <p className="mb-10 max-w-xl font-display text-lede italic text-wine">Everything on the table can be picked up. Hover to see what it is, click to step inside.</p>
+            <Atelier />
           </section>
         )}
 

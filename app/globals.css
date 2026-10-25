@@ -573,3 +573,32 @@
   -webkit-text-stroke: 1.5px var(--vermilion);
   opacity: 0.75;
 }
+
+/* --- The Fashion Atelier (components/atelier) ----------------------------- */
+.atelier-object {
+  filter: drop-shadow(0 6px 5px rgb(113 63 72 / 0.28));
+  transition: filter 400ms var(--ease-gallery);
+}
+.atelier-object:hover,
+.atelier-object:focus-visible {
+  filter: drop-shadow(0 18px 14px rgb(113 63 72 / 0.32));
+}
+.atelier-object:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 6px; }
+.atelier-print {
+  transform: rotate(var(--tilt, 0deg));
+  box-shadow: 0 10px 18px -12px rgb(113 63 72 / 0.55);
+  transition: transform 600ms var(--ease-gallery), box-shadow 600ms var(--ease-gallery);
+}
+.atelier-print:hover,
+.atelier-print:focus-visible {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 20px 28px -16px rgb(113 63 72 / 0.6);
+}
+.notebook-ruled {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 31px, color-mix(in srgb, var(--powder-blue) 55%, transparent) 31px 32px),
+    color-mix(in srgb, var(--aged-ivory) 50%, white);
+}
+@media (prefers-reduced-motion: reduce) {
+  .atelier-object, .atelier-print { transition: none; }
+}
