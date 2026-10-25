@@ -35,8 +35,8 @@ export function ShowsRoom({ showId, onShow }: { showId: string | null; onShow: (
   const show = shows.find((s) => s.id === showId) ?? null;
   return (
     <ViewerProvider>
-      <RoomHeading id="room-title" kicker="01 · The Invitations" title="The" italic="Shows" intro="Four years of the fashion show. Open an invitation to step into that year." bloom={ink.vermilion} />
-      <nav aria-label="Choose a year" className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 md:gap-10">
+      <RoomHeading id="room-title" kicker="01 · The Invitations" title="The" italic="Shows" intro="Five years of the fashion show. Open an invitation to step into that year." bloom={ink.vermilion} />
+      <nav aria-label="Choose a year" className="mt-12 grid grid-cols-3 gap-5 sm:grid-cols-5 md:gap-8">
         {shows.map((s, i) => (
           <button
             key={s.id}

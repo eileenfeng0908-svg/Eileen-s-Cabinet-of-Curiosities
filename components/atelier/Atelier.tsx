@@ -26,10 +26,11 @@ const spots: Record<Exclude<Room, "shows">, { w: Spot; m: Spot; aspect: number; 
   runway: { w: { x: 76, y: 33, w: 17, r: 4 }, m: { x: 52, y: 62, w: 38, r: 4 }, aspect: 160 / 200, label: "The Runway Photograph", hint: "Walk the runway" },
 };
 const inviteSpots: { w: Spot; m: Spot }[] = [
-  { w: { x: 4, y: 9, w: 8.5, r: -8 }, m: { x: 4, y: 6, w: 20, r: -6 } },
-  { w: { x: 13, y: 7, w: 8.5, r: 5 }, m: { x: 27, y: 8, w: 20, r: 4 } },
-  { w: { x: 5, y: 31, w: 8.5, r: 6 }, m: { x: 50, y: 6, w: 20, r: -3 } },
-  { w: { x: 14, y: 30, w: 8.5, r: -4 }, m: { x: 73, y: 8, w: 20, r: 6 } },
+  { w: { x: 3, y: 8, w: 8, r: -8 }, m: { x: 2, y: 6, w: 17, r: -6 } },
+  { w: { x: 12, y: 6, w: 8, r: 5 }, m: { x: 21, y: 8, w: 17, r: 4 } },
+  { w: { x: 4, y: 30, w: 8, r: 6 }, m: { x: 40, y: 6, w: 17, r: -3 } },
+  { w: { x: 13, y: 29, w: 8, r: -4 }, m: { x: 59, y: 8, w: 17, r: 5 } },
+  { w: { x: 21, y: 10, w: 8, r: 8 }, m: { x: 78, y: 6, w: 17, r: -4 } },
 ];
 
 const roomNames: Record<Room, string> = {
@@ -168,7 +169,7 @@ function Desk({ onOpen }: { onOpen: (room: Room, show?: string) => void }) {
             <Invitation key={s.id} spot={inviteSpots[i]} color={ink[s.ink]} year={s.year} title={s.title} onOpen={() => onOpen("shows", s.id)} />
           ))}
           <Tag
-            className="left-[4%] top-[27%] md:left-[3%] md:top-[52%]"
+            className="left-[4%] top-[25%] md:left-[3%] md:top-[50%]"
             label="The Invitations"
             hint="Open a show"
             visible="group-hover/inv:opacity-100 group-focus-within/inv:opacity-100"

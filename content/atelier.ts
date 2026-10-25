@@ -49,7 +49,7 @@ export interface Show {
   concept: string;
   role: string;
   /** The invitation's colour on the desk. */
-  ink: "vermilion" | "blue" | "green" | "wine";
+  ink: "vermilion" | "blue" | "green" | "wine" | "brass";
   runway: AtelierPhoto[];
   posters: AtelierPhoto[];
   videos: AtelierVideo[];
@@ -77,12 +77,13 @@ const showTemplate = (id: string, year: string, title: string, theme: string, in
   backstage: ph("[Upload Backstage Photograph]", 4, ["landscape", "portrait", "portrait", "landscape"]),
 });
 
-/** The four shows, oldest first. Only the 2026 title and theme are confirmed. */
+/** The five shows, oldest first: years and themes as Eileen gave them. */
 export const shows: Show[] = [
-  showTemplate("show-1", "[Year]", "[Show title]", "[Theme]", "blue"),
-  showTemplate("show-2", "[Year]", "[Show title]", "[Theme]", "green"),
-  showTemplate("show-3", "[Year]", "[Show title]", "[Theme]", "wine"),
-  showTemplate("identity", "2026", "Identity", "Identity", "vermilion"),
+  showTemplate("2023", "2023", "Bionic", "Bionic", "blue"),
+  showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
+  showTemplate("2025", "2025", "Memory", "Memory", "wine"),
+  showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
+  showTemplate("2027", "2027", "In the Mood for…", "In the Mood for…", "brass"),
 ];
 
 export interface SketchbookSpread {

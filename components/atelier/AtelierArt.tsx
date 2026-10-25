@@ -52,10 +52,10 @@ export function InvitationInside({ color, year, title }: { color: string; year: 
       <text x={50} y={64} textAnchor="middle" fontFamily="var(--font-display)" fontSize={7} fill="var(--wine)" letterSpacing={1.2}>
         THE FASHION SHOW
       </text>
-      <text x={50} y={86} textAnchor="middle" fontFamily="var(--font-title)" fontSize={title.length > 10 ? 11 : 16} fill={color}>
+      <text x={50} y={87} textAnchor="middle" fontFamily="var(--font-display)" fontStyle="italic" fontSize={title.length > 14 ? 10.5 : title.length > 10 ? 12.5 : 16} fill="var(--wine)">
         {title}
       </text>
-      <text x={50} y={104} textAnchor="middle" fontFamily="var(--font-display)" fontSize={9} fill="var(--wine)">
+      <text x={50} y={106} textAnchor="middle" fontFamily="var(--font-display)" fontSize={12} letterSpacing={1.4} fill="var(--wine)">
         {year}
       </text>
       <g filter={wash("b")}>
@@ -87,10 +87,10 @@ export function InvitationCover({ color, year }: { color: string; year: string }
         <path d={handRect(10, 10, 80, 120, r, 0.6)} />
         <path d={handLine([[50, 66], [50, 84]], r, 0.6)} />
       </Line>
-      <text x={50} y={104} textAnchor="middle" fontFamily="var(--font-title)" fontSize={12} fill="var(--wine)">
+      <text x={50} y={102} textAnchor="middle" fontFamily="var(--font-display)" fontStyle="italic" fontSize={10.5} fill="var(--wine)">
         You’re invited
       </text>
-      <text x={50} y={120} textAnchor="middle" fontFamily="var(--font-display)" fontSize={8} fill="var(--wine)" letterSpacing={1}>
+      <text x={50} y={121} textAnchor="middle" fontFamily="var(--font-display)" fontSize={14} fill="var(--wine)" letterSpacing={1.5}>
         {year}
       </text>
       {/* wax seal on the edge */}
