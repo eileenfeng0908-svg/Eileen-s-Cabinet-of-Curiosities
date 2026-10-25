@@ -1,5 +1,6 @@
 # Usage: python3 scripts/watercolour.py photo.jpg out.jpg [colours=6] [bold]
 # `bold` thickens thin light lines so they survive at drawer size.
+# `vivid` lifts colour first, for photographs, so the wash doesn't go grey.
 # Makes the drawer version of a Curator's Cabinet photo (see `painted` in content/curation.ts). Needs Pillow, numpy, scipy.
 # Simple watercolour rendition of a photo: flattened washes, wobbly edges,
 # pooled pigment at the edges of each wash, granulation and paper showing through.
@@ -9,6 +10,9 @@ from scipy import ndimage as nd
 src,dst=sys.argv[1],sys.argv[2]
 im=Image.open(src).convert('RGB')
 W=900; im=im.resize((W,int(W*im.size[1]/im.size[0])),Image.LANCZOS)
+if 'vivid' in sys.argv[4:]:
+    from PIL import ImageEnhance
+    im=ImageEnhance.Contrast(ImageEnhance.Color(im).enhance(1.8)).enhance(1.12)
 if 'bold' in sys.argv[4:]:
     # thicken light lines and dark lettering alike, so both read at small sizes
     lo=np.array(im.filter(ImageFilter.MinFilter(5))); hi=np.array(im.filter(ImageFilter.MaxFilter(7)))

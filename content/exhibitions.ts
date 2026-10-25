@@ -129,7 +129,7 @@ export const exhibitions: Exhibition[] = [
     slug: "the-other-the-same",
     title: "The Other, the Same",
     subtitle: "另一个，同一个",
-    cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "blue", motif: "arch" },
+    cover: { src: "/images/exhibitions/the-other-the-same/cover.jpg", alt: "The exhibition space, with tables of works and wooden frames along the glass wall", aspect: 16 / 9 },
     introduction: [],
     statement: [],
     preface: otherSame.preface,
@@ -140,8 +140,11 @@ export const exhibitions: Exhibition[] = [
     epilogue: otherSame.epilogue,
     credits: otherSame.credits,
     documentation: [
-      { alt: "[Installation view]", aspect: 3 / 2, tone: "blue", motif: "arch", caption: "[Documentation photograph — caption]" },
-      { alt: "[Installation view]", aspect: 4 / 5, tone: "vermilion", motif: "frame", caption: "[Documentation photograph — caption]" },
+      { src: "/images/exhibitions/the-other-the-same/space.jpg", alt: "The exhibition space: tables of works, wooden frames along the glass wall and a strip of soil and plants", aspect: 3 / 4, caption: "The exhibition space" },
+      { src: "/images/exhibitions/the-other-the-same/installation.jpg", alt: "Wooden frames standing in a bed of soil and plants by the window", aspect: 3 / 4, caption: "Installation view" },
+      { src: "/images/exhibitions/the-other-the-same/beehive-works.jpg", alt: "Stacked wooden beehive boxes with honeycomb works on their trays", aspect: 3 / 4, caption: "Beehive works" },
+      { src: "/images/exhibitions/the-other-the-same/snail-shell-work.jpg", alt: "A snail shell studded with crystals, hanging on a wooden post", aspect: 3 / 4, caption: "Snail shell work" },
+      { src: "/images/exhibitions/the-other-the-same/soil-boxes.jpg", alt: "Clear acrylic boxes of soil on a wooden table", aspect: 3 / 4, caption: "Soil in acrylic boxes" },
     ],
   },
 ];
