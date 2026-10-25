@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { shows } from "@/content/atelier";
-import { AtelierDesk, InvitationCover, InvitationInside, MeasuringTapeArt, PolaroidsArt, RunwayPrintArt, SketchbookArt, ink } from "./AtelierArt";
+import { AtelierDesk, BackstagePassArt, InvitationCover, InvitationInside, MeasuringTapeArt, PolaroidsArt, RunwayPrintArt, SketchbookArt, ink } from "./AtelierArt";
 import { BackstageRoom, ProductionRoom, RunwayRoom, ShowsRoom, SketchbookRoom } from "./Rooms";
 import { ease } from "@/components/motion/tokens";
 import { cn } from "@/lib/cn";
@@ -19,11 +19,13 @@ type View = { room: null } | { room: Room; show?: string };
 
 /** Position on the desk, as % of its width/height, for wide screens (w) and phones (m). */
 type Spot = { x: number; y: number; w: number; r: number };
-const spots: Record<Exclude<Room, "shows">, { w: Spot; m: Spot; aspect: number; label: string; hint: string }> = {
-  sketchbook: { w: { x: 28, y: 35, w: 15, r: -6 }, m: { x: 8, y: 33, w: 36, r: -5 }, aspect: 160 / 200, label: "The Sketchbook", hint: "Explore the designs" },
-  backstage: { w: { x: 56, y: 8, w: 18, r: 3 }, m: { x: 50, y: 31, w: 44, r: 3 }, aspect: 220 / 200, label: "The Polaroids", hint: "Behind the scenes" },
-  production: { w: { x: 4, y: 62, w: 19, r: -4 }, m: { x: 4, y: 70, w: 44, r: -4 }, aspect: 240 / 180, label: "The Measuring Tape", hint: "How it all came together" },
-  runway: { w: { x: 76, y: 33, w: 17, r: 4 }, m: { x: 52, y: 62, w: 38, r: 4 }, aspect: 160 / 200, label: "The Runway Photograph", hint: "Walk the runway" },
+type DeskThing = "sketchbook" | "polaroids" | "pass" | "tape" | "print";
+const spots: Record<DeskThing, { room: Exclude<Room, "shows">; w: Spot; m: Spot; aspect: number; label: string; hint: string }> = {
+  sketchbook: { room: "sketchbook", w: { x: 33, y: 35, w: 15, r: -6 }, m: { x: 8, y: 33, w: 36, r: -5 }, aspect: 160 / 200, label: "The Sketchbook", hint: "Explore the designs" },
+  polaroids: { room: "backstage", w: { x: 56, y: 8, w: 18, r: 3 }, m: { x: 50, y: 31, w: 44, r: 3 }, aspect: 220 / 200, label: "The Polaroids", hint: "Behind the scenes" },
+  pass: { room: "backstage", w: { x: 61, y: 73, w: 7, r: 12 }, m: { x: 38, y: 60, w: 12, r: 10 }, aspect: 120 / 170, label: "The Backstage Pass", hint: "Behind-the-scenes photos" },
+  tape: { room: "production", w: { x: 4, y: 62, w: 19, r: -4 }, m: { x: 4, y: 70, w: 44, r: -4 }, aspect: 240 / 180, label: "The Measuring Tape", hint: "How it all came together" },
+  print: { room: "runway", w: { x: 76, y: 33, w: 17, r: 4 }, m: { x: 52, y: 62, w: 38, r: 4 }, aspect: 160 / 200, label: "The Runway Photograph", hint: "Walk the runway" },
 };
 const inviteSpots: { w: Spot; m: Spot }[] = [
   { w: { x: 3, y: 8, w: 8, r: -8 }, m: { x: 2, y: 6, w: 17, r: -6 } },
@@ -176,12 +178,13 @@ function Desk({ onOpen }: { onOpen: (room: Room, show?: string) => void }) {
           />
         </div>
 
-        {(Object.keys(spots) as (keyof typeof spots)[]).map((k) => (
-          <DeskObject key={k} room={k} onOpen={() => onOpen(k)}>
+        {(Object.keys(spots) as DeskThing[]).map((k) => (
+          <DeskObject key={k} thing={k} onOpen={() => onOpen(spots[k].room)}>
             {k === "sketchbook" && <SketchbookArt />}
-            {k === "backstage" && <PolaroidsArt />}
-            {k === "production" && <MeasuringTapeArt />}
-            {k === "runway" && <RunwayPrintArt />}
+            {k === "polaroids" && <PolaroidsArt />}
+            {k === "pass" && <BackstagePassArt />}
+            {k === "tape" && <MeasuringTapeArt />}
+            {k === "print" && <RunwayPrintArt />}
           </DeskObject>
         ))}
       </div>
@@ -194,7 +197,7 @@ function Desk({ onOpen }: { onOpen: (room: Room, show?: string) => void }) {
             [
               ["shows", "The Invitations", "The Shows", ink.vermilion],
               ["sketchbook", "The Sketchbook", "Design Process", ink.blue],
-              ["backstage", "The Polaroids", "Backstage", ink.green],
+              ["backstage", "The Polaroids & the Pass", "Backstage", ink.green],
               ["production", "The Measuring Tape", "Production Notebook", ink.brass],
               ["runway", "The Runway Photograph", "The Runway", ink.wine],
             ] as const
@@ -237,9 +240,9 @@ function Tag({ label, hint, className, visible }: { label: string; hint: string;
 const placed =
   "absolute left-[var(--mx)] top-[var(--my)] w-[var(--mw)] rotate-[var(--mr)] md:left-[var(--x)] md:top-[var(--y)] md:w-[var(--w)] md:rotate-[var(--r)]";
 
-function DeskObject({ room, onOpen, children }: { room: keyof typeof spots; onOpen: () => void; children: React.ReactNode }) {
+function DeskObject({ thing, onOpen, children }: { thing: DeskThing; onOpen: () => void; children: React.ReactNode }) {
   const reduce = useReducedMotion();
-  const s = spots[room];
+  const s = spots[thing];
   const [opening, setOpening] = useState(false);
   const click = () => {
     if (opening) return;
@@ -252,7 +255,7 @@ function DeskObject({ room, onOpen, children }: { room: keyof typeof spots; onOp
       <motion.button
         type="button"
         onClick={click}
-        aria-label={`${s.label}: ${roomNames[room]}`}
+        aria-label={`${s.label}: ${roomNames[s.room]}`}
         className="atelier-object block w-full cursor-pointer"
         style={{ aspectRatio: s.aspect }}
         whileHover={reduce ? undefined : { y: -8, scale: 1.02 }}

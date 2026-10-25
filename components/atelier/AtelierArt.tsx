@@ -225,7 +225,11 @@ export function MeasuringTapeArt() {
         <circle cx={70} cy={84} r={12} />
         <path d="M64 84h12M70 78v12" strokeWidth={0.8} />
       </Line>
-      <text x={70} y={64} textAnchor="middle" fontFamily="var(--font-display)" fontSize={8} letterSpacing={1.4} fill="var(--wine)">
+      {/* a little ivory label so the lettering reads */}
+      <g filter={wash("a")}>
+        <rect x={40} y={53} width={60} height={15} rx={3} fill="color-mix(in srgb, var(--aged-ivory) 70%, white)" />
+      </g>
+      <text x={70} y={64} textAnchor="middle" fontFamily="var(--font-display)" fontSize={10.5} fontWeight={600} letterSpacing={1.2} fill="var(--wine)">
         INCHES · CM
       </text>
       {/* the metal tip */}
@@ -281,6 +285,30 @@ export function RunwayPrintArt() {
       <Line c="var(--brass)" w={2} o={0.95}>
         <path d="M118 -6v30a6 6 0 0 0 12 0V-2a4 4 0 0 0-8 0v22" />
       </Line>
+    </svg>
+  );
+}
+
+/** The backstage pass on its lanyard. 120 × 170. */
+export function BackstagePassArt() {
+  const r = rng(611);
+  return (
+    <svg viewBox="0 0 120 170" className="block h-full w-full overflow-visible" aria-hidden>
+      <g filter={wash("b")} fill="none" strokeLinecap="round">
+        <path d="M60 64C30 30 50-4 92 8" stroke="var(--botanical-green)" strokeWidth={8} />
+      </g>
+      <g filter={wash("a")}>
+        <path d={handRect(18, 62, 84, 104, r, 0.8)} fill={paper} />
+        <path d={handRect(18, 62, 84, 30, r, 0.6)} fill="var(--botanical-green)" />
+        <path d={handRect(32, 104, 56, 36, r, 0.5)} fill="color-mix(in srgb, var(--vermilion) 35%, var(--aged-ivory))" />
+      </g>
+      <Line w={0.8} o={0.65}>
+        <path d={handRect(18, 62, 84, 104, r, 0.8)} />
+        <path d={handRect(32, 104, 56, 36, r, 0.5)} strokeDasharray="2 2" />
+        <circle cx={60} cy={70} r={3} />
+      </Line>
+      <text x={60} y={86} textAnchor="middle" fontFamily="var(--font-display)" fontSize={11} fontWeight={600} letterSpacing={1.4} fill="var(--aged-ivory)">BACKSTAGE</text>
+      <text x={60} y={157} textAnchor="middle" fontFamily="var(--font-display)" fontSize={8.5} letterSpacing={1.2} fill="var(--wine)">ALL ACCESS</text>
     </svg>
   );
 }
@@ -479,7 +507,7 @@ const parts = {
 
 /** Where the clutter sits: one arrangement for wide screens, one for phones. */
 const wideLayout: Piece[] = [
-  { k: "patternPaper", x: 560, y: 560, r: -4, s: 1.25 },
+  { k: "patternPaper", x: 630, y: 560, r: -4, s: 1.25 },
   { k: "ribbonRed", x: 1060, y: 610, r: -8, s: 1.3 },
   { k: "swatchRed", x: 560, y: 150, r: 8 },
   { k: "swatchGreen", x: 660, y: 130, r: -10 },
@@ -488,7 +516,6 @@ const wideLayout: Piece[] = [
   { k: "pincushion", x: 905, y: 470, s: 1.35 },
   { k: "spools", x: 840, y: 880, r: 6 },
   { k: "note", x: 410, y: 860, r: 6 },
-  { k: "pass", x: 1035, y: 880, r: 12 },
   { k: "buttons", x: 1270, y: 140 },
   { k: "ribbonBlue", x: 230, y: 560, r: 20, s: 0.9 },
   { k: "pencilRed", x: 1000, y: 330, r: 64 },
@@ -502,7 +529,7 @@ const narrowLayout: Piece[] = [
   { k: "swatchBlue", x: 610, y: 640, r: -12, s: 0.75 },
   { k: "scissors", x: 420, y: 905, r: -14, s: 0.7 },
   { k: "buttons", x: 70, y: 280 },
-  { k: "spools", x: 300, y: 670, r: 8, s: 0.6 },
+  { k: "spools", x: 150, y: 672, r: 8, s: 0.6 },
 ];
 
 /** The drafting table seen from a little above, with everything that isn't clickable. */
