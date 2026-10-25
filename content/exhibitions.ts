@@ -1,4 +1,5 @@
 import type { ImageAsset } from "@/lib/types";
+import * as otherSame from "@/content/exhibitions/the-other-the-same";
 
 /**
  * EXHIBITIONS — one catalogue per exhibition, opened from the Exhibitions
@@ -15,10 +16,47 @@ export interface ExhibitionArtwork {
   image: ImageAsset;
 }
 
+/** A passage in Chinese and its English, shown side by side. */
+export interface Pair {
+  zh?: string;
+  en?: string;
+}
+
+/** One entry of a catalogue section written out in full: a work, a species, a material. */
+export interface CatalogueEntry {
+  id: string;
+  /** Pinyin shown above the Chinese title. */
+  pinyin?: string;
+  zh?: string;
+  title: string;
+  image?: ImageAsset;
+  /** A quotation set apart above the text. */
+  quote?: Pair;
+  /** A passage in the voice of the subject itself ("I am…"). */
+  voice?: Pair;
+  body: Pair[];
+  /** Specimen labels, e.g. the plants of a herbarium work. */
+  specimens?: { zh: string; latin: string; body: Pair[] }[];
+  /** Explanatory panels ("What is concrete?"). */
+  notes?: { zh?: string; title: string; body: Pair[] }[];
+  questions?: Pair[];
+  /** A boxed sequence of steps. */
+  box?: { zh?: string; title: string; steps: { zh?: string; title: string; text: Pair }[] };
+  footnotes?: string[];
+}
+
+export interface CreditGroup {
+  title?: string;
+  roles: { role: string; names: string[] }[];
+}
+
 export interface ExhibitionSection {
   id: string;
   title: string;
+  zh?: string;
   text?: string;
+  intro?: Pair[];
+  entries?: CatalogueEntry[];
   works: ExhibitionArtwork[];
 }
 
@@ -31,7 +69,11 @@ export interface Exhibition {
   cover: ImageAsset;
   introduction: string[];
   statement: string[];
+  /** A bilingual preface, shown in place of the introduction. */
+  preface?: Pair[];
   sections: ExhibitionSection[];
+  epilogue?: Pair[];
+  credits?: CreditGroup[];
   documentation: ImageAsset[];
 }
 
@@ -86,10 +128,17 @@ export const exhibitions: Exhibition[] = [
   {
     slug: "the-other-the-same",
     title: "The Other, the Same",
+    subtitle: "另一个，同一个",
     cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "blue", motif: "arch" },
-    introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
-    statement: ["[Curatorial statement, in your own words.]"],
-    sections: [],
+    introduction: [],
+    statement: [],
+    preface: otherSame.preface,
+    sections: [
+      { id: "nature", zh: "自然：隐匿的具象", title: "Nature: A Hidden Visible", intro: otherSame.natureIntro, entries: otherSame.natureEntries, works: [] },
+      { id: "new-nature", zh: "新自然：宏大的微观", title: "New Nature: The Grand Microcosm", intro: otherSame.newNatureIntro, entries: otherSame.newNatureEntries, works: [] },
+    ],
+    epilogue: otherSame.epilogue,
+    credits: otherSame.credits,
     documentation: [
       { alt: "[Installation view]", aspect: 3 / 2, tone: "blue", motif: "arch", caption: "[Documentation photograph — caption]" },
       { alt: "[Installation view]", aspect: 4 / 5, tone: "vermilion", motif: "frame", caption: "[Documentation photograph — caption]" },

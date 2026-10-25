@@ -6,6 +6,7 @@ import { Plate } from "@/components/editorial/Plate";
 import { Reveal } from "@/components/motion/Reveal";
 import { roman } from "@/lib/format";
 import { cn } from "@/lib/cn";
+import { Credits, Entry, PairText } from "@/components/exhibition/CatalogueText";
 
 export const generateStaticParams = () => exhibitions.map((e) => ({ slug: e.slug }));
 
@@ -47,8 +48,9 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         <nav aria-label="Catalogue contents" className="lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:self-start">
           <p className="label border-b border-wine/25 pb-3 text-wine">Contents</p>
           <ol className="mt-4 space-y-2 font-display text-[1.1rem] text-wine">
-            <li><a href="#introduction" className="hover:text-vermilion">Introduction</a></li>
-            <li><a href="#statement" className="hover:text-vermilion">Curatorial statement</a></li>
+            {e.preface && <li><a href="#preface" className="hover:text-vermilion">Preface</a></li>}
+            {e.introduction.length > 0 && <li><a href="#introduction" className="hover:text-vermilion">Introduction</a></li>}
+            {e.statement.length > 0 && <li><a href="#statement" className="hover:text-vermilion">Curatorial statement</a></li>}
             {e.sections.map((s, i) => (
               <li key={s.id}>
                 <a href={`#${s.id}`} className="hover:text-vermilion">
@@ -57,7 +59,9 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
                 </a>
               </li>
             ))}
+            {e.epilogue && <li><a href="#epilogue" className="hover:text-vermilion">Epilogue</a></li>}
             <li><a href="#documentation" className="hover:text-vermilion">Documentation</a></li>
+            {e.credits && <li><a href="#credits" className="hover:text-vermilion">Credits</a></li>}
           </ol>
           {e.project && (
             <Link href={`/work/${e.project}`} className="label link-draw mt-8 inline-block text-wine">
@@ -67,17 +71,28 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         </nav>
 
         <div className="min-w-0 space-y-24">
+          {e.preface && (
+            <section id="preface" className="scroll-mt-28">
+              <h2 className="label border-b border-wine/25 pb-3 text-wine"><span lang="zh-Hans">前言</span> Preface</h2>
+              <PairText pairs={e.preface} size="lede" className="mt-6" />
+            </section>
+          )}
+
+          {e.introduction.length > 0 && (
           <section id="introduction" className="scroll-mt-28">
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Introduction</h2>
             <div className="mt-6 max-w-[38rem] space-y-5 text-lede">{e.introduction.map((p, i) => <p key={i}>{p}</p>)}</div>
           </section>
+          )}
 
+          {e.statement.length > 0 && (
           <section id="statement" className="scroll-mt-28">
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Curatorial statement</h2>
             <div className="mt-6 max-w-[38rem] space-y-5 border-l-2 border-vermilion pl-6 font-display text-statement italic text-wine">
               {e.statement.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </section>
+          )}
 
           {!e.sections.length && (
             <section className="scroll-mt-28">
@@ -90,9 +105,19 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28">
               <header className="flex items-baseline gap-5 border-b border-wine/25 pb-4">
                 <span className="label text-vermilion">Section {roman(i + 1)}</span>
-                <h2 id={`${s.id}-title`} className="text-display-m">{s.title}</h2>
+                <h2 id={`${s.id}-title`} className="text-display-m">
+                  {s.zh && <span lang="zh-Hans" className="mb-1 block text-title">{s.zh}</span>}
+                  {s.title}
+                </h2>
               </header>
               {s.text && <p className="mt-6 max-w-[38rem] text-lede">{s.text}</p>}
+              {s.intro && <PairText pairs={s.intro} size="lede" className="mt-6" />}
+              {s.entries && (
+                <div className="mt-12 space-y-14">
+                  {s.entries.map((entry, k) => <Entry key={entry.id} e={entry} n={k + i} />)}
+                </div>
+              )}
+              {s.works.length > 0 && (
               <ul className="mt-12 grid gap-x-10 gap-y-16 md:grid-cols-2">
                 {s.works.map((w, k) => {
                   cat += 1;
@@ -116,8 +141,16 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
                   );
                 })}
               </ul>
+              )}
             </section>
           ))}
+
+          {e.epilogue && (
+            <section id="epilogue" className="scroll-mt-28">
+              <h2 className="label border-b border-wine/25 pb-3 text-wine"><span lang="zh-Hans">结语</span> Epilogue</h2>
+              <PairText pairs={e.epilogue} size="lede" className="mt-6 border-l-2 border-vermilion pl-6 font-display italic" />
+            </section>
+          )}
 
           <section id="documentation" className="scroll-mt-28">
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Exhibition documentation</h2>
@@ -130,6 +163,13 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
               ))}
             </ul>
           </section>
+
+          {e.credits && (
+            <section id="credits" className="scroll-mt-28">
+              <h2 className="label border-b border-wine/25 pb-3 text-wine">Credits</h2>
+              <div className="mt-8"><Credits groups={e.credits} /></div>
+            </section>
+          )}
 
           <nav aria-label="Other exhibitions" className="border-t border-wine/25 pt-6">
             <p className="label mb-4 text-wine">Also in the Exhibitions drawer</p>
