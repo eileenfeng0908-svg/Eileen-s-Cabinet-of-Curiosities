@@ -213,7 +213,14 @@ function DrawerItem({ obj, lifted, onPick }: { obj: DrawerObject; drawer: Drawer
   const name = `${obj.title}, ${kindLabel[obj.kind].toLowerCase()}`;
   return (
     <li>
-      {obj.kind === "catalogue" && obj.exhibition ? (
+      {obj.decorative ? (
+        <span aria-hidden className="drawer-object pointer-events-none absolute block" style={style}>
+          <span className="drawer-object-body absolute inset-0 [--k:1]">
+            <ObjectFace obj={obj} aspect={aspect} />
+            {obj.fixings?.map((p, i) => <Stationery key={i} piece={p} />)}
+          </span>
+        </span>
+      ) : obj.kind === "catalogue" && obj.exhibition ? (
         <Link href={`/exhibitions/${obj.exhibition}`} className={cls} style={style} aria-label={`${name}. Open the exhibition catalogue`}>
           {inner}
         </Link>

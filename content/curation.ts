@@ -48,6 +48,8 @@ export interface DrawerObject {
   /** Stationery holding it: positions in % of the object itself. */
   fixings?: StationeryPiece[];
   placeholder?: boolean;
+  /** Painted for the look of the drawer only: it cannot be picked up. */
+  decorative?: boolean;
 }
 
 export interface Drawer {
@@ -203,7 +205,14 @@ export const drawers: Drawer[] = [
         at: { x: 42, y: 80, w: 15, rot: -4, z: 4 },
         fixings: [{ kind: "peg", x: 50, y: 2, w: 9, rot: 90 }],
       },
-      ph("you-will-never-walk-alone", "ticket", "ticket", "[Exhibition ticket]", { x: 18, y: 80, w: 17, rot: 10, z: 3 }),
+      {
+        id: "you-will-never-walk-alone-invitation",
+        kind: "invitation",
+        title: "Invitation",
+        exhibition: "you-will-never-walk-alone",
+        decorative: true,
+        at: { x: 18, y: 80, w: 15, rot: 10, z: 3 },
+      },
     ],
     stationery: [
       { kind: "pencil", x: 36, y: 88, w: 24, rot: -8, z: 6, color: "var(--botanical-green)" },
