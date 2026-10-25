@@ -123,6 +123,7 @@ export const exhibitions: Exhibition[] = [
     statement: ["[Curatorial statement, in your own words.]"],
     sections: [],
     documentation: [
+      { src: "/images/exhibitions/you-will-never-walk-alone/team-install.jpg", alt: "The team sitting on the gallery floor among prints, with hand-painted quotes on the walls behind them", aspect: 4 / 3, caption: "Installing the exhibition" },
       { alt: "[Installation view]", aspect: 3 / 2, tone: "green", motif: "arch", caption: "[Documentation photograph — caption]" },
       { alt: "[Installation view]", aspect: 4 / 5, tone: "parchment", motif: "frame", caption: "[Documentation photograph — caption]" },
     ],

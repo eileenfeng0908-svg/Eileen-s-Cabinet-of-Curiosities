@@ -135,7 +135,20 @@ export const drawers: Drawer[] = [
     objects: [
       { id: "ywnwa-catalogue", kind: "catalogue", title: "You Will Never Walk Alone", exhibition: "you-will-never-walk-alone", tint: "var(--botanical-green)", at: { x: 40, y: 48, w: 21, rot: 3, z: 4 }, fixings: [{ kind: "tape", x: 70, y: 2, w: 40, rot: 14, color: "var(--vermilion)" }] },
       ph("you-will-never-walk-alone", "poster", "poster", "[Exhibition poster]", { x: 16, y: 42, w: 16, rot: -6, z: 2 }, [{ kind: "push-pin", x: 50, y: 4, w: 18, rot: 0, color: "var(--powder-blue)" }]),
-      ph("you-will-never-walk-alone", "photo", "photograph", "[Installation photograph]", { x: 66, y: 36, w: 15, rot: -3, z: 2, aspect: 0.78 }, [{ kind: "peg", x: 50, y: 2, w: 12, rot: 90 }]),
+      {
+        id: "you-will-never-walk-alone-photo",
+        kind: "photograph",
+        title: "Installing the exhibition",
+        exhibition: "you-will-never-walk-alone",
+        image: {
+          src: "/images/exhibitions/you-will-never-walk-alone/team-install.jpg",
+          alt: "The team sitting on the gallery floor among prints, with hand-painted quotes on the walls behind them",
+          aspect: 1280 / 960,
+        },
+        painted: "/images/exhibitions/you-will-never-walk-alone/team-install-watercolour.jpg",
+        at: { x: 68, y: 34, w: 17, rot: -3, z: 2 },
+        fixings: [{ kind: "peg", x: 50, y: 2, w: 12, rot: 90 }],
+      },
       ph("you-will-never-walk-alone", "sketch", "sketch", "[Preliminary sketch]", { x: 86, y: 60, w: 14, rot: 9, z: 3 }, [{ kind: "tape", x: 50, y: 1, w: 50, rot: -6, color: "var(--botanical-green)" }]),
       {
         id: "you-will-never-walk-alone-annotation",
