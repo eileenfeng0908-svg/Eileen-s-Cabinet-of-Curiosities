@@ -35,6 +35,8 @@ export interface CatalogueEntry {
   /** A passage in the voice of the subject itself ("I am…"). */
   voice?: Pair;
   body: Pair[];
+  /** Photographs of the works themselves, from the exhibition. */
+  photos?: ImageAsset[];
   /** Specimen labels, e.g. the plants of a herbarium work. */
   specimens?: { zh: string; latin: string; body: Pair[] }[];
   /** Explanatory panels ("What is concrete?"). */

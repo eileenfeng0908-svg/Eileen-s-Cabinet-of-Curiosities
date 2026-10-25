@@ -63,6 +63,16 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
             </div>
           )}
           <PairText pairs={e.body} />
+          {e.photos && (
+            <ul className="grid grid-cols-2 gap-5 pt-2 sm:grid-cols-3">
+              {e.photos.map((ph, k) => (
+                <li key={ph.src} className="print" style={{ rotate: `${k % 2 ? 1.2 : -1}deg` }}>
+                  <Plate image={ph} sizes="(min-width: 64rem) 16rem, 45vw" />
+                  {ph.caption && <p className="mt-2 text-caption text-ink-soft">{ph.caption}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         {e.image && !wide && (
           <div className="print self-start lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
