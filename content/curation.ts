@@ -83,7 +83,19 @@ export const drawers: Drawer[] = [
     note: "The catalogue of What Makes Us Human?, with the posters, photographs and working papers from the exhibition.",
     objects: [
       { id: "wmuh-catalogue", kind: "catalogue", title: "What Makes Us Human?", exhibition: "what-makes-us-human", at: { x: 31, y: 52, w: 21, rot: -4, z: 4 }, fixings: [{ kind: "binder-clip", x: 72, y: 3, w: 22, rot: 4 }] },
-      ph("what-makes-us-human", "poster", "poster", "[Exhibition poster]", { x: 57, y: 40, w: 17, rot: 5, z: 2 }, [{ kind: "push-pin", x: 50, y: 4, w: 18, rot: 0, color: "var(--brass)" }]),
+      {
+        id: "what-makes-us-human-poster",
+        kind: "poster",
+        title: "Exhibition poster",
+        exhibition: "what-makes-us-human",
+        image: {
+          src: "/images/work/what-makes-us-human/poster-full.jpg",
+          alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on a red ground",
+          aspect: 974 / 1726,
+        },
+        at: { x: 57, y: 40, w: 15, rot: 5, z: 2 },
+        fixings: [{ kind: "push-pin", x: 50, y: 97, w: 18, rot: 0, color: "var(--brass)" }],
+      },
       ph("what-makes-us-human", "invitation", "invitation", "[Invitation]", { x: 86, y: 76, w: 15, rot: -9, z: 5 }, [{ kind: "paper-clip", x: 16, y: 6, w: 9, rot: -8, color: "var(--vermilion)" }]),
       ph("what-makes-us-human", "photo-1", "photograph", "[Installation photograph]", { x: 56, y: 80, w: 14, rot: 9, z: 6 }, [{ kind: "tape", x: 50, y: 2, w: 42, rot: 4, color: "var(--brass)" }]),
       ph("what-makes-us-human", "photo-2", "photograph", "[Opening photograph]", { x: 11, y: 74, w: 11, rot: -12, z: 4, aspect: 0.8 }),

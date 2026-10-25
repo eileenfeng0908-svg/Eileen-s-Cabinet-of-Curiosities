@@ -59,11 +59,10 @@ export const exhibitions: Exhibition[] = [
     introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
     statement: ["[Curatorial statement, in your own words.]"],
     sections: [
-      { id: "encounter", title: "Encounter", text: "[What this section of the exhibition explores.]", works: placeholderWorks("encounter") },
-      { id: "emotions", title: "Emotions", text: "[What this section of the exhibition explores.]", works: placeholderWorks("emotions") },
+      { id: "encounter-the-world", title: "Encounter the World", text: "[What this section of the exhibition explores.]", works: placeholderWorks("encounter-the-world") },
       { id: "identity", title: "Identity", text: "[What this section of the exhibition explores.]", works: placeholderWorks("identity") },
-      { id: "relationship", title: "Relationship", text: "[What this section of the exhibition explores.]", works: placeholderWorks("relationship") },
-      { id: "final-inquiry", title: "Final Inquiry", text: "[What this section of the exhibition explores.]", works: placeholderWorks("final-inquiry") },
+      { id: "connection", title: "Connection", text: "[What this section of the exhibition explores.]", works: placeholderWorks("connection") },
+      { id: "will-we-still-answer", title: "What Makes Us Human? Will We Still Be the Ones to Answer?", text: "[What this section of the exhibition explores.]", works: placeholderWorks("will-we-still-answer") },
     ],
     documentation: [
       { alt: "[Installation view]", aspect: 3 / 2, tone: "parchment", motif: "arch", caption: "[Documentation photograph — caption]" },
