@@ -1,4 +1,4 @@
-import type { CatalogueEntry, CreditGroup, Pair } from "@/content/exhibitions";
+import type { CatalogueEntry, CreditGroup, Pair, Quote } from "@/content/exhibitions";
 import { Plate } from "@/components/editorial/Plate";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
@@ -45,6 +45,7 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
       <div className={cn("grid gap-10", e.image && !wide && "lg:grid-cols-[minmax(0,1fr)_16rem]")}>
         <div className="min-w-0 space-y-6">
           <Heading pinyin={e.pinyin} zh={e.zh} title={e.title} />
+          {e.by && <p className="label text-ink-soft">Text by {e.by}</p>}
           {e.image && wide && (
             <div className="print max-w-3xl">
               <Plate image={e.image} sizes="(min-width: 64rem) 48rem, 90vw" />
@@ -53,8 +54,8 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
           )}
           {e.quote && (
             <blockquote className="border-l-2 pl-5 font-display text-lede italic text-wine" style={{ borderColor: tint }}>
-              <p lang="zh-Hans">{e.quote.zh}</p>
-              <p className="mt-1">{e.quote.en}</p>
+              {e.quote.zh && <p lang="zh-Hans">{e.quote.zh}</p>}
+              {e.quote.en && <p className={e.quote.zh ? "mt-1" : undefined}>{e.quote.en}</p>}
             </blockquote>
           )}
           {e.voice && (
@@ -151,6 +152,22 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
         </div>
       )}
 
+      {e.quoteGroups?.map((g, i) => (
+        <section key={i} className="mt-12">
+          {(g.zh || g.en) && (
+            <h4 className="border-b border-dashed border-wine/30 pb-3 font-display text-title text-wine">
+              {g.zh && <span lang="zh-Hans" className="block">{g.zh}</span>}
+              {g.en && <span className="mt-1 block italic">{g.en}</span>}
+            </h4>
+          )}
+          <ul className={cn("mt-6 columns-1 gap-8 md:columns-2 [&>li]:mb-6 [&>li]:break-inside-avoid", !(g.zh || g.en) && "md:columns-1")}>
+            {g.quotes.map((quote, k) => (
+              <QuoteCard key={k} quote={quote} tint={tints[(n + i + k) % tints.length]} />
+            ))}
+          </ul>
+        </section>
+      ))}
+
       {e.footnotes && (
         <div className="mt-8 space-y-1 border-t border-wine/15 pt-3">
           {e.footnotes.map((f) => (
@@ -159,6 +176,19 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
         </div>
       )}
     </Reveal>
+  );
+}
+
+function QuoteCard({ quote, tint }: { quote: Quote; tint: string }) {
+  return (
+    <li className="border-l-2 pl-4" style={{ borderColor: tint }}>
+      <blockquote className="space-y-2 text-wine">
+        {quote.orig && <p className="font-display text-lede italic">{quote.orig}</p>}
+        {quote.zh && <p lang="zh-Hans" className="whitespace-pre-line leading-[1.9]">{quote.zh.replace(/\s*\/\s*/g, "\n")}</p>}
+        {quote.en && <p className={cn("whitespace-pre-line", quote.zh ? "text-caption text-wine/85" : "font-display text-[1.05rem] italic")}>{quote.en.replace(/ \/ /g, "\n")}</p>}
+      </blockquote>
+      <p className="label mt-2 normal-case tracking-[0.06em] text-ink-soft">— {quote.by}</p>
+    </li>
   );
 }
 

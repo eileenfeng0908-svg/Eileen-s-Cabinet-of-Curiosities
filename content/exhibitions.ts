@@ -1,5 +1,6 @@
 import type { ImageAsset } from "@/lib/types";
 import * as otherSame from "@/content/exhibitions/the-other-the-same";
+import * as ywnwa from "@/content/exhibitions/you-will-never-walk-alone";
 
 /**
  * EXHIBITIONS — one catalogue per exhibition, opened from the Exhibitions
@@ -22,6 +23,14 @@ export interface Pair {
   en?: string;
 }
 
+/** A quotation: original (e.g. Greek), Chinese and/or English, and its source. */
+export interface Quote {
+  orig?: string;
+  zh?: string;
+  en?: string;
+  by: string;
+}
+
 /** One entry of a catalogue section written out in full: a work, a species, a material. */
 export interface CatalogueEntry {
   id: string;
@@ -29,6 +38,8 @@ export interface CatalogueEntry {
   pinyin?: string;
   zh?: string;
   title: string;
+  /** Who wrote this text. */
+  by?: string;
   image?: ImageAsset;
   /** A quotation set apart above the text. */
   quote?: Pair;
@@ -44,6 +55,8 @@ export interface CatalogueEntry {
   questions?: Pair[];
   /** A boxed sequence of steps. */
   box?: { zh?: string; title: string; steps: { zh?: string; title: string; text: Pair }[] };
+  /** Quotations gathered under headings of their own. */
+  quoteGroups?: { zh?: string; en?: string; quotes: Quote[] }[];
   footnotes?: string[];
 }
 
@@ -59,6 +72,7 @@ export interface ExhibitionSection {
   text?: string;
   intro?: Pair[];
   entries?: CatalogueEntry[];
+  photos?: ImageAsset[];
   works: ExhibitionArtwork[];
 }
 
@@ -73,7 +87,11 @@ export interface Exhibition {
   statement: string[];
   /** A bilingual preface, shown in place of the introduction. */
   preface?: Pair[];
+  /** A note on the exhibition's title, shown before the preface. */
+  titleNote?: CatalogueEntry;
   sections: ExhibitionSection[];
+  /** Texts by individual curators, shown after the sections. */
+  curatorTexts?: CatalogueEntry[];
   epilogue?: Pair[];
   credits?: CreditGroup[];
   documentation: ImageAsset[];
@@ -119,9 +137,13 @@ export const exhibitions: Exhibition[] = [
     slug: "you-will-never-walk-alone",
     title: "You Will Never Walk Alone",
     cover: { src: "/images/exhibitions/you-will-never-walk-alone/cover.jpg", alt: "The entrance mural of You Will Never Walk Alone: a reaching hand, flames and a crowd of figures beside the title", aspect: 16 / 9 },
-    introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
+    introduction: [],
     statement: ["[Curatorial statement, in your own words.]"],
-    sections: [],
+    titleNote: ywnwa.titleNote,
+    preface: ywnwa.preface,
+    sections: ywnwa.chapters,
+    curatorTexts: [ywnwa.eileenQuotes, ywnwa.nushu],
+    epilogue: ywnwa.conclusion,
     documentation: [
       { src: "/images/exhibitions/you-will-never-walk-alone/mural.jpg", alt: "Entrance mural with the exhibition title", aspect: 1280 / 853, caption: "Entrance mural, “You Will Never Walk Alone”" },
       { src: "/images/exhibitions/you-will-never-walk-alone/planning.jpg", alt: "Students and a mentor planning around a table by tall windows", aspect: 1280 / 697, caption: "Planning meeting" },

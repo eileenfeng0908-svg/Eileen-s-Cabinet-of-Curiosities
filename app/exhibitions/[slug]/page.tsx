@@ -48,6 +48,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         <nav aria-label="Catalogue contents" className="lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:self-start">
           <p className="label border-b border-wine/25 pb-3 text-wine">Contents</p>
           <ol className="mt-4 space-y-2 font-display text-[1.1rem] text-wine">
+            {e.titleNote && <li><a href="#about-the-title" className="hover:text-vermilion">About the title</a></li>}
             {e.preface && <li><a href="#preface" className="hover:text-vermilion">Preface</a></li>}
             {e.introduction.length > 0 && <li><a href="#introduction" className="hover:text-vermilion">Introduction</a></li>}
             {e.statement.length > 0 && <li><a href="#statement" className="hover:text-vermilion">Curatorial statement</a></li>}
@@ -59,7 +60,10 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
                 </a>
               </li>
             ))}
-            {e.epilogue && <li><a href="#epilogue" className="hover:text-vermilion">Epilogue</a></li>}
+            {e.curatorTexts?.map((t) => (
+              <li key={t.id}><a href={`#${t.id}`} className="hover:text-vermilion">{t.title}</a></li>
+            ))}
+            {e.epilogue && <li><a href="#epilogue" className="hover:text-vermilion">{e.slug === "the-other-the-same" ? "Epilogue" : "Conclusion"}</a></li>}
             <li><a href="#documentation" className="hover:text-vermilion">Documentation</a></li>
             {e.credits && <li><a href="#credits" className="hover:text-vermilion">Credits</a></li>}
           </ol>
@@ -71,6 +75,12 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         </nav>
 
         <div className="min-w-0 space-y-24">
+          {e.titleNote && (
+            <section aria-label="About the title" className="scroll-mt-28">
+              <Entry e={e.titleNote} n={2} />
+            </section>
+          )}
+
           {e.preface && (
             <section id="preface" className="scroll-mt-28">
               <h2 className="label border-b border-wine/25 pb-3 text-wine"><span lang="zh-Hans">前言</span> Preface</h2>
@@ -112,6 +122,16 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
               </header>
               {s.text && <p className="mt-6 max-w-[38rem] text-lede">{s.text}</p>}
               {s.intro && <PairText pairs={s.intro} size="lede" className="mt-6" />}
+              {s.photos && (
+                <ul className="mt-10 grid gap-6 sm:grid-cols-2">
+                  {s.photos.map((ph, k) => (
+                    <li key={ph.src} className="print" style={{ rotate: `${k % 2 ? 0.8 : -0.8}deg` }}>
+                      <Plate image={ph} sizes="(min-width: 64rem) 24rem, 90vw" />
+                      {ph.caption && <p className="mt-2 text-caption text-ink-soft">{ph.caption}</p>}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {s.entries && (
                 <div className="mt-12 space-y-14">
                   {s.entries.map((entry, k) => <Entry key={entry.id} e={entry} n={k + i} />)}
@@ -145,9 +165,18 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             </section>
           ))}
 
+          {e.curatorTexts && (
+            <section aria-labelledby="curator-texts-title" className="scroll-mt-28">
+              <h2 id="curator-texts-title" className="label border-b border-wine/25 pb-3 text-wine">From the curators</h2>
+              <div className="mt-8 space-y-16">
+                {e.curatorTexts.map((t, k) => <Entry key={t.id} e={t} n={k + 1} />)}
+              </div>
+            </section>
+          )}
+
           {e.epilogue && (
             <section id="epilogue" className="scroll-mt-28">
-              <h2 className="label border-b border-wine/25 pb-3 text-wine"><span lang="zh-Hans">结语</span> Epilogue</h2>
+              <h2 className="label border-b border-wine/25 pb-3 text-wine"><span lang="zh-Hans">结语</span> {e.slug === "the-other-the-same" ? "Epilogue" : "Conclusion"}</h2>
               <PairText pairs={e.epilogue} size="lede" className="mt-6 border-l-2 border-vermilion pl-6 font-display italic" />
             </section>
           )}
