@@ -202,6 +202,21 @@ export const drawers: Drawer[] = [
         fixings: [{ kind: "binder-clip", x: 30, y: 3, w: 18, rot: -6, color: "var(--vermilion)" }],
       },
       {
+        id: "the-other-the-same-workshop",
+        kind: "fragment",
+        title: "Curation Workshop photo at SWCAC",
+        date: "2022",
+        exhibition: "the-other-the-same",
+        image: {
+          src: "/images/exhibitions/the-other-the-same/workshop-swcac.jpg",
+          alt: "Students at a table at Sea World Culture and Arts Center holding up coloured exhibition floor-plan models",
+          aspect: 1280 / 720,
+        },
+        painted: "/images/exhibitions/the-other-the-same/workshop-swcac-watercolour.jpg",
+        at: { x: 46, y: 84, w: 17, rot: -5, z: 5 },
+        fixings: [{ kind: "tape", x: 12, y: 4, w: 30, rot: -30, color: "var(--brass)" }],
+      },
+      {
         id: "the-other-the-same-snail",
         kind: "photograph",
         title: "Snail shell work",
