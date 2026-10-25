@@ -22,7 +22,7 @@ export const projects: Project[] = [
     cover: {
       src: "/images/work/what-makes-us-human/poster.jpg",
       alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on vermilion",
-      aspect: 1551 / 2679,
+      aspect: 1551 / 1986,
       caption: "Exhibition poster",
     },
     summary:
