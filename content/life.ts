@@ -54,6 +54,8 @@ export interface CityLandmark extends Base {
   interactive: true;
   /** Shenzhen only. */
   home?: boolean;
+  /** Eileen's own words about the city, one string per paragraph, shown above the photos. */
+  intro?: string[];
   photos: LifePhoto[];
 }
 
@@ -68,14 +70,19 @@ export const cities: CityLandmark[] = [
   { id: "hong-kong", city: "Hong Kong", country: "China", landmark: "Bank of China Tower", lat: 22.2793, lon: 114.1615, art: "bankOfChina", interactive: true, nudge: [26, 40], label: "right", photos: [] },
   { id: "shanghai", city: "Shanghai", country: "China", landmark: "Oriental Pearl Tower", lat: 31.2397, lon: 121.4998, art: "orientalPearl", interactive: true, nudge: [10, -22], label: "left", photos: [] },
   { id: "tokyo", city: "Tokyo", country: "Japan", landmark: "Tokyo Tower", lat: 35.6586, lon: 139.7454, art: "tokyoTower", interactive: true, nudge: [22, -10], label: "right", photos: [] },
-  { id: "kyoto", city: "Kyoto", country: "Japan", landmark: "Yasaka Pagoda", lat: 34.9985, lon: 135.7798, art: "yasaka", interactive: true, nudge: [-10, 22], photos: [
+  { id: "kyoto", city: "Kyoto", country: "Japan", landmark: "Yasaka Pagoda", lat: 34.9985, lon: 135.7798, art: "yasaka", interactive: true, nudge: [-10, 22], intro: [
+      "Kyoto feels different from Tokyo, or anywhere else in Japan. There is a particular sense of peace here, as though time moves a little more slowly. From the hillside, I look out towards the distant pagodas and temples, their silhouettes rising quietly above the city.",
+      "In Kyoto, I inevitably become a matcha person. I watch as the tea is whisked into a delicate layer of foam before being poured into a cup. There is something comforting about the ritual, about watching each movement unfold without hurry. I find myself enjoying the feeling of time slowing down.",
+      "And then there is Kyoto in a simple glass of coffee float. Vanilla ice cream slowly melts into the Americano, while the sweetness of a chocolate biscuit softens its bitterness. On a silver plate, French toast is still warm, fragrant with butter and milk, its sweetness lingering with every bite.",
+      "Perhaps this is what Kyoto feels like to me: a city where even the smallest moments are worth lingering over.",
+    ], photos: [
       { src: "/images/life/kyoto/01.jpg", width: 1200, height: 1600, alt: "Baristas whisking matcha at a stone counter" },
       { src: "/images/life/kyoto/02.jpg", width: 1200, height: 1600, alt: "Matcha soft serve over a milky matcha drink, with a wooden spoon" },
       { src: "/images/life/kyoto/03.jpg", width: 1600, height: 1200, alt: "Two people in kimono on a bench, watching the sun set over Kyoto" },
       { src: "/images/life/kyoto/04.jpg", width: 1200, height: 1600, alt: "A selfie in a convenience-store mirror" },
       { src: "/images/life/kyoto/05.jpg", width: 1600, height: 1200, alt: "Iced coffee with ice cream, a cookie and a tart by a café window" },
       { src: "/images/life/kyoto/06.jpg", width: 1200, height: 1600, alt: "Matcha drinks and dango on a tray, with a Japanese garden behind" },
-      { src: "/images/life/kyoto/07.jpg", width: 1200, height: 1600, alt: "A latte, pudding, canelé and cake with ice cream on a café table" },
+      { src: "/images/life/kyoto/07.jpg", width: 1200, height: 1600, alt: "A latte, pudding, canelé and French toast with ice cream on a café table" },
       { src: "/images/life/kyoto/08.jpg", width: 900, height: 1600, alt: "A cookie and an iced coffee with ice cream by a window" },
       { src: "/images/life/kyoto/09.jpg", width: 900, height: 1600, alt: "An autumn tree over a Kyoto street, with the words “Autumn comes”" },
     ] },

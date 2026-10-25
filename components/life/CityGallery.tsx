@@ -64,6 +64,16 @@ export function CityGallery({ city, onBack, onCity }: { city: CityLandmark; onBa
 
         <PencilRule seed={i + 3} className="relative mt-8 md:mt-10" />
 
+        {city.intro && (
+          <div className="relative mx-auto mt-10 max-w-2xl space-y-5 text-body text-wine">
+            {city.intro.map((para, k) => (
+              <p key={k} className={k === city.intro!.length - 1 && k > 0 ? "font-display text-lede italic" : undefined}>
+                {para}
+              </p>
+            ))}
+          </div>
+        )}
+
         {city.photos.length ? <PhotoBook photos={city.photos} seed={i} onOpen={setShown} /> : <Waiting seed={i} />}
       </div>
 
