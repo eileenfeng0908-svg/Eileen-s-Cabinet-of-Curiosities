@@ -2,8 +2,8 @@ import type { CatalogueEntry, CreditGroup, Pair } from "@/content/exhibitions";
 
 /**
  * THE OTHER, THE SAME — the exhibition's own texts, as Eileen gave them
- * (Chinese and English side by side). Photographs of the works are still
- * placeholders: give an entry's `image` a `src` to show one.
+ * (Chinese and English side by side). Each entry's `image` is the picture
+ * Eileen chose for it.
  */
 
 export const preface: Pair[] = [
@@ -28,13 +28,6 @@ export const natureIntro: Pair[] = [
   },
 ];
 
-const photo = (alt: string, tone: "parchment" | "blue" | "brass" | "vermilion" | "green" | "walnut", aspect = 3 / 2) => ({
-  alt,
-  aspect,
-  tone,
-  motif: "frame" as const,
-});
-
 export const natureEntries: CatalogueEntry[] = [
   {
     id: "what-is-invasive",
@@ -51,7 +44,7 @@ export const natureEntries: CatalogueEntry[] = [
     id: "invasive-plants",
     zh: `在深圳可以见到哪些入侵植物?`,
     title: `What Invasive Plant Species can be Found in Shenzhen?`,
-    image: photo("[Photograph of the plant specimens]", "green"),
+    image: { src: "/images/exhibitions/the-other-the-same/plants.jpg", alt: "Botanical plate of flowering wild plants with yellow and violet blooms", aspect: 736 / 414 },
     body: [
       {
         zh: `在小南山公园采集外来植物的标本，将这些被忽略的平常事物张裱成一个又一个由“自然”这位设计师设想雕琢的精美艺术品，并用这些外来物勾勒出深圳的模样。这是一种接纳，也是一种象征。这些事物本不该被忽略忘记，而应该是被人们细细观赏的存在。`,
@@ -120,7 +113,7 @@ export const natureEntries: CatalogueEntry[] = [
     pinyin: `yì dà lì fēng`,
     zh: `意大利蜂`,
     title: `European Honey Bee`,
-    image: photo("[Photograph of the beehive works]", "brass", 4 / 5),
+    image: { src: "/images/exhibitions/the-other-the-same/bee.jpg", alt: "Vintage French school chart “La vie de l’abeille”: bees, honeycomb, honey and wax", aspect: 794 / 993 },
     voice: {
       zh: `很多国家和地区都说我很有危害性，我很厉害，我可以打过其他所有蜜蜂！但是我也有好的方面，就像你们在超市货架上看见的我。我对地球还是很有用的哦，我可以酿造蜂蜜，还可帮助花授粉。你们利用我的蜂巢制作艺术作品，有平面的作品甚至还有立体的作品呢。`,
       en: `People in many countries and regions say that I am very harmful. But I feel that I am super because I can beat all other bees! I have some good aspects, like when you see me on the supermarket shelves. I am very useful to the earth. I can produce honey very efficiently and help flowers pollinate. You used my beehive to make works of art, including two-dimensional and even three-dimensional works.`,
@@ -142,7 +135,7 @@ export const natureEntries: CatalogueEntry[] = [
     pinyin: `fēi zhōu dà wō niú`,
     zh: `非洲大蜗牛`,
     title: `Giant African Snail`,
-    image: photo("[Photograph of the snail-shell works]", "walnut", 4 / 5),
+    image: { src: "/images/exhibitions/the-other-the-same/snail.jpg", alt: "Engraved studies of snails and shells on brown paper", aspect: 735 / 490 },
     voice: {
       zh: `我就是你们在雨后小区中常见的非洲大蜗牛，我在很多国家和地区都被人类讨厌，甚至是在我的出生地，非洲东部，被他们当作食物。你们将我和你们的生活结合在一起，将我的家改造成了雕塑、声音装置，甚至是乐器。现在，你可以透过我的家，感受你们体验到的城市。`,
       en: `I am the African giant snail that you often see in your neighborhood after it rains. I am hated by humans in many countries and regions, including my birthplace in East Africa, where they consider me a food item. You have integrated me into your lives by transforming my home into sculptures, sound installations, and even musical instruments. Now, you can experience the city through my home.`,
@@ -163,7 +156,7 @@ export const natureEntries: CatalogueEntry[] = [
     pinyin: `ní tǔ`,
     zh: `泥土`,
     title: `Soil`,
-    image: photo("[Photograph of the soil work]", "walnut"),
+    image: { src: "/images/exhibitions/the-other-the-same/soil.jpg", alt: "Close-up of dark brown soil", aspect: 530 / 662 },
     voice: {
       zh: `我是泥土，或许我就在你们的脚下，你们一定会想为什么自己踩在自己国家的土地上，但是我却又是属于外来“入侵物种”呢？世界上海洋占据了很大部分，而人们想要建造更多的高楼，需要更多的土地。而我呢，就是其中的一部分，人类把我用于填海造陆，而我其实是其他国家或者地区运过来的。我有很多种类，颜色不同，地质也不同。`,
       en: `I am soil. Perhaps I am right beneath your feet and you might wonder why you are standing on the soil of your own country, while I am considered an “invasive species”? With oceans occupying a large portion of the world, humans need more land to build more skyscrapers. That's where I come in. I am a part of the land reclamation process, brought in from other countries or regions. I come in many types, with different colors and geological compositions.`,
@@ -190,7 +183,7 @@ export const newNatureEntries: CatalogueEntry[] = [
     pinyin: `hùn níng tǔ`,
     zh: `混凝土`,
     title: `Concrete`,
-    image: photo("[Photograph of the concrete sculptures]", "parchment"),
+    image: { src: "/images/exhibitions/the-other-the-same/concrete.jpg", alt: "Weathered concrete with exposed stones", aspect: 333 / 500 },
     body: [
       {
         zh: `在前海一片无人使用的荒地上，我们采集了用来填海造陆的土壤。他们来自不同的地方，也呈现出各样的质地和色泽，我们也将非洲大蜗牛的壳烧制成石灰。之后，我们用常见的建筑材料——水泥将TA们融合到一起，把这些在刻板印象里臭名昭著或随处可见的的外来物种变成沉重、坚固而又别样的混凝土雕塑。变成这般模样的TA，与先前的TA们是“另一个”还是“同一个”呢？`,
@@ -233,7 +226,7 @@ export const newNatureEntries: CatalogueEntry[] = [
     pinyin: `hǎi yáng`,
     zh: `海洋`,
     title: `Ocean`,
-    image: photo("[Photograph of the rusted iron sheets]", "blue"),
+    image: { src: "/images/exhibitions/the-other-the-same/ocean.jpg", alt: "Aerial view of waves meeting a sandy shore", aspect: 492 / 700 },
     quote: { zh: `“锈层就是微生物生长的一个微环境。”`, en: `"Rust is a micro-environment for microbial growth."` },
     body: [
       {
@@ -260,7 +253,7 @@ export const newNatureEntries: CatalogueEntry[] = [
     pinyin: `wèi lái shí wù shè jì`,
     zh: `未来食物设计`,
     title: `Future Food Design`,
-    image: photo("[Photograph of the Future Food Co. box]", "vermilion"),
+    image: { src: "/images/exhibitions/the-other-the-same/meat.jpg", alt: "Printer nozzles labelled Fat, Blood and Muscle laying down a red and white meat substitute", aspect: 1000 / 600 },
     body: [
       {
         zh: `欢迎来到未来食品公司，我们正在颠覆我们对食品的认知！我们的人造肉产品采用合成生物学生产番茄红素，这是一种超级健康的营养素，也是我们的肉类拥有其血色的来源。`,

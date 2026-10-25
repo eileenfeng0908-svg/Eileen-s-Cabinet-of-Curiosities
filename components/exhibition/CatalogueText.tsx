@@ -38,11 +38,18 @@ function Heading({ pinyin, zh, title, level = 3 }: { pinyin?: string; zh?: strin
 
 export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
   const tint = tints[n % tints.length];
+  // Landscape pictures run the full width under the heading; upright ones sit beside the text.
+  const wide = !!e.image && e.image.aspect > 1.2;
   return (
     <Reveal as="article" id={e.id} className="scroll-mt-28 border-t border-dashed border-wine/30 pt-10">
-      <div className={cn("grid gap-10", e.image && "lg:grid-cols-[minmax(0,1fr)_16rem]")}>
+      <div className={cn("grid gap-10", e.image && !wide && "lg:grid-cols-[minmax(0,1fr)_16rem]")}>
         <div className="min-w-0 space-y-6">
           <Heading pinyin={e.pinyin} zh={e.zh} title={e.title} />
+          {e.image && wide && (
+            <div className="print max-w-3xl">
+              <Plate image={e.image} sizes="(min-width: 64rem) 48rem, 90vw" />
+            </div>
+          )}
           {e.quote && (
             <blockquote className="border-l-2 pl-5 font-display text-lede italic text-wine" style={{ borderColor: tint }}>
               <p lang="zh-Hans">{e.quote.zh}</p>
@@ -56,7 +63,7 @@ export function Entry({ e, n }: { e: CatalogueEntry; n: number }) {
           )}
           <PairText pairs={e.body} />
         </div>
-        {e.image && (
+        {e.image && !wide && (
           <div className="print self-start lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
             <Plate image={e.image} sizes="(min-width: 64rem) 16rem, 90vw" />
           </div>
