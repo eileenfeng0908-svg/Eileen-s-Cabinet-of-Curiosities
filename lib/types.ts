@@ -67,6 +67,8 @@ export interface Project {
   references?: string[];
   /** Appears in "Selected Works" on the homepage, in this order. */
   featured?: number;
+  /** Send the project's card somewhere other than /work/<slug>, e.g. a collection page. */
+  href?: string;
 }
 
 export type WritingCategory =

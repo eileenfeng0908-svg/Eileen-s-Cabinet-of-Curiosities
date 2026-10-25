@@ -86,6 +86,7 @@ export function Plate({
   zoom = true,
   showPlaceholderLabel = true,
   grain = false,
+  fit = "cover",
 }: {
   image: ImageAsset;
   /** Plate number for the placeholder (rendered in Roman numerals). */
@@ -97,6 +98,8 @@ export function Plate({
   showPlaceholderLabel?: boolean;
   /** Gentle animated film grain over the image. Use on a few images per page. */
   grain?: boolean;
+  /** "contain" shows the whole picture (a poster, say) instead of filling the frame. */
+  fit?: "cover" | "contain";
 }) {
   const zoomClass = zoom
     ? "transition-transform duration-[1400ms] ease-gallery group-hover:scale-[1.035] motion-reduce:transform-none"
@@ -104,14 +107,14 @@ export function Plate({
 
   if (image.src) {
     return (
-      <div className={cn("relative overflow-hidden bg-ivory-deep", className)} style={{ aspectRatio: image.aspect }}>
+      <div className={cn("relative overflow-hidden", fit === "cover" && "bg-ivory-deep", className)} style={{ aspectRatio: image.aspect }}>
         <Image
           src={image.src}
           alt={image.alt}
           fill
           sizes={sizes}
           priority={priority}
-          className={cn("object-cover faded-print", zoomClass)}
+          className={cn(fit === "contain" ? "object-contain" : "object-cover faded-print", zoomClass)}
         />
         {grain && <div aria-hidden className="film-grain" />}
       </div>

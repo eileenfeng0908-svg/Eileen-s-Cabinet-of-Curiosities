@@ -11,7 +11,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { featuredProjects } from "@/content/projects";
+import { featuredProjects, projectHref } from "@/content/projects";
 import { Plate } from "@/components/editorial/Plate";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { Star } from "@/components/editorial/Ornaments";
@@ -214,7 +214,7 @@ function WorkSlide({ project, i, progress, still }: { project: Project; i: numbe
 
   return (
     <div className="[perspective:1100px]" style={{ rotate: `${rests[i % rests.length]}deg` }}>
-      <Link href={`/work/${project.slug}`} onPointerMove={move} onPointerLeave={leave} className="group relative block">
+      <Link href={projectHref(project)} onPointerMove={move} onPointerLeave={leave} className="group relative block">
         <motion.article
           style={still ? undefined : { rotateX: sx, rotateY: sy, transformStyle: "preserve-3d" }}
           className="relative w-[min(78vw,22rem)] p-6 md:w-[min(28rem,calc(60svh*0.78))] md:p-8"
@@ -230,8 +230,8 @@ function WorkSlide({ project, i, progress, still }: { project: Project; i: numbe
           </motion.span>
 
           <div className="relative" style={still ? undefined : { transform: "translateZ(30px)" }}>
-            <div className="relative h-[min(52vw,15rem)] overflow-hidden md:h-[min(32svh,19rem)]">
-              <Plate image={project.cover} number={i + 1} className="h-full w-full" sizes="(min-width: 48rem) 28rem, 78vw" />
+            <div className="relative h-[min(60vw,17rem)] overflow-hidden md:h-[min(40svh,23rem)]">
+              <Plate image={project.cover} number={i + 1} className="h-full w-full" sizes="(min-width: 48rem) 28rem, 78vw" fit={project.cover.src ? "contain" : "cover"} />
               <motion.div
                 aria-hidden
                 style={{ left: glareX }}

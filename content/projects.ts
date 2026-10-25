@@ -20,11 +20,10 @@ export const projects: Project[] = [
     year: undefined,
     featured: 1,
     cover: {
-      alt: "[Describe the exhibition image]",
-      aspect: 3 / 4,
-      tone: "parchment",
-      motif: "arch",
-      caption: "[Exhibition view — caption]",
+      src: "/images/work/what-makes-us-human/poster.jpg",
+      alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on vermilion",
+      aspect: 1551 / 2679,
+      caption: "Exhibition poster",
     },
     summary:
       "An interdisciplinary exhibition exploring the question “What makes us human?” Eileen led a group of student artists and curators, connecting visual art with philosophical questions about identity, emotion and relationships.",
@@ -56,11 +55,10 @@ export const projects: Project[] = [
     year: undefined,
     featured: 2,
     cover: {
-      alt: "[Describe the project image]",
-      aspect: 4 / 5,
-      tone: "brass",
-      motif: "sun",
-      caption: "[Image — caption]",
+      src: "/images/work/between-us/cover.jpg",
+      alt: "Cover of V magazine, 20 April 1947, “Souvenirs d’amour”: Cary Grant and Priscilla Lane about to kiss, printed in red",
+      aspect: 1662 / 2142,
+      caption: "V, no. 133, 20 April 1947",
     },
     summary:
       "An AI-assisted letter-writing system inspired by Spike Jonze’s Her (2013). The project examines how simulated replies can evoke recognition, intimacy or emotional connection, and asks where imitation ends and understanding begins.",
@@ -76,22 +74,22 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "identity",
-    title: "Identity",
-    subtitle: "Fashion Show",
+    slug: "fashion-shows",
+    title: "Fashion Shows",
+    subtitle: "Five Shows, 2023–2027",
     category: "Creative Experiments",
-    year: undefined,
+    year: "2023–2027",
     featured: 4,
+    // The card opens the Fashion Atelier rather than a project page.
+    href: "/collections/fashion",
     cover: {
-      alt: "[Describe the show image]",
-      aspect: 4 / 5,
-      tone: "walnut",
-      motif: "figure",
-      caption: "[Runway or backstage — caption]",
+      src: "/images/work/fashion-shows/cover.jpg",
+      alt: "Vogue cover of 21 January 1909: a lace border around the White & Southern Fashions Number",
+      aspect: 1560 / 2100,
+      caption: "Vogue, 21 January 1909",
     },
     summary:
-      "A fashion-show project exploring identity through clothing and performance. [A fuller description, your role, the date and collaborators to come.]",
-    // LinkedIn lists Aug 2025: confirm the event date before showing a year.
+      "Five fashion shows, from Bionic (2023), Utopia (2024), Memory (2025) and Identity (2026) to In the Mood for… (2027), gathered in the Fashion Atelier. [Your role and a fuller description to come.]",
     credits: [
       { label: "Type", value: "Fashion / creative leadership" },
       { label: "Role", value: "[Your role]" },
@@ -199,6 +197,9 @@ export const projects: Project[] = [
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
+/** Where a project's card leads: its own page, unless it points elsewhere. */
+export const projectHref = (p: Project) => p.href ?? `/work/${p.slug}`;
 
 export const featuredProjects = () =>
   projects

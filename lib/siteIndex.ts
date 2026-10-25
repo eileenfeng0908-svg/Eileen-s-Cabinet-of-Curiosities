@@ -1,6 +1,6 @@
 import { articles } from "@/content/writing";
 import { poems } from "@/content/poems";
-import { projects } from "@/content/projects";
+import { projectHref, projects } from "@/content/projects";
 import { exhibitions } from "@/content/exhibitions";
 import { films } from "@/content/films";
 import { cities } from "@/content/life";
@@ -49,7 +49,7 @@ export function siteIndex(): IndexEntry[] {
   const out: IndexEntry[] = [];
 
   for (const p of projects)
-    out.push({ kind: "Projects", title: p.title, place: `Projects · ${p.category}`, meta: p.subtitle, href: `/work/${p.slug}` });
+    out.push({ kind: "Projects", title: p.title, place: `Projects · ${p.category}`, meta: p.subtitle, href: projectHref(p) });
 
   for (const e of exhibitions)
     out.push({ kind: "Exhibitions", title: e.title, place: "Art & Curation · Exhibition catalogue", meta: e.subtitle, href: `/exhibitions/${e.slug}` });

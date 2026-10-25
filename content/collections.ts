@@ -70,7 +70,7 @@ export const collections: Collection[] = [
     object: "ribbon",
     heading: { title: "The Fashion", italic: "Atelier" },
     intro: "From Sketches to the Runway",
-    holds: { projects: (p) => p.slug === "identity" },
+    holds: { projects: (p) => p.slug === "fashion-shows" },
   },
   {
     slug: "personal-archives",
