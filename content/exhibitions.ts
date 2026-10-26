@@ -126,6 +126,15 @@ export const exhibitions: Exhibition[] = [
       { id: "connection", title: "Connection", text: "[What this section of the exhibition explores.]", works: placeholderWorks("connection") },
       { id: "will-we-still-answer", title: "What Makes Us Human? Will We Still Be the Ones to Answer?", text: "[What this section of the exhibition explores.]", works: placeholderWorks("will-we-still-answer") },
     ],
+    credits: [
+      {
+        roles: [
+          { role: `策展人 Curators`, names: [`刘小扬 Xiaoyang Liu`, `付悦嘉 Yuejia Fu`, `冯洁琳 Eileen Feng`, `马靖宜 Jingyi Ma`] },
+          { role: `展览设计 Exhibition Design`, names: [`马靖宜 Jingyi Ma`, `孔维伊 Weiyi Kong`] },
+          { role: `参展人 Participants`, names: [`全体全球历史项目的老师、学生及参与者 All teachers, students and participants of the Global History Project`, `文海帆 Haifan Wen`, `黄思为 Siwei Huang`, `向柯宇 Keyu Xiang`] },
+        ],
+      },
+    ],
     documentation: [
       { alt: "[Installation view]", aspect: 3 / 2, tone: "parchment", motif: "arch", caption: "[Documentation photograph — caption]" },
       { alt: "[Installation view]", aspect: 4 / 5, tone: "blue", motif: "frame", caption: "[Documentation photograph — caption]" },

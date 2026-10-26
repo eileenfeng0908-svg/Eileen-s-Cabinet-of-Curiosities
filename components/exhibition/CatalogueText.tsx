@@ -204,9 +204,10 @@ export function Credits({ groups }: { groups: CreditGroup[] }) {
                 <dt className="label text-vermilion">{r.role}</dt>
                 <dd className={cn("text-body text-wine", r.names.length > 12 && "columns-2 gap-6 sm:columns-3")}>
                   {r.names.map((name, k) => (
-                    <span key={k} className={cn(r.names.length > 12 && "block", name.includes("Eileen Feng") && "font-semibold text-vermilion")}>
+                    // A long descriptive line (a whole group of people) gets a line of its own.
+                    <span key={k} className={cn((r.names.length > 12 || name.length > 40) && "block", name.length > 40 && "mb-1", name.includes("Eileen Feng") && "font-semibold text-vermilion")}>
                       {name}
-                      {r.names.length <= 12 && k < r.names.length - 1 && ", "}
+                      {r.names.length <= 12 && name.length <= 40 && k < r.names.length - 1 && ", "}
                     </span>
                   ))}
                 </dd>
