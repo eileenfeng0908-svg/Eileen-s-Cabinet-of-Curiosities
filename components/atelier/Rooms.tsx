@@ -215,9 +215,17 @@ export function SketchbookRoom() {
               </div>
               <div className="sketch-paper relative p-7 md:p-10">
                 <div aria-hidden className="absolute inset-y-0 left-0 hidden w-[8%] bg-gradient-to-r from-wine/25 to-transparent md:block" />
-                <div className={cn("grid gap-6", spread.slots.length > 3 ? "grid-cols-2" : "grid-cols-2")}>
+                <div className={cn("grid", spread.slots.length > 4 ? "grid-cols-3 gap-4" : "grid-cols-2 gap-6")}>
                   {spread.slots.map((p, i) => (
-                    <div key={i} className={cn(spread.slots.length === 3 && i === 0 && "col-span-2 mx-auto w-2/3")}>
+                    <div
+                      key={i}
+                      className={cn(
+                        // Wide pictures (moodboards, design sheets) take the whole width of the page.
+                        p.src && p.width && p.height && p.width > p.height * 1.15
+                          ? "col-span-full"
+                          : !p.src && spread.slots.length === 3 && i === 0 && "col-span-2 mx-auto w-2/3",
+                      )}
+                    >
                       <PhotoSlot photo={p} list={spread.slots} index={i} tilt={tilts[(i + page) % tilts.length]} sizes="(min-width: 48rem) 22rem, 45vw" />
                     </div>
                   ))}

@@ -94,10 +94,41 @@ export interface SketchbookSpread {
 }
 
 export const designSketchbook: SketchbookSpread[] = [
-  { title: "Initial Ideas", note: "[First thoughts, words and references.]", slots: ph("[Add Fashion Sketch]", 3, ["portrait", "square", "landscape"]) },
-  { title: "Moodboards", note: "[What the moodboard was gathering toward.]", slots: ph("[Add Moodboard Image]", 4, ["square", "portrait", "landscape", "square"]) },
-  { title: "Fashion Illustrations", note: "[About these illustrations.]", slots: ph("[Add Fashion Illustration]", 3, ["portrait", "portrait", "portrait"]) },
-  { title: "Design Development", note: "[How the designs changed.]", slots: ph("[Add Development Sketch]", 3, ["landscape", "portrait", "square"]) },
+  { title: "Initial Ideas", note: "[First thoughts, words and references.]", slots: [
+      { label: "Pencil studies of hanging forms labelled wood, wind, eyes, emotion, water, fire, cloud and fish × water", src: "/images/fashion/process/a06.jpg", width: 1200, height: 1800, alt: "Pencil studies of hanging forms labelled wood, wind, eyes, emotion, water, fire, cloud and fish × water" },
+      { label: "Quick sketch on black: coral-pink hand shapes over blue wave lines, with the word “coral”", src: "/images/fashion/process/a07.jpg", width: 528, height: 792, alt: "Quick sketch on black: coral-pink hand shapes over blue wave lines, with the word “coral”" },
+      { label: "Quick sketch on black: a figure in teal and red hatching with green flowing shapes", src: "/images/fashion/process/a08.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure in teal and red hatching with green flowing shapes" },
+      { label: "Quick sketch on black: a figure in magenta and teal ruffles", src: "/images/fashion/process/a09.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure in magenta and teal ruffles" },
+      { label: "Quick sketch on black: a figure with orange and green sunburst shoulders", src: "/images/fashion/process/a10.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure with orange and green sunburst shoulders" },
+      { label: "Quick sketch on black: a figure wrapped in yellow coils and green and blue strokes", src: "/images/fashion/process/a12.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure wrapped in yellow coils and green and blue strokes" },
+      { label: "Quick sketch on black: a figure in white lines with purple circles", src: "/images/fashion/process/a14.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure in white lines with purple circles" },
+      { label: "Quick sketch on black: a figure in green, teal and pink loops", src: "/images/fashion/process/a27.jpg", width: 1200, height: 1800, alt: "Quick sketch on black: a figure in green, teal and pink loops" },
+      { label: "Quick sketch on black: a figure in green coils and hatching", src: "/images/fashion/process/a28.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure in green coils and hatching" },
+    ] },
+  { title: "Moodboards", note: "[What the moodboard was gathering toward.]", slots: [
+      { label: "Moodboard: white ruffles, lilies, a baroque altar, stained glass, weeping Madonnas and pearls, circled in red", src: "/images/fashion/process/a04.jpg", width: 1800, height: 1349, alt: "Moodboard: white ruffles, lilies, a baroque altar, stained glass, weeping Madonnas and pearls, circled in red" },
+      { label: "Moodboard in pink: a lace party-hat cake, pearls, stars, candles, carnival costumes and a rose garden", src: "/images/fashion/process/a13.jpg", width: 1800, height: 1349, alt: "Moodboard in pink: a lace party-hat cake, pearls, stars, candles, carnival costumes and a rose garden" },
+      { label: "Moodboard collage of eyes, irises and figures in grey suits", src: "/images/fashion/process/a29.jpg", width: 1800, height: 1349, alt: "Moodboard collage of eyes, irises and figures in grey suits" },
+    ] },
+  { title: "Fashion Illustrations", note: "[About these illustrations.]", slots: [
+      { label: "A figure in white line loops scattered with blue bubbles, on black", src: "/images/fashion/process/a01.jpg", width: 528, height: 792, alt: "A figure in white line loops scattered with blue bubbles, on black" },
+      { label: "A dress shaped like an apple core, with green vines trailing down the legs", src: "/images/fashion/process/a02.jpg", width: 1200, height: 1800, alt: "A dress shaped like an apple core, with green vines trailing down the legs" },
+      { label: "A figure in translucent blue and white with a curling tail, titled “Dolphin”", src: "/images/fashion/process/a16.jpg", width: 1200, height: 1800, alt: "A figure in translucent blue and white with a curling tail, titled “Dolphin”" },
+      { label: "A figure in blue and white swirls standing on white ripples", src: "/images/fashion/process/a19.jpg", width: 1200, height: 1800, alt: "A figure in blue and white swirls standing on white ripples" },
+      { label: "A figure in a long cream and dark garment with white flowing lines on a grey shape", src: "/images/fashion/process/a20.jpg", width: 1200, height: 1800, alt: "A figure in a long cream and dark garment with white flowing lines on a grey shape" },
+      { label: "A figure wrapped in a large blue and red anatomical heart", src: "/images/fashion/process/a21.jpg", width: 1200, height: 1800, alt: "A figure wrapped in a large blue and red anatomical heart" },
+      { label: "A figure in a brown top with blue and red vein-like ribbons and a white ruffled skirt", src: "/images/fashion/process/a22.jpg", width: 1200, height: 1800, alt: "A figure in a brown top with blue and red vein-like ribbons and a white ruffled skirt" },
+      { label: "A figure in a metallic gold dress with green panels on a grey shape", src: "/images/fashion/process/a23.jpg", width: 1200, height: 1800, alt: "A figure in a metallic gold dress with green panels on a grey shape" },
+      { label: "A figure in a gold and cream dress, with a small detail drawing", src: "/images/fashion/process/a25.jpg", width: 1200, height: 1800, alt: "A figure in a gold and cream dress, with a small detail drawing" },
+      { label: "A figure in blue draped fabric with handwritten notes", src: "/images/fashion/process/a26.jpg", width: 1200, height: 1800, alt: "A figure in blue draped fabric with handwritten notes" },
+    ] },
+  { title: "Design Development", note: "[How the designs changed.]", slots: [
+      { label: "Pencil and red-line sketch of a long gown with flowers and a halo, with the note “Tears”", src: "/images/fashion/process/a03.jpg", width: 1200, height: 1800, alt: "Pencil and red-line sketch of a long gown with flowers and a halo, with the note “Tears”" },
+      { label: "Pencil sketch of a long layered gown with a sunburst halo and flowers", src: "/images/fashion/process/a11.jpg", width: 1349, height: 1800, alt: "Pencil sketch of a long layered gown with a sunburst halo and flowers" },
+      { label: "A long dark coat with blue lapels and white wave lines, with handwritten notes, for “Dolphins”", src: "/images/fashion/process/a05.jpg", width: 528, height: 792, alt: "A long dark coat with blue lapels and white wave lines, with handwritten notes, for “Dolphins”" },
+      { label: "A figure in a pale green draped dress with branch-like lines, on grey", src: "/images/fashion/process/a24.jpg", width: 1200, height: 1800, alt: "A figure in a pale green draped dress with branch-like lines, on grey" },
+      { label: "Design sheet “A Pineapple with the Ocean”: five looks with notes on pineapple, puffer fish and coral", src: "/images/fashion/process/a15.jpg", width: 1800, height: 1272, alt: "Design sheet “A Pineapple with the Ocean”: five looks with notes on pineapple, puffer fish and coral" },
+    ] },
   { title: "Final Looks", note: "[The finished looks.]", slots: ph("[Add Final Look]", 3, ["portrait", "portrait", "portrait"]) },
 ];
 
