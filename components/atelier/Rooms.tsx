@@ -133,6 +133,19 @@ function ShowArchive({ show }: { show: Show }) {
           {show.videos.map((v, i) => (
             <VideoSlot key={i} video={v} />
           ))}
+          {show.playlist && (
+            <figure className="space-y-3">
+              <Subhead color={ink.green}>The show’s playlist</Subhead>
+              <iframe
+                src={show.playlist.embed}
+                title={`${show.title} playlist on Spotify`}
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                className="h-[352px] w-full rounded-xl border-0"
+              />
+              {show.playlist.note && <figcaption className="font-display italic text-wine">{show.playlist.note}</figcaption>}
+            </figure>
+          )}
         </div>
       </section>
 

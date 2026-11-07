@@ -65,6 +65,8 @@ export interface Show {
   designers: Person[];
   models: Person[];
   volunteers?: Person[];
+  /** A Spotify playlist for the show: its embed URL, and a line under it. */
+  playlist?: { embed: string; note?: string };
   backstage: AtelierPhoto[];
 }
 
@@ -327,6 +329,68 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
+    playlist: { embed: "https://open.spotify.com/embed/playlist/6KaU53x6pAtH1lkijhkfIj", note: "Music selected by Eileen" },
+    posters: [
+      { label: "Banner: 身份 IDENTITY, Huitong Fashion Show 荟同时装秀, 2026.6.12, 7:00 pm, beside an iridescent mask streaked with light", src: "/images/fashion/2026/identity-01.jpg", width: 1800, height: 1012, alt: "Banner: 身份 IDENTITY, Huitong Fashion Show 荟同时装秀, 2026.6.12, 7:00 pm, beside an iridescent mask streaked with light" },
+      { label: "Ticket-style poster: 身份 IDENTITY, 2026.6.12, 7:00 pm, with the quote “In the social jungle of human existence, there is no feeling of being alive without a sense of identity.” (Erik Erikson)", src: "/images/fashion/2026/identity-02.jpg", width: 591, height: 1476, alt: "Ticket-style poster: 身份 IDENTITY, 2026.6.12, 7:00 pm, with the quote “In the social jungle of human existence, there is no feeling of being alive without a sense of identity.” (Erik Erikson)" },
+    ],
+    videos: [
+      { label: "Identity video", src: "/videos/fashion/identity-2026.mp4", poster: "/images/fashion/2026/identity-01.jpg" },
+    ],
+    designers: [
+      { name: "Lily Lin", role: "Model: Angela Wei" },
+      { name: "Amy", role: "Model: Olivia" },
+      { name: "Bella Z", role: "Model: Gisele 老师" },
+      { name: "Mia", role: "Model: Mia" },
+      { name: "Haoyun", role: "Model: Bella" },
+      { name: "WeiWei" },
+      { name: "Juliette", role: "Model: Max" },
+      { name: "Elena", role: "Model: Tarway" },
+      { name: "Olivia", role: "Model: Angela 老师" },
+      { name: "Roger", role: "Model: Roger" },
+      { name: "Cowboy", role: "Model: Eileen 老师" },
+      { name: "Eileen, Jasmine", role: "Model: Celestina" },
+      { name: "Chloe", role: "Model: Cindy" },
+      { name: "Carol", role: "Model: Valerie" },
+      { name: "Bella Zhang", role: "Model: Niki Zhou" },
+      { name: "Joyce", role: "Model: 杨家长 Julia" },
+      { name: "Yomi", role: "Model: Bonnie" },
+      { name: "Tyler", role: "Model: Kelly 老师" },
+      { name: "Liyan", role: "Model: Ms. Faye" },
+      { name: "Lancy", role: "Model: Weiwei 妈妈" },
+      { name: "Sophia Z", role: "Model: Alisa" },
+      { name: "Anna", role: "Model: Anna" },
+    ],
+    models: [
+      { name: "Angela Wei" },
+      { name: "Olivia" },
+      { name: "Gisele 老师" },
+      { name: "Mia" },
+      { name: "Bella" },
+      { name: "Max" },
+      { name: "Tarway" },
+      { name: "Angela 老师" },
+      { name: "Roger" },
+      { name: "Eileen 老师" },
+      { name: "Celestina" },
+      { name: "Cindy" },
+      { name: "Valerie" },
+      { name: "Niki Zhou" },
+      { name: "杨家长 Julia" },
+      { name: "Bonnie" },
+      { name: "Kelly 老师" },
+      { name: "Ms. Faye" },
+      { name: "Weiwei 妈妈" },
+      { name: "Alisa" },
+      { name: "Anna" },
+    ],
+    backstage: [
+      { label: "Presenting the show on stage at a school assembly", src: "/images/fashion/2026/identity-03.jpg", width: 1280, height: 960, alt: "Presenting the show on stage at a school assembly" },
+      { label: "Planning sheet, Group 1: the eleven looks in progress, each labelled with its designer and model", src: "/images/fashion/2026/identity-04.jpg", width: 1440, height: 1080, alt: "Planning sheet, Group 1: the eleven looks in progress, each labelled with its designer and model" },
+      { label: "Planning sheet, Group 2: the eleven looks in progress, each labelled with its designer and model", src: "/images/fashion/2026/identity-05.jpg", width: 1441, height: 1080, alt: "Planning sheet, Group 2: the eleven looks in progress, each labelled with its designer and model" },
+      { label: "Route map for Group 1 around the first-floor atrium and stairs, with an open space where “models will be free to move, interact, and perform, using their movements to express the garment they are wearing”", src: "/images/fashion/2026/identity-06.jpg", width: 1775, height: 958, alt: "Route map for Group 1 around the first-floor atrium and stairs, with an open space where “models will be free to move, interact, and perform, using their movements to express the garment they are wearing”" },
+      { label: "Route map for Group 2, ending by rooms 141–143 to prepare for the finale", src: "/images/fashion/2026/identity-07.jpg", width: 1753, height: 977, alt: "Route map for Group 2, ending by rooms 141–143 to prepare for the finale" },
+    ],
     concept: [
       "Staring at my desk one day, I noticed the Monet painting on it and thought we could do something like “great artists”, but that felt a little limiting. So I came up with Identity instead.",
       "We are all teenagers now, and developmental psychologists describe this as the stage of life when we explore our own identity. Like Memory, it is a theme that lets our designers draw inspiration from themselves and from the world around them.",
