@@ -158,11 +158,20 @@ export const projects: Project[] = [
     category: "Cinema & Research",
     year: undefined,
     // LinkedIn lists Sep 2025: confirm before showing a year.
-    cover: { alt: "[Film still]", aspect: 4 / 3, tone: "vermilion", motif: "figure", caption: "[Still — film, year]" },
+    cover: {
+      src: "/images/work/asian-women-in-hollywood/cover.jpg",
+      alt: "Cine-Mundial page, November 1931: Anna May Wong in a beaded veil, seated before a red-and-pink parasol",
+      aspect: 500 / 695,
+      caption: "Anna May Wong in Cine-Mundial, November 1931, for Paramount’s “La Hija del Dragón” (Daughter of the Dragon)",
+    },
+    coverMaxWidth: 500,
     summary:
       "A study of representations of Asian women in twentieth-century Hollywood cinema, considering stereotypes, visual conventions and historical contexts.",
-    credits: [{ label: "Type", value: "Film-history research" }],
-    body: [{ type: "paragraph", text: "[The research: films studied, questions asked, what you found.]" }],
+    credits: [
+      { label: "Type", value: "Film-history research" },
+      { label: "Status", value: "Ongoing" },
+    ],
+    body: [],
   },
   {
     slug: "film-and-mental-illness",
