@@ -166,7 +166,8 @@ export const shows: Show[] = [
   {
     ...showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
     videos: [
-      { label: "Utopia show video", src: "/videos/fashion/utopia-2024.mp4", poster: "/videos/fashion/utopia-2024-poster.jpg", href: "https://weixin.qq.com/sph/AsCeVnqW6Z", hrefLabel: "Also on WeChat Channels ↗" },
+      { label: "Utopia show video", caption: "Utopia show video", poster: "/images/fashion/2024/utopia-38.jpg", href: "https://weixin.qq.com/sph/AsCeVnqW6Z", hrefLabel: "Watch on WeChat Channels ↗" },
+      { label: "Tears of the Virgin", src: "/videos/fashion/utopia-2024.mp4", poster: "/videos/fashion/utopia-2024-poster.jpg", caption: "Tears of the Virgin" },
     ],
     runway: [
       { label: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", src: "/images/fashion/2024/utopia-29.jpg", width: 723, height: 1086, alt: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", caption: "Photo: Shenzhen Nanshan Huitong School" },

@@ -142,6 +142,25 @@ export function VideoSlot({ video, className }: { video: AtelierVideo; className
           <video src={video.src} poster={video.poster} controls muted playsInline preload="metadata" ref={(el) => { if (el) { el.muted = true; el.defaultMuted = true; } }} className="h-full w-full bg-black object-contain" aria-label={video.caption ?? video.label} />
         ) : video.url ? (
           <iframe src={video.url} title={video.caption ?? "Fashion show video"} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen className="h-full w-full" />
+        ) : video.href ? (
+          <a
+            href={video.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex h-full w-full flex-col items-center justify-center gap-3"
+            style={{ background: "radial-gradient(50% 60% at 25% 30%, color-mix(in srgb, var(--vermilion) 45%, transparent), transparent 75%), radial-gradient(45% 55% at 80% 75%, color-mix(in srgb, var(--brass) 55%, transparent), transparent 75%), color-mix(in srgb, var(--powder-blue) 80%, var(--aged-ivory))" }}
+          >
+            {video.poster ? (
+              <>
+                <Image src={video.poster} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+                <span aria-hidden className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/25" />
+              </>
+            ) : (
+              <span aria-hidden className="plate-tooth absolute inset-0 opacity-70" />
+            )}
+            <span aria-hidden className="relative flex h-14 w-14 items-center justify-center rounded-full bg-vermilion text-xl text-ivory transition-transform group-hover:scale-110">▶</span>
+            <span className={cn("relative font-display text-lg italic", video.poster ? "text-ivory" : "text-wine")}>{video.hrefLabel ?? "Watch elsewhere ↗"}</span>
+          </a>
         ) : (
           <div
             className="relative flex h-full w-full flex-col items-center justify-center gap-3"
@@ -154,7 +173,7 @@ export function VideoSlot({ video, className }: { video: AtelierVideo; className
         )}
       </div>
       {video.caption && <figcaption className="mt-3 font-display italic text-wine">{video.caption}</figcaption>}
-      {video.href && (
+      {video.href && (video.src || video.url) && (
         <a href={video.href} target="_blank" rel="noopener noreferrer" className="label mt-3 inline-block text-wine underline decoration-wine/40 underline-offset-4 hover:decoration-wine">
           {video.hrefLabel ?? "Watch elsewhere ↗"}
         </a>
