@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { shows } from "@/content/atelier";
 import { AtelierDesk, BackstagePassArt, InvitationCover, InvitationInside, MeasuringTapeArt, PolaroidsArt, RunwayPrintArt, SketchbookArt, ink } from "./AtelierArt";
-import { BackstageRoom, ProductionRoom, RunwayRoom, ShowsRoom, SketchbookRoom } from "./Rooms";
+import { BackstageRoom, RunwayRoom, ShowsRoom, SketchbookRoom } from "./Rooms";
 import { ease } from "@/components/motion/tokens";
 import { cn } from "@/lib/cn";
 
@@ -14,17 +14,16 @@ import { cn } from "@/lib/cn";
  * back button and shared links work), and every room has a way back.
  */
 
-type Room = "shows" | "sketchbook" | "backstage" | "production" | "runway";
+type Room = "shows" | "sketchbook" | "backstage" | "runway";
 type View = { room: null } | { room: Room; show?: string };
 
 /** Position on the desk, as % of its width/height, for wide screens (w) and phones (m). */
 type Spot = { x: number; y: number; w: number; r: number };
-type DeskThing = "sketchbook" | "polaroids" | "pass" | "tape" | "print";
+type DeskThing = "sketchbook" | "polaroids" | "pass" | "print";
 const spots: Record<DeskThing, { room: Exclude<Room, "shows">; w: Spot; m: Spot; aspect: number; label: string; hint: string }> = {
   sketchbook: { room: "sketchbook", w: { x: 33, y: 35, w: 15, r: -6 }, m: { x: 8, y: 33, w: 36, r: -5 }, aspect: 160 / 200, label: "The Sketchbook", hint: "Explore the designs" },
   polaroids: { room: "backstage", w: { x: 56, y: 8, w: 18, r: 3 }, m: { x: 50, y: 31, w: 44, r: 3 }, aspect: 220 / 200, label: "The Polaroids", hint: "Behind the scenes" },
   pass: { room: "backstage", w: { x: 61, y: 73, w: 7, r: 12 }, m: { x: 38, y: 60, w: 12, r: 10 }, aspect: 120 / 170, label: "The Backstage Pass", hint: "Behind-the-scenes photos" },
-  tape: { room: "production", w: { x: 4, y: 62, w: 19, r: -4 }, m: { x: 4, y: 70, w: 44, r: -4 }, aspect: 240 / 180, label: "The Measuring Tape", hint: "How it all came together" },
   print: { room: "runway", w: { x: 76, y: 33, w: 17, r: 4 }, m: { x: 52, y: 62, w: 38, r: 4 }, aspect: 160 / 200, label: "The Runway Photograph", hint: "Walk the runway" },
 };
 const inviteSpots: { w: Spot; m: Spot }[] = [
@@ -39,7 +38,6 @@ const roomNames: Record<Room, string> = {
   shows: "The Shows",
   sketchbook: "Design Process",
   backstage: "Backstage",
-  production: "Production Notebook",
   runway: "The Runway",
 };
 
@@ -49,7 +47,7 @@ function parse(hash: string): View {
     const id = h.slice(5);
     return shows.some((s) => s.id === id) ? { room: "shows", show: id } : { room: "shows" };
   }
-  return (["shows", "sketchbook", "backstage", "production", "runway"] as string[]).includes(h) ? { room: h as Room } : { room: null };
+  return (["shows", "sketchbook", "backstage", "runway"] as string[]).includes(h) ? { room: h as Room } : { room: null };
 }
 const hashOf = (v: View) => (v.room === null ? "" : v.room === "shows" && v.show ? `#show-${v.show}` : `#${v.room}`);
 
@@ -109,7 +107,6 @@ export function Atelier() {
               {view.room === "shows" && <ShowsRoom showId={view.show ?? null} onShow={(id) => go({ room: "shows", show: id }, true)} />}
               {view.room === "sketchbook" && <SketchbookRoom />}
               {view.room === "backstage" && <BackstageRoom />}
-              {view.room === "production" && <ProductionRoom />}
               {view.room === "runway" && <RunwayRoom />}
             </div>
             <div className="mt-20 flex flex-wrap items-center justify-between gap-6 border-t border-wine/20 pt-8">
@@ -178,12 +175,18 @@ function Desk({ onOpen }: { onOpen: (room: Room, show?: string) => void }) {
           />
         </div>
 
+        {/* the measuring tape: just part of the clutter now, it opens nothing (her request) */}
+        <div aria-hidden className={cn(placed, "pointer-events-none z-10")} style={spotStyle({ w: { x: 4, y: 62, w: 19, r: -4 }, m: { x: 4, y: 70, w: 44, r: -4 } })}>
+          <div className="block w-full" style={{ aspectRatio: 240 / 180 }}>
+            <MeasuringTapeArt />
+          </div>
+        </div>
+
         {(Object.keys(spots) as DeskThing[]).map((k) => (
           <DeskObject key={k} thing={k} onOpen={() => onOpen(spots[k].room)}>
             {k === "sketchbook" && <SketchbookArt />}
             {k === "polaroids" && <PolaroidsArt />}
             {k === "pass" && <BackstagePassArt />}
-            {k === "tape" && <MeasuringTapeArt />}
             {k === "print" && <RunwayPrintArt />}
           </DeskObject>
         ))}
@@ -198,7 +201,6 @@ function Desk({ onOpen }: { onOpen: (room: Room, show?: string) => void }) {
               ["shows", "The Invitations", "The Shows", ink.vermilion],
               ["sketchbook", "The Sketchbook", "Design Process", ink.blue],
               ["backstage", "The Polaroids & the Pass", "Backstage", ink.green],
-              ["production", "The Measuring Tape", "Production Notebook", ink.brass],
               ["runway", "The Runway Photograph", "The Runway", ink.wine],
             ] as const
           ).map(([room, obj, name, c]) => (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { backstage, designSketchbook, production, runway, shows, type AtelierPhoto, type Show } from "@/content/atelier";
+import { backstage, designSketchbook, production, runwayByShow, shows, type AtelierPhoto, type Show } from "@/content/atelier";
 import { DocumentCard, PhotoSlot, RoomHeading, Subhead, VideoSlot, ViewerProvider } from "./Parts";
 import { InvitationCover, InvitationInside, ink } from "./AtelierArt";
 import { PencilRule } from "@/components/writing/Painted";
@@ -292,7 +292,7 @@ const sectionInks = [ink.vermilion, ink.blue, ink.green, ink.brass, ink.wine, in
 export function BackstageRoom() {
   return (
     <ViewerProvider>
-      <RoomHeading id="room-title" kicker="03 · The Polaroids" title="The" italic="Backstage" intro="Rehearsals, fittings, nerves and the minutes before the lights." bloom={ink.green} />
+      <RoomHeading id="room-title" kicker="03 · The Polaroids" title="The" italic="Backstage" intro="Sketches, fittings, nerves and the minutes before the lights, show by show." bloom={ink.green} />
       <nav aria-label="Backstage sections" className="mt-10 flex flex-wrap gap-2">
         {backstage.map((s, i) => (
           <a key={s.id} href={`#backstage-${s.id}`} className="label inline-flex items-center gap-2 rounded-full border border-wine/30 px-3.5 py-2 text-wine hover:border-wine">
@@ -396,47 +396,25 @@ export function ProductionRoom() {
 /* --- 05 The Runway ------------------------------------------------------- */
 
 export function RunwayRoom() {
-  const photos = runway.looks.map((l) => l.photo);
-  const designers = [...new Set(runway.looks.map((l) => l.designer))];
   return (
     <ViewerProvider>
-      <RoomHeading id="room-title" kicker="05 · The Runway Photograph" title="The" italic="Runway" intro="Every look, in the order it walked." bloom={ink.vermilion} />
-      <div className="mt-14 space-y-10">
-        {runway.videos.map((v, i) => (
-          <VideoSlot key={i} video={v} className="mx-auto max-w-4xl" />
+      <RoomHeading id="room-title" kicker="05 · The Runway Photograph" title="The" italic="Runway" intro="Every look, show by show." bloom={ink.vermilion} />
+      <nav aria-label="Shows" className="mt-10 flex flex-wrap gap-2">
+        {runwayByShow.map((s, i) => (
+          <a key={s.id} href={`#runway-${s.id}`} className="label inline-flex items-center gap-2 rounded-full border border-wine/30 px-3.5 py-2 text-wine hover:border-wine">
+            <span aria-hidden className="h-2 w-2 rounded-full" style={{ background: sectionInks[i] }} />
+            {s.title}
+          </a>
+        ))}
+      </nav>
+      <div className="mt-16 space-y-20">
+        {runwayByShow.map((s, i) => (
+          <section key={s.id} id={`runway-${s.id}`} className="scroll-mt-28 space-y-8">
+            <Subhead n={String(i + 1).padStart(2, "0")} color={sectionInks[i]}>{s.title}</Subhead>
+            <PhotoScatter photos={s.photos} cols={3} />
+          </section>
         ))}
       </div>
-
-      <div className="relative mt-20">
-        {/* the runway itself, running down the middle */}
-        <div aria-hidden className="absolute inset-y-0 left-1/2 hidden w-28 -translate-x-1/2 md:block" style={{ background: "linear-gradient(to bottom, transparent, color-mix(in srgb, var(--vermilion) 30%, var(--aged-ivory)) 6%, color-mix(in srgb, var(--vermilion) 30%, var(--aged-ivory)) 94%, transparent)" }}>
-          <div className="mx-auto h-full w-px border-l border-dashed border-ivory" />
-        </div>
-        <ol className="relative grid gap-12 md:grid-cols-2 md:gap-x-40 md:gap-y-4">
-          {runway.looks.map((l, i) => (
-            <li key={l.number} className={cn("mx-auto w-full max-w-sm", i % 2 ? "md:mt-40" : "")}>
-              <PhotoSlot photo={l.photo} list={photos} index={i} tilt={i % 2 ? 1.2 : -1.2} sizes="(min-width: 48rem) 24rem, 85vw" />
-              <div className="mt-4 flex items-baseline gap-4">
-                <span className="title-script text-4xl text-vermilion">{String(l.number).padStart(2, "0")}</span>
-                <div>
-                  <p className="label text-wine">Look {l.number}</p>
-                  <p className="font-display italic text-ink-soft">Designed by {l.designer}{l.model ? ` · Worn by ${l.model}` : ""}</p>
-                  {l.description && <p className="mt-2 text-caption text-wine">{l.description}</p>}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <section className="mt-24">
-        <Subhead color={ink.green}>Designer credits</Subhead>
-        <ul className="mt-6 flex flex-wrap gap-3">
-          {designers.map((d) => (
-            <li key={d} className="rounded-full border border-wine/30 px-4 py-2 font-display text-lg text-wine">{d}</li>
-          ))}
-        </ul>
-      </section>
     </ViewerProvider>
   );
 }

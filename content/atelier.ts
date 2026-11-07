@@ -582,14 +582,15 @@ export interface GallerySection {
   photos: AtelierPhoto[];
 }
 
-export const backstage: GallerySection[] = [
-  { id: "rehearsals", title: "Rehearsals", photos: ph("[Upload Backstage Photograph]", 4, ["landscape", "portrait", "portrait", "landscape"]) },
-  { id: "fittings", title: "Fittings", photos: ph("[Upload Backstage Photograph]", 3, ["portrait", "landscape", "portrait"]) },
-  { id: "hair-makeup", title: "Hair & Makeup", photos: ph("[Upload Backstage Photograph]", 3, ["portrait", "portrait", "square"]) },
-  { id: "preparation", title: "Backstage Preparation", photos: ph("[Upload Backstage Photograph]", 4, ["landscape", "portrait", "landscape", "portrait"]) },
-  { id: "team", title: "Team Moments", photos: ph("[Upload Backstage Photograph]", 3, ["landscape", "square", "portrait"]) },
-  { id: "show-day", title: "Show Day", photos: ph("[Upload Backstage Photograph]", 4, ["portrait", "landscape", "portrait", "portrait"]) },
-];
+/** Every show's behind-the-scenes photographs, gathered show by show (her request, 2026-11-07). */
+export const backstage: GallerySection[] = shows
+  .map((sh) => ({ id: sh.id, title: `${sh.title} · ${sh.year}`, photos: sh.backstage.filter((p) => p.src) }))
+  .filter((sec) => sec.photos.length > 0);
+
+/** Every show's runway photographs, gathered show by show. */
+export const runwayByShow: GallerySection[] = shows
+  .map((sh) => ({ id: sh.id, title: `${sh.title} · ${sh.year}`, photos: sh.runway.filter((p) => p.src) }))
+  .filter((sec) => sec.photos.length > 0);
 
 export interface ProductionChapter {
   id: string;
