@@ -30,6 +30,9 @@ export interface AtelierVideo {
   src?: string;
   poster?: string;
   caption?: string;
+  /** An outside page where the video can also be watched. */
+  href?: string;
+  hrefLabel?: string;
 }
 
 export interface AtelierDocument {
@@ -162,6 +165,9 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
+    videos: [
+      { label: "Utopia show video", src: "/videos/fashion/utopia-2024.mp4", poster: "/videos/fashion/utopia-2024-poster.jpg", href: "https://weixin.qq.com/sph/AsCeVnqW6Z", hrefLabel: "Also on WeChat Channels ↗" },
+    ],
     runway: [
       { label: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", src: "/images/fashion/2024/utopia-29.jpg", width: 723, height: 1086, alt: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", caption: "Photo: Shenzhen Nanshan Huitong School" },
       { label: "The rose cage gown on the runway: a black veil and lace over a white skirt, the cage wound with black leaves and blue roses, carrying a black bouquet", src: "/images/fashion/2024/utopia-30.jpg", width: 724, height: 1086, alt: "The rose cage gown on the runway: a black veil and lace over a white skirt, the cage wound with black leaves and blue roses, carrying a black bouquet", caption: "Photo: Shenzhen Nanshan Huitong School" },
@@ -205,6 +211,9 @@ export const shows: Show[] = [
       { label: "A live music performance at the show, with singers at the microphones and the audience gathered round", src: "/images/fashion/2024/utopia-31.jpg", width: 1086, height: 724, alt: "A live music performance at the show, with singers at the microphones and the audience gathered round" },
       { label: "A selfie of two friends in black T-shirts", src: "/images/fashion/2024/utopia-33.jpg", width: 1200, height: 1600, alt: "A selfie of two friends in black T-shirts" },
       { label: "A selfie with friends at the show", src: "/images/fashion/2024/utopia-34.jpg", width: 768, height: 1024, alt: "A selfie with friends at the show" },
+      { label: "Backstage in the halo crown and veil, sipping milk tea", src: "/images/fashion/2024/utopia-39.jpg", width: 1600, height: 1067, alt: "Backstage in the halo crown and veil, sipping milk tea" },
+      { label: "Waiting by the lift in the halo crown, veil and ruffled sleeve", src: "/images/fashion/2024/utopia-40.jpg", width: 1600, height: 1067, alt: "Waiting by the lift in the halo crown, veil and ruffled sleeve" },
+      { label: "Portrait in the halo crown of gold leaves, pearls and lilies, against a white sheet", src: "/images/fashion/2024/utopia-41.jpg", width: 1086, height: 724, alt: "Portrait in the halo crown of gold leaves, pearls and lilies, against a white sheet" },
     ],
   },
   showTemplate("2025", "2025", "Memory", "Memory", "wine"),

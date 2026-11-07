@@ -154,6 +154,11 @@ export function VideoSlot({ video, className }: { video: AtelierVideo; className
         )}
       </div>
       {video.caption && <figcaption className="mt-3 font-display italic text-wine">{video.caption}</figcaption>}
+      {video.href && (
+        <a href={video.href} target="_blank" rel="noopener noreferrer" className="label mt-3 inline-block text-wine underline decoration-wine/40 underline-offset-4 hover:decoration-wine">
+          {video.hrefLabel ?? "Watch elsewhere ↗"}
+        </a>
+      )}
     </figure>
   );
 }
