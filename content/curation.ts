@@ -129,9 +129,9 @@ export const drawers: Drawer[] = [
       {
         id: "what-makes-us-human-website",
         kind: "website",
-        title: "Five Rooms",
+        title: "Music Interaction Project",
         exhibition: "what-makes-us-human",
-        description: "An interactive website made for the exhibition. Its first page reads: “Press play. Listen before you name it.”",
+        description: "An interactive music website made for the exhibition, in seven pages, each one different. Its first page reads: “Press play. Listen before you name it.”",
         href: "https://music-interaction.vercel.app/#s7",
         at: { x: 74, y: 60, w: 15, rot: 4, z: 4 },
         fixings: [{ kind: "tape", x: 50, y: 1, w: 34, rot: -3, color: "var(--powder-blue)" }],

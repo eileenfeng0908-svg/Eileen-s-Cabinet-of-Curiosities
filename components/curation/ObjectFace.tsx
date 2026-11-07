@@ -83,14 +83,14 @@ const faces: Record<ObjectKind, (p: FaceProps) => React.ReactNode> = {
       <path d={handRect(0, 0, 100, 13, r, 0.8)} fill="var(--powder-blue)" filter={wash("a")} />
       {["var(--vermilion)", "var(--brass)", "var(--botanical-green)"].map((c, i) => <circle key={i} cx={8 + i * 7} cy={6.5} r={2.2} fill={c} />)}
       <path d={handRect(32, 4, 60, 5, r, 0.4)} fill="var(--aged-ivory)" opacity={0.85} />
-      {/* five painted arches: the five rooms */}
-      {[0, 1, 2, 3, 4].map((i) => {
-        const x = 10 + i * 17;
+      {/* seven painted arches: the site's seven pages */}
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+        const x = 8 + i * 12.4;
         return (
           <path
             key={i}
-            d={`M${x} ${h - 14} L${x} ${h * 0.42} Q${x + 6.5} ${h * 0.3} ${x + 13} ${h * 0.42} L${x + 13} ${h - 14} Z`}
-            fill={["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)", "var(--wine)"][i]}
+            d={`M${x} ${h - 14} L${x} ${h * 0.42} Q${x + 4.6} ${h * 0.32} ${x + 9.2} ${h * 0.42} L${x + 9.2} ${h - 14} Z`}
+            fill={["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)", "var(--wine)", "var(--walnut)", "var(--powder-blue)"][i]}
             fillOpacity={0.8}
             filter={wash(i % 2 ? "b" : "c")}
           />
