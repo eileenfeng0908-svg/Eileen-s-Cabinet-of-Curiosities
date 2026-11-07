@@ -133,7 +133,13 @@ export const projects: Project[] = [
     category: "Research",
     year: undefined,
     // LinkedIn lists Jan 2026 – present: confirm before showing a year.
-    cover: { alt: "[Project image]", aspect: 4 / 5, tone: "blue", motif: "figure", caption: "[Image — caption]" },
+    cover: {
+      src: "/images/work/could-machines-think-and-feel/cover.png",
+      alt: "A CAPTCHA asking “Enter the following:” with distorted text reading “love you”, and the answer typed as “love you”",
+      aspect: 324 / 210,
+      caption: "“Enter the following: love you”",
+    },
+    coverMaxWidth: 560,
     summary:
       "Research into machine consciousness, relational consciousness and human–AI relationships, using Her (2013) as a case study for the perception and attribution of consciousness.",
     credits: [
@@ -141,8 +147,8 @@ export const projects: Project[] = [
       { label: "Status", value: "Ongoing" },
     ],
     body: [
-      { type: "paragraph", text: "[Where the research is now, and what comes next.]" },
-      { type: "links", title: "Read", items: [{ label: "Could Machines Think and Feel? — the essay", href: "/writing/could-machines-think-and-feel" }] },
+      { type: "paragraph", text: "This research continues in Between Us, an interactive AI installation that grew out of it and is also on this website. Instead of arguing the question in an essay, it lets people explore it through interaction: could a machine be conscious?" },
+      { type: "links", title: "Read", items: [{ label: "Could Machines Think and Feel? — the essay", href: "/writing/could-machines-think-and-feel" }, { label: "Between Us — the installation", href: "/work/between-us" }] },
     ],
   },
   {

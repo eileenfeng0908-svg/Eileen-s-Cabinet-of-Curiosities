@@ -138,11 +138,10 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
                     <li key={l.label}>
                       <a
                         href={l.href}
-                        target="_blank"
-                        rel="noreferrer"
+                        {...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                         className="group inline-flex items-center gap-3 rounded-full border-2 border-wine bg-wine px-7 py-3.5 font-display text-2xl text-ivory transition-colors hover:border-vermilion hover:bg-vermilion"
                       >
-                        {l.label} <span aria-hidden className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                        {l.label} <span aria-hidden className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">{l.href.startsWith("http") ? "↗" : "→"}</span>
                       </a>
                     </li>
                   ))}

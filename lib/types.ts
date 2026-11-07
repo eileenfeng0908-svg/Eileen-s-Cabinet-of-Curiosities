@@ -60,6 +60,8 @@ export interface Project {
   /** Leave undefined until confirmed; the site shows "Year —". */
   year?: string;
   cover: ImageAsset;
+  /** Max display width (px) of the project-page cover, for small images. */
+  coverMaxWidth?: number;
   summary: string;
   /** Your role, collaborators, medium… shown as a small colophon. */
   credits?: { label: string; value: string }[];

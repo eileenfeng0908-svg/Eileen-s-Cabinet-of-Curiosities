@@ -57,8 +57,10 @@ export default async function ProjectPage({ params }: Props) {
       </header>
 
       <figure className="frame mt-16 md:mt-24">
-        <Plate image={{ ...project.cover, aspect: Math.max(project.cover.aspect, 16 / 10) }} number={1} priority sizes="100vw" zoom={false} />
+        <div className="mx-auto" style={project.coverMaxWidth ? { maxWidth: project.coverMaxWidth } : undefined}>
+        <Plate image={{ ...project.cover, aspect: project.coverMaxWidth ? project.cover.aspect : Math.max(project.cover.aspect, 16 / 10) }} number={1} priority sizes="100vw" zoom={false} />
         {project.cover.caption && <figcaption className="mt-3 text-caption text-ink-soft">{project.cover.caption}</figcaption>}
+        </div>
       </figure>
 
       <div className="frame py-20 md:py-28">
