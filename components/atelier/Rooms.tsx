@@ -124,9 +124,9 @@ function ShowArchive({ show }: { show: Show }) {
 
       <section className="space-y-8">
         <Subhead color={ink.green}>Designers & models</Subhead>
-        <div className="relative grid gap-8 border border-wine/20 bg-[color-mix(in_srgb,var(--aged-ivory)_50%,white)] p-6 sm:grid-cols-2 md:p-10">
+        <div className={cn("relative grid gap-8 border border-wine/20 bg-[color-mix(in_srgb,var(--aged-ivory)_50%,white)] p-6 sm:grid-cols-2 md:p-10", show.volunteers && "lg:grid-cols-[1.4fr_1fr_1fr]")}>
           <span aria-hidden className="absolute inset-1.5 border border-wine/10" />
-          {[["Designers", show.designers], ["Models", show.models]].map(([label, people]) => (
+          {([["Designers", show.designers], ["Models", show.models], ...(show.volunteers ? [["Volunteers", show.volunteers]] : [])] as [string, Show["designers"]][]).map(([label, people]) => (
             <div key={label as string} className="relative">
               <p className="label text-wine">{label as string}</p>
               <ul className="mt-3 space-y-2">

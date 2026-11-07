@@ -58,6 +58,7 @@ export interface Show {
   videos: AtelierVideo[];
   designers: Person[];
   models: Person[];
+  volunteers?: Person[];
   backstage: AtelierPhoto[];
 }
 
@@ -95,6 +96,40 @@ export const shows: Show[] = [
     ],
     posters: [
       { label: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish", src: "/images/fashion/2023/bionic-08.jpg", width: 1600, height: 600, alt: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish" },
+    ],
+    designers: [
+      { name: "Eileen 冯洁琳", role: "Models: Aevine, Chloe, Mr. Hawkins" },
+      { name: "Coco 何思妍", role: "Models: Alice, Eurus, Mr. Matt" },
+      { name: "Rena 张若曦", role: "Models: Roy, Jasmine" },
+      { name: "Jasmine 吴可辛", role: "Models: Claire" },
+      { name: "Yolanda 甘钰涵", role: "Models: Sally, Yolanda" },
+      { name: "Dora 王淼", role: "Models: Yuanyuan" },
+      { name: "Ma.gao", role: "Models: Stephanie, Mindee" },
+      { name: "Constan 曾情", role: "Models: Jenny" },
+    ],
+    models: [
+      { name: "Aevine 孙艾文" },
+      { name: "Chloe 黄卓君" },
+      { name: "Mr. Hawkins" },
+      { name: "Alice 梁诗媛" },
+      { name: "Eurus 毛馨可" },
+      { name: "Mr. Matt" },
+      { name: "Roy 罗紫睿" },
+      { name: "Jasmine 桂洪茉" },
+      { name: "Claire 王梓棋" },
+      { name: "Sally 胡馨予" },
+      { name: "Yolanda 甘钰涵" },
+      { name: "Yuanyuan" },
+      { name: "Stephanie 张嘉妤" },
+      { name: "Mindee 涂静怡" },
+      { name: "Jenny 田一涵" },
+    ],
+    volunteers: [
+      { name: "Emily 王熳綝" },
+      { name: "Cecilia 姚年伈" },
+      { name: "Joyce 黄乐之" },
+      { name: "Spring 朱春天" },
+      { name: "Janie 席圆圆" },
     ],
     videos: [
       { label: "Bionic trailer", src: "/videos/fashion/bionic-2023-trailer.mp4", poster: "/videos/fashion/bionic-2023-trailer-poster.jpg", caption: "Trailer" },
