@@ -162,6 +162,19 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
+    runway: [
+      { label: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", src: "/images/fashion/2024/utopia-29.jpg", width: 723, height: 1086, alt: "A model on the runway in a white gown with lilies, a ruffled sleeve and a veil, under a gold halo crown set with crosses and pearls", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "The rose cage gown on the runway: a black veil and lace over a white skirt, the cage wound with black leaves and blue roses, carrying a black bouquet", src: "/images/fashion/2024/utopia-30.jpg", width: 724, height: 1086, alt: "The rose cage gown on the runway: a black veil and lace over a white skirt, the cage wound with black leaves and blue roses, carrying a black bouquet", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "The rose cage gown, raising the black bouquet with a red rose beneath the veil", src: "/images/fashion/2024/utopia-32.jpg", width: 724, height: 1086, alt: "The rose cage gown, raising the black bouquet with a red rose beneath the veil", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "The rose cage gown under a spotlight, holding the bouquet", src: "/images/fashion/2024/utopia-35.jpg", width: 1086, height: 724, alt: "The rose cage gown under a spotlight, holding the bouquet" },
+      { label: "Designers, models and guests together in front of the UTOPIA 乌托邦 banner", src: "/images/fashion/2024/utopia-36.jpg", width: 1086, height: 724, alt: "Designers, models and guests together in front of the UTOPIA 乌托邦 banner", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "The finale: the models in their looks in front of the banner, under falling confetti", src: "/images/fashion/2024/utopia-38.jpg", width: 1092, height: 720, alt: "The finale: the models in their looks in front of the banner, under falling confetti", caption: "Photo: Shenzhen Nanshan Huitong School" },
+    ],
+    posters: [
+      { label: "Invitation: UTOPIA 乌托邦, Huitong Fashion Show 荟同时装秀, 2024.5.17, 6:00–7:00 pm, Venue: Shenzhen Huitong School 深圳荟同学校, with butterflies over flowing white lines", src: "/images/fashion/2024/utopia-37.jpg", width: 665, height: 1182, alt: "Invitation: UTOPIA 乌托邦, Huitong Fashion Show 荟同时装秀, 2024.5.17, 6:00–7:00 pm, Venue: Shenzhen Huitong School 深圳荟同学校, with butterflies over flowing white lines" },
+      { label: "Title card: “So long” handwritten in white over leaves in black and white", src: "/images/fashion/2024/utopia-27.jpg", width: 576, height: 323, alt: "Title card: “So long” handwritten in white over leaves in black and white" },
+      { label: "Title card: “Tears of the Virgin” over branches against a blue sky", src: "/images/fashion/2024/utopia-28.jpg", width: 576, height: 323, alt: "Title card: “Tears of the Virgin” over branches against a blue sky" },
+    ],
     backstage: [
       { label: "Moodboard signed Eileen Emily: a weeping stone statue holding a skull, grey and black roses, a woman in a spiked halo and veil, black ruffled gothic dresses, torn parchment, flowers and a misty graveyard", src: "/images/fashion/2024/utopia-11.jpg", width: 1024, height: 769, alt: "Moodboard signed Eileen Emily: a weeping stone statue holding a skull, grey and black roses, a woman in a spiked halo and veil, black ruffled gothic dresses, torn parchment, flowers and a misty graveyard" },
       { label: "Pencil sketch of a veiled gown, labelled “mask”", src: "/images/fashion/2024/utopia-01.jpg", width: 1080, height: 1058, alt: "Pencil sketch of a veiled gown, labelled “mask”" },
@@ -189,6 +202,9 @@ export const shows: Show[] = [
       { label: "Cutting a long length of pleated white fabric", src: "/images/fashion/2024/utopia-24.jpg", width: 1086, height: 724, alt: "Cutting a long length of pleated white fabric" },
       { label: "Pinning pleated white fabric on a dress form", src: "/images/fashion/2024/utopia-25.jpg", width: 1086, height: 724, alt: "Pinning pleated white fabric on a dress form" },
       { label: "Shaping a pleated white ruffle on a dress form", src: "/images/fashion/2024/utopia-26.jpg", width: 1086, height: 724, alt: "Shaping a pleated white ruffle on a dress form" },
+      { label: "A live music performance at the show, with singers at the microphones and the audience gathered round", src: "/images/fashion/2024/utopia-31.jpg", width: 1086, height: 724, alt: "A live music performance at the show, with singers at the microphones and the audience gathered round" },
+      { label: "A selfie of two friends in black T-shirts", src: "/images/fashion/2024/utopia-33.jpg", width: 1200, height: 1600, alt: "A selfie of two friends in black T-shirts" },
+      { label: "A selfie with friends at the show", src: "/images/fashion/2024/utopia-34.jpg", width: 768, height: 1024, alt: "A selfie with friends at the show" },
     ],
   },
   showTemplate("2025", "2025", "Memory", "Memory", "wine"),
