@@ -54,7 +54,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             );
           case "heading":
             return (
-              <h2 key={i} id={headingId(block.text)} className="reading-column scroll-mt-[calc(var(--header-h)+2rem)] pt-8 text-title">
+              <h2 key={i} id={headingId(block.text)} className={cn(block.wide ? "mx-auto max-w-5xl" : "reading-column", "scroll-mt-[calc(var(--header-h)+2rem)] pt-8 text-title")}>
                 {block.text}
               </h2>
             );
@@ -84,6 +84,14 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
                 <p className="font-display text-statement italic text-wine">{inline(block.text)}</p>
                 {block.source && <footer className="label mt-4 text-ink-soft">— {block.source}</footer>}
               </blockquote>
+            );
+          case "bilingual":
+            return (
+              <div key={i} className={cn("mx-auto grid max-w-5xl gap-x-10 gap-y-3 md:grid-cols-2", block.quote && "border-l border-vermilion py-2 pl-6")}>
+                <p lang="zh-Hans" className={cn("whitespace-pre-line leading-[1.9] text-wine", block.quote && "font-display")}>{block.zh}</p>
+                <p lang="en" className={cn("whitespace-pre-line text-wine/90", block.quote && "font-display text-[1.15rem] italic leading-relaxed")}>{block.en}</p>
+                {block.source && <footer className="label mt-1 text-ink-soft md:col-span-2">— {block.source}</footer>}
+              </div>
             );
           case "image":
             return (

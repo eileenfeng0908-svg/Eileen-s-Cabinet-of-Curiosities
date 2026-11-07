@@ -41,12 +41,14 @@ export type WorkCategory =
 /** Blocks that make up a project or article body. */
 export type ContentBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; text: string }
+  | { type: "heading"; text: string; /** match the width of bilingual blocks */ wide?: boolean }
   | { type: "subheading"; text: string }
   /** A small capitalised label, for the smaller divisions of a long paper. */
   | { type: "label"; text: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string; source?: string }
+  /** Chinese and English side by side; `quote` sets it as a quotation. */
+  | { type: "bilingual"; zh: string; en: string; quote?: boolean; source?: string }
   | { type: "image"; image: ImageAsset; size?: "full" | "wide" | "inset"; /** px cap, e.g. for a QR code */ maxWidth?: number }
   | { type: "gallery"; images: ImageAsset[] }
   | { type: "video"; url: string; title: string; caption?: string }
