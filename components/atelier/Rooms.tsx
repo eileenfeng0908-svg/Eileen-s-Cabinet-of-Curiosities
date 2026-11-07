@@ -111,6 +111,10 @@ function ShowArchive({ show }: { show: Show }) {
         </dl>
       </header>
 
+      {show.upcoming ? (
+        <p className="font-display text-xl italic text-wine">{show.upcoming}</p>
+      ) : (
+      <>
       <section className="space-y-8">
         <Subhead color={color}>Runway photographs</Subhead>
         <PhotoScatter photos={show.runway} />
@@ -173,6 +177,8 @@ function ShowArchive({ show }: { show: Show }) {
         <Subhead color={ink.vermilion}>Behind the scenes</Subhead>
         <PhotoScatter photos={show.backstage} />
       </section>
+      </>
+      )}
     </article>
   );
 }
