@@ -47,7 +47,7 @@ export type ContentBlock =
   | { type: "label"; text: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string; source?: string }
-  | { type: "image"; image: ImageAsset; size?: "full" | "wide" | "inset" }
+  | { type: "image"; image: ImageAsset; size?: "full" | "wide" | "inset"; /** px cap, e.g. for a QR code */ maxWidth?: number }
   | { type: "gallery"; images: ImageAsset[] }
   | { type: "video"; url: string; title: string; caption?: string }
   | { type: "links"; title?: string; items: { label: string; href: string }[] };

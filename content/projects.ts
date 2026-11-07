@@ -209,7 +209,11 @@ export const projects: Project[] = [
     category: "Writing & Publications",
     year: undefined,
     // LinkedIn lists Sep 2023: confirm before showing a year.
-    cover: { alt: "[4 Mirrors cover image]", aspect: 1, tone: "brass", motif: "none", caption: "[Image — caption]" },
+    cover: {
+      src: "/images/work/four-mirrors/cover.jpg",
+      alt: "A woman in a pink blouse facing an oval wall mirror, her reflection repeated again and again in smaller mirrors",
+      aspect: 1200 / 720,
+    },
     summary: "A WeChat public account founded by Eileen. [Its editorial scope and selected posts to come.]",
     credits: [
       { label: "Type", value: "Writing / publication" },
@@ -217,7 +221,14 @@ export const projects: Project[] = [
     ],
     body: [
       { type: "paragraph", text: "[What 4 Mirrors publishes, and why you started it.]" },
-      { type: "links", title: "Read", items: [{ label: "[Link to 4 Mirrors]", href: "#" }] },
+      {
+        type: "image",
+        size: "inset",
+        maxWidth: 260,
+        image: { src: "/images/work/four-mirrors/qr.png", alt: "WeChat QR code for the 4 Mirrors public account", aspect: 1, caption: "Scan with WeChat to follow 4 Mirrors" },
+      },
+      { type: "paragraph", text: "Many of the essays from the account are also collected on the Writing page." },
+      { type: "links", title: "Read", items: [{ label: "Writing & Philosophy", href: "/collections/writing-and-philosophy" }] },
     ],
   },
 ];
