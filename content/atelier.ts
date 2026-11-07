@@ -325,7 +325,16 @@ export const shows: Show[] = [
       { label: "A Polaroid film card reading “Working class heroes.”, held up in the studio", src: "/images/fashion/2025/memory-25.jpg", width: 665, height: 1182, alt: "A Polaroid film card reading “Working class heroes.”, held up in the studio" },
     ],
   },
-  showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
+  {
+    ...showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
+    concept: [
+      "The idea came to me while I was thinking about the next year’s theme. Staring at my desk one day, I noticed the Monet painting on it and thought we could do something like “great artists”, but that felt a little limiting. So I came up with Identity instead.",
+      "We are all teenagers now, and developmental psychologists describe this as the stage of life when we explore our own identity. Like Memory, it is a theme that lets our designers draw inspiration from themselves and from the world around them.",
+    ],
+    set: [
+      "We turned the school into an entire theatre draped in red velvet, and we hung all of the velvet ourselves. It created a theatrical feeling and made everything feel more like a drama or a performance. Because the show is about identity, we wanted the models to act out who they are through what they are wearing.",
+    ],
+  },
   showTemplate("2027", "2027", "In the Mood for…", "In the Mood for…", "brass"),
 ];
 
