@@ -108,7 +108,13 @@ export const projects: Project[] = [
     category: "Art & Curation",
     year: undefined,
     // LinkedIn lists Aug 2026 – present: confirm before showing a year.
-    cover: { alt: "[Postcard from the collection]", aspect: 3 / 2, tone: "walnut", motif: "horizon", caption: "[Postcard — caption]" },
+    href: "https://postcard-archive.vercel.app/collection",
+    cover: {
+      src: "/images/work/postcard-archive/cover.jpg",
+      alt: "Postcard “St. Valentine’s Greeting”: two children sitting in front of a pink heart framed with forget-me-nots, with the verse “I love my Love, because I know my Love loves me”",
+      aspect: 1090 / 705,
+      caption: "“St. Valentine’s Greeting”, from the collection",
+    },
     summary:
       "An interactive website built around a personal collection of postcards dating from the early 1900s through the 2020s. It explores historical relationships and the intimate stories preserved in handwritten correspondence, and includes the related photographic-memory project “Who Are You? – People I’ve Never Met.”",
     credits: [
@@ -119,7 +125,7 @@ export const projects: Project[] = [
       { type: "paragraph", text: "[How the collection began, and how the website lets people read it.]" },
       { type: "subheading", text: "Who Are You? – People I’ve Never Met" },
       { type: "paragraph", text: "[About the photographic-memory project.]" },
-      { type: "links", title: "Elsewhere", items: [{ label: "[Link to the Postcard Archive website]", href: "#" }] },
+      { type: "links", title: "Elsewhere", items: [{ label: "Visit the Postcard Archive", href: "https://postcard-archive.vercel.app/collection" }] },
     ],
   },
   {
