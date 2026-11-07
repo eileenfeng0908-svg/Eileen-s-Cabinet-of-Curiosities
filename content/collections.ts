@@ -50,7 +50,7 @@ export const collections: Collection[] = [
     slug: "writing-and-philosophy",
     title: "Writings",
     object: "notebook",
-    intro: "[A sentence about why you write, and the questions you write toward.]",
+    intro: "“I write entirely to find out what I’m thinking, what I’m looking at, what I see and what it means.” (Joan Didion, “Why I Write”)",
     holds: { writing: () => true },
   },
   {
