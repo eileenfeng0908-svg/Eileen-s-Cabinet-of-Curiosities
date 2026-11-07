@@ -52,7 +52,10 @@ export interface Show {
   year: string;
   title: string;
   theme: string;
-  concept: string;
+  /** One paragraph, or several. */
+  concept: string | string[];
+  /** How the stage and backdrop were designed, in paragraphs. */
+  set?: string[];
   role: string;
   /** The invitation's colour on the desk. */
   ink: "vermilion" | "blue" | "green" | "wine" | "brass";
@@ -75,7 +78,7 @@ const showTemplate = (id: string, year: string, title: string, theme: string, in
   theme,
   ink,
   concept: "[The concept behind the show: what it set out to say, and how.]",
-  role: "[Your role in this show]",
+  role: "Designer and show director",
   runway: ph("[Upload Runway Photograph]", 6, ["portrait", "portrait", "landscape", "portrait", "portrait", "landscape"]),
   posters: ph("[Insert Show Poster]", 2, ["portrait", "portrait"]),
   videos: [{ label: "[Add Show Video]" }],
@@ -165,6 +168,10 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
+    concept: [
+      "The theme is Utopia: a wonderful, dreamy world where designers can express themselves and show their creativity. The designers set out to build a world like the one in the film Barbie, and called it Utopia. In it, people wear clothing in each designer’s unique style, and every individual has a distinctive personality and style. Whatever their profession or group, everyone can have their shining moment in this world.",
+      "Most importantly, this year the show used holographic projection, a technology new to fashion shows that even Shenzhen Fashion Week had not used before. The show took place on 17 May at 6 p.m. on the first floor.",
+    ],
     videos: [
       { label: "Utopia show video", caption: "Utopia show video", poster: "/images/fashion/2024/utopia-38.jpg", href: "https://weixin.qq.com/sph/AsCeVnqW6Z", hrefLabel: "Watch on WeChat Channels ↗" },
       { label: "Tears of the Virgin", src: "/videos/fashion/utopia-2024.mp4", poster: "/videos/fashion/utopia-2024-poster.jpg", caption: "Tears of the Virgin" },
@@ -198,7 +205,7 @@ export const shows: Show[] = [
       { label: "Detail of the grey rose, black-painted leaves and white strands", src: "/images/fashion/2024/utopia-15.jpg", width: 768, height: 1024, alt: "Detail of the grey rose, black-painted leaves and white strands" },
       { label: "Close up of the sculpted, glossy white fabric with grey honeycomb texture", src: "/images/fashion/2024/utopia-16.jpg", width: 1200, height: 1600, alt: "Close up of the sculpted, glossy white fabric with grey honeycomb texture" },
       { label: "The cage skirt with its silver fabric, black leaves and a rose, in the studio", src: "/images/fashion/2024/utopia-17.jpg", width: 540, height: 360, alt: "The cage skirt with its silver fabric, black leaves and a rose, in the studio" },
-      { label: "A sheer screen in the atrium showing a white robot holding a glowing blue brain, between the Chinese and Australian flags", src: "/images/fashion/2024/utopia-18.jpg", width: 640, height: 360, alt: "A sheer screen in the atrium showing a white robot holding a glowing blue brain, between the Chinese and Australian flags" },
+      { label: "Holographic projection on a sheer screen in the atrium: a white robot holding a glowing blue brain, between the Chinese and Australian flags", src: "/images/fashion/2024/utopia-18.jpg", width: 640, height: 360, alt: "Holographic projection on a sheer screen in the atrium: a white robot holding a glowing blue brain, between the Chinese and Australian flags" },
       { label: "In the studio beside a gown with white and grey organza rosettes and a pleated white sleeve", src: "/images/fashion/2024/utopia-19.jpg", width: 1086, height: 724, alt: "In the studio beside a gown with white and grey organza rosettes and a pleated white sleeve" },
       { label: "Students fitting garments on dress forms in the studio", src: "/images/fashion/2024/utopia-20.jpg", width: 1086, height: 724, alt: "Students fitting garments on dress forms in the studio" },
       { label: "Measuring and cutting at the worktable, with wire, glue and tulle", src: "/images/fashion/2024/utopia-21.jpg", width: 1086, height: 724, alt: "Measuring and cutting at the worktable, with wire, glue and tulle" },
@@ -217,6 +224,17 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2025", "2025", "Memory", "Memory", "wine"),
+    concept: [
+      "Memories are colourful and vivid, filled with a range of emotions. They connect us to specific moments in our lives, and certain things can trigger them, carrying us back to a particular time, place or experience. Memory and time are closely intertwined: as time passes, memories may fade, yet they stay linked to childhood, to dreams and to unforgettable journeys.",
+      "For this show, designers drew on their past and present experiences to create garments that embody their daydreams, emotions and identities, transforming their memories into tangible pieces of art.",
+    ],
+    set: [
+      "The backdrop is about the purity and the erratic nature of memory. Models emerge from behind waving curtains of fabric, the way an old memory suddenly flashes back. A pure white background gives a strong contrast with the students’ garments, and with the school’s architecture.",
+      "To build it, we tied fabric to the railing of the second-floor atrium and let it drape down to the first floor, so the space reads as a flowing white backdrop from outside. More fabric hangs between the first- and second-floor platforms, so that models walking out from the staircase step through a curtain of fabric, as if stepping out of a memory.",
+    ],
+    videos: [
+      { label: "Memory show video", src: "/videos/fashion/memory-2025.mp4", poster: "/videos/fashion/memory-2025-poster.jpg" },
+    ],
     runway: [
       { label: "The gown on the runway: party hat and veil, organza puff sleeves and hydrangeas, carrying a tray of dripping candles and flowers", src: "/images/fashion/2025/memory-01.jpg", width: 724, height: 1086, alt: "The gown on the runway: party hat and veil, organza puff sleeves and hydrangeas, carrying a tray of dripping candles and flowers", caption: "Photo: Shenzhen Nanshan Huitong School" },
       { label: "The same look walking into the spotlight, holding the candle tray", src: "/images/fashion/2025/memory-02.jpg", width: 724, height: 1086, alt: "The same look walking into the spotlight, holding the candle tray" },

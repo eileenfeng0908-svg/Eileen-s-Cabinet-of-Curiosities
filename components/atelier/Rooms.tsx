@@ -92,8 +92,22 @@ function ShowArchive({ show }: { show: Show }) {
           </div>
           <div className="sm:col-span-2">
             <dt className="label text-ink-soft">Concept</dt>
-            <dd className="mt-1 text-body text-wine">{show.concept}</dd>
+            <dd className="mt-1 space-y-3 text-body text-wine">
+              {(Array.isArray(show.concept) ? show.concept : [show.concept]).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </dd>
           </div>
+          {show.set && (
+            <div className="sm:col-span-2">
+              <dt className="label text-ink-soft">The set</dt>
+              <dd className="mt-1 space-y-3 text-body text-wine">
+                {show.set.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </dd>
+            </div>
+          )}
         </dl>
       </header>
 
