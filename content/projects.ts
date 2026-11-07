@@ -180,11 +180,17 @@ export const projects: Project[] = [
     category: "Cinema & Research",
     year: undefined,
     // LinkedIn lists Oct 2024 – Jun 2025: confirm before showing dates.
-    cover: { alt: "[Film still]", aspect: 4 / 3, tone: "green", motif: "arch", caption: "[Still — film, year]" },
+    cover: {
+      src: "/images/work/film-and-mental-illness/cover.jpg",
+      alt: "Looking down on a cinema audience seated in rows of red velvet seats",
+      aspect: 736 / 1104,
+    },
+    coverMaxWidth: 520,
     summary:
       "Qualitative research comparing film portrayals of mental illness with clinical understandings. It investigates stereotyping, narrative and environmental factors, and the ways media representations may contribute to public stigma and self-stigma.",
     credits: [{ label: "Type", value: "Cinema / psychology research" }],
     body: [
+      { type: "video", url: "https://youtu.be/cuBmzg9y4RE", title: "TEDx talk", caption: "TEDx talk" },
       {
         type: "paragraph",
         text: "The full research paper, Misconceptions on Screen, compares films’ depictions of mental illness with the DSM-5 and traces how the differences contribute to stigma and public misconceptions.",
