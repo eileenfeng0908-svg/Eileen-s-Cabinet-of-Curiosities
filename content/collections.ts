@@ -39,7 +39,7 @@ export const collections: Collection[] = [
     slug: "art-and-curation",
     title: "Art & Curation",
     object: "painting",
-    intro: "[A sentence about the exhibitions you make and the art you keep returning to.]",
+    intro: "“The relation between what we see and what we know is never settled.” (John Berger, Ways of Seeing)",
     holds: {
       projects: (p) => p.category === "Art & Curation",
       writing: (a) => a.category === "Art History",
