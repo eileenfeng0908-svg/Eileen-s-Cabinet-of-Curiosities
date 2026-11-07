@@ -125,7 +125,7 @@ export const shows: Show[] = [
       { name: "Jenny 田一涵" },
     ],
     volunteers: [
-      { name: "Emily 王熳綝" },
+      { name: "Emily 王燰綝" },
       { name: "Cecilia 姚年伈" },
       { name: "Joyce 黄乐之" },
       { name: "Spring 朱春天" },
