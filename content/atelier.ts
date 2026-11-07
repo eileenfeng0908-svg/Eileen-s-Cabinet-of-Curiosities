@@ -26,6 +26,9 @@ export interface AtelierVideo {
   label: string;
   /** An embed URL (YouTube, Vimeo, Bilibili). */
   url?: string;
+  /** Or a video file in /public/videos/fashion/, with a still to show before it plays. */
+  src?: string;
+  poster?: string;
   caption?: string;
 }
 
@@ -93,6 +96,7 @@ export const shows: Show[] = [
     posters: [
       { label: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish", src: "/images/fashion/2023/bionic-08.jpg", width: 1600, height: 600, alt: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish" },
     ],
+    videos: [{ label: "Bionic show video", src: "/videos/fashion/bionic-2023.mp4", poster: "/videos/fashion/bionic-2023-poster.jpg" }],
     backstage: [
       { label: "The model in the silver look sitting outdoors under a red and white umbrella", src: "/images/fashion/2023/bionic-09.jpg", width: 1350, height: 1800, alt: "The model in the silver look sitting outdoors under a red and white umbrella" },
       { label: "The model in the silver look sitting on the grass in front of a chalk-covered wall", src: "/images/fashion/2023/bionic-10.jpg", width: 1179, height: 1519, alt: "The model in the silver look sitting on the grass in front of a chalk-covered wall" },
