@@ -477,7 +477,7 @@ export interface SketchbookSpread {
 }
 
 export const designSketchbook: SketchbookSpread[] = [
-  { title: "Initial Ideas", note: "[First thoughts, words and references.]", slots: [
+  { title: "Initial Ideas", note: "“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street; fashion has to do with ideas, the way we live, what is happening.” (Coco Chanel)", slots: [
       { label: "Pencil studies of hanging forms labelled wood, wind, eyes, emotion, water, fire, cloud and fish × water", src: "/images/fashion/process/a06.jpg", width: 1200, height: 1800, alt: "Pencil studies of hanging forms labelled wood, wind, eyes, emotion, water, fire, cloud and fish × water" },
       { label: "Quick sketch on black: coral-pink hand shapes over blue wave lines, with the word “coral”", src: "/images/fashion/process/a07.jpg", width: 528, height: 792, alt: "Quick sketch on black: coral-pink hand shapes over blue wave lines, with the word “coral”" },
       { label: "Quick sketch on black: a figure in teal and red hatching with green flowing shapes", src: "/images/fashion/process/a08.jpg", width: 528, height: 792, alt: "Quick sketch on black: a figure in teal and red hatching with green flowing shapes" },
@@ -492,14 +492,14 @@ export const designSketchbook: SketchbookSpread[] = [
       { label: "Notebook spread: handwritten text beside an ink sketch labelled chapter 1, with notes on fins", src: "/images/fashion/2023/process-p03.jpg", width: 1600, height: 1600, alt: "Notebook spread: handwritten text beside an ink sketch labelled chapter 1, with notes on fins" },
       { label: "Oil pastel study of swirling blues, turquoise and yellow", src: "/images/fashion/2023/process-p06.jpg", width: 1440, height: 1432, alt: "Oil pastel study of swirling blues, turquoise and yellow" },
     ] },
-  { title: "Moodboards", note: "[What the moodboard was gathering toward.]", slots: [
+  { title: "Moodboards", note: "“The eye has to travel.” (Diana Vreeland)", slots: [
       { label: "Moodboard: white ruffles, lilies, a baroque altar, stained glass, weeping Madonnas and pearls, circled in red", src: "/images/fashion/process/a04.jpg", width: 1800, height: 1349, alt: "Moodboard: white ruffles, lilies, a baroque altar, stained glass, weeping Madonnas and pearls, circled in red" },
       { label: "Moodboard in pink: a lace party-hat cake, pearls, stars, candles, carnival costumes and a rose garden", src: "/images/fashion/process/a13.jpg", width: 1800, height: 1349, alt: "Moodboard in pink: a lace party-hat cake, pearls, stars, candles, carnival costumes and a rose garden" },
       { label: "Moodboard collage of eyes, irises and figures in grey suits", src: "/images/fashion/process/a29.jpg", width: 1800, height: 1349, alt: "Moodboard collage of eyes, irises and figures in grey suits" },
       { label: "Moodboard signed Eileen Emily: a weeping stone statue holding a skull, grey and black roses, a woman in a spiked halo and veil, black ruffled gothic dresses, torn parchment, flowers and a misty graveyard", src: "/images/fashion/2024/utopia-11.jpg", width: 1024, height: 769, alt: "Moodboard signed Eileen Emily: a weeping stone statue holding a skull, grey and black roses, a woman in a spiked halo and veil, black ruffled gothic dresses, torn parchment, flowers and a misty graveyard" },
       { label: "Moodboard, “Girl Under the Grey Cloud”: a story set at 2:27 a.m. on a rainy night in Paris, with corseted gowns, glittering eye make-up and a palette of black, wine, navy and amber", src: "/images/fashion/2026/identity-20.jpg", width: 1800, height: 1440, alt: "Moodboard, “Girl Under the Grey Cloud”: a story set at 2:27 a.m. on a rainy night in Paris, with corseted gowns, glittering eye make-up and a palette of black, wine, navy and amber" },
     ] },
-  { title: "Fashion Illustrations", note: "[About these illustrations.]", slots: [
+  { title: "Fashion Illustrations", note: "“Drawing is not what one sees but what one can make others see.” (Edgar Degas)", slots: [
       { label: "A figure in white line loops scattered with blue bubbles, on black", src: "/images/fashion/process/a01.jpg", width: 528, height: 792, alt: "A figure in white line loops scattered with blue bubbles, on black" },
       { label: "A dress shaped like an apple core, with green vines trailing down the legs", src: "/images/fashion/process/a02.jpg", width: 1200, height: 1800, alt: "A dress shaped like an apple core, with green vines trailing down the legs" },
       { label: "A figure in translucent blue and white with a curling tail, titled “Dolphin”", src: "/images/fashion/process/a16.jpg", width: 1200, height: 1800, alt: "A figure in translucent blue and white with a curling tail, titled “Dolphin”" },
@@ -514,7 +514,7 @@ export const designSketchbook: SketchbookSpread[] = [
       { label: "The same design being coloured on screen", src: "/images/fashion/2025/memory-12.jpg", width: 768, height: 1024, alt: "The same design being coloured on screen" },
       { label: "The finished illustration, signed eileen: pink party hat, grey feathered collar, pastel sleeves and a cream skirt with pink ribbons and stars, beside the moodboard", src: "/images/fashion/2025/memory-13.jpg", width: 714, height: 1098, alt: "The finished illustration, signed eileen: pink party hat, grey feathered collar, pastel sleeves and a cream skirt with pink ribbons and stars, beside the moodboard" },
     ] },
-  { title: "Design Development", note: "[How the designs changed.]", slots: [
+  { title: "Design Development", note: "“The details are not the details. They make the design.” (Charles Eames)", slots: [
       { label: "Pencil and red-line sketch of a long gown with flowers and a halo, with the note “Tears”", src: "/images/fashion/process/a03.jpg", width: 1200, height: 1800, alt: "Pencil and red-line sketch of a long gown with flowers and a halo, with the note “Tears”" },
       { label: "Pencil sketch of a long layered gown with a sunburst halo and flowers", src: "/images/fashion/process/a11.jpg", width: 1349, height: 1800, alt: "Pencil sketch of a long layered gown with a sunburst halo and flowers" },
       { label: "A long dark coat with blue lapels and white wave lines, with handwritten notes, for “Dolphins”", src: "/images/fashion/process/a05.jpg", width: 528, height: 792, alt: "A long dark coat with blue lapels and white wave lines, with handwritten notes, for “Dolphins”" },
@@ -551,7 +551,7 @@ export const designSketchbook: SketchbookSpread[] = [
       { label: "Gluing rhinestones onto the corset at the worktable", src: "/images/fashion/2026/identity-24.jpg", width: 1182, height: 665, alt: "Gluing rhinestones onto the corset at the worktable" },
       { label: "The beaded corset on the dress form", src: "/images/fashion/2026/identity-25.jpg", width: 360, height: 608, alt: "The beaded corset on the dress form" },
     ] },
-  { title: "Final Looks", note: "[The finished looks.]", slots: [
+  { title: "Final Looks", note: "“Fashions fade, style is eternal.” (Yves Saint Laurent)", slots: [
       { label: "The finished Identity gown, photographed from below against a grey backdrop: white organza ruffles at the shoulder, a beaded wine-red corset, and a skirt of crushed black and bronze on one side and red, silver and lilac ruffles on the other", src: "/images/fashion/2026/identity-55.jpg", width: 1200, height: 1800, alt: "The finished Identity gown, photographed from below against a grey backdrop: white organza ruffles at the shoulder, a beaded wine-red corset, and a skirt of crushed black and bronze on one side and red, silver and lilac ruffles on the other" },
       { label: "The finished silver, white and blue gown on a dress form, with its train and the orb", src: "/images/fashion/2023/process-p08.jpg", width: 1200, height: 1600, alt: "The finished silver, white and blue gown on a dress form, with its train and the orb" },
       { label: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb", src: "/images/fashion/2023/bionic-04.jpg", width: 1116, height: 1800, alt: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb" },
