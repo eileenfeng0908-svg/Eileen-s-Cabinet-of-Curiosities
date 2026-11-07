@@ -328,7 +328,7 @@ export const shows: Show[] = [
   {
     ...showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
     concept: [
-      "The idea came to me while I was thinking about the next year’s theme. Staring at my desk one day, I noticed the Monet painting on it and thought we could do something like “great artists”, but that felt a little limiting. So I came up with Identity instead.",
+      "Staring at my desk one day, I noticed the Monet painting on it and thought we could do something like “great artists”, but that felt a little limiting. So I came up with Identity instead.",
       "We are all teenagers now, and developmental psychologists describe this as the stage of life when we explore our own identity. Like Memory, it is a theme that lets our designers draw inspiration from themselves and from the world around them.",
     ],
     set: [
