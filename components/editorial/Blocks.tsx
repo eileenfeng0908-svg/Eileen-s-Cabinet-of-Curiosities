@@ -133,11 +133,16 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
             return (
               <div key={i} className="reading-column border-t border-rule pt-6">
                 {block.title && <p className="label mb-3 text-ink-soft">{block.title}</p>}
-                <ul className="space-y-2">
+                <ul className="flex flex-wrap gap-3">
                   {block.items.map((l) => (
                     <li key={l.label}>
-                      <a href={l.href} className="link-draw" target="_blank" rel="noreferrer">
-                        {l.label} <span aria-hidden>↗</span>
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex items-center gap-3 rounded-full border-2 border-wine bg-wine px-7 py-3.5 font-display text-2xl text-ivory transition-colors hover:border-vermilion hover:bg-vermilion"
+                      >
+                        {l.label} <span aria-hidden className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
                       </a>
                     </li>
                   ))}

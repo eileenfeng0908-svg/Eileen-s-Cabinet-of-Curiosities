@@ -116,15 +116,13 @@ export const projects: Project[] = [
       caption: "“St. Valentine’s Greeting”, from the collection",
     },
     summary:
-      "An interactive website built around a personal collection of postcards dating from the early 1900s through the 2020s. It explores historical relationships and the intimate stories preserved in handwritten correspondence, and includes the related photographic-memory project “Who Are You? – People I’ve Never Met.”",
+      "An interactive website built around a personal collection of postcards dating from the early 1900s through the 2020s. It explores historical relationships and the intimate stories preserved in handwritten correspondence.",
     credits: [
       { label: "Type", value: "Interactive archive / digital humanities" },
       { label: "Status", value: "Ongoing" },
     ],
     body: [
-      { type: "paragraph", text: "[How the collection began, and how the website lets people read it.]" },
-      { type: "subheading", text: "Who Are You? – People I’ve Never Met" },
-      { type: "paragraph", text: "[About the photographic-memory project.]" },
+      { type: "paragraph", text: "For now, this is an online archive for my own postcard collection, and I am still developing it. In the future, I want to grow it into a global, public online postcard archive: a place to preserve human connection and love." },
       { type: "links", title: "Elsewhere", items: [{ label: "Visit the Postcard Archive", href: "https://postcard-archive.vercel.app/collection" }] },
     ],
   },
