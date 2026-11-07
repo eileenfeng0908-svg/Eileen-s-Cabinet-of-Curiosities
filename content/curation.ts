@@ -53,6 +53,8 @@ export interface DrawerObject {
   decorative?: boolean;
   /** A website this object opens in a new tab. */
   href?: string;
+  /** Website card only: paint this many page panels on it (otherwise it shows a letter). */
+  panels?: number;
 }
 
 export interface Drawer {
@@ -133,8 +135,19 @@ export const drawers: Drawer[] = [
         exhibition: "what-makes-us-human",
         description: "An interactive music website made for the exhibition, in seven pages, each one different. Its first page reads: “Press play. Listen before you name it.”",
         href: "https://music-interaction.vercel.app/#s7",
+        panels: 7,
         at: { x: 74, y: 60, w: 15, rot: 4, z: 4 },
         fixings: [{ kind: "tape", x: 50, y: 1, w: 34, rot: -3, color: "var(--powder-blue)" }],
+      },
+      {
+        id: "what-makes-us-human-between-us",
+        kind: "website",
+        title: "Between Us",
+        exhibition: "what-makes-us-human",
+        description: "An AI-assisted letter-writing system inspired by Spike Jonze’s Her (2013). The project examines how simulated replies can evoke recognition, intimacy or emotional connection, and asks where imitation ends and understanding begins.",
+        href: "https://between-us-pi.vercel.app/",
+        at: { x: 39, y: 85, w: 14, rot: -5, z: 5 },
+        fixings: [{ kind: "tape", x: 50, y: 1, w: 34, rot: 4, color: "var(--vermilion)" }],
       },
       ph("what-makes-us-human", "floor-plan", "floor-plan", "[Exhibition floor plan]", { x: 13, y: 30, w: 21, rot: 4, z: 1 }, [{ kind: "push-pin", x: 8, y: 9, w: 9, rot: 0, color: "var(--vermilion)" }]),
     ],

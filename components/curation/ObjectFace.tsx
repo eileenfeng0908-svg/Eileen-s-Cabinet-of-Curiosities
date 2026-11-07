@@ -32,12 +32,12 @@ export function ObjectFace({ obj, aspect, sizes, real = false }: { obj: DrawerOb
   const Face = faces[obj.kind];
   return (
     <svg viewBox={`0 0 100 ${h.toFixed(2)}`} className="absolute inset-0 h-full w-full overflow-visible" aria-hidden>
-      <Face h={h} r={r} title={obj.title} tint={obj.tint} ink={obj.ink} />
+      <Face h={h} r={r} title={obj.title} tint={obj.tint} ink={obj.ink} panels={obj.panels} />
     </svg>
   );
 }
 
-type FaceProps = { h: number; r: Rng; title: string; tint?: string; ink?: string };
+type FaceProps = { h: number; r: Rng; title: string; tint?: string; ink?: string; panels?: number };
 
 /** Breaks a title into short lines for small painted labels. */
 function lines(text: string, max: number) {
@@ -77,27 +77,40 @@ const scribble = (r: Rng, x: number, y: number, w: number) =>
   handLine(Array.from({ length: 7 }, (_, i) => [x + (w * i) / 6, y + (i % 2 ? -1.2 : 1.2)] as [number, number]), r, 0.8);
 
 const faces: Record<ObjectKind, (p: FaceProps) => React.ReactNode> = {
-  website: ({ h, r, title }) => (
+  website: ({ h, r, title, panels }) => (
     <>
       <Sheet h={h} r={r} fill="color-mix(in srgb, var(--aged-ivory) 55%, white)" />
       <path d={handRect(0, 0, 100, 13, r, 0.8)} fill="var(--powder-blue)" filter={wash("a")} />
       {["var(--vermilion)", "var(--brass)", "var(--botanical-green)"].map((c, i) => <circle key={i} cx={8 + i * 7} cy={6.5} r={2.2} fill={c} />)}
       <path d={handRect(32, 4, 60, 5, r, 0.4)} fill="var(--aged-ivory)" opacity={0.85} />
-      {/* seven painted arches: the site's seven pages */}
-      {[0, 1, 2, 3, 4, 5, 6].map((i) => {
-        const x = 8 + i * 12.4;
-        return (
-          <path
-            key={i}
-            d={`M${x} ${h - 14} L${x} ${h * 0.42} Q${x + 4.6} ${h * 0.32} ${x + 9.2} ${h * 0.42} L${x + 9.2} ${h - 14} Z`}
-            fill={["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)", "var(--wine)", "var(--walnut)", "var(--powder-blue)"][i]}
-            fillOpacity={0.8}
-            filter={wash(i % 2 ? "b" : "c")}
-          />
-        );
-      })}
-      <circle cx={50} cy={h * 0.62} r={8} fill="var(--aged-ivory)" stroke="var(--wine)" strokeWidth={0.7} filter={pencil} />
-      <path d={`M47 ${h * 0.62 - 4.5} L54.5 ${h * 0.62} L47 ${h * 0.62 + 4.5} Z`} fill="var(--vermilion)" />
+      {panels ? (
+        <>
+          {/* one painted arch for each page of the site */}
+          {Array.from({ length: panels }, (_, i) => i).map((i) => {
+            const step = 87 / panels;
+            const x = 8 + i * step;
+            return (
+              <path
+                key={i}
+                d={`M${x} ${h - 14} L${x} ${h * 0.42} Q${x + step * 0.37} ${h * 0.32} ${x + step * 0.74} ${h * 0.42} L${x + step * 0.74} ${h - 14} Z`}
+                fill={["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)", "var(--wine)", "var(--walnut)", "var(--powder-blue)"][i % 7]}
+                fillOpacity={0.8}
+                filter={wash(i % 2 ? "b" : "c")}
+              />
+            );
+          })}
+          <circle cx={50} cy={h * 0.62} r={8} fill="var(--aged-ivory)" stroke="var(--wine)" strokeWidth={0.7} filter={pencil} />
+          <path d={`M47 ${h * 0.62 - 4.5} L54.5 ${h * 0.62} L47 ${h * 0.62 + 4.5} Z`} fill="var(--vermilion)" />
+        </>
+      ) : (
+        <>
+          {/* a letter in its envelope, sealed with a heart */}
+          <path d={handRect(22, h * 0.3, 56, h * 0.5, r, 0.8)} fill="var(--aged-ivory)" stroke="var(--wine)" strokeWidth={0.6} filter={pencil} />
+          <path d={handLine([[22, h * 0.3], [50, h * 0.58], [78, h * 0.3]], r, 0.6)} fill="none" stroke="var(--wine)" strokeWidth={0.7} filter={pencil} />
+          <path d={handPoly([[22, h * 0.3], [50, h * 0.58], [78, h * 0.3]], r, 0.6)} fill="var(--vermilion)" fillOpacity={0.35} filter={wash("c")} />
+          <path d={heart(4.2)} transform={`translate(50 ${h * 0.6})`} fill="var(--vermilion)" filter={wash("c")} />
+        </>
+      )}
       <Label x={50} y={h - 5} size={6.4} text={title} max={30} italic />
     </>
   ),
