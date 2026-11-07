@@ -139,7 +139,7 @@ export function VideoSlot({ video, className }: { video: AtelierVideo; className
     <figure className={className}>
       <div className="relative aspect-video w-full overflow-hidden bg-[color-mix(in_srgb,var(--wine)_88%,black)] p-[1.2%] shadow-[0_18px_30px_-22px_rgb(113_63_72_/_0.7)]">
         {video.src ? (
-          <video src={video.src} poster={video.poster} controls playsInline preload="metadata" className="h-full w-full bg-black object-contain" aria-label={video.caption ?? video.label} />
+          <video src={video.src} poster={video.poster} controls muted playsInline preload="metadata" ref={(el) => { if (el) { el.muted = true; el.defaultMuted = true; } }} className="h-full w-full bg-black object-contain" aria-label={video.caption ?? video.label} />
         ) : video.url ? (
           <iframe src={video.url} title={video.caption ?? "Fashion show video"} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen className="h-full w-full" />
         ) : (
