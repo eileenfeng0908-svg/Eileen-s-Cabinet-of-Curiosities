@@ -107,7 +107,10 @@ function ShowArchive({ show }: { show: Show }) {
           <Subhead color={ink.brass}>Posters & promotion</Subhead>
           <div className="grid grid-cols-2 gap-5">
             {show.posters.map((p, i) => (
-              <PhotoSlot key={i} photo={p} list={show.posters} index={i} tilt={i % 2 ? 2 : -2} />
+              // A wide banner takes both columns.
+              <div key={i} className={cn(!!(p.src && p.width && p.height && p.width > p.height * 1.4) && "col-span-2")}>
+                <PhotoSlot photo={p} list={show.posters} index={i} tilt={i % 2 ? 2 : -2} />
+              </div>
             ))}
           </div>
         </div>

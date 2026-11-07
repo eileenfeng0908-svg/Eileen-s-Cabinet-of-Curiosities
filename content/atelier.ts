@@ -79,7 +79,25 @@ const showTemplate = (id: string, year: string, title: string, theme: string, in
 
 /** The five shows, oldest first: years and themes as Eileen gave them. */
 export const shows: Show[] = [
-  showTemplate("2023", "2023", "Bionic", "Bionic", "blue"),
+  {
+    ...showTemplate("2023", "2023", "Bionic", "Bionic", "blue"),
+    runway: [
+      { label: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb", src: "/images/fashion/2023/bionic-04.jpg", width: 1116, height: 1800, alt: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "A model walks the runway in a grey double-breasted jacket painted with white swirls and blue-and-white trousers, with goggles on his head", src: "/images/fashion/2023/bionic-07.jpg", width: 1067, height: 1600, alt: "A model walks the runway in a grey double-breasted jacket painted with white swirls and blue-and-white trousers, with goggles on his head" },
+      { label: "The same look on the runway, beside a screen showing the design", src: "/images/fashion/2023/bionic-06.jpg", width: 1160, height: 1800, alt: "The same look on the runway, beside a screen showing the design", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "The pink-haired model in the silver gown with a skeleton hand at the shoulder, holding the clear orb", src: "/images/fashion/2023/bionic-03.jpg", width: 1800, height: 1200, alt: "The pink-haired model in the silver gown with a skeleton hand at the shoulder, holding the clear orb", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "A model in a black jacket painted with eyes and set with mirrored discs, over a pale blue dress", src: "/images/fashion/2023/bionic-05.jpg", width: 1800, height: 1200, alt: "A model in a black jacket painted with eyes and set with mirrored discs, over a pale blue dress", caption: "Photo: Shenzhen Nanshan Huitong School" },
+      { label: "A look photographed from the side: a clear umbrella painted with black eyes, a black jacket and a layered white and grey skirt", src: "/images/fashion/2023/bionic-02.jpg", width: 1200, height: 1800, alt: "A look photographed from the side: a clear umbrella painted with black eyes, a black jacket and a layered white and grey skirt" },
+      { label: "The eye-painted jacket photographed through a wet glass, in blue, red and yellow light", src: "/images/fashion/2023/bionic-01.jpg", width: 1350, height: 1800, alt: "The eye-painted jacket photographed through a wet glass, in blue, red and yellow light" },
+    ],
+    posters: [
+      { label: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish", src: "/images/fashion/2023/bionic-08.jpg", width: 1600, height: 600, alt: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish" },
+    ],
+    backstage: [
+      { label: "The model in the silver look sitting outdoors under a red and white umbrella", src: "/images/fashion/2023/bionic-09.jpg", width: 1350, height: 1800, alt: "The model in the silver look sitting outdoors under a red and white umbrella" },
+      { label: "The model in the silver look sitting on the grass in front of a chalk-covered wall", src: "/images/fashion/2023/bionic-10.jpg", width: 1179, height: 1519, alt: "The model in the silver look sitting on the grass in front of a chalk-covered wall" },
+    ],
+  },
   showTemplate("2024", "2024", "Utopia", "Utopia", "green"),
   showTemplate("2025", "2025", "Memory", "Memory", "wine"),
   showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
