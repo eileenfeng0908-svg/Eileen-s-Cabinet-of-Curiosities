@@ -96,7 +96,10 @@ export const shows: Show[] = [
     posters: [
       { label: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish", src: "/images/fashion/2023/bionic-08.jpg", width: 1600, height: 600, alt: "Banner for Bionic 仿生, 2023 Huitong Fashion Show 荟同时装秀, 9 June, 5:30–6:30, over a photograph of a jellyfish" },
     ],
-    videos: [{ label: "Bionic show video", src: "/videos/fashion/bionic-2023.mp4", poster: "/videos/fashion/bionic-2023-poster.jpg" }],
+    videos: [
+      { label: "Bionic trailer", src: "/videos/fashion/bionic-2023-trailer.mp4", poster: "/videos/fashion/bionic-2023-trailer-poster.jpg", caption: "Trailer" },
+      { label: "Bionic show video", src: "/videos/fashion/bionic-2023.mp4", poster: "/videos/fashion/bionic-2023-poster.jpg" },
+    ],
     backstage: [
       { label: "Presenting the 2023 Huitong Fashion Show super curriculum project to a table of teachers", src: "/images/fashion/2023/process-p14.jpg", width: 1600, height: 1200, alt: "Presenting the 2023 Huitong Fashion Show super curriculum project to a table of teachers" },
       { label: "Ink sketch of a ruffled gown in a notebook, labelled “the waves chapter 1”, with fishbowls marked glitter and slime", src: "/images/fashion/2023/process-p02.jpg", width: 1200, height: 1600, alt: "Ink sketch of a ruffled gown in a notebook, labelled “the waves chapter 1”, with fishbowls marked glitter and slime" },
