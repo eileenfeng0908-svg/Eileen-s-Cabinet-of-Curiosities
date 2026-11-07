@@ -77,6 +77,30 @@ const scribble = (r: Rng, x: number, y: number, w: number) =>
   handLine(Array.from({ length: 7 }, (_, i) => [x + (w * i) / 6, y + (i % 2 ? -1.2 : 1.2)] as [number, number]), r, 0.8);
 
 const faces: Record<ObjectKind, (p: FaceProps) => React.ReactNode> = {
+  website: ({ h, r, title }) => (
+    <>
+      <Sheet h={h} r={r} fill="color-mix(in srgb, var(--aged-ivory) 55%, white)" />
+      <path d={handRect(0, 0, 100, 13, r, 0.8)} fill="var(--powder-blue)" filter={wash("a")} />
+      {["var(--vermilion)", "var(--brass)", "var(--botanical-green)"].map((c, i) => <circle key={i} cx={8 + i * 7} cy={6.5} r={2.2} fill={c} />)}
+      <path d={handRect(32, 4, 60, 5, r, 0.4)} fill="var(--aged-ivory)" opacity={0.85} />
+      {/* five painted arches: the five rooms */}
+      {[0, 1, 2, 3, 4].map((i) => {
+        const x = 10 + i * 17;
+        return (
+          <path
+            key={i}
+            d={`M${x} ${h - 14} L${x} ${h * 0.42} Q${x + 6.5} ${h * 0.3} ${x + 13} ${h * 0.42} L${x + 13} ${h - 14} Z`}
+            fill={["var(--vermilion)", "var(--powder-blue)", "var(--botanical-green)", "var(--brass)", "var(--wine)"][i]}
+            fillOpacity={0.8}
+            filter={wash(i % 2 ? "b" : "c")}
+          />
+        );
+      })}
+      <circle cx={50} cy={h * 0.62} r={8} fill="var(--aged-ivory)" stroke="var(--wine)" strokeWidth={0.7} filter={pencil} />
+      <path d={`M47 ${h * 0.62 - 4.5} L54.5 ${h * 0.62} L47 ${h * 0.62 + 4.5} Z`} fill="var(--vermilion)" />
+      <Label x={50} y={h - 5} size={6.4} text={title} max={30} italic />
+    </>
+  ),
   catalogue: ({ h, r, title, tint = "var(--wine)", ink = "var(--aged-ivory)" }) => (
     <>
       <path d={handRect(0, 0, 100, h, r, 1)} fill={tint} filter={wash("a")} />

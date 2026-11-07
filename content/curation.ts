@@ -27,7 +27,8 @@ export type ObjectKind =
   | "postcard"
   | "ticket"
   | "fragment"
-  | "drawing";
+  | "drawing"
+  | "website";
 
 export interface DrawerObject {
   id: string;
@@ -50,6 +51,8 @@ export interface DrawerObject {
   placeholder?: boolean;
   /** Painted for the look of the drawer only: it cannot be picked up. */
   decorative?: boolean;
+  /** A website this object opens in a new tab. */
+  href?: string;
 }
 
 export interface Drawer {
@@ -122,6 +125,16 @@ export const drawers: Drawer[] = [
         description: "What makes us human? I believe it is relationships that make us so special. In my research on machine consciousness, I became fascinated by the relationship between humans and machines, as Spike Jonze’s film Her (2013) shows. Within a relationship, even something non-living can seem to have feelings, and that is what is so remarkable about being human: we project our own feelings and consciousness onto others.",
         at: { x: 82, y: 34, w: 15, rot: -4, z: 3 },
         fixings: [{ kind: "bulldog-clip", x: 50, y: 3, w: 36, rot: 0 }],
+      },
+      {
+        id: "what-makes-us-human-website",
+        kind: "website",
+        title: "Five Rooms",
+        exhibition: "what-makes-us-human",
+        description: "An interactive website made for the exhibition. Its first page reads: “Press play. Listen before you name it.”",
+        href: "https://music-interaction.vercel.app/#s7",
+        at: { x: 74, y: 60, w: 15, rot: 4, z: 4 },
+        fixings: [{ kind: "tape", x: 50, y: 1, w: 34, rot: -3, color: "var(--powder-blue)" }],
       },
       ph("what-makes-us-human", "floor-plan", "floor-plan", "[Exhibition floor plan]", { x: 13, y: 30, w: 21, rot: 4, z: 1 }, [{ kind: "push-pin", x: 8, y: 9, w: 9, rot: 0, color: "var(--vermilion)" }]),
     ],
@@ -354,6 +367,7 @@ export const kindAspect: Record<ObjectKind, number> = {
   ticket: 2.3,
   fragment: 1.1,
   drawing: 0.84,
+  website: 1.4,
 };
 
 export const kindLabel: Record<ObjectKind, string> = {
@@ -371,4 +385,5 @@ export const kindLabel: Record<ObjectKind, string> = {
   ticket: "Ticket",
   fragment: "Fragment",
   drawing: "Drawing",
+  website: "Interactive website",
 };

@@ -251,6 +251,11 @@ function ObjectDetail({ obj, drawer, onClose }: { obj: DrawerObject; drawer: Dra
         <p className="mt-2 font-display text-lede italic">{[kindLabel[obj.kind], obj.date].filter(Boolean).join(", ")}</p>
         {obj.description && <p className="mt-6 border-t border-wine/25 pt-5 text-body">{obj.description}</p>}
         {obj.image?.caption && <p className="mt-3 text-caption">{obj.image.caption}</p>}
+        {obj.href && (
+          <a href={obj.href} target="_blank" rel="noreferrer" className="label link-draw mt-6 self-start text-vermilion">
+            Visit the website ↗
+          </a>
+        )}
         <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-8">
           {obj.exhibition ? (
             <Link href={`/exhibitions/${obj.exhibition}`} className="label link-draw text-wine">
