@@ -85,6 +85,8 @@ const showTemplate = (id: string, year: string, title: string, theme: string, in
 export const shows: Show[] = [
   {
     ...showTemplate("2023", "2023", "Bionic", "Bionic", "blue"),
+    concept: "This year, our chosen theme for the show is Bionic. The Bionic theme embodies the fusion of biology and technology, resulting in innovative designs inspired by nature.",
+    role: "Designer and show director (coordinator)",
     runway: [
       { label: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb", src: "/images/fashion/2023/bionic-04.jpg", width: 1116, height: 1800, alt: "A model with pink hair walks the runway in a silver, white and pale blue gown, holding a clear sculpted orb", caption: "Photo: Shenzhen Nanshan Huitong School" },
       { label: "A model walks the runway in a grey double-breasted jacket painted with white swirls and blue-and-white trousers, with goggles on his head", src: "/images/fashion/2023/bionic-07.jpg", width: 1067, height: 1600, alt: "A model walks the runway in a grey double-breasted jacket painted with white swirls and blue-and-white trousers, with goggles on his head" },
