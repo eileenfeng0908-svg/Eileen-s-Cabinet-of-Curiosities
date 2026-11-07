@@ -172,7 +172,7 @@ export const shows: Show[] = [
     ],
     posters: [
       { label: "Invitation: UTOPIA 乌托邦, Huitong Fashion Show 荟同时装秀, 2024.5.17, 6:00–7:00 pm, Venue: Shenzhen Huitong School 深圳荟同学校, with butterflies over flowing white lines", src: "/images/fashion/2024/utopia-37.jpg", width: 665, height: 1182, alt: "Invitation: UTOPIA 乌托邦, Huitong Fashion Show 荟同时装秀, 2024.5.17, 6:00–7:00 pm, Venue: Shenzhen Huitong School 深圳荟同学校, with butterflies over flowing white lines" },
-      { label: "Title card: “So long” handwritten in white over leaves in black and white", src: "/images/fashion/2024/utopia-27.jpg", width: 576, height: 323, alt: "Title card: “So long” handwritten in white over leaves in black and white" },
+      { label: "Title card: “So long” handwritten in white over leaves in black and white", src: "/images/fashion/2024/utopia-27.jpg", width: 1280, height: 720, alt: "Title card: “So long” handwritten in white over leaves in black and white" },
       { label: "Title card: “Tears of the Virgin” over branches against a blue sky", src: "/images/fashion/2024/utopia-28.jpg", width: 1280, height: 720, alt: "Title card: “Tears of the Virgin” over branches against a blue sky" },
     ],
     backstage: [
