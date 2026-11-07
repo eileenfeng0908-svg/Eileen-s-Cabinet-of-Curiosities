@@ -257,7 +257,9 @@ export function SketchbookRoom() {
                       key={i}
                       className={cn(
                         // Wide pictures (moodboards, design sheets) take the whole width of the page.
-                        p.src && p.width && p.height && p.width > p.height * 1.15
+                        p.feature
+                          ? "col-span-full mx-auto w-full max-w-2xl"
+                          : p.src && p.width && p.height && p.width > p.height * 1.15
                           ? "col-span-full"
                           : !p.src && spread.slots.length === 3 && i === 0 && "col-span-2 mx-auto w-2/3",
                       )}
