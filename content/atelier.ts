@@ -329,7 +329,7 @@ export const shows: Show[] = [
   },
   {
     ...showTemplate("2026", "2026", "Identity", "Identity", "vermilion"),
-    playlist: { embed: "https://open.spotify.com/embed/playlist/6KaU53x6pAtH1lkijhkfIj", note: "Music selected by Eileen" },
+    playlist: { embed: "https://open.spotify.com/embed/playlist/0i0jFqEWsAGMijD5stDKAC", note: "Music selected by Eileen" },
     posters: [
       { label: "Banner: 身份 IDENTITY, Huitong Fashion Show 荟同时装秀, 2026.6.12, 7:00 pm, beside an iridescent mask streaked with light", src: "/images/fashion/2026/identity-01.jpg", width: 1800, height: 1012, alt: "Banner: 身份 IDENTITY, Huitong Fashion Show 荟同时装秀, 2026.6.12, 7:00 pm, beside an iridescent mask streaked with light" },
       { label: "Ticket-style poster: 身份 IDENTITY, 2026.6.12, 7:00 pm, with the quote “In the social jungle of human existence, there is no feeling of being alive without a sense of identity.” (Erik Erikson)", src: "/images/fashion/2026/identity-02.jpg", width: 591, height: 1476, alt: "Ticket-style poster: 身份 IDENTITY, 2026.6.12, 7:00 pm, with the quote “In the social jungle of human existence, there is no feeling of being alive without a sense of identity.” (Erik Erikson)" },
