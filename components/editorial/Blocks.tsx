@@ -81,7 +81,7 @@ export function Blocks({ blocks }: { blocks: ContentBlock[] }) {
           case "quote":
             return (
               <blockquote key={i} className="reading-column border-l border-vermilion py-2 pl-6">
-                <p className="font-display text-statement italic text-wine">{inline(block.text)}</p>
+                <p className="whitespace-pre-line font-display text-statement italic text-wine">{inline(block.text)}</p>
                 {block.source && <footer className="label mt-4 text-ink-soft">— {block.source}</footer>}
               </blockquote>
             );
