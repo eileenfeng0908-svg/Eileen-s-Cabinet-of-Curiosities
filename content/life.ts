@@ -66,7 +66,14 @@ export interface DecorativeLandmark extends Base {
 export type Landmark = CityLandmark | DecorativeLandmark;
 
 export const cities: CityLandmark[] = [
-  { id: "shenzhen", city: "Shenzhen", country: "China", landmark: "China Resources Tower (春笋)", lat: 22.5174, lon: 113.9446, art: "chinaResources", interactive: true, home: true, nudge: [-46, 4], photos: [] },
+  { id: "shenzhen", city: "Shenzhen", country: "China", landmark: "China Resources Tower (春笋)", lat: 22.5174, lon: 113.9446, art: "chinaResources", interactive: true, home: true, nudge: [-46, 4],
+    intro: [
+      "I was two or three when my family moved from our hometown to Shenzhen. It became the place I grew up, and as I grew, so did the city. I remember stretches of sea where buildings now stand. Year by year, the water seemed to retreat from my life, while the skyline rose higher.",
+      "Sometimes I look around and wonder whether I still know this city I call home. So much of it is new. But then I walk through a park in the winter sunlight, step onto campus, or spend an afternoon exploring with friends, and I begin to think that home need not be a place I recognise at every turn.",
+      "Shenzhen keeps changing. Still, there is a particular chill in its winter air, a scent that rises from the earth when the rain begins. Wherever else I go, I have never found them quite the same.",
+      "This is how I know I am home.",
+    ],
+    photos: [] },
   { id: "hong-kong", city: "Hong Kong", country: "China", landmark: "Bank of China Tower", lat: 22.2793, lon: 114.1615, art: "bankOfChina", interactive: true, nudge: [26, 40], label: "right", photos: [] },
   { id: "shanghai", city: "Shanghai", country: "China", landmark: "Oriental Pearl Tower", lat: 31.2397, lon: 121.4998, art: "orientalPearl", interactive: true, nudge: [10, -22], label: "left", photos: [] },
   { id: "tokyo", city: "Tokyo", country: "Japan", landmark: "Tokyo Tower", lat: 35.6586, lon: 139.7454, art: "tokyoTower", interactive: true, nudge: [22, -10], label: "right",
