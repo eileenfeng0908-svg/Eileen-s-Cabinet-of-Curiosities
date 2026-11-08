@@ -73,6 +73,7 @@ export default async function ArticlePage({ params }: Props) {
       {article.cover && !article.hideCover && (
         <figure className={`mx-auto mt-16 ${article.cover.aspect < 1 ? "max-w-md" : "max-w-5xl"}`}>
           <Plate image={article.cover} priority sizes="(min-width: 64rem) 64rem, 100vw" zoom={false} />
+          {article.cover.caption && <figcaption className="mt-3 text-caption text-ink-soft">{article.cover.caption}</figcaption>}
         </figure>
       )}
 
