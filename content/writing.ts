@@ -621,6 +621,28 @@ export const articles: Article[] = [
     ]
   },
   whatMakesUsHuman,
+  {
+    slug: "hit-me-hard-and-soft",
+    title: "Could You Hit Me Hard and Soft?",
+    dek: "On the cover of Billie Eilish’s Hit Me Hard and Soft: blue, the door, and the fear of drowning.",
+    category: "Psychology",
+    date: undefined,
+    cover: { src: "/images/writing/hit-me-hard-and-soft/cover.jpg", alt: "Hit Me Hard and Soft, Billie Eilish: the title in large white letters over the underwater album image of Eilish sinking beneath a door", aspect: 1280 / 720 },
+    body: [
+      { type: "paragraph", text: "‘Could you hit me hard and soft?’" },
+      { type: "paragraph", text: "It is an impossible request that Billie Eilish asked in her newest album, Hit Me Hard and Soft. On its cover, Eilish is falling into the endless ocean of fear and uncertainty." },
+      { type: "image", size: "inset", image: { src: "/images/writing/hit-me-hard-and-soft/album-cover.jpg", alt: "The Hit Me Hard and Soft album cover: Billie Eilish, dressed in black, sinking through deep blue water beneath a white door floating at the surface", aspect: 1, caption: "Billie Eilish, Hit Me Hard and Soft, album cover" } },
+      { type: "paragraph", text: "Hit something hard yet soft is an impossible mission. The paradoxical relationship between this action reflects the inner conflict in Eilish’s mind." },
+      { type: "paragraph", text: "Blue, as the colour that Eilish has hated for years, was chosen to represent her insecurities and depression in this album. Her feelings toward blue are just as conflicted and overwhelming as the name of the album." },
+      { type: "quote", text: "“Dude, what’s so interesting to me is that blue has always been my least-favourite colour. Which is so stupid because my hair was blue for years,” she says. “But I didn’t mean for it to be — that was an accident. Somebody put too much toner in my white hair and suddenly it was lavendery-blue, and then I kept getting it blue, and then I was known as this blue-haired girl, and I fucking hated it. I went months and months trying to get the colour out, and then I had this teal hair. But over the last couple of years, I’ve just been like, ‘Wait, blue is so who I am at my core.’”", source: "Billie Eilish, Rolling Stone interview" },
+      { type: "paragraph", text: "Physiologically, turning blue refers to the bluish tint of skin caused by a lack of oxygen, but psychologically, it evokes the suffocating sense of nearing emotional death under the weight of repression. On the album cover, Eilish is seen slowly sinking into a bottomless sea — a symbol of one of her lifelong fears: water." },
+      { type: "paragraph", text: "The image of drowning reflects the suffocation and pressure she feels as she struggles to reclaim herself. The centre framing of Eilish in the poster isolates her within the vast ocean, conveying the emotion of helplessness. And blue — that colour — is both the version of herself she despises, the false self, and the version that is most real. The composition of the poster suggests that in Eilish’s personal struggle with finding her true self, she is vulnerable and detached." },
+      { type: "paragraph", text: "In Chihiro, Eilish introduces the motif of the door — and in the music video, she opens that door to escape the building. The building, looming and cold, resembles a prison that traps her, while the door becomes a symbol of liberation, a passage out of confinement." },
+      { type: "paragraph", text: "Throughout the entire album, Eilish wrestles with her anxieties, fears, and the uncertainty that shadows her emotional relationships. These doubts blur her sense of identity, making it harder to remember who she once was." },
+      { type: "quote", text: "“I feel like this album is me,” she says. “It’s not a character. It feels like the When We All Fall Asleep, Where Do We Go? version of me. It feels like my youth and who I was as a kid.”", source: "Billie Eilish, Rolling Stone interview" },
+      { type: "paragraph", text: "So she opens the door — in search of the true Billie Eilish, the one submerged and drifting beneath the sea. And that open door on the poster — though it seems to lead her toward freedom — instead draws her into the deep sea, pulling her under until she begins to suffocate, until she starts turning blue." },
+    ],
+  },
   misconceptionsOnScreen,
   whatIsSelfDeceit,
   // Poems live in content/poems.ts (the Poetry Garden).
