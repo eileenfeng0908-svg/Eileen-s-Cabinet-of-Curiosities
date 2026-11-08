@@ -68,7 +68,7 @@ export function CityGallery({ city, onBack, onCity }: { city: CityLandmark; onBa
           <div className="relative mx-auto mt-10 max-w-2xl space-y-5 text-body text-wine">
             {city.intro.map((para, k) => (
               <p key={k} className={k === city.intro!.length - 1 && k > 0 ? "font-display text-lede italic" : undefined}>
-                {para}
+                {para.split(/\*([^*]+)\*/).map((part, j) => (j % 2 ? <em key={j}>{part}</em> : part))}
               </p>
             ))}
           </div>
