@@ -7,7 +7,7 @@ import { Plate } from "@/components/editorial/Plate";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { SideContents, type ContentsEntry } from "@/components/editorial/SideContents";
 import { formatDate, readingTime } from "@/lib/format";
-import { isCreative, sectionOf, subjectOf, writingSections } from "@/lib/writing";
+import { isAnalysis, isCreative, sectionOf, subjectOf, subjects, writingSections } from "@/lib/writing";
 import { cn } from "@/lib/cn";
 
 /** "Detachment, Tony Kaye, 2011" → "Detachment", for the side contents. */
@@ -36,6 +36,14 @@ export default async function ArticlePage({ params }: Props) {
   const title = { main, sub: article.title.length > 60 && rest.length ? rest.join(": ") : undefined };
   const creative = isCreative(article);
   const section = writingSections.find((s) => s.slug === sectionOf(article))!;
+  // Read on, one after another: stories in the Story Collection's own order; essays shelf by shelf, as in the Reading Room. Placeholders left out.
+  const real = articles.filter((a) => !a.slug.includes("placeholder") && a.category !== "Poetry");
+  const stories = creative
+    ? real.filter(isCreative)
+    : subjects.flatMap((sub) => real.filter((a) => isAnalysis(a) && subjectOf(a) === sub));
+  const at = stories.findIndex((a) => a.slug === article.slug);
+  const prev = at > 0 ? stories[at - 1] : undefined;
+  const next = at >= 0 && at < stories.length - 1 ? stories[at + 1] : undefined;
   const contents: ContentsEntry[] | undefined = article.contents
     ? article.body.flatMap<ContentsEntry>((b) =>
         b.type === "heading" ? [{ id: headingId(b.text), text: b.text, level: 1 }] : b.type === "subheading" ? [{ id: headingId(b.text), text: shortTitle(b.text), level: 2 }] : [],
@@ -127,7 +135,30 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       )}
 
-      <div className="reading-column mt-20">
+      {(prev || next) && (
+        <nav aria-label={creative ? "More stories" : "More essays"} className="reading-column mt-20 border-t border-rule pt-10">
+          {next && (
+            <Link
+              href={`/writing/${next.slug}`}
+              className="group inline-flex flex-col gap-1 rounded-[2rem] border-2 border-wine bg-wine px-8 py-4 text-ivory transition-colors hover:border-vermilion hover:bg-vermilion"
+            >
+              <span className="label text-ivory/80">{creative ? "Next story" : "Next essay"}</span>
+              <span className="font-display text-2xl leading-snug">
+                {next.title} <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          )}
+          {prev && (
+            <p className="mt-6">
+              <Link href={`/writing/${prev.slug}`} className="label text-ink-soft underline-offset-4 hover:text-vermilion hover:underline">
+                ← Previous: {prev.title}
+              </Link>
+            </p>
+          )}
+        </nav>
+      )}
+
+      <div className={cn("reading-column", prev || next ? "mt-10" : "mt-20")}>
         <ArrowLink href={`/collections/writing-and-philosophy#${section.slug}`}>{`Back to ${section.room}`}</ArrowLink>
       </div>
     </article>
