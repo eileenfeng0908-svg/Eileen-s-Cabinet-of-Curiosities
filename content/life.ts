@@ -206,6 +206,14 @@ export const cities: CityLandmark[] = [
     ],
   },
   { id: "boston", city: "Boston", country: "United States", landmark: "Old State House", lat: 42.3587, lon: -71.0575, art: "oldStateHouse", interactive: true, nudge: [26, -14], label: "right",
+    intro: [
+      "By a turn of chance, the summer of 2025 became a Boston summer.",
+      "I remember taking classes with my friends at Harvard, the research and conversations that filled our days. After class, we went for slices at Joe’s Pizza in Harvard Square. We spent afternoons exploring library archives, and sat in Lamont barely daring to speak.",
+      "Summer at Harvard was fierce with heat, then suddenly all wind and rain. On two separate Sundays, I stepped out of Starbucks into a downpour. Students and visiting parents crowded beneath the same overhang, watching the rain and waiting for a chance to leave. Back at the dorm, we found that the rain had made its way into our room.",
+      "But the sunlight in Cambridge was dazzling. After the storms, I watched squirrels and rabbits return to the lawns, and birds stop to drink from puddles. I still find myself thinking of the used books downstairs at Harvard Book Store: the stickers on the shelves, the pages I turned, the faded lettering and broken covers. There was something tender about those books, about all the years they had survived before finding their way into my hands.",
+      "I remember the thrill of studying the American Revolution in a city where I could walk the Freedom Trail after class. And everywhere, it seemed, there were lobsters.",
+      "So much of New England stays with me. Sometimes it comes back as sunlight on wet grass; sometimes as a worn book cover, or the sound of rain that kept us all beneath the same roof a little longer.",
+    ],
     photos: [
       { src: "/images/life/boston/01.jpg", width: 2000, height: 1198, alt: "A handmade Boston collage" },
       { src: "/images/life/boston/02.jpg", width: 1500, height: 2000, alt: "A path past red-brick buildings on a summer evening" },
