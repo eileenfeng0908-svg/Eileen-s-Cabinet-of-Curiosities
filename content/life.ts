@@ -69,7 +69,13 @@ export const cities: CityLandmark[] = [
   { id: "shenzhen", city: "Shenzhen", country: "China", landmark: "China Resources Tower (春笋)", lat: 22.5174, lon: 113.9446, art: "chinaResources", interactive: true, home: true, nudge: [-46, 4], photos: [] },
   { id: "hong-kong", city: "Hong Kong", country: "China", landmark: "Bank of China Tower", lat: 22.2793, lon: 114.1615, art: "bankOfChina", interactive: true, nudge: [26, 40], label: "right", photos: [] },
   { id: "shanghai", city: "Shanghai", country: "China", landmark: "Oriental Pearl Tower", lat: 31.2397, lon: 121.4998, art: "orientalPearl", interactive: true, nudge: [10, -22], label: "left", photos: [] },
-  { id: "tokyo", city: "Tokyo", country: "Japan", landmark: "Tokyo Tower", lat: 35.6586, lon: 139.7454, art: "tokyoTower", interactive: true, nudge: [22, -10], label: "right", photos: [] },
+  { id: "tokyo", city: "Tokyo", country: "Japan", landmark: "Tokyo Tower", lat: 35.6586, lon: 139.7454, art: "tokyoTower", interactive: true, nudge: [22, -10], label: "right",
+    intro: [
+      "In Tokyo, March arrives in blossoms. I remember wandering through the parks with my camera over my shoulder, searching the branches for those first, shy shades of pink.",
+      "In the rain, Tokyo turns blue. Warm yellow light spills from shop windows, softening the chill. Along the narrow, rain-darkened streets, people pass beneath their umbrellas, bound for places I will never know.",
+      "The stickers scattered across the city remind me of New York. I stop to look at them, one by one: new layers covering old ones, faded colours, peeling edges, fragments of words showing through. Left by strangers, weathered by sun and rain, they have slowly become part of the city’s skin.",
+    ],
+    photos: [] },
   { id: "kyoto", city: "Kyoto", country: "Japan", landmark: "Yasaka Pagoda", lat: 34.9985, lon: 135.7798, art: "yasaka", interactive: true, nudge: [-10, 22], intro: [
       "Kyoto feels different from Tokyo, or anywhere else in Japan. There is a particular sense of peace here, as though time moves a little more slowly. From the hillside, I look out towards the distant pagodas and temples, their silhouettes rising quietly above the city.",
       "In Kyoto, I inevitably become a matcha person. I watch as the tea is whisked into a delicate layer of foam before being poured into a cup. There is something comforting about the ritual, about watching each movement unfold without hurry. I find myself enjoying the feeling of time slowing down.",
