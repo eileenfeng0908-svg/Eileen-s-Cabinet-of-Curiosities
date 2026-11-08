@@ -429,6 +429,9 @@ function PlacedArtwork({ pw, onOpen }: { pw: PlacedWork; onOpen: (a: Artwork) =>
       <span className="mt-[3%] block text-center font-display text-[clamp(0.7rem,1.05vw,0.95rem)] italic text-wine/85 transition-colors group-hover:text-vermilion">
         {work.caption ?? work.title}
       </span>
+      {!work.placeholder && work.description && (
+        <span className="label mt-[1.5%] block text-center text-[clamp(0.5rem,0.7vw,0.62rem)] text-vermilion/90">Read the notes</span>
+      )}
       <span className="pointer-events-none absolute -inset-[3%] border-2 border-vermilion opacity-0 transition-opacity group-focus-visible:opacity-100" />
     </button>
   );
