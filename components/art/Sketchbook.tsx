@@ -299,7 +299,7 @@ export function Sketchbook() {
         className="curio-entry m-auto w-[min(60rem,calc(100%-2rem))] max-h-[calc(100svh-2rem)] overflow-auto bg-ivory p-0 text-wine"
       >
         {open && (
-          <article className="grid gap-8 p-6 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:p-10">
+          <article className={cn("grid gap-8 p-6 md:p-10", open.image.aspect > 1.2 ? "" : "md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]")}>
             <div className="self-start">
               <div className={cn("mx-auto", open.image.aspect < 1 ? "max-w-[24rem]" : "")}>
                 <Plate image={open.image} sizes="(min-width: 48rem) 34rem, 90vw" zoom={false} />

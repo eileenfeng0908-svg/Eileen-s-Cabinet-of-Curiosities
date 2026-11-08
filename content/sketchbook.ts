@@ -38,18 +38,17 @@ export interface SketchbookPage {
   quote?: { text: string; source?: string };
 }
 
-let n = 0;
-const ph = (aspect: number, tone: ImageAsset["tone"], motif: ImageAsset["motif"] = "none"): Artwork => ({
-  id: `artwork-${++n}`,
-  title: "[Artwork title]",
-  medium: "[Medium]",
-  year: "[Year]",
-  description: "[A sentence or two about the work.]",
-  image: { alt: "[Artwork]", aspect, tone, motif },
-  placeholder: true,
-});
-
 export const sketchbook: SketchbookPage[] = [
+  {
+    heading: "The Seven Deadly Sins",
+    works: [
+      {
+        work: { id: "board-confession-and-sins", title: "Confession & Sins", caption: "Confession & Sins: research board", image: { src: "/images/art/process/confession-and-sins.jpg", alt: "Research board titled Confession and Sins: a confessional painting, Bosch’s Seven Deadly Sins table, pomegranates, still lifes, jewels and bridal portraits, with pencil sketches and handwritten notes on lust, gluttony and greed", aspect: 2000 / 1499 } },
+        at: { x: 50, y: 60, w: 86, rot: -1.5 },
+        fix: "corners",
+      },
+    ],
+  },
   // Acedia (sloth), 2026: two historical images, then her own work.
   {
     heading: "Acedia",
@@ -109,6 +108,15 @@ export const sketchbook: SketchbookPage[] = [
       },
     ],
   },
+  {
+    works: [
+      {
+        work: { id: "board-sloth", title: "Sloth", caption: "Sloth: research board", image: { src: "/images/art/process/sloth-investigation.jpg", alt: "Research board titled Sloth: clocks, skulls and withered flowers around the Acedia skull-and-clock artwork, with written reflections", aspect: 1600 / 1200 } },
+        at: { x: 50, y: 48, w: 86, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
   // Wrath, 2026: the Sacred Heart, then her inverted heart.
   {
     heading: "The Burning Heart and the Deadly Sin",
@@ -153,6 +161,44 @@ export const sketchbook: SketchbookPage[] = [
           image: { src: "/images/art/wrath/wrath-eileen-feng.jpg", alt: "Wrath (Ignis Irae) by Eileen Feng: a tall bookmark with a blood-red anatomical heart with an eye and blue veins, resting on grey ash in an oval frame, ringed by red roses, lilies and thorns, with Latin lines above and below", aspect: 602 / 2046 },
         },
         at: { x: 50, y: 60, w: 22, rot: -1 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: { id: "board-wrath", title: "Wrath", caption: "Wrath: research board", image: { src: "/images/art/process/wrath-investigation.jpg", alt: "Research board titled Wrath: Sacred Heart images, a bloodshot eye, blue veins and the inverted heart artwork, with written reflections", aspect: 1700 / 1275 } },
+        at: { x: 50, y: 48, w: 86, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: { id: "board-sins-sketches", title: "Sins: sloth and wrath sketches", caption: "Sins: sketches for Sloth and Wrath", image: { src: "/images/art/process/sins-sketches-sloth-wrath.jpg", alt: "Sketch board titled Sins: a pocket watch, skulls and belladonna beside a pencil sketch of the skull and clock for Sloth, and Sacred Heart references beside a sketch of the burning heart with an eye for Wrath", aspect: 2000 / 1499 } },
+        at: { x: 50, y: 48, w: 86, rot: 1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    heading: "Envy",
+    works: [
+      {
+        work: { id: "board-envy", title: "Envy", caption: "Envy: research and sketches", image: { src: "/images/art/process/sins-envy.jpg", alt: "Sketch board titled Sins: snarling dogs, weeping eyes, ivy and a green eye beside a green pencil sketch of a barking dog for Envy, with notes", aspect: 2000 / 1499 } },
+        at: { x: 50, y: 60, w: 86, rot: 1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    heading: "Pride",
+    works: [
+      {
+        work: { id: "board-pride", title: "Pride", caption: "Pride: research and sketches", image: { src: "/images/art/process/pride.jpg", alt: "Board titled Seven deadly sins, Pride: violet pansies, peacock feathers, eyes and a crown beside a drawing of a peacock in blue and violet", aspect: 2000 / 1499 } },
+        at: { x: 50, y: 60, w: 86, rot: -1.5 },
         fix: "tape",
       },
     ],
@@ -211,6 +257,24 @@ export const sketchbook: SketchbookPage[] = [
           image: { src: "/images/art/the-moon/the-moon-eileen-feng.jpg", alt: "The Moon by Eileen Feng: a tarot card in white and gold line on black, the moon's face with a rocket in its eye above praying hands, fish and tentacles rising from a dark sea", aspect: 1333 / 2000 },
         },
         at: { x: 50, y: 47, w: 50, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: { id: "board-the-moon", title: "The Moon", caption: "The Moon: research board", image: { src: "/images/art/process/the-moon-investigation.jpg", alt: "Research board titled The Moon: moons, a still from A Trip to the Moon, tentacles and dark seas, with written reflections", aspect: 1800 / 1350 } },
+        at: { x: 50, y: 48, w: 86, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: { id: "board-tarot-pamela-colman-smith", title: "Tarot Cards and Pamela Colman Smith", caption: "Tarot Cards and Pamela Colman Smith: research board", image: { src: "/images/art/process/tarot-pamela-colman-smith.jpg", alt: "Research board titled Tarot Cards and Pamela Colman Smith: early tarot cards, the Wheel of Fortune, Moon and Star cards, a portrait of Smith and her drawings of waves and the sea, with written notes", aspect: 2000 / 1391 } },
+        at: { x: 50, y: 48, w: 86, rot: -1.5 },
         fix: "tape",
       },
     ],
@@ -300,20 +364,63 @@ export const sketchbook: SketchbookPage[] = [
   },
   {
     works: [
-      { work: ph(4 / 5, "vermilion", "frame"), at: { x: 52, y: 50, w: 66, rot: 1 }, fix: "tape" },
+      {
+        work: { id: "board-bosch", title: "Hieronymus Bosch", caption: "Hieronymus Bosch: research board", image: { src: "/images/art/process/bosch-investigation.jpg", alt: "Research board titled Hieronymus Bosch: The Garden of Earthly Delights with circled details, colour swatches and The Seven Deadly Sins, with written analysis", aspect: 2000 / 1500 } },
+        at: { x: 50, y: 48, w: 86, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  // Film posters
+  {
+    heading: "In the Mood for Love",
+    works: [
+      {
+        work: { id: "poster-in-the-mood-for-love", title: "In the Mood for Love", caption: "In the Mood for Love, poster", image: { src: "/images/art/posters/in-the-mood-for-love.jpg", alt: "Eileen Feng’s poster for In the Mood for Love: Maggie Cheung and Tony Leung in red and green light, with yellow lettering and the lines “Those vanished years, as if seen through a dusty pane of glass, visible but untouchable”", aspect: 1254 / 1938 } },
+        at: { x: 50, y: 62, w: 46, rot: -1.5 },
+        fix: "tape",
+      },
     ],
   },
   {
     works: [
-      { work: ph(3 / 2, "blue", "horizon"), at: { x: 44, y: 26, w: 60, rot: -2.5 }, fix: "corners" },
-      { work: ph(3 / 4, "green", "figure"), at: { x: 72, y: 66, w: 36, rot: 5 }, fix: "tape" },
-      { work: ph(1, "ivory", "sun"), at: { x: 28, y: 72, w: 26, rot: -7 }, fix: "none" },
+      {
+        work: { id: "board-in-the-mood-for-love", title: "Love, Fear, Uncertainty", caption: "Love, Fear, Uncertainty: research board", image: { src: "/images/art/process/in-the-mood-for-love-investigation.jpg", alt: "Research board titled Love, Fear, Uncertainty: stills from In the Mood for Love, letters, postcards and handwritten notes, with written reflections", aspect: 1500 / 1125 } },
+        at: { x: 50, y: 48, w: 86, rot: 1.5 },
+        fix: "tape",
+      },
     ],
   },
   {
+    heading: "(500) Days of Summer",
+    quote: { text: "“This is a story of boy meets girl. But you should know up front, this is not a love story.”", source: "(500) Days of Summer, 2009" },
     works: [
-      { work: ph(9 / 16, "brass", "arch"), at: { x: 40, y: 50, w: 40, rot: -1.5 }, fix: "clip" },
-      { work: ph(5 / 4, "parchment", "frame"), at: { x: 72, y: 34, w: 34, rot: 6 }, fix: "tape" },
+      {
+        work: { id: "poster-500-days-of-summer", title: "(500) Days of Summer", caption: "(500) Days of Summer, poster redesign", image: { src: "/images/art/posters/500-days-of-summer.jpg", alt: "Eileen Feng’s redesigned poster for (500) Days of Summer: a collage of Tom and Summer in black and white with red lips, hearts and a record, and typewritten lyric snippets", aspect: 1500 / 2000 } },
+        at: { x: 50, y: 64, w: 46, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    heading: "Before Sunrise",
+    quote: { text: "“If there’s any kind of magic in this world, it must be in the attempt of understanding someone, sharing something.”", source: "Before Sunrise, 1995" },
+    works: [
+      {
+        work: { id: "poster-before-sunrise", title: "Before Sunrise", caption: "Before Sunrise, poster redesign", image: { src: "/images/art/posters/before-sunrise.jpg", alt: "Eileen Feng’s redesigned poster for Before Sunrise: grey film stills behind large white serif lettering, a train and a moon above, an orange sun below", aspect: 1296 / 1728 } },
+        at: { x: 50, y: 64, w: 46, rot: -1.5 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    heading: "Windows",
+    works: [
+      {
+        work: { id: "board-windows", title: "Windows", caption: "AP Art and Design, Project 1: Windows", image: { src: "/images/art/process/windows.jpg", alt: "Research board titled Windows: photographs and artworks of windows, faces and buildings, with written notes", aspect: 2000 / 1125 } },
+        at: { x: 50, y: 60, w: 86, rot: -1.5 },
+        fix: "tape",
+      },
     ],
   },
 ];
