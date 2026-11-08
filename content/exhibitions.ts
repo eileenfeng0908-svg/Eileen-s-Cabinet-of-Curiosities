@@ -83,6 +83,8 @@ export interface Exhibition {
   /** The matching project page, if there is one (/work/<slug>). */
   project?: string;
   cover: ImageAsset;
+  /** A status line under the title, e.g. for an exhibition still to open. */
+  status?: string;
   introduction: string[];
   statement: string[];
   /** A bilingual preface, shown in place of the introduction. */
@@ -95,6 +97,8 @@ export interface Exhibition {
   epilogue?: Pair[];
   credits?: CreditGroup[];
   documentation: ImageAsset[];
+  /** Heading for the documentation section (default "Exhibition documentation"). */
+  documentationTitle?: string;
 }
 
 const tones = ["parchment", "blue", "brass", "vermilion", "green", "walnut"] as const;
@@ -118,14 +122,28 @@ export const exhibitions: Exhibition[] = [
     subtitle: "An Interdisciplinary Exhibition",
     project: "what-makes-us-human",
     cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "parchment", motif: "arch" },
-    introduction: ["[Exhibition introduction: where and when it took place, and what visitors encountered.]"],
-    statement: ["[Curatorial statement, in your own words.]"],
-    sections: [
-      { id: "encounter-the-world", title: "Encounter the World", text: "[What this section of the exhibition explores.]", works: placeholderWorks("encounter-the-world") },
-      { id: "identity", title: "Identity", text: "[What this section of the exhibition explores.]", works: placeholderWorks("identity") },
-      { id: "connection", title: "Connection", text: "[What this section of the exhibition explores.]", works: placeholderWorks("connection") },
-      { id: "will-we-still-answer", title: "What Makes Us Human? Will We Still Be the Ones to Answer?", text: "[What this section of the exhibition explores.]", works: placeholderWorks("will-we-still-answer") },
+    status: "Ongoing · Opening soon in November 2026",
+    documentationTitle: "Viva Voce research poster",
+    introduction: [],
+    statement: [],
+    preface: [
+      { en: "We thought we already knew what makes us human.", zh: "我们认为自己已经知晓何以为人。" },
+      {
+        en: "Countless scholars have sought to answer this question. Some argue that rationality defines humanity; others emphasise emotion as a defining feature of human existence; still others believe that personal experiences, relationships, art, language, and other aspects of life constitute the essence of being human. These perspectives, each valid in its own way yet sometimes contradictory, reveal the complexity of humanity and invite us to celebrate its quiet grandeur.",
+        zh: "无数学者不断探寻这一问题的答案。有人认为，理性定义了人性；有人强调，情感是人类存在的重要特征；还有人相信，个人经历、人际关系、艺术、语言以及生活中的其他种种共同构成了人性的本质。这些各有道理却不尽相同的观点，揭示了人性的复杂与多元，也让我们得以欣赏其静谧而深邃的伟大。",
+      },
+      {
+        en: "We are gradually expanding our understanding of what it means to be human as we live our lives. Yet we seem to have reached a point in history when answering this question has become more urgent than ever. As technology advances at an astonishing speed, our changing ways of life add another layer of complexity, challenging us to consider which aspects of our humanity we are willing to surrender to technology—and which we choose to retain.",
+        zh: "在生活中，我们不断拓展对人性的理解。而今，随着科技飞速发展，思考何以为人似乎比以往更加迫切——面对科技，我们愿意让渡人性的哪些部分，又希望坚守什么？",
+      },
+      {
+        en: "This exhibition invites meaningful debate and ongoing dialogue by showcasing our students’ intellectual explorations and creative expressions.",
+        zh: "本次展览通过呈现学生们的思想探索与创意表达，邀请你加入这场关于何以为人的思辨与对话。",
+      },
     ],
+    // Chapters (her list, 2026-10-25), hidden until the exhibition opens:
+    // Encounter the World · Identity · Connection · What Makes Us Human? Will We Still Be the Ones to Answer?
+    sections: [],
     credits: [
       {
         roles: [
@@ -136,10 +154,9 @@ export const exhibitions: Exhibition[] = [
       },
     ],
     documentation: [
-      { alt: "[Installation view]", aspect: 3 / 2, tone: "parchment", motif: "arch", caption: "[Documentation photograph — caption]" },
-      { alt: "[Installation view]", aspect: 4 / 5, tone: "blue", motif: "frame", caption: "[Documentation photograph — caption]" },
-      { alt: "[Visitors in the exhibition]", aspect: 4 / 5, tone: "brass", motif: "figure", caption: "[Documentation photograph — caption]" },
-      { alt: "[Installation view]", aspect: 3 / 2, tone: "vermilion", motif: "arch", caption: "[Documentation photograph — caption]" },
+      { src: "/images/work/what-makes-us-human/viva-voce-1.jpg", alt: "HS Signature Final Viva Voce poster, page 1: research question, literature review and AI & human relationship", aspect: 1600 / 2263, caption: "Viva Voce poster, page 1: research question, literature review and AI & human relationship" },
+      { src: "/images/work/what-makes-us-human/viva-voce-2.jpg", alt: "HS Signature Final Viva Voce poster, page 2: the mirror hypothesis, emotions and fear, and selected works", aspect: 1600 / 2263, caption: "Viva Voce poster, page 2: the mirror hypothesis, emotions and fear, and selected works" },
+      { src: "/images/work/what-makes-us-human/viva-voce-3.jpg", alt: "HS Signature Final Viva Voce poster, page 3: the exhibition, its chapters, conclusion and future research", aspect: 1600 / 2263, caption: "Viva Voce poster, page 3: the exhibition, its chapters, conclusion and future research" },
     ],
   },
   {

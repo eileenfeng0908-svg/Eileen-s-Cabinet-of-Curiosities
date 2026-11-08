@@ -93,7 +93,7 @@ export const drawers: Drawer[] = [
     exhibition: "what-makes-us-human",
     note: "The catalogue of What Makes Us Human?, with the posters, photographs and working papers from the exhibition.",
     objects: [
-      { id: "wmuh-catalogue", kind: "catalogue", title: "What Makes Us Human?", exhibition: "what-makes-us-human", at: { x: 31, y: 52, w: 21, rot: -4, z: 4 }, fixings: [{ kind: "binder-clip", x: 72, y: 3, w: 22, rot: 4 }] },
+      { id: "wmuh-catalogue", kind: "catalogue", title: "What Makes Us Human?", date: "ongoing, opening soon in November 2026", exhibition: "what-makes-us-human", at: { x: 31, y: 52, w: 21, rot: -4, z: 4 }, fixings: [{ kind: "binder-clip", x: 72, y: 3, w: 22, rot: 4 }] },
       {
         id: "what-makes-us-human-poster",
         kind: "poster",
@@ -149,7 +149,21 @@ export const drawers: Drawer[] = [
         at: { x: 39, y: 85, w: 14, rot: -5, z: 5 },
         fixings: [{ kind: "tape", x: 50, y: 1, w: 34, rot: 4, color: "var(--vermilion)" }],
       },
-      ph("what-makes-us-human", "floor-plan", "floor-plan", "[Exhibition floor plan]", { x: 13, y: 30, w: 21, rot: 4, z: 1 }, [{ kind: "push-pin", x: 8, y: 9, w: 9, rot: 0, color: "var(--vermilion)" }]),
+      {
+        id: "what-makes-us-human-viva-voce",
+        kind: "poster",
+        title: "Viva Voce poster",
+        exhibition: "what-makes-us-human",
+        description: "My HS Signature Final Viva Voce poster for What Makes Us Human? (Grade 11; mentors Jun Jia and Lens Li). This page sets out the exhibition: its inquiry, theme, curatorial concept and chapters. All three A0 pages are in the catalogue.",
+        image: {
+          src: "/images/work/what-makes-us-human/viva-voce-3.jpg",
+          alt: "A0 poster page titled What Makes Us Human?, with panels on Exhibition & Inquiry, Exhibition Theme, Curatorial Concept, the chapters, Conclusion and Future Research",
+          aspect: 1600 / 2263,
+        },
+        painted: "/images/work/what-makes-us-human/viva-voce-watercolour.jpg",
+        at: { x: 15, y: 26, w: 14, rot: 4, z: 1 },
+        fixings: [{ kind: "push-pin", x: 50, y: 4, w: 14, rot: 0, color: "var(--vermilion)" }],
+      },
     ],
     stationery: [
       { kind: "pen", x: 52, y: 12, w: 28, rot: -6, z: 7, color: "var(--wine)" },

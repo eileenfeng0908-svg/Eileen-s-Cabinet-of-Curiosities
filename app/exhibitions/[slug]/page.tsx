@@ -38,6 +38,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         <p className="label text-wine">Exhibition catalogue</p>
         <h1 className="mx-auto mt-6 max-w-[16ch] text-display-l">{e.title}</h1>
         {e.subtitle && <p className="mt-5 font-display text-lede italic text-wine">{e.subtitle}</p>}
+        {e.status && <p className="label mt-6 text-vermilion">{e.status}</p>}
         <div className="mx-auto mt-14 max-w-5xl">
           <Plate image={e.cover} sizes="(min-width: 64rem) 64rem, 100vw" priority grain />
         </div>
@@ -64,7 +65,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
               <li key={t.id}><a href={`#${t.id}`} className="hover:text-vermilion">{t.title}</a></li>
             ))}
             {e.epilogue && <li><a href="#epilogue" className="hover:text-vermilion">{e.slug === "the-other-the-same" ? "Epilogue" : "Conclusion"}</a></li>}
-            <li><a href="#documentation" className="hover:text-vermilion">Documentation</a></li>
+            {e.documentation.length > 0 && <li><a href="#documentation" className="hover:text-vermilion">{e.documentationTitle ? "Research poster" : "Documentation"}</a></li>}
             {e.credits && <li><a href="#credits" className="hover:text-vermilion">Credits</a></li>}
           </ol>
           {e.project && (
@@ -104,7 +105,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
           </section>
           )}
 
-          {!e.sections.length && (
+          {!e.sections.length && !e.status && (
             <section className="scroll-mt-28">
               <h2 className="label border-b border-wine/25 pb-3 text-wine">The exhibition</h2>
               <p className="mt-6 max-w-[38rem] text-lede">[The sections and artworks of this exhibition, to come.]</p>
@@ -181,9 +182,10 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             </section>
           )}
 
+          {e.documentation.length > 0 && (
           <section id="documentation" className="scroll-mt-28">
-            <h2 className="label border-b border-wine/25 pb-3 text-wine">Exhibition documentation</h2>
-            <ul className="mt-10 columns-1 gap-8 sm:columns-2 [&>li]:mb-8 [&>li]:break-inside-avoid">
+            <h2 className="label border-b border-wine/25 pb-3 text-wine">{e.documentationTitle ?? "Exhibition documentation"}</h2>
+            <ul className={e.documentationTitle ? "mt-10 grid gap-6 sm:grid-cols-3" : "mt-10 columns-1 gap-8 sm:columns-2 [&>li]:mb-8 [&>li]:break-inside-avoid"}>
               {e.documentation.map((img, i) => (
                 <li key={i}>
                   <Plate image={img} number={i + 1} sizes="(min-width: 64rem) 28rem, 90vw" />
@@ -192,6 +194,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
               ))}
             </ul>
           </section>
+          )}
 
           {e.credits && (
             <section id="credits" className="scroll-mt-28">
