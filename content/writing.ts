@@ -12,6 +12,7 @@ import { aionEternia } from "./papers/aion-eternia";
 import { christmasRain } from "./papers/christmas-rain";
 import { roomOfOnesOwn } from "./papers/room-of-ones-own";
 import { letterToMyself } from "./papers/letter-to-myself";
+import { taipeiPeople } from "./papers/taipei-people";
 import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
@@ -663,6 +664,7 @@ export const articles: Article[] = [
   miranda,
   curleysWife,
   roomOfOnesOwn,
+  taipeiPeople,
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "autumn-traffic-lights-and-the-swallowed-moon",
