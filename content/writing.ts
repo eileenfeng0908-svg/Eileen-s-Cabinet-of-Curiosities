@@ -1,6 +1,7 @@
 import type { Article } from "@/lib/types";
 import { misconceptionsOnScreen } from "./papers/misconceptions-on-screen";
 import { whatIsSelfDeceit } from "./papers/what-is-self-deceit";
+import { intelligentWomen } from "./papers/intelligent-women-and-marriage";
 import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
@@ -645,6 +646,7 @@ export const articles: Article[] = [
   },
   misconceptionsOnScreen,
   whatIsSelfDeceit,
+  intelligentWomen,
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "autumn-traffic-lights-and-the-swallowed-moon",
