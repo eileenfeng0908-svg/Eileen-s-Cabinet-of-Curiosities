@@ -37,7 +37,7 @@ export default async function ArticlePage({ params }: Props) {
   const creative = isCreative(article);
   const section = writingSections.find((s) => s.slug === sectionOf(article))!;
   // Read on, one after another: stories in the Story Collection's own order; essays shelf by shelf, as in the Reading Room. Placeholders left out.
-  const real = articles.filter((a) => !a.slug.includes("placeholder") && a.category !== "Poetry");
+  const real = articles.filter((a) => !a.slug.includes("placeholder") && !a.title.startsWith("[") && !a.dek?.startsWith("[") && a.category !== "Poetry");
   const stories = creative
     ? real.filter(isCreative)
     : subjects.flatMap((sub) => real.filter((a) => isAnalysis(a) && subjectOf(a) === sub));
