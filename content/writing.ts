@@ -2,6 +2,14 @@ import type { Article } from "@/lib/types";
 import { misconceptionsOnScreen } from "./papers/misconceptions-on-screen";
 import { whatIsSelfDeceit } from "./papers/what-is-self-deceit";
 import { intelligentWomen } from "./papers/intelligent-women-and-marriage";
+import { hashtagMantra } from "./papers/hashtag-mantra";
+import { brainRot } from "./papers/brain-rot";
+import { chekhovSleepy } from "./papers/chekhov-sleepy";
+import { miranda } from "./papers/miranda";
+import { curleysWife } from "./papers/curleys-wife";
+import { requiem } from "./papers/requiem";
+import { aionEternia } from "./papers/aion-eternia";
+import { christmasRain } from "./papers/christmas-rain";
 import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
@@ -647,6 +655,11 @@ export const articles: Article[] = [
   misconceptionsOnScreen,
   whatIsSelfDeceit,
   intelligentWomen,
+  hashtagMantra,
+  brainRot,
+  chekhovSleepy,
+  miranda,
+  curleysWife,
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "autumn-traffic-lights-and-the-swallowed-moon",
@@ -699,6 +712,9 @@ export const articles: Article[] = [
       { type: "paragraph", text: "One day, I basked in the glow of the setting sun, with swans and seagulls gliding around me. The wind swept through their feathers, some of which fell gently onto my surface. I am preserved within my own phone; I am my own happiness. I am blue." },
     ],
   },
+  requiem,
+  aionEternia,
+  christmasRain,
   {
     slug: "story-placeholder-2",
     title: "[Prose piece title]",

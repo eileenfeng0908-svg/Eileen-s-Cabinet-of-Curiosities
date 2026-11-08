@@ -1,0 +1,43 @@
+import type { Article } from "@/lib/types";
+
+/** Her essay on Miranda in The Tempest (English only, grammar lightly refined at her request), added 2026-11-08. */
+export const miranda: Article = {
+  slug: "miranda-the-piteous-heart",
+  title: "Miranda: The Piteous Heart of The Tempest",
+  dek: "On Miranda, the only woman in Shakespeare’s The Tempest: her sympathy, her innocence, and the contrast she draws with Caliban and Prospero.",
+  category: "Literature",
+  cover: {
+    src: "/images/writing/miranda/cover.jpg",
+    alt: "Edmund Dulac illustration: a swirl of winged fairies rising from dark rocks into a blue night sky towards a full moon, with bats flying in the distance",
+    aspect: 664 / 1023,
+    caption: "Edmund Dulac, Shakespeare’s Comedy of The Tempest (1908): “Prospero: Ye elves of hills, brooks, standing lakes and groves”",
+  },
+  body: [
+    { type: "quote", text: "“O, I have suffered / With those that I saw suffer!”", source: "The Tempest, 1.2.5" },
+    { type: "paragraph", text: "These are among the first words Miranda speaks when she appears. They show her great sympathy and set her in strong contrast with the other characters." },
+    { type: "paragraph", text: "As the only female character in *The Tempest*, Miranda is shaped above all by her qualities and her words. Her feminine qualities set her sharply apart from Caliban and the other characters. Her words reflect her personality and, at the same time, show how Shakespeare shaped her." },
+    { type: "paragraph", text: "As I suggested above, sympathy is Miranda’s most dominant trait, and setting her beside Caliban makes the difference between them clear." },
+    { type: "quote", text: "“If by your art, my dearest father, you have / Put the wild waters in this roar, allay them.”", source: "1.2.1–2" },
+    { type: "paragraph", text: "After the tempest that sinks the King’s ship, Miranda begs her father to calm the storm. She suffers with those people and pities them; if she were any god of power, she says, she would have sunk the sea within the earth so that it could never swallow the ship. In 1.2.10, Prospero calls hers a “piteous heart,” which shows how deeply sympathetic her nature is." },
+    { type: "paragraph", text: "In 1.2.120, Prospero tells the story of his past: how Antonio took away his dukedom and drove them out of Milan. Although Miranda cannot remember how she cried on that night, she is moved by his telling and would cry again:" },
+    { type: "quote", text: "“I, not remembering how I cried out then, / Will cry it o’er again. It is a hint / That wrings mine eyes to’t.”", source: "1.2.132–134" },
+    { type: "paragraph", text: "She is soft-hearted and readily feels the emotions behind the stories others tell. Her social awareness, or empathy, is remarkably high, for she is sensitive to what goes unspoken behind those stories." },
+    { type: "paragraph", text: "After hearing the story of the Duke of Milan, Miranda feels that she must have been a burden to Prospero at that time. Prospero does not see it that way: “O, a cherubin / Thou wast that did preserve me!” (1.2.152–153). Miranda saved him from the darkness that followed the loss of his dukedom and his exile:" },
+    { type: "quote", text: "“Thou didst smile, / Infusèd with a fortitude from heaven, / When I have decked the sea with drops full salt, / Under my burden groaned; which raised in me / An undergoing stomach, to bear up / Against what should ensue.”", source: "1.2.153–158" },
+    { type: "paragraph", text: "Miranda’s very existence gives Prospero the strength to reclaim his dukedom and lifts him out of his pain. In Act One, then, Miranda appears as a young girl with a remarkable capacity for sympathy and empathy. She is also vital to her father, for Prospero seems unable to survive without her." },
+    { type: "paragraph", text: "Turning to Caliban, Miranda calls him a villain she does not love to look on. Set their language side by side and Caliban is rude and malicious, while Miranda reveals a warm and pure heart." },
+    { type: "quote", text: "“As wicked dew as e’er my mother brushed / With raven’s feather from unwholesome fen / Drop on you both! A southwest blow on ye / And blister you all o’er!”", source: "1.2.321–324" },
+    { type: "paragraph", text: "Caliban sees Prospero as the man who seized his island; he detests him and resents being his slave. Shakespeare shapes Caliban as a coarse and lowly monster, and his exchange with Prospero shows that he feels no guilt, and no sympathy, for having tried to rape Miranda: “O ho, O ho! Would’t had been done! / Thou didst prevent me; I had peopled else / This isle with Calibans” (1.2.349–351)." },
+    { type: "paragraph", text: "Caliban’s vice and Miranda’s purity are opposites, and this leads me to think about the ending of the play. Caliban is the symbol of evil, and in light of later scenes he can also stand for Antonio’s side; Miranda is the symbol of kindness, love and purity, and so she can stand for Prospero’s. Does Caliban’s failure to violate her mean that Prospero will take back his dukedom from Antonio? If so, Miranda’s symbolic meaning becomes a metaphor for the end of the story: Antonio fails to keep Prospero’s dukedom." },
+    { type: "paragraph", text: "In Act Three, Prospero commands Ferdinand to carry and pile up thousands of logs. Ferdinand says:" },
+    { type: "quote", text: "“This my mean task / Would be as heavy to me as odious, but / The mistress which I serve quickens what’s dead / And makes my labours pleasures.”", source: "3.1.4–7" },
+    { type: "paragraph", text: "He is tired, but Miranda erases his tiredness and turns it into pleasure. Yet while Ferdinand takes pleasure in it, Miranda weeps. She loves him dearly and says, “Alas, now, pray you, / Work not so hard! I would the lightning had / Burnt up those logs that you are enjoined to pile! / Pray, set it down and rest you” (3.1.15–18). Miranda is moved by Ferdinand’s weariness just as she was moved by the suffering of the shipwreck. She is sensitive to strong emotions and is moved by them." },
+    { type: "paragraph", text: "Shakespeare shapes Miranda as a girl willing to sacrifice herself to ease the pain of others: she offers to do the work Ferdinand has been forced to do, wanting only for everyone to be happy and free from suffering. When Ferdinand tells her he loves her, she weeps, and the conversation that follows their declarations of love reveals her innocence and her lack of self-confidence:" },
+    { type: "quote", text: "“At mine unworthiness, that dare not offer / What I desire to give, and much less take / What I shall die to want… / I am your wife, if you will marry me; / If not, I’ll die your maid. To be your fellow / You may deny me, but I’ll be your servant / Whether you will or no.”", source: "3.1.77–86" },
+    { type: "paragraph", text: "She is too humble, and her innocence moves her to give all of herself to the man she loves." },
+    { type: "paragraph", text: "In Act Five, when Miranda sees the other people outside the cell, she is astonished:" },
+    { type: "quote", text: "“O, wonder! / How many goodly creatures are there here! / How beauteous mankind is! O brave new world / That has such people in’t!”", source: "5.1.181–184" },
+    { type: "paragraph", text: "Her innocence and chastity let her believe that the whole world is wonderful and that beauty is everywhere, even though the people she sees are not as perfect or as beautiful as she imagines." },
+    { type: "paragraph", text: "In conclusion, Miranda is shaped as a girl with a strong capacity for emotional perception and sympathy, and as an innocent. Set against Caliban, their personalities could hardly differ more: Caliban is rude and foul, while Miranda is like a holy, pure woman. She also differs from her father in how she treats Caliban: Prospero uses violence and harsh words against him, while Miranda simply hates him and never turns to violence. Shakespeare shaped her as an utterly holy and pure character, to contrast with the evil of Antonio, Caliban and others; and under her influence, Prospero, too, grows gentle." },
+  ],
+};
