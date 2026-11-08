@@ -371,6 +371,100 @@ export const sketchbook: SketchbookPage[] = [
       },
     ],
   },
+  // Nostalgia: her installation, description translated from her Chinese.
+  {
+    heading: "Nostalgia",
+    works: [
+      {
+        work: {
+          id: "nostalgia-installation",
+          title: "Nostalgia",
+          caption: "Nostalgia, Eileen Feng",
+          description: [
+            "In war, we fall into a kind of stillness. We long for the past, and at the same time we can glimpse a future that may hold hope. But such a tomorrow is uncertain. That uncertainty brings an intense fear, a terror felt by humans and non-humans alike. Civilisation and the individual are suspended in an unknown space, walled in on one side by nostalgia and on the other by the future. This stillness is our hesitation between the past and what is to come. In that hesitation, civilisation, time and memory all come to a standstill.",
+            "We long for the prosperity that once was, but each time we recall it, memory is worn away, covered over, changed. The dust drifting among the ruins settles softly over our memories, layer upon layer, until everything has returned to the white of the very beginning, and our civilisation is once again as it was in swaddling clothes. Civilisation passes from birth to destruction to rebuilding, and its destruction and rebuilding are like death and rebirth. A cycle, a stillness: an emptiness both physical and spiritual.",
+            "English translation by Claude from Eileen’s Chinese original.",
+            "在战争中，我们会陷入一种停滞。我们怀念过去，同时又能看到也许拥有希望的未来。但这样的明天，是不确定的。这样的不确定性带来了强烈的恐惧，一种使人类与非人类都感到恐怖的恐惧。文明与个体停滞在一个未知的空间，两面墙是nostalgia和future。这种停滞，是我们对于过去与未来的犹豫。在这样的犹豫中，文明、时间、记忆都陷入静止。我们怀念曾经的繁荣，但记忆会随着一次次的回想被磨灭、遮盖、改变。废墟之间飘荡着的尘土轻柔地把记忆覆盖，一层又一层，直到一切都变成了最开始的白，我们的文明再次回到了襁褓时的模样。文明从诞生到毁灭再到重建，文明的毁灭与重建就如同死亡与重生。轮回、停滞，一种物理与精神上的空虚。",
+          ],
+          image: { src: "/images/art/nostalgia/installation-wall.jpg", alt: "Nostalgia by Eileen Feng: a large hanging of torn, felted wool in pale yellow, blue and rose, spread across a gallery window", aspect: 2000 / 1500 },
+        },
+        at: { x: 50, y: 60, w: 80, rot: -1 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: {
+          id: "nostalgia-wall-circle",
+          title: "Nostalgia",
+          caption: "Nostalgia, with the circle-cut wall",
+          image: { src: "/images/art/nostalgia/installation-wall-circle.jpg", alt: "The felted wool hanging seen past a white wall cut with a large circle and small round holes", aspect: 2000 / 1500 },
+        },
+        at: { x: 38, y: 30, w: 62, rot: -2 },
+        fix: "corners",
+      },
+      {
+        work: {
+          id: "nostalgia-uv-detail",
+          title: "Nostalgia",
+          caption: "Nostalgia, detail under UV light",
+          image: { src: "/images/art/nostalgia/detail-uv-light.jpg", alt: "Close-up of the felted surface with pearls, beads and pressed hydrangea petals, a patch glowing blue under a UV torch", aspect: 1125 / 2000 },
+        },
+        at: { x: 72, y: 71, w: 32, rot: 2 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: {
+          id: "nostalgia-felt-table",
+          title: "Nostalgia",
+          caption: "Nostalgia, felt on a round table",
+          image: { src: "/images/art/nostalgia/felt-table.jpg", alt: "A round table draped in layered, felted wool scattered with pearls", aspect: 2000 / 1500 },
+        },
+        at: { x: 36, y: 28, w: 58, rot: 1.5 },
+        fix: "tape",
+      },
+      {
+        work: {
+          id: "nostalgia-felt-table-gallery",
+          title: "Nostalgia",
+          caption: "Nostalgia, felt table in the gallery",
+          image: { src: "/images/art/nostalgia/felt-table-gallery.jpg", alt: "A felt-covered round table in the gallery, with wall text and a city view behind", aspect: 1500 / 2000 },
+        },
+        at: { x: 28, y: 70, w: 36, rot: -2 },
+        fix: "corners",
+      },
+      {
+        work: {
+          id: "nostalgia-felt-tables",
+          title: "Nostalgia",
+          caption: "Nostalgia, felt laid out in the studio",
+          image: { src: "/images/art/nostalgia/felt-tables.jpg", alt: "Sheets of pale felted wool streaked with blue and yellow laid across tables", aspect: 1500 / 2000 },
+        },
+        at: { x: 72, y: 68, w: 36, rot: 2 },
+        fix: "tape",
+      },
+    ],
+  },
+  {
+    works: [
+      {
+        work: {
+          id: "nostalgia-installing",
+          title: "Nostalgia",
+          caption: "Nostalgia, installing the piece",
+          image: { src: "/images/art/nostalgia/installation-wall-table.jpg", alt: "The hanging being installed on the gallery window, beside the circle-cut wall and a work table", aspect: 1500 / 2000 },
+        },
+        at: { x: 50, y: 50, w: 50, rot: -1 },
+        fix: "tape",
+      },
+    ],
+  },
   // Film posters
   {
     heading: "In the Mood for Love",
