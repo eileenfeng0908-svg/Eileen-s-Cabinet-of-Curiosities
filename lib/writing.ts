@@ -20,7 +20,7 @@ export const isCreative = (a: Article) => creative.includes(a.category);
 export const isAnalysis = (a: Article) => a.category !== "Poetry" && !isCreative(a);
 
 /** Subjects of the Reading Room, in order. */
-export const subjects = ["Film & Cinema", "Philosophy", "Psychology", "Literature"] as const;
+export const subjects = ["Film & Cinema", "Philosophy", "Psychology", "Literature", "Others"] as const;
 export type Subject = (typeof subjects)[number];
 
 /** The subject a piece is filed under (a piece outside the shelves still shows its own category). */
@@ -34,6 +34,8 @@ export function subjectOf(a: Article): string {
       return "Psychology";
     case "Literature":
       return "Literature";
+    case "Essays":
+      return "Others";
     default:
       return a.category;
   }

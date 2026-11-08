@@ -625,7 +625,7 @@ export const articles: Article[] = [
     slug: "hit-me-hard-and-soft",
     title: "Could You Hit Me Hard and Soft?",
     dek: "On the cover of Billie Eilish’s Hit Me Hard and Soft: blue, the door, and the fear of drowning.",
-    category: "Psychology",
+    category: "Essays",
     date: undefined,
     cover: { src: "/images/writing/hit-me-hard-and-soft/cover.jpg", alt: "Hit Me Hard and Soft, Billie Eilish: the title in large white letters over the underwater album image of Eilish sinking beneath a door", aspect: 1280 / 720 },
     body: [
