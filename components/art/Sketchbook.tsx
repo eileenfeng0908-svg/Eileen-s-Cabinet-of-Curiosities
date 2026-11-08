@@ -308,13 +308,22 @@ export function Sketchbook() {
             <div className="flex flex-col">
               <p className="label text-wine">From the sketchbook{open.placeholder ? " · placeholder" : ""}</p>
               <h3 id="artwork-title" className="mt-3 text-display-m">{open.title}</h3>
-              <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-y border-wine/25 py-4 text-caption">
-                <dt className="label pt-0.5">Medium</dt>
-                <dd>{open.medium ?? "—"}</dd>
-                <dt className="label pt-0.5">Year</dt>
-                <dd>{open.year ?? "—"}</dd>
-              </dl>
-              {open.description && <p className="mt-6 text-body">{open.description}</p>}
+              {(open.medium || open.year) && (
+                <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-y border-wine/25 py-4 text-caption">
+                  {open.medium && (<><dt className="label pt-0.5">{open.placeholder ? "Medium" : "Details"}</dt><dd>{open.medium}</dd></>)}
+                  {open.year && (<><dt className="label pt-0.5">Year</dt><dd>{open.year}</dd></>)}
+                </dl>
+              )}
+              {open.description && (
+                <div className="mt-6 space-y-4 text-body">
+                  {(Array.isArray(open.description) ? open.description : [open.description]).map((t, k) => <p key={k}>{t}</p>)}
+                </div>
+              )}
+              {open.link && (
+                <a href={open.link.href} target="_blank" rel="noreferrer" className="label link-draw mt-6 self-start text-vermilion">
+                  {open.link.label} ↗
+                </a>
+              )}
               <button type="button" onClick={() => setOpen(null)} autoFocus className="label mt-auto self-end border border-wine/40 px-3 py-1.5 text-wine hover:border-vermilion hover:text-vermilion">
                 Close
               </button>
@@ -352,6 +361,17 @@ function PageView({ leaf, side, index, onOpen, busy, single, fill }: { leaf: Lea
       {leaf.kind === "end" && (
         <p className="absolute inset-x-[14%] top-1/2 -translate-y-1/2 text-center font-display text-lede italic text-wine/80">[More pages to come]</p>
       )}
+      {leaf.kind === "works" && (leaf.page.heading || leaf.page.quote) && (
+        <div className="absolute inset-x-[12%] top-[6%] text-center text-wine">
+          {leaf.page.heading && <p className="font-display text-[clamp(1.4rem,3vw,2.6rem)] leading-none">{leaf.page.heading}</p>}
+          {leaf.page.quote && (
+            <p className={cn("mx-auto mt-[4%] font-display italic leading-snug text-wine/90", leaf.page.quote.text.length > 160 ? "max-w-[44ch] text-[clamp(0.62rem,0.9vw,0.82rem)]" : "max-w-[30ch] text-[clamp(0.72rem,1.15vw,1rem)]")}>
+              {leaf.page.quote.text}
+              {leaf.page.quote.source && <span className="label mt-2 block not-italic text-wine/70">{leaf.page.quote.source}</span>}
+            </p>
+          )}
+        </div>
+      )}
       {leaf.kind === "works" && leaf.page.works.map((pw) => <PlacedArtwork key={pw.work.id} pw={pw} onOpen={onOpen} />)}
 
       {leaf.kind !== "title" && (
@@ -370,7 +390,8 @@ function TitlePage() {
       <p className="label mt-6">Art</p>
       <p className="mt-2 font-display text-[clamp(1.6rem,3.4vw,2.8rem)] leading-tight">The Artist’s Sketchbook</p>
       <p className="mt-3 font-display text-lede italic">Things I Create.</p>
-      <p className="mt-8 text-caption text-wine/80">[The pages that follow hold placeholders until my artworks are added.]</p>
+      <p className="mt-8 max-w-[26ch] font-display text-[clamp(0.8rem,1.2vw,1.05rem)] italic text-wine/85">“Art does not reproduce the visible; rather, it makes visible.”</p>
+      <p className="label mt-2 text-wine/70">Paul Klee</p>
     </div>
   );
 }
@@ -406,7 +427,7 @@ function PlacedArtwork({ pw, onOpen }: { pw: PlacedWork; onOpen: (a: Artwork) =>
         </svg>
       )}
       <span className="mt-[3%] block text-center font-display text-[clamp(0.7rem,1.05vw,0.95rem)] italic text-wine/85 transition-colors group-hover:text-vermilion">
-        {work.title}
+        {work.caption ?? work.title}
       </span>
       <span className="pointer-events-none absolute -inset-[3%] border-2 border-vermilion opacity-0 transition-opacity group-focus-visible:opacity-100" />
     </button>

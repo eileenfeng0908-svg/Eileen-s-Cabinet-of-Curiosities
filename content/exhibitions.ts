@@ -121,7 +121,7 @@ export const exhibitions: Exhibition[] = [
     title: "What Makes Us Human?",
     subtitle: "An Interdisciplinary Exhibition",
     project: "what-makes-us-human",
-    cover: { alt: "[Exhibition view]", aspect: 16 / 9, tone: "parchment", motif: "arch" },
+    cover: { src: "/images/work/what-makes-us-human/poster-full.jpg", alt: "Poster for What Makes Us Human? 何以为人: flowing white outlines on a red ground", aspect: 974 / 1726 },
     status: "Ongoing · Opening soon in November 2026",
     documentationTitle: "Viva Voce research poster",
     introduction: [],
@@ -144,15 +144,6 @@ export const exhibitions: Exhibition[] = [
     // Chapters (her list, 2026-10-25), hidden until the exhibition opens:
     // Encounter the World · Identity · Connection · What Makes Us Human? Will We Still Be the Ones to Answer?
     sections: [],
-    credits: [
-      {
-        roles: [
-          { role: `策展人 Curators`, names: [`刘小扬 Xiaoyang Liu`, `付悦嘉 Yuejia Fu`, `冯洁琳 Eileen Feng`, `马靖宜 Jingyi Ma`] },
-          { role: `展览设计 Exhibition Design`, names: [`马靖宜 Jingyi Ma`, `孔维伊 Weiyi Kong`] },
-          { role: `参展人 Participants`, names: [`全体全球历史项目的老师、学生及参与者 All teachers, students and participants of the Global History Project`, `文海帆 Haifan Wen`, `黄思为 Siwei Huang`, `向柯宇 Keyu Xiang`] },
-        ],
-      },
-    ],
     documentation: [
       { src: "/images/work/what-makes-us-human/viva-voce-1.jpg", alt: "HS Signature Final Viva Voce poster, page 1: research question, literature review and AI & human relationship", aspect: 1600 / 2263, caption: "Viva Voce poster, page 1: research question, literature review and AI & human relationship" },
       { src: "/images/work/what-makes-us-human/viva-voce-2.jpg", alt: "HS Signature Final Viva Voce poster, page 2: the mirror hypothesis, emotions and fear, and selected works", aspect: 1600 / 2263, caption: "Viva Voce poster, page 2: the mirror hypothesis, emotions and fear, and selected works" },

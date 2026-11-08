@@ -39,7 +39,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
         <h1 className="mx-auto mt-6 max-w-[16ch] text-display-l">{e.title}</h1>
         {e.subtitle && <p className="mt-5 font-display text-lede italic text-wine">{e.subtitle}</p>}
         {e.status && <p className="label mt-6 text-vermilion">{e.status}</p>}
-        <div className="mx-auto mt-14 max-w-5xl">
+        <div className="mx-auto mt-14 max-w-5xl" style={e.cover.aspect < 1 ? { maxWidth: `min(64rem, ${Math.round(e.cover.aspect * 82)}svh)` } : undefined}>
           <Plate image={e.cover} sizes="(min-width: 64rem) 64rem, 100vw" priority grain />
         </div>
       </header>
