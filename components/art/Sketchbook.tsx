@@ -284,7 +284,7 @@ export function Sketchbook() {
         </button>
         <p aria-live="polite" className="label text-center text-wine">
           {status}
-          <span className="mt-1 block normal-case tracking-normal opacity-75">Drag or tap the edge of the paper</span>
+          <span className="mt-1 block normal-case tracking-normal opacity-75">Drag or tap the edge of the paper to turn · Tap a work to open it and read about it</span>
         </p>
         <button type="button" onClick={() => go(1)} disabled={pos >= last} className="label link-draw text-wine disabled:opacity-35">
           Turn the page →
@@ -430,7 +430,7 @@ function PlacedArtwork({ pw, onOpen }: { pw: PlacedWork; onOpen: (a: Artwork) =>
         {work.caption ?? work.title}
       </span>
       {!work.placeholder && work.description && (
-        <span className="label mt-[1.5%] block text-center text-[clamp(0.5rem,0.7vw,0.62rem)] text-vermilion/90">Read the notes</span>
+        <span className="label mt-[1.5%] block text-center text-[clamp(0.55rem,0.8vw,0.7rem)] text-vermilion underline decoration-dotted underline-offset-2">Tap to read the notes →</span>
       )}
       <span className="pointer-events-none absolute -inset-[3%] border-2 border-vermilion opacity-0 transition-opacity group-focus-visible:opacity-100" />
     </button>
