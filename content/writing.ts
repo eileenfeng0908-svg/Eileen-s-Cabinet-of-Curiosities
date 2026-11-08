@@ -13,6 +13,7 @@ import { christmasRain } from "./papers/christmas-rain";
 import { roomOfOnesOwn } from "./papers/room-of-ones-own";
 import { letterToMyself } from "./papers/letter-to-myself";
 import { taipeiPeople } from "./papers/taipei-people";
+import { softnessAndStrength } from "./papers/softness-and-strength";
 import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
@@ -665,6 +666,7 @@ export const articles: Article[] = [
   curleysWife,
   roomOfOnesOwn,
   taipeiPeople,
+  softnessAndStrength,
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "autumn-traffic-lights-and-the-swallowed-moon",
