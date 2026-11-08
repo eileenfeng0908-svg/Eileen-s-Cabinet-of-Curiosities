@@ -10,6 +10,8 @@ import { curleysWife } from "./papers/curleys-wife";
 import { requiem } from "./papers/requiem";
 import { aionEternia } from "./papers/aion-eternia";
 import { christmasRain } from "./papers/christmas-rain";
+import { roomOfOnesOwn } from "./papers/room-of-ones-own";
+import { letterToMyself } from "./papers/letter-to-myself";
 import { whatMakesUsHuman } from "./papers/what-makes-us-human";
 
 /**
@@ -660,6 +662,7 @@ export const articles: Article[] = [
   chekhovSleepy,
   miranda,
   curleysWife,
+  roomOfOnesOwn,
   // Poems live in content/poems.ts (the Poetry Garden).
   {
     slug: "autumn-traffic-lights-and-the-swallowed-moon",
@@ -715,6 +718,7 @@ export const articles: Article[] = [
   requiem,
   aionEternia,
   christmasRain,
+  letterToMyself,
   {
     slug: "story-placeholder-2",
     title: "[Prose piece title]",
