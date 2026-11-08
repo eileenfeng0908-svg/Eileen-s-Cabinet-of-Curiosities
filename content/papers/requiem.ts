@@ -7,6 +7,11 @@ export const requiem: Article = {
   "dek": "安魂曲 The diary of Zero Mortis, a vanished artist, and the cabin he could not stop dreaming of. Short fiction in English and Chinese, still being written.",
   "category": "Creative Writing",
   "genre": "Short fiction · ongoing",
+  "cover": {
+    "src": "/images/writing/requiem/cover.jpg",
+    "alt": "Blurred, grainy painting of a crowd of figures in bright coats drifting across a pale floor under a haze of yellow, pink and blue",
+    "aspect": 612 / 343
+  },
   "body": [
     {
       "type": "quote",
