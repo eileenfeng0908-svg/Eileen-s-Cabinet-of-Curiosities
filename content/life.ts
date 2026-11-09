@@ -381,6 +381,12 @@ export const cities: CityLandmark[] = [
     ],
   },
   { id: "san-francisco", city: "San Francisco", country: "United States", landmark: "Golden Gate Bridge", lat: 37.8199, lon: -122.4783, art: "goldenGate", interactive: true, nudge: [-30, -8], label: "left",
+    intro: [
+      "San Francisco has been part of my life since childhood. I grew up visiting my aunt and cousins there, and over the years, the city has become inseparable from some of my happiest family memories. Every visit feels like a little reunion, filled with familiar faces, laughter, and stories we’ve been waiting to share.",
+      "I love the ocean, the beaches, and the Golden Gate Bridge stretching across the water. I still remember walking along a narrow trail high above the sea, so close to the edge of the hillside that I was almost in tears from fear. The view was breathtaking, but I was far too terrified of the height to appreciate it properly!",
+      "And then there are the Fourth of July celebrations, the fireworks lighting up the night sky, the family gatherings, and all those lovely summer days spent together. Looking back, I realise that what makes these memories so precious isn’t necessarily where we went or what we did, but the people I shared them with.",
+      "To me, San Francisco has always been more than a city to visit. It’s a place of childhood memories, family reunions, and love. No matter how much time passes between visits, there’s always something comforting about coming back.",
+    ],
     photos: [
       { src: "/images/life/san-francisco/01.jpg", width: 2000, height: 1500, alt: "The Golden Gate Bridge, with the city across the bay" },
       { src: "/images/life/san-francisco/02.jpg", width: 1500, height: 2000, alt: "Succulents and pink hydrangeas in pots" },
