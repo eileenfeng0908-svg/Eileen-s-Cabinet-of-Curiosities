@@ -90,10 +90,10 @@ export const projects: Project[] = [
       caption: "Vogue, 21 January 1909",
     },
     summary:
-      "Five fashion shows, from Bionic (2023), Utopia (2024), Memory (2025) and Identity (2026) to In the Mood for… (2027), gathered in the Fashion Atelier. [Your role and a fuller description to come.]",
+      "Five fashion shows, from Bionic (2023), Utopia (2024), Memory (2025) and Identity (2026) to In the Mood for… (2027), gathered in the Fashion Atelier. Eileen was designer and show director of every show.",
     credits: [
       { label: "Type", value: "Fashion / creative leadership" },
-      { label: "Role", value: "[Your role]" },
+      { label: "Role", value: "Designer and show director" },
     ],
     body: [
       { type: "paragraph", text: "[The concept behind the show.]" },
