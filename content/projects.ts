@@ -85,7 +85,7 @@ export const projects: Project[] = [
     subtitle: "Five Shows, 2023–2027",
     category: "Creative Experiments",
     year: "2023–2027",
-    featured: 4,
+    featured: 3,
     // The card opens the Fashion Atelier rather than a project page.
     href: "/collections/fashion",
     cover: {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     subtitle: "Machine Consciousness and Human–AI Relationships",
     category: "Research",
     year: undefined,
-    featured: 3,
+    featured: 4,
     // LinkedIn lists Jan 2026 – present: confirm before showing a year.
     cover: {
       src: "/images/work/could-machines-think-and-feel/cover.png",
