@@ -327,13 +327,13 @@ export function Atlas({ map }: { map: ReactNode }) {
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-          <p className="font-display text-caption italic text-wine">
+          <p className="font-display text-[1.4rem] leading-snug italic text-wine">
             Places outlined in white pencil hold photographs. Drag to wander; pinch or use the buttons to zoom.
           </p>
           <div className="flex items-center gap-2">
             <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label="Zoom out" className="atlas-btn">−</button>
             <button type="button" onClick={() => zoomBy(1.6)} aria-label="Zoom in" className="atlas-btn">+</button>
-            <button type="button" onClick={() => apply(x.get(), y.get(), 1, true)} className="label link-draw ml-2 text-wine">
+            <button type="button" onClick={() => apply(x.get(), y.get(), 1, true)} className="label link-draw ml-2 !text-[1.3rem] text-wine">
               Whole world
             </button>
           </div>

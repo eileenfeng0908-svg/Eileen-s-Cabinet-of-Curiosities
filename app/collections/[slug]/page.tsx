@@ -189,13 +189,13 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         {empty && !custom && <p className="font-display text-lede italic text-wine">[Nothing in this collection yet. Add projects, writing or archive objects to it in content/collections.ts.]</p>}
 
         <nav aria-label="Other collections" className="border-t border-wine/25 pt-6">
-          <p className="label mb-4 text-wine">Elsewhere in the cabinet</p>
+          <p className="label mb-4 !text-[1.3rem] text-wine">Elsewhere in the cabinet</p>
           <ul className="flex flex-wrap gap-x-8 gap-y-3">
             {collections
               .filter((o) => o.slug !== c.slug)
               .map((o) => (
                 <li key={o.slug}>
-                  <ArrowLink href={`/collections/${o.slug}`} className="text-wine">
+                  <ArrowLink href={`/collections/${o.slug}`} className="!text-[1.35rem] text-wine">
                     {o.title}
                   </ArrowLink>
                 </li>

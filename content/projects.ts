@@ -132,6 +132,7 @@ export const projects: Project[] = [
     subtitle: "Machine Consciousness and Human–AI Relationships",
     category: "Research",
     year: undefined,
+    featured: 3,
     // LinkedIn lists Jan 2026 – present: confirm before showing a year.
     cover: {
       src: "/images/work/could-machines-think-and-feel/cover.png",
@@ -179,6 +180,7 @@ export const projects: Project[] = [
     subtitle: "Cinema & Psychology Research",
     category: "Cinema & Research",
     year: undefined,
+    featured: 5,
     // LinkedIn lists Oct 2024 – Jun 2025: confirm before showing dates.
     cover: {
       src: "/images/work/film-and-mental-illness/cover.jpg",

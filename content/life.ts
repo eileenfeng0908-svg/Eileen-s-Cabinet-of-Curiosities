@@ -189,6 +189,13 @@ export const cities: CityLandmark[] = [
       { src: "/images/life/kyoto/09.jpg", width: 900, height: 1600, alt: "An autumn tree over a Kyoto street, with the words “Autumn comes”" },
     ] },
   { id: "london", city: "London", country: "United Kingdom", landmark: "London Eye", lat: 51.5033, lon: -0.1196, art: "londonEye", interactive: true, scale: 0.72, nudge: [-30, -6], label: "left",
+    intro: [
+      "Of all the cities I’ve visited, London holds a particularly special place in my heart. I can’t quite explain why, but every time I’m there, I feel an overwhelming sense of happiness, as though I’ve found somewhere I belong.",
+      "I love London’s museums, where I can spend hours wandering between paintings and sculptures, discovering artists I’ve never heard of and revisiting those I’ve admired for years. I love its magnificent cathedrals, old bookshops, little markets, and theatres, where musicals bring stories to life. And I especially love London at Christmas, when the streets glow with decorations and even the cold winter evenings feel warm.",
+      "But some of my favourite memories have nothing to do with famous landmarks. They’re of sitting in Hyde Park, watching swans glide across the water and squirrels disappear into the grass. Of walking beneath enormous trees, enjoying the occasional sunshine, and even getting caught in the rain. Of buying flowers, wandering around without a destination, and simply enjoying being there.",
+      "London has taught me that happiness doesn’t always have to come from extraordinary experiences. Sometimes, it’s just a sunny afternoon in the park, a painting that makes me stop and stare, or the sound of rain against the window.",
+      "I don’t think I’ll ever get tired of London. There is always another museum to visit, another street to explore, another musical to watch, and another little moment worth remembering.",
+    ],
     photos: [
       { src: "/images/life/london/01.jpg", width: 1500, height: 2000, alt: "Looking up at a grand stone building against the clouds" },
       { src: "/images/life/london/02.jpg", width: 1500, height: 2000, alt: "A sunny street with a red double-decker bus" },

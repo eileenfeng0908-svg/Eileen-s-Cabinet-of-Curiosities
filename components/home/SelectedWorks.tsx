@@ -33,7 +33,7 @@ const rests = [-1.6, 1.2, -0.8, 1.8];
 const lifts = ["md:-translate-y-6", "md:translate-y-8", "md:-translate-y-2", "md:translate-y-5"];
 
 export function SelectedWorks() {
-  const works = featuredProjects().slice(0, 4);
+  const works = featuredProjects().slice(0, 6);
   const track = useRef<HTMLUListElement>(null);
   const reduce = useReducedMotion();
   const [ends, setEnds] = useState({ start: true, end: false });

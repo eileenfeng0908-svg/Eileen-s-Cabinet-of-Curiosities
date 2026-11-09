@@ -546,9 +546,9 @@
 .atlas-city:focus-visible .atlas-label { opacity: 1; transform: none; }
 .atlas-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+  width: 2.9rem; height: 2.9rem; border-radius: 9999px;
   border: 1px solid rgb(113 63 72 / 0.4);
-  font-family: var(--font-display); font-size: 1.3rem; color: var(--wine);
+  font-family: var(--font-display); font-size: 1.7rem; color: var(--wine);
   transition: color 300ms, border-color 300ms;
 }
 .atlas-btn:hover { color: var(--vermilion); border-color: var(--vermilion); }
