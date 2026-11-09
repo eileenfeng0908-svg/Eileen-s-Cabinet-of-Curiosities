@@ -1,42 +1,59 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { animate, motion, useMotionValue, useReducedMotion, type MotionValue } from "motion/react";
-import { featuredArchive } from "@/content/archive";
+import { curiosities } from "@/content/curiosities";
 import { Plate } from "@/components/editorial/Plate";
 import { Rosette } from "@/components/editorial/Ornaments";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { Reveal } from "@/components/motion/Reveal";
 import { PaintedSheet } from "@/components/writing/Painted";
-import { catalogueNumber } from "@/lib/format";
 import { cn } from "@/lib/cn";
-import type { ArchiveItem } from "@/lib/types";
+import type { ImageAsset } from "@/lib/types";
 
 /**
- * Objects scattered across a painted desk blotter. With a mouse you can pick
- * them up and move them around (a click still opens the object), and "Tidy
- * up" puts everything back. On touch screens they sit as a loose, tilted row.
+ * Eileen's photos (content/curiosities.ts) scattered across a painted desk
+ * blotter. With a mouse you can pick them up and move them around (a click
+ * opens the photo), and "Tidy up" puts everything back. On touch screens
+ * they sit as a loose, tilted row.
  */
 
-// Where each object lands on the desk: left/top and width as % of the desk.
-const spots = [
-  { left: 4, top: 10, w: 23, rot: -6 },
-  { left: 31, top: 38, w: 14, rot: 5 },
-  { left: 49, top: 6, w: 16, rot: -3 },
-  { left: 72, top: 30, w: 16, rot: 7 },
-  { left: 15, top: 50, w: 12, rot: -9 },
+// Where each photo lands: a loose 6 x 3 scatter, left/top in % of the desk.
+const jitter = [
+  [1, 2, -6], [3, -1, 4], [-1, 4, -3], [2, 0, 6], [0, 3, -5], [2, -2, 3],
+  [-1, 1, 5], [2, 4, -4], [0, -1, 7], [3, 2, -2], [1, 0, 4], [-1, 3, -7],
+  [2, 1, 3], [0, -2, -5], [3, 3, 6], [1, 0, -3], [-1, 2, 5], [2, -1, -4],
 ];
+function spotFor(i: number, img: ImageAsset) {
+  const [jx, jy, rot] = jitter[i % jitter.length];
+  const col = i % 6;
+  const row = Math.floor(i / 6) % 3;
+  const w = img.aspect >= 1 ? 14 : img.aspect > 0.7 ? 10.5 : 9;
+  return { left: 3 + col * 15.6 + jx, top: 5 + row * 30 + jy, w, rot };
+}
 const tapes = ["var(--vermilion)", "var(--brass)", "var(--powder-blue)", "var(--botanical-green)", "var(--vermilion)"];
 const tilts = ["-rotate-[2deg]", "rotate-[1.5deg]", "-rotate-[1deg]", "rotate-[2.2deg]", "-rotate-[1.6deg]"];
 
 export function FeaturedArchive() {
-  const items = featuredArchive().slice(0, spots.length);
+  const items = curiosities;
   const desk = useRef<HTMLDivElement>(null);
   const [fine, setFine] = useState(false);
   const [tidy, setTidy] = useState(0);
   const [moved, setMoved] = useState(false);
-  const [order, setOrder] = useState(items.map((it) => it.slug));
+  const [order, setOrder] = useState(items.map((it) => it.src!));
+  const [open, setOpen] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (open === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(null);
+      if (e.key === "ArrowRight") setOpen((o) => (o === null ? o : (o + 1) % items.length));
+      if (e.key === "ArrowLeft") setOpen((o) => (o === null ? o : (o - 1 + items.length) % items.length));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, items.length]);
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 48rem)");
@@ -70,8 +87,8 @@ export function FeaturedArchive() {
           </Reveal>
           <Reveal delay={0.16} className="col-span-4 md:col-span-4 lg:col-span-3 lg:col-start-4">
             <p className="text-caption text-ink-soft">
-              Postcards, letters, sketchbook pages, photographs and fragments of ordinary days: each object
-              catalogued, each with a story.
+              Postcards, bookshops, shells, paintings and fragments of ordinary days: the little things I keep
+              and notice.
             </p>
           </Reveal>
         </header>
@@ -85,13 +102,14 @@ export function FeaturedArchive() {
               </span>
               {items.map((item, i) => (
                 <DeskObject
-                  key={item.slug}
+                  key={item.src}
                   item={item}
                   i={i}
-                  z={order.indexOf(item.slug) + 1}
+                  z={order.indexOf(item.src!) + 1}
                   desk={desk}
                   tidy={tidy}
-                  onLift={() => lift(item.slug)}
+                  onLift={() => lift(item.src!)}
+                  onOpen={() => setOpen(i)}
                 />
               ))}
             </div>
@@ -118,14 +136,13 @@ export function FeaturedArchive() {
           <>
             <ul className="mt-16 flex snap-x snap-mandatory gap-8 overflow-x-auto px-2 pb-6 pt-4 [scrollbar-width:none] md:mt-20">
               {items.map((item, i) => (
-                <li key={item.slug} className="w-[min(58vw,15rem)] shrink-0 snap-center">
-                  <Link href={`/archive/${item.slug}`} aria-label={`${catalogueNumber(item.number)}, ${item.title}`} className="block">
+                <li key={item.src} className="w-[min(58vw,15rem)] shrink-0 snap-center">
+                  <button type="button" onClick={() => setOpen(i)} aria-label={`Open photo: ${item.alt}`} className="block w-full">
                     <div className={cn("print relative", tilts[i % tilts.length])}>
                       <Tape color={tapes[i % tapes.length]} />
-                      <Plate image={item.image} showPlaceholderLabel={false} sizes="60vw" />
+                      <Plate image={item} sizes="60vw" />
                     </div>
-                    <Tag item={item} className="mt-4" />
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -137,6 +154,34 @@ export function FeaturedArchive() {
           </>
         )}
       </div>
+      {open !== null && createPortal(
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={items[open].alt}
+          onClick={() => setOpen(null)}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-wine/80 p-6 backdrop-blur-sm"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={items[open].src}
+            alt={items[open].alt}
+            className="max-h-[80vh] max-w-full bg-ivory p-2 shadow-2xl md:p-3"
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen((open + 1) % items.length);
+            }}
+          />
+          <p className="max-w-xl text-center font-display text-lg italic text-ivory">{items[open].alt}</p>
+          <div className="flex gap-8 text-ivory">
+            <button type="button" className="label" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + items.length) % items.length); }}>← Previous</button>
+            <span className="label">{open + 1} / {items.length}</span>
+            <button type="button" className="label" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % items.length); }}>Next →</button>
+            <button type="button" className="label" onClick={() => setOpen(null)}>Close ✕</button>
+          </div>
+        </div>,
+        document.body,
+      )}
     </section>
   );
 }
@@ -148,16 +193,18 @@ function DeskObject({
   desk,
   tidy,
   onLift,
+  onOpen,
 }: {
-  item: ArchiveItem;
+  item: ImageAsset;
   i: number;
   z: number;
   desk: React.RefObject<HTMLDivElement | null>;
   tidy: number;
   onLift: () => void;
+  onOpen: () => void;
 }) {
   const reduce = useReducedMotion();
-  const spot = spots[i % spots.length];
+  const spot = spotFor(i, item);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const dragged = useRef(false);
@@ -177,27 +224,23 @@ function DeskObject({
       initial={reduce ? false : { opacity: 0, y: -70, rotate: spot.rot * 3 }}
       whileInView={{ opacity: 1, y: 0, rotate: 0 }}
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-      transition={{ type: "spring", stiffness: 90, damping: 14, delay: i * 0.12 }}
+      transition={{ type: "spring", stiffness: 90, damping: 14, delay: i * 0.06 }}
     >
       <Draggable x={x} y={y} rot={spot.rot} desk={desk} dragged={dragged} onLift={onLift}>
-        <Link
-          href={`/archive/${item.slug}`}
+        <button
+          type="button"
           draggable={false}
-          aria-label={`${catalogueNumber(item.number)}, ${item.title}`}
-          onClick={(e) => {
-            if (dragged.current) e.preventDefault();
+          aria-label={`Open photo: ${item.alt}`}
+          onClick={() => {
+            if (!dragged.current) onOpen();
           }}
-          className="group block"
+          className="group block w-full"
         >
           <div className="print relative">
             <Tape color={tapes[i % tapes.length]} />
-            <Plate image={item.image} showPlaceholderLabel={false} zoom={false} sizes="25vw" />
-            <Tag
-              item={item}
-              className="absolute bottom-3 left-3 translate-y-2 opacity-0 transition-all duration-500 ease-gallery group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
-            />
+            <Plate image={item} zoom={false} sizes="15vw" />
           </div>
-        </Link>
+        </button>
       </Draggable>
     </motion.div>
   );
@@ -251,19 +294,5 @@ function Tape({ color }: { color: string }) {
       className="absolute -top-3 left-1/2 z-10 h-6 w-16 -translate-x-1/2 -rotate-3 opacity-70 mix-blend-multiply"
       style={{ background: `color-mix(in srgb, ${color} 70%, transparent)`, clipPath: "polygon(3% 0, 97% 6%, 100% 50%, 96% 100%, 2% 94%, 0 50%)" }}
     />
-  );
-}
-
-/** The museum tag: catalogue number, kind of object, date. */
-function Tag({ item, className }: { item: ArchiveItem; className?: string }) {
-  return (
-    <div
-      aria-hidden
-      className={cn("border border-blue bg-ivory px-3 py-2.5 text-ink outline outline-1 outline-offset-2 outline-vermilion/15", className)}
-    >
-      <span className="label block text-wine">{catalogueNumber(item.number)}</span>
-      <span className="label block">{item.category === "Postcard" ? "Postcard Collection" : item.category}</span>
-      <span className="label block text-ink-soft">{item.date ?? "Date unknown"}</span>
-    </div>
   );
 }

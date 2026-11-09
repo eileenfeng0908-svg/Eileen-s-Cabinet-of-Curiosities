@@ -1,6 +1,6 @@
 import type { ImageAsset } from "@/lib/types";
 
-/** About page: "A cabinet of small curiosities", Eileen's photos of the little things she keeps and notices. */
+/** Homepage Featured Archive: "A cabinet of small curiosities", Eileen's photos of the little things she keeps and notices. */
 export const curiosities: ImageAsset[] = [
   { src: "/images/about/curiosities/01.jpg", alt: "A handful of antique valentines in plastic sleeves, a gilded To my Sweetheart card on top", aspect: 1200 / 1600 },
   { src: "/images/about/curiosities/02.jpg", alt: "Antique valentine postcard: With love to my Valentine, two children in old-fashioned dress", aspect: 1070 / 717 },

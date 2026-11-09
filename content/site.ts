@@ -15,7 +15,7 @@ export const site = {
   statement: {
     lead: "I keep things",
     body: "films that asked me to look twice, rooms arranged around an idea, photographs of ordinary afternoons, sentences I did not want to lose. This is where they are kept, in no particular hurry.",
-    signature: "[A line or two about yourself — replace in content/site.ts]",
+    signature: "A student, film lover, occasional writer and enthusiastic collector of little things. My interests lie somewhere between cinema, art, philosophy and the humanities.",
   },
 
   email: "eileen20080908@outlook.com",
