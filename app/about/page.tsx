@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { Plate } from "@/components/editorial/Plate";
 import { NouveauFrame } from "@/components/editorial/NouveauFrame";
+import { SectionHeading } from "@/components/editorial/SectionHeading";
+import { curiosities } from "@/content/curiosities";
 
 export const metadata: Metadata = {
   title: "About",
@@ -53,6 +55,20 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      <section id="curiosities" className="frame grid-editorial gap-y-10 pb-[var(--section-space)]">
+        <SectionHeading number="01" kicker="Collected" title="A cabinet of" italic="small curiosities" />
+        <div className="col-span-4 md:col-span-8 lg:col-span-12 columns-2 gap-5 md:columns-3 lg:gap-7">
+          {curiosities.map((img, i) => (
+            <figure
+              key={img.src}
+              className="mb-5 break-inside-avoid bg-[#fbf3e3] p-2 shadow-[0_6px_18px_-8px_rgba(113,63,72,0.35)] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] md:p-3 lg:mb-7"
+              style={{ transform: `rotate(${[-1.6, 1.2, -0.6, 1.8, -1.1, 0.7][i % 6]}deg)` }}
+            >
+              <Plate image={img} sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 33vw, 50vw" zoom={false} />
+            </figure>
+          ))}
+        </div>
+      </section>
     </>
   );
 }
