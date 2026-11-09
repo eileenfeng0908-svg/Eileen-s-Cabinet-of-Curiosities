@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { cities, type CityLandmark, type LifePhoto } from "@/content/life";
 import { handLine, handRect, rng } from "@/components/cabinet/paint";
 import { pencil, wash } from "@/components/cabinet/PaintDefs";
@@ -56,7 +57,7 @@ export function CityGallery({ city, onBack, onCity }: { city: CityLandmark; onBa
                 city.city
               )}
             </h2>
-            <p className="mt-3 font-display text-[1.15rem] italic text-wine/80">
+            <p className="mt-3 font-display text-[1.4rem] italic text-wine/80">
               {city.country} <span aria-hidden>·</span> {city.landmark}
             </p>
           </div>
@@ -65,9 +66,9 @@ export function CityGallery({ city, onBack, onCity }: { city: CityLandmark; onBa
         <PencilRule seed={i + 3} className="relative mt-8 md:mt-10" />
 
         {city.intro && (
-          <div className="relative mx-auto mt-10 max-w-2xl space-y-5 text-body text-wine">
+          <div className="relative mx-auto mt-10 max-w-2xl space-y-5 text-[1.3rem] leading-relaxed text-wine">
             {city.intro.map((para, k) => (
-              <p key={k} className={k === city.intro!.length - 1 && k > 0 ? "font-display text-lede italic" : undefined}>
+              <p key={k} className={k === city.intro!.length - 1 && k > 0 ? "font-display text-[1.45rem] italic" : undefined}>
                 {para.split(/\*([^*]+)\*/).map((part, j) => (j % 2 ? <em key={j}>{part}</em> : part))}
               </p>
             ))}
@@ -87,6 +88,24 @@ export function CityGallery({ city, onBack, onCity }: { city: CityLandmark; onBa
       </nav>
 
       <PhotoViewer city={city} index={shown} onChange={setShown} />
+
+      {/* Floating way on: always within reach however far down the photos you are. */}
+      {shown === null && typeof document !== "undefined" &&
+        createPortal(
+          <nav aria-label="Next place" className="city-float fixed bottom-5 right-5 z-[60] flex items-center gap-1 rounded-full border border-wine/30 bg-ivory/95 p-1.5 shadow-[0_8px_24px_rgb(113_63_72/0.25)] backdrop-blur-sm md:bottom-8 md:right-8">
+            <button type="button" onClick={onBack} className="label rounded-full px-3 py-2 text-wine transition-colors hover:text-vermilion" aria-label="Back to Atlas">
+              Atlas
+            </button>
+            <span aria-hidden className="h-5 w-px bg-wine/25" />
+            <button type="button" onClick={() => onCity(prev)} className="label rounded-full px-3 py-2 text-wine transition-colors hover:text-vermilion" aria-label={`Previous place: ${prev.city}`}>
+              ←
+            </button>
+            <button type="button" onClick={() => onCity(next)} className="label rounded-full bg-wine px-4 py-2 text-ivory transition-colors hover:bg-vermilion">
+              {next.city} →
+            </button>
+          </nav>,
+          document.body,
+        )}
     </section>
   );
 }

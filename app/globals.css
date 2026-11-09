@@ -606,3 +606,6 @@
 @media (prefers-reduced-motion: reduce) {
   .atelier-object, .atelier-print { transition: none; }
 }
+
+/* Life city pages: bigger small caps so they read easily */
+.city-gallery .label, .city-float .label { font-size: 1.2rem; }
