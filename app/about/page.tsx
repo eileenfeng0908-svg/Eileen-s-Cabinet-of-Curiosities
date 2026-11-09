@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "About Eileen Feng.",
 };
 
-// Preliminary page. Phase 3 develops the full editorial About layout.
 export default function AboutPage() {
   return (
     <>
@@ -29,11 +28,29 @@ export default function AboutPage() {
           </NouveauFrame>
         </div>
         <div className="col-span-4 md:col-span-5 lg:col-span-6 lg:col-start-6 space-y-6">
-          <p className="font-display text-statement">[A personal introduction, in your own words.]</p>
-          <p className="text-caption text-ink-soft">
-            [Artistic and academic interests, selected experiences, creative philosophy and an optional CV download
-            will live here.]
+          <p className="font-display text-statement">
+            Hi, I’m Eileen! I’m a student, film lover, occasional writer, and enthusiastic collector of little things.
           </p>
+          <div className="space-y-5 text-body text-wine">
+            <p>
+              I’ve always been curious about the stories behind ordinary things, whether it’s an old postcard, a scene
+              from a film, a painting, or a conversation with a stranger. I love collecting things that remind me of
+              people, places, and moments, even when they seem insignificant to everyone else.
+            </p>
+            <p>
+              My interests lie somewhere between cinema, art, philosophy, and the humanities. I’m particularly
+              fascinated by how art shapes our understanding of ourselves and others. Through filmmaking, writing,
+              research, and curating exhibitions, I enjoy exploring questions that rarely have straightforward answers.
+            </p>
+            <p>
+              Outside of academics, you’ll probably find me wandering around a museum, sitting in a cinema, writing
+              postcards, or drinking far too much coffee.
+            </p>
+            <p className="font-display text-lede italic">
+              Think of this website as my little cabinet of curiosities: a collection of things I’ve made, places I’ve
+              been, ideas I’ve encountered, and questions I’m still trying to figure out.
+            </p>
+          </div>
         </div>
       </div>
     </>
