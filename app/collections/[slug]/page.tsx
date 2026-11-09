@@ -19,6 +19,7 @@ import { PoetryGarden } from "@/components/writing/PoetryGarden";
 import { Atlas } from "@/components/life/Atlas";
 import { Atelier } from "@/components/atelier/Atelier";
 import { AtlasMap } from "@/components/life/AtlasMap";
+import { DreamTrips } from "@/components/life/DreamTrips";
 import { StoryCollection } from "@/components/writing/StoryCollection";
 import { ReadingRoom } from "@/components/writing/ReadingRoom";
 import { isAnalysis, isCreative, writingSections } from "@/lib/writing";
@@ -85,6 +86,14 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
           <section aria-label="The atlas">
             <p className="mb-10 max-w-xl font-display text-lede italic text-wine">Not everywhere I’ve been. Just the places I’ve kept.</p>
             <Atlas map={<AtlasMap />} />
+          </section>
+        )}
+
+        {c.slug === "life" && (
+          <section id="dream-trips" aria-labelledby="dream-trips-title" className="scroll-mt-24">
+            <SectionHeading id="dream-trips-title" number="II" kicker="Not yet" title="Dream" italic="Trips" align="offset" />
+            <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Places I haven’t been, but hope to one day.</p>
+            <DreamTrips />
           </section>
         )}
 
