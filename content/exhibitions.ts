@@ -155,7 +155,12 @@ export const exhibitions: Exhibition[] = [
     title: "You Will Never Walk Alone",
     cover: { src: "/images/exhibitions/you-will-never-walk-alone/cover.jpg", alt: "The entrance mural of You Will Never Walk Alone: a reaching hand, flames and a crowd of figures beside the title", aspect: 16 / 9 },
     introduction: [],
-    statement: ["[Curatorial statement, in your own words.]"],
+    // Written by Claude at Eileen's request (2026-11-09), from the preface, chapters and her annotation.
+    statement: [
+      "You Will Never Walk Alone began with a single word. In Chinese, both characters of 孤独, loneliness, mean “one person”. We wanted to ask what happens when those two solitary figures stand side by side: whether loneliness, traced across the whole of human history, might turn out to be something we share.",
+      "Built from the work of Huitong students in the Global History programme, the exhibition walks through civilization in four chapters. The Survivors faced the challenges of nature together. The Explorers were driven outward by curiosity about a wider world. In Our Time brought progress and war hand in hand. All That is Solid Melts into Air arrives in our own fast, fragmented present of screens and endless information. Along the way, visitors leave a handprint as early humans did, write down the need they think matters most, and meet their own reflections in a wall of mirrors.",
+      "We hid quotations in every corner, voices from many centuries and languages, all speaking of loneliness. Read together, they say the same thing: someone, somewhere, has felt this before. Loneliness may be part of being human, but so is the hand that reaches back. Those who walked before us are still walking with us. You will never walk alone.",
+    ],
     titleNote: ywnwa.titleNote,
     preface: ywnwa.preface,
     sections: ywnwa.chapters,

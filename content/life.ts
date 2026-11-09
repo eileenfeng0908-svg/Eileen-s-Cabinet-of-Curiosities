@@ -97,7 +97,13 @@ export const cities: CityLandmark[] = [
       { src: "/images/life/shenzhen/21.jpg", width: 2000, height: 1332, alt: "Huitong School graduation ceremony, Class of 2026" },
       { src: "/images/life/shenzhen/22.jpg", width: 2000, height: 1332, alt: "Friends at the Huitong School graduation ceremony, Class of 2026" },
     ] },
-  { id: "hong-kong", city: "Hong Kong", country: "China", landmark: "Bank of China Tower", lat: 22.2793, lon: 114.1615, art: "bankOfChina", interactive: true, nudge: [26, 40], label: "right", photos: [] },
+  { id: "hong-kong", city: "Hong Kong", country: "China", landmark: "Bank of China Tower", lat: 22.2793, lon: 114.1615, art: "bankOfChina", interactive: true, nudge: [26, 40], label: "right",
+    intro: [
+      "I can no longer remember how many times I visited Disneyland as a child. Back then, Hong Kong was a fairytale world to me, a place filled with magic, excitement, and endless possibilities.",
+      "As I grew older, I began to fall in love with a different side of the city. I love its winding, interconnected streets, the graffiti on its walls, and the countless stickers and posters scattered across buildings and alleyways. There is something about this beautiful messiness that makes the city feel so alive, as though every corner has a story to tell.",
+      "Over the years, Hong Kong has become a place where I’ve collected countless memories. I’ve travelled there with family and friends, sung along to my favourite songs at concerts, and spent afternoons wandering through exhibitions at M+, encountering artworks and ideas I had never considered before. Somehow, there is always something new to discover, even in places I’ve visited a hundred times.",
+      "Perhaps that’s what I love most about Hong Kong. The city has grown up alongside me. What was once a childhood fairytale has become a place of art, music, friendships, and little discoveries. And every time I return, I find another reason to love it.",
+    ], photos: [] },
   { id: "shanghai", city: "Shanghai", country: "China", landmark: "Oriental Pearl Tower", lat: 31.2397, lon: 121.4998, art: "orientalPearl", interactive: true, nudge: [10, -22], label: "left", photos: [] },
   { id: "tokyo", city: "Tokyo", country: "Japan", landmark: "Tokyo Tower", lat: 35.6586, lon: 139.7454, art: "tokyoTower", interactive: true, nudge: [22, -10], label: "right",
     intro: [
