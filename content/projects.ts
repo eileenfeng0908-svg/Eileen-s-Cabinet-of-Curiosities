@@ -80,6 +80,36 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "music-interaction",
+    title: "Music Interaction Project",
+    subtitle: "Five Rooms: Press Play, Listen Before You Name It",
+    category: "Creative Experiments",
+    year: undefined,
+    featured: 4,
+    href: "https://music-interaction.vercel.app/",
+    cover: {
+      src: "/images/work/music-interaction/cover.jpg",
+      alt: "Illustration “NYC dressed in happiness”: a crowd in bright patterned clothes crossing a black-and-white zebra crossing",
+      aspect: 958 / 956,
+      caption: "“NYC dressed in happiness”, FARM Rio",
+    },
+    // Summary and body written by Claude at Eileen's request (2026-11-09).
+    summary:
+      "An interactive music website made for the What Makes Us Human? exhibition. It opens with one instruction, “Press play. Listen before you name it.”, and asks visitors to feel a piece of music before they put words to it.",
+    credits: [
+      { label: "Type", value: "Interactive website / sound" },
+      { label: "Made for", value: "What Makes Us Human?" },
+    ],
+    body: [
+      { type: "heading", text: "Listen before you name it" },
+      { type: "paragraph", text: "The project began with a simple question from the exhibition: if relationships are what make us human, what happens in the moment between hearing something and understanding it? Music is one of the oldest ways people share feelings without explaining them, so the site asks visitors to slow down and listen first." },
+      { type: "paragraph", text: "Each room is a different page with its own atmosphere. You press play, stay with the sound, and only then begin to name what you are hearing and what it makes you feel. The order is the point: the feeling arrives before the words." },
+      { type: "heading", text: "Why it belongs in the exhibition" },
+      { type: "paragraph", text: "Alongside Between Us, the project explores how meaning forms between a person and something outside them, whether that is a letter, a machine or a melody. Listening becomes a small act of relationship: we bring our own memories and moods to a piece of music, and it answers back." },
+      { type: "links", title: "Elsewhere", items: [{ label: "Visit Five Rooms", href: "https://music-interaction.vercel.app/" }, { label: "The exhibition catalogue", href: "/exhibitions/what-makes-us-human" }] },
+    ],
+  },
+  {
     slug: "fashion-shows",
     title: "Fashion Shows",
     subtitle: "Five Shows, 2023–2027",
@@ -137,7 +167,7 @@ export const projects: Project[] = [
     subtitle: "Machine Consciousness and Human–AI Relationships",
     category: "Research",
     year: undefined,
-    featured: 4,
+    featured: 5,
     // LinkedIn lists Jan 2026 – present: confirm before showing a year.
     cover: {
       src: "/images/work/could-machines-think-and-feel/cover.png",
@@ -185,7 +215,7 @@ export const projects: Project[] = [
     subtitle: "Cinema & Psychology Research",
     category: "Cinema & Research",
     year: undefined,
-    featured: 5,
+    featured: 6,
     // LinkedIn lists Oct 2024 – Jun 2025: confirm before showing dates.
     cover: {
       src: "/images/work/film-and-mental-illness/cover.jpg",
