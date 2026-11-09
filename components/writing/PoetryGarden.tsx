@@ -264,7 +264,7 @@ function FlowerButton({ poem, index, style, labelBelow, onOpen }: { poem: Poem; 
       </span>
       <span
         className={cn(
-          "garden-title pointer-events-none absolute left-1/2 w-max max-w-[12rem] -translate-x-1/2 font-display text-[0.95rem] italic leading-tight text-wine",
+          "garden-title pointer-events-none absolute left-1/2 w-max max-w-[12rem] -translate-x-1/2 font-display text-[1.1rem] italic leading-tight text-wine",
           labelBelow ? "top-full mt-1" : "bottom-full mb-1",
         )}
       >

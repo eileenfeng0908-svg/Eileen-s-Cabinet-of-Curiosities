@@ -203,7 +203,7 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                         )}
                         <GreaseRing on={hover === f.slug || open?.slug === f.slug} />
                       </span>
-                      <span aria-hidden className="flex justify-between px-0.5 font-sans text-[0.6rem] tracking-[0.12em] text-brass">
+                      <span aria-hidden className="flex justify-between px-0.5 font-sans text-[0.75rem] tracking-[0.12em] text-brass">
                         <span>{n}</span>
                         <span>▸ {n}A</span>
                       </span>
@@ -215,9 +215,9 @@ export function FilmLog({ films, placeholders }: { films: FilmEntry[]; placehold
                       <span className="label mt-1 block text-wine">
                         {[f.director, f.year].filter(Boolean).join(", ") || " "}
                       </span>
-                      {f.rating != null && <Stars value={f.rating} className="mt-1.5 text-[0.85rem]" />}
+                      {f.rating != null && <Stars value={f.rating} className="mt-1.5 text-[1rem]" />}
                       {f.note && !f.placeholder && (
-                        <span className="mt-2 line-clamp-3 block font-display text-[0.98rem] italic leading-snug text-wine">{f.note}</span>
+                        <span className="mt-2 line-clamp-3 block font-display text-[1.1rem] italic leading-snug text-wine">{f.note}</span>
                       )}
                     </span>
                   </button>

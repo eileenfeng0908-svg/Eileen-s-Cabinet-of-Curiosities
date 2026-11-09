@@ -61,15 +61,19 @@
   --text-title--line-height: 1.08;
   --text-statement: clamp(1.6rem, 2.48vw, 2.9rem);
   --text-statement--line-height: 1.2;
-  --text-lede: clamp(1.15rem, 1.2vw, 1.4rem);
+  --text-lede: clamp(1.25rem, 1.3vw, 1.5rem);
   --text-lede--line-height: 1.45;
-  --text-body: 1rem;
+  --text-body: 1.15rem;
   --text-body--line-height: 1.7;
-  --text-caption: 0.875rem;
+  --text-caption: 1.05rem;
   --text-caption--line-height: 1.5;
-  --text-label: 0.95rem;
+  --text-label: 1.1rem;
   --text-label--line-height: 1.35;
   --text-label--letter-spacing: 0.07em;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.5;
+  --text-xs: 0.9rem;
+  --text-xs--line-height: 1.45;
 
   /* --- Motion ----------------------------------------------------------- */
   --ease-gallery: cubic-bezier(0.22, 1, 0.36, 1);  /* slow out: things settle */
@@ -184,7 +188,7 @@
 /* Archival label — true small caps, lightly tracked. */
 @utility label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   line-height: 1.4;
   letter-spacing: 0.1em;
   text-transform: uppercase;

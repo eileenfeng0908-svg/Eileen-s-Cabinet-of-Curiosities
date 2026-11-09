@@ -65,11 +65,11 @@ export function ReadingRoom({ essays }: { essays: Article[] }) {
               >
                 <BookSpine color={spineInk[b.n]} seed={b.n + 1} plate />
                 <span className="absolute inset-x-0 top-[18.5%] bottom-[19.5%] flex items-center justify-center">
-                  <span className="whitespace-nowrap font-display text-[0.85rem] leading-none text-wine sm:text-[1.05rem]" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+                  <span className="whitespace-nowrap font-display text-[0.95rem] leading-none text-wine sm:text-[1.2rem]" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                     {s.subject}
                   </span>
                 </span>
-                <span className="label absolute inset-x-0 bottom-[2.5%] text-center text-[0.65rem]" style={{ color: dark ? "var(--aged-ivory)" : "var(--wine)" }}>
+                <span className="label absolute inset-x-0 bottom-[2.5%] text-center text-[0.75rem]" style={{ color: dark ? "var(--aged-ivory)" : "var(--wine)" }}>
                   {s.items.length || "–"}
                 </span>
               </a>

@@ -104,7 +104,7 @@ function EmptyFrame({ label, tint, big = false }: { label: string; tint: string;
     >
       <span aria-hidden className="plate-tooth absolute inset-0 opacity-70" />
       <span aria-hidden className="absolute inset-[6%] border-[1.5px] border-dashed border-wine/45" />
-      <span className={cn("relative px-4 text-center font-display italic text-wine", big ? "text-xl" : "text-[0.95rem] leading-snug")}>{label}</span>
+      <span className={cn("relative px-4 text-center font-display italic text-wine", big ? "text-xl" : "text-[1.1rem] leading-snug")}>{label}</span>
     </span>
   );
 }

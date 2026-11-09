@@ -31,7 +31,7 @@ export function TopFive({ films }: { films: typeof topFive }) {
                     className="absolute inset-x-0 bottom-0 translate-y-full bg-wine/90 px-3 pb-3 pt-2.5 text-ivory transition-transform duration-500 ease-gallery group-hover:translate-y-0 group-focus:translate-y-0"
                   >
                     <span className="block font-display text-[clamp(0.95rem,1.25vw,1.15rem)] leading-tight">{f.title}</span>
-                    <span className="mt-1 block text-[0.72rem] leading-snug text-ivory/85">
+                    <span className="mt-1 block text-[0.9rem] leading-snug text-ivory/85">
                       {f.director} · {f.year}
                     </span>
                   </figcaption>

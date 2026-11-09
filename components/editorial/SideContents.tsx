@@ -46,7 +46,7 @@ export function SideContents({ entries }: { entries: ContentsEntry[] }) {
               aria-current={active === e.id ? "location" : undefined}
               className={cn(
                 "-ml-px block border-l py-0.5 leading-snug transition-colors duration-300 hover:text-vermilion",
-                e.level === 1 ? "pl-4 text-[0.82rem]" : "pl-7 font-display text-[0.86rem] italic",
+                e.level === 1 ? "pl-4 text-[1rem]" : "pl-7 font-display text-[1.05rem] italic",
                 active === e.id ? "border-vermilion text-vermilion" : "border-transparent text-ink-soft",
               )}
             >
