@@ -39,7 +39,7 @@ export function Statement() {
     <section ref={section} aria-labelledby="statement-title" className="section-space relative isolate overflow-hidden bg-ivory-deep">
       <div className="frame grid-editorial gap-y-16">
         <div className="col-span-4 flex items-center gap-4 md:col-span-8 lg:col-span-12">
-          <span className="label text-wine">III</span>
+          <span className="label text-wine">II</span>
           <span aria-hidden className="h-px w-10 bg-brass/50" />
           <Star className="h-3 w-3 text-brass" />
           <h2 id="statement-title" className="label font-[family-name:var(--font-sc)] text-wine">

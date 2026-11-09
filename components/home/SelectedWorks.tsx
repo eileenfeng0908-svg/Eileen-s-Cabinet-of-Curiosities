@@ -139,7 +139,7 @@ function Intro() {
   return (
     <div>
       <div className="flex items-center gap-4 text-wine">
-        <span className="label">II</span>
+        <span className="label">III</span>
         <span aria-hidden className="h-px w-10 bg-brass/50" />
         <Star className="h-3 w-3 text-brass" />
         <span className="label">Selected Works</span>

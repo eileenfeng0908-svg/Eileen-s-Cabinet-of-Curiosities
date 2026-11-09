@@ -9,9 +9,9 @@ export default function HomePage() {
   return (
     <>
       <CabinetHero />
+      <Statement />
       <SelectedWorks />
       <Ribbon />
-      <Statement />
       <FeaturedArchive />
       <RecentWriting />
     </>
