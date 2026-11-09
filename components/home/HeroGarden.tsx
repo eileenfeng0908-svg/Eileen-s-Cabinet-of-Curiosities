@@ -7,7 +7,7 @@ import type { GardenFlower } from "@/content/poems";
 /**
  * A little strip of the Poetry Garden for the empty corner of the homepage:
  * a pencil vine with watercolour leaves and a few flowers that open on hover.
- * Purely decorative.
+ * Purely decorative; shown on large screens beside the collection links.
  */
 const flowers: { kind: GardenFlower; x: number; y: number; w: number; ink: string; rot: number }[] = [
   { kind: "tulip", x: 6, y: 18, w: 17, ink: "#C56558", rot: -8 },
