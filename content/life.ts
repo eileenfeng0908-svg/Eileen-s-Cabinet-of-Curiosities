@@ -404,6 +404,10 @@ export const cities: CityLandmark[] = [
       { src: "/images/life/san-francisco/20.jpg", width: 1500, height: 2000, alt: "A rainbow flag above a stone building" },
       { src: "/images/life/san-francisco/21.jpg", width: 2000, height: 1500, alt: "A backyard barbecue spread: bread, sausages and skewers" },
       { src: "/images/life/san-francisco/22.jpg", width: 2000, height: 1500, alt: "The barbecue table, with grilled meat added" },
+      { src: "/images/life/san-francisco/23.jpg", width: 1732, height: 1120, alt: "A child in orange 3D glasses, up close" },
+      { src: "/images/life/san-francisco/24.jpg", width: 1708, height: 1144, alt: "A small child in a winter coat outside a row of shops, with palm trees" },
+      { src: "/images/life/san-francisco/25.jpg", width: 1596, height: 1032, alt: "A small child with arms out at a mountain lookout" },
+      { src: "/images/life/san-francisco/26.jpg", width: 1760, height: 1176, alt: "A child in orange 3D glasses and a denim jacket" },
     ] },
   { id: "los-angeles", city: "Los Angeles", country: "United States", landmark: "Griffith Observatory", lat: 34.1184, lon: -118.3004, art: "griffith", interactive: true, nudge: [14, 16],
     intro: [
