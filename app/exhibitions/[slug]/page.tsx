@@ -99,10 +99,21 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
           {e.statement.length > 0 && (
           <section id="statement" className="scroll-mt-28">
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Curatorial statement</h2>
-            <div className="mt-6 max-w-[38rem] space-y-5 border-l border-vermilion/50 pl-5 text-lede">
-              {e.statement.map((p, i) => <p key={i}>{p}</p>)}
-              {e.statementZh?.map((p, i) => <p key={`zh-${i}`} lang="zh" className={i === 0 ? "pt-4" : undefined}>{p}</p>)}
-            </div>
+            {e.statementZh?.length ? (
+              // English and Chinese side by side, paragraph by paragraph.
+              <div className="mt-6 grid gap-x-12 gap-y-5 border-l border-vermilion/50 pl-5 text-lede md:grid-cols-2">
+                {e.statement.map((p, i) => (
+                  <div key={i} className="contents">
+                    <p>{p}</p>
+                    <p lang="zh" className="mb-4 md:mb-0">{e.statementZh?.[i]}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="mt-6 max-w-[38rem] space-y-5 border-l border-vermilion/50 pl-5 text-lede">
+                {e.statement.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            )}
           </section>
           )}
 
