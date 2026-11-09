@@ -237,6 +237,12 @@ export const cities: CityLandmark[] = [
     ],
   },
   { id: "paris", city: "Paris", country: "France", landmark: "Eiffel Tower", lat: 48.8584, lon: 2.2945, art: "eiffel", interactive: true, scale: 0.85, nudge: [16, 22],
+    intro: [
+      "I think Paris might be one of the happiest places on earth, or at least, it is to me.",
+      "I love getting lost in its streets, wandering into little bookshops and antique stores, and discovering something beautiful around an unfamiliar corner. But above all, I love Paris for its art. Seeing Renoir’s paintings up close, standing before Monet’s *Water Lilies*, and spending hours wandering through museums made me realise how wonderful it is to encounter artworks I’ve admired for so long in person. There is something magical about finally seeing the brushstrokes, colours, and textures that no photograph could ever quite capture.",
+      "And then there are the little pleasures: duck confit at a cosy restaurant, the winter sunlight falling across old buildings, the Seine at sunset, and the quiet streets of Montmartre. I love how art seems to exist everywhere in Paris, not just inside museums, but in its architecture, shop windows, and everyday life.",
+      "If happiness could be a place, I think mine would look a little like Paris.",
+    ],
     photos: [
       { src: "/images/life/paris/01.jpg", width: 1500, height: 2000, alt: "The Eiffel Tower lit gold at night" },
       { src: "/images/life/paris/02.jpg", width: 1500, height: 2000, alt: "The Eiffel Tower seen through bare winter branches" },
@@ -268,7 +274,7 @@ export const cities: CityLandmark[] = [
       { src: "/images/life/paris/28.jpg", width: 1500, height: 2000, alt: "Gulls over a pond in the Tuileries" },
       { src: "/images/life/paris/29.jpg", width: 1500, height: 2000, alt: "Bare trees against a dusk sky" },
       { src: "/images/life/paris/30.jpg", width: 1500, height: 2000, alt: "A red lantern glowing in a dark room" },
-      { src: "/images/life/paris/31.jpg", width: 1500, height: 2000, alt: "A French dinner with glasses of water" },
+      { src: "/images/life/paris/31.jpg", width: 1500, height: 2000, alt: "Duck confit at a cosy restaurant" },
       { src: "/images/life/paris/32.jpg", width: 1126, height: 2000, alt: "Standing by the river in a red checked scarf" },
     ],
   },
