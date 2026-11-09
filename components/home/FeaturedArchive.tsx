@@ -5,7 +5,8 @@ import { createPortal } from "react-dom";
 import { animate, motion, useMotionValue, useReducedMotion, type MotionValue } from "motion/react";
 import { curiosities } from "@/content/curiosities";
 import { Plate } from "@/components/editorial/Plate";
-import { Rosette } from "@/components/editorial/Ornaments";
+import { Rosette, Star } from "@/components/editorial/Ornaments";
+import { Doily, LaceHeart } from "@/components/editorial/Doily";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { Reveal } from "@/components/motion/Reveal";
 import { PaintedSheet } from "@/components/writing/Painted";
@@ -19,19 +20,35 @@ import type { ImageAsset } from "@/lib/types";
  * they sit as a loose, tilted row.
  */
 
-// Where each photo lands: a loose 6 x 3 scatter, left/top in % of the desk.
-const jitter = [
-  [1, 2, -6], [3, -1, 4], [-1, 4, -3], [2, 0, 6], [0, 3, -5], [2, -2, 3],
-  [-1, 1, 5], [2, 4, -4], [0, -1, 7], [3, 2, -2], [1, 0, 4], [-1, 3, -7],
-  [2, 1, 3], [0, -2, -5], [3, 3, 6], [1, 0, -3], [-1, 2, 5], [2, -1, -4],
+// A hand-placed collage on a 16:10 desk (left/top/width in % of the desk),
+// laid out so nothing overlaps. Each photo is fixed down its own way:
+// postcards sit bare with photo corners, snapshots are polaroids, the rest
+// are taped or pinned prints.
+type Fix = "bare" | "polaroid" | "tape" | "pin";
+const spots: { left: number; top: number; w: number; rot: number; fix: Fix }[] = [
+  { left: 3, top: 6, w: 13, rot: -5, fix: "bare" }, // valentines, on a doily
+  { left: 19, top: 4, w: 15, rot: 3, fix: "bare" },
+  { left: 37, top: 3, w: 10, rot: -2, fix: "bare" },
+  { left: 19, top: 25, w: 15, rot: -4, fix: "bare" },
+  { left: 37, top: 33, w: 14, rot: 5, fix: "bare" },
+  { left: 52, top: 5, w: 15, rot: -3, fix: "tape" },
+  { left: 70, top: 3, w: 10, rot: 4, fix: "polaroid" },
+  { left: 84, top: 6, w: 10, rot: -6, fix: "polaroid" },
+  { left: 3, top: 42, w: 11.5, rot: 4, fix: "polaroid" },
+  { left: 17, top: 46, w: 15, rot: -2, fix: "tape" },
+  { left: 54, top: 29, w: 11, rot: -5, fix: "polaroid" },
+  { left: 68, top: 31, w: 15, rot: 2, fix: "pin" },
+  { left: 86, top: 33, w: 10, rot: 6, fix: "polaroid" },
+  { left: 35, top: 53, w: 15, rot: -3, fix: "tape" },
+  { left: 17, top: 64, w: 10, rot: 5, fix: "polaroid" },
+  { left: 53, top: 58, w: 13, rot: 3, fix: "pin" },
+  { left: 69, top: 56, w: 13, rot: -4, fix: "tape" },
+  { left: 84, top: 60, w: 12.5, rot: 3, fix: "tape" },
 ];
-function spotFor(i: number, img: ImageAsset) {
-  const [jx, jy, rot] = jitter[i % jitter.length];
-  const col = i % 6;
-  const row = Math.floor(i / 6) % 3;
-  const w = img.aspect >= 1 ? 14 : img.aspect > 0.7 ? 10.5 : 9;
-  return { left: 3 + col * 15.6 + jx, top: 5 + row * 30 + jy, w, rot };
+function spotFor(i: number) {
+  return spots[i % spots.length];
 }
+
 const tapes = ["var(--vermilion)", "var(--brass)", "var(--powder-blue)", "var(--botanical-green)", "var(--vermilion)"];
 const tilts = ["-rotate-[2deg]", "rotate-[1.5deg]", "-rotate-[1deg]", "rotate-[2.2deg]", "-rotate-[1.6deg]"];
 
@@ -95,11 +112,9 @@ export function FeaturedArchive() {
 
         {fine ? (
           <div className="mt-16 md:mt-20">
-            <div ref={desk} className="relative aspect-[16/8.6] w-full">
-              <PaintedSheet seed={61} bloom="var(--powder-blue)" notched h={540} />
-              <span aria-hidden className="pointer-events-none absolute bottom-[7%] right-[5%] max-w-[14rem] -rotate-3 text-right font-display text-lg italic text-ink-soft">
-                Pick things up, move them around. A click opens one.
-              </span>
+            <div ref={desk} className="relative aspect-[16/10] w-full">
+              <PaintedSheet seed={61} bloom="var(--powder-blue)" notched h={620} />
+              <DeskDoodles />
               {items.map((item, i) => (
                 <DeskObject
                   key={item.src}
@@ -127,6 +142,9 @@ export function FeaturedArchive() {
               >
                 <span aria-hidden>↺</span> Tidy up
               </button>
+              <span aria-hidden className="font-display text-lg italic text-ink-soft">
+                Pick things up, move them around. A click opens one.
+              </span>
               <ArrowLink href="/archive" className="text-ink">
                 Enter the archive
               </ArrowLink>
@@ -204,7 +222,7 @@ function DeskObject({
   onOpen: () => void;
 }) {
   const reduce = useReducedMotion();
-  const spot = spotFor(i, item);
+  const spot = spotFor(i);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const dragged = useRef(false);
@@ -236,10 +254,9 @@ function DeskObject({
           }}
           className="group block w-full"
         >
-          <div className="print relative">
-            <Tape color={tapes[i % tapes.length]} />
+          <Mount fix={spot.fix} color={tapes[i % tapes.length]}>
             <Plate image={item} zoom={false} sizes="15vw" />
-          </div>
+          </Mount>
         </button>
       </Draggable>
     </motion.div>
@@ -294,5 +311,77 @@ function Tape({ color }: { color: string }) {
       className="absolute -top-3 left-1/2 z-10 h-6 w-16 -translate-x-1/2 -rotate-3 opacity-70 mix-blend-multiply"
       style={{ background: `color-mix(in srgb, ${color} 70%, transparent)`, clipPath: "polygon(3% 0, 97% 6%, 100% 50%, 96% 100%, 2% 94%, 0 50%)" }}
     />
+  );
+}
+
+/** How a photo is fixed to the desk. */
+function Mount({ fix, color, children }: { fix: Fix; color: string; children: React.ReactNode }) {
+  if (fix === "bare") {
+    return (
+      <div className="relative shadow-[0_2px_3px_rgb(113_63_72/0.12),0_14px_24px_-14px_rgb(113_63_72/0.5)]">
+        {children}
+        {(["left-0 top-0", "right-0 top-0 rotate-90", "right-0 bottom-0 rotate-180", "left-0 bottom-0 -rotate-90"] as const).map((pos) => (
+          <span
+            key={pos}
+            aria-hidden
+            className={cn("absolute h-[18%] max-h-6 w-[18%] max-w-6 -m-[3px]", pos)}
+            style={{ background: "var(--color-wine)", opacity: 0.85, clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+          />
+        ))}
+      </div>
+    );
+  }
+  if (fix === "polaroid") {
+    return (
+      <div className="relative bg-ivory-pale p-[6%] pb-[22%] shadow-[0_1px_1px_rgb(113_63_72/0.07),0_12px_22px_-14px_rgb(113_63_72/0.45)]">
+        <Tape color={color} />
+        {children}
+      </div>
+    );
+  }
+  return (
+    <div className="print relative">
+      {fix === "pin" ? (
+        <span
+          aria-hidden
+          className="absolute left-1/2 top-1 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full shadow-[1px_3px_3px_rgb(0_0_0/0.3)]"
+          style={{ background: "radial-gradient(circle at 35% 35%, #e9cf96, var(--color-brass) 55%, #7d5f2c)" }}
+        />
+      ) : (
+        <Tape color={color} />
+      )}
+      {children}
+    </div>
+  );
+}
+
+/** Ink doodles, a doily and a pressed sprig in the gaps between the photos. */
+function DeskDoodles() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      <Doily className="absolute left-[0.5%] top-[2%] w-[19%] text-blue opacity-60" />
+      <Star className="absolute left-[48.5%] top-[4%] h-4 w-4 rotate-12 text-vermilion" />
+      <Star className="absolute left-[96%] top-[30%] h-3 w-3 text-brass" />
+      <Star className="absolute left-[29%] top-[89%] h-5 w-5 -rotate-12 text-brass" />
+      <LaceHeart className="absolute left-[33.5%] top-[41%] h-7 w-7 -rotate-12 text-vermilion" />
+      <LaceHeart className="absolute left-[67%] top-[25.5%] h-5 w-5 rotate-12 text-wine" />
+      <Rosette className="absolute left-[50%] top-[26%] h-4 w-4 text-green" />
+      {/* a dashed flight path, like the valentine aeroplane's */}
+      <svg viewBox="0 0 200 80" className="absolute left-[3%] top-[34%] w-[13%] overflow-visible text-wine/60" fill="none">
+        <path d="M4 60 C 40 10, 90 70, 120 30 S 180 20, 196 6" stroke="currentColor" strokeWidth="1.6" strokeDasharray="5 6" strokeLinecap="round" />
+        <path d="M186 4 L197 5 L192 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      {/* a hand-drawn loop with a little flower at the end */}
+      <svg viewBox="0 0 300 90" className="absolute left-[34%] top-[80%] w-[24%] overflow-visible" fill="none">
+        <path d="M4 50 C 50 10, 80 80, 120 45 C 150 20, 170 70, 140 70 C 115 70, 140 20, 190 40 S 260 55, 286 30" stroke="var(--color-green)" strokeWidth="1.4" strokeLinecap="round" />
+        {[0, 72, 144, 216, 288].map((r) => (
+          <ellipse key={r} cx="290" cy="18" rx="4" ry="9" fill="var(--color-vermilion)" fillOpacity="0.75" transform={`rotate(${r} 290 27)`} />
+        ))}
+        <circle cx="290" cy="27" r="3" fill="var(--color-brass)" />
+      </svg>
+      <p className="absolute left-[64%] top-[84%] -rotate-3 font-display text-[clamp(1.1rem,2vw,1.8rem)] italic text-wine/80">
+        little things, kept
+      </p>
+    </div>
   );
 }
