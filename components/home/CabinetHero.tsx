@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import { cabinetItems } from "@/content/collections";
 import { Cabinet } from "@/components/cabinet/Cabinet";
+import { HeroGarden } from "./HeroGarden";
 
 /**
  * The opening of the homepage: the painted cabinet, with a plain list of the
@@ -29,7 +30,8 @@ export function CabinetHero() {
         </div>
 
         {/* the same six collections, without the doors */}
-        <nav aria-label="Collections" className="col-span-4 border-t border-wine/25 pt-4 md:col-span-8 lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:self-start">
+        <div className="col-span-4 flex flex-col justify-between gap-10 md:col-span-8 lg:col-span-4 lg:col-start-1 lg:row-start-2">
+        <nav aria-label="Collections" className="border-t border-wine/25 pt-4">
           <p className="label mb-3 text-wine">Or go straight to a collection</p>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5">
             {cabinetItems.map((c) => (
@@ -41,6 +43,10 @@ export function CabinetHero() {
             ))}
           </ul>
         </nav>
+        <div className="hidden pb-6 lg:block">
+          <HeroGarden />
+        </div>
+        </div>
       </div>
     </section>
   );

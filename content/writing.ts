@@ -744,6 +744,16 @@ export const articles: Article[] = [
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
 
+/** Five pieces Claude picked for the homepage at Eileen's request (2026-11-09). */
+export const homepageWriting = [
+  "the-truman-show-what-does-it-mean-to-be-human",
+  "what-is-self-deceit",
+  "from-amusement-to-nothingness-brain-rot",
+  "in-a-fading-mood-for-love",
+  "autumn-traffic-lights-and-the-swallowed-moon",
+];
+export const selectedArticles = () => homepageWriting.map((slug) => articles.find((a) => a.slug === slug)!).filter(Boolean);
+
 /** Newest first; undated drafts last. */
 export const recentArticles = (count = 4) =>
   [...articles]

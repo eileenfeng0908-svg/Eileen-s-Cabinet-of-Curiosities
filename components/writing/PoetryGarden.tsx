@@ -274,7 +274,7 @@ function FlowerButton({ poem, index, style, labelBelow, onOpen }: { poem: Poem; 
   );
 }
 
-function FlowerArt({ kind, seed, ink }: { kind: GardenFlower; seed: number; ink: string }) {
+export function FlowerArt({ kind, seed, ink }: { kind: GardenFlower; seed: number; ink: string }) {
   const r = rng(seed);
   const petal = (o: string, children: React.ReactNode, key?: number) => (
     <g key={key} className="garden-petal" style={{ "--o": o } as CSSProperties}>

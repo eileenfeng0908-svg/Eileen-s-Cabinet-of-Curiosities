@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { recentArticles } from "@/content/writing";
+import { selectedArticles } from "@/content/writing";
 import { SectionHeading } from "@/components/editorial/SectionHeading";
 import { ArrowLink } from "@/components/editorial/ArrowLink";
 import { Reveal } from "@/components/motion/Reveal";
 import { formatDate, readingTime } from "@/lib/format";
 
-/** The latest writing, set as a journal's table of contents. */
+/** Five chosen pieces of writing, set as a journal's table of contents. */
 export function RecentWriting() {
-  const articles = recentArticles(4);
+  const articles = selectedArticles();
 
   return (
     <section aria-labelledby="writing-title" className="section-space">
@@ -15,7 +15,7 @@ export function RecentWriting() {
         <SectionHeading
           id="writing-title"
           number="V"
-          kicker="Recent Writing"
+          kicker="Selected Writing"
           title="Notes, essays"
           italic="& small poems"
           align="right"
@@ -28,7 +28,7 @@ export function RecentWriting() {
                 href={`/writing/${a.slug}`}
                 className="group grid-editorial items-baseline gap-y-2 py-7 md:py-9"
               >
-                <span className="label col-span-2 md:col-span-2 text-ink-soft">{formatDate(a.date)}</span>
+                <span className="label col-span-2 md:col-span-2 text-ink-soft">{a.date ? formatDate(a.date) : `No. ${String(i + 1).padStart(2, "0")}`}</span>
                 <span className="label col-span-2 md:col-span-2 text-right md:text-left text-green">{a.category}</span>
                 <span className="col-span-4 md:col-span-3 lg:col-span-6 font-display text-title text-wine transition-[color,translate] duration-700 ease-gallery group-hover:translate-x-2 group-hover:text-vermilion">
                   {a.title}
