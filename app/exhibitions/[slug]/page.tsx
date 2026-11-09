@@ -101,6 +101,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Curatorial statement</h2>
             <div className="mt-6 max-w-[38rem] space-y-5 border-l border-vermilion/50 pl-5 text-lede">
               {e.statement.map((p, i) => <p key={i}>{p}</p>)}
+              {e.statementZh?.map((p, i) => <p key={`zh-${i}`} lang="zh" className={i === 0 ? "pt-4" : undefined}>{p}</p>)}
             </div>
           </section>
           )}

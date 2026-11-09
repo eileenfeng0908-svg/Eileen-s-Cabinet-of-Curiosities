@@ -69,8 +69,13 @@ export const projects: Project[] = [
       { label: "Status", value: "Ongoing" },
     ],
     body: [
-      { type: "paragraph", text: "[What the experiment set out to explore.]" },
-      { type: "paragraph", text: "[What happened, and what it made you think about.]" },
+      // Written by Claude at Eileen's request (2026-11-09), from her brief and the essay "Could Machines Think and Feel?".
+      { type: "heading", text: "What it sets out to explore" },
+      { type: "paragraph", text: "Between Us grew out of my research essay “Could Machines Think and Feel?”. There, I argued that the question may not be whether an AI is conscious inside, but what kind of being it becomes between us: a relational form of existence that only appears through interaction. This project turns that argument into something you can try." },
+      { type: "paragraph", text: "It is a letter-writing space. You write to someone, and an AI writes back, learning to imitate the voice, rhythm and small habits of the way a person writes. The experiment asks three questions. Can a machine imitate how we write closely enough to feel familiar? If a reply moves us, where did that feeling come from: the machine, the writer, or the space between them? And could something like feeling exist in a relationship, even if it cannot be found inside the machine itself?" },
+      { type: "heading", text: "What it makes me think about" },
+      { type: "paragraph", text: "Like Samantha in Her, a simulated reply can be surprisingly tender. Reading one, you recognise yourself, or someone you love, in words no person actually wrote. That recognition is real, even if its source is uncertain. Between Us does not try to settle whether the machine understands. It leaves the question open, and asks the reader to notice what happens to them while they read." },
+      { type: "paragraph", text: "The project is still ongoing. Each letter is another small test of where imitation ends and understanding begins." },
       { type: "links", title: "Elsewhere", items: [{ label: "Visit Between Us", href: "https://between-us-pi.vercel.app/" }] },
     ],
   },
@@ -192,7 +197,7 @@ export const projects: Project[] = [
       "Qualitative research comparing film portrayals of mental illness with clinical understandings. It investigates stereotyping, narrative and environmental factors, and the ways media representations may contribute to public stigma and self-stigma.",
     credits: [{ label: "Type", value: "Cinema / psychology research" }],
     body: [
-      { type: "video", url: "https://youtu.be/cuBmzg9y4RE", title: "TEDx talk", caption: "TEDx talk" },
+      { type: "video", url: "https://youtu.be/cuBmzg9y4RE", title: "Cinema or Stigma? Rethinking Mental Disorders in Film", caption: "TEDx talk: Cinema or Stigma? Rethinking mental disorders in film" },
       {
         type: "paragraph",
         text: "The full research paper, Misconceptions on Screen, compares films’ depictions of mental illness with the DSM-5 and traces how the differences contribute to stigma and public misconceptions.",

@@ -87,6 +87,8 @@ export interface Exhibition {
   status?: string;
   introduction: string[];
   statement: string[];
+  /** Chinese version of the statement, shown after the English. */
+  statementZh?: string[];
   /** A bilingual preface, shown in place of the introduction. */
   preface?: Pair[];
   /** A note on the exhibition's title, shown before the preface. */
@@ -160,6 +162,11 @@ export const exhibitions: Exhibition[] = [
       "You Will Never Walk Alone began with a single word. In Chinese, both characters of 孤独, loneliness, mean “one person”. We wanted to ask what happens when those two solitary figures stand side by side: whether loneliness, traced across the whole of human history, might turn out to be something we share.",
       "Built from the work of Huitong students in the Global History programme, the exhibition walks through civilization in four chapters. The Survivors faced the challenges of nature together. The Explorers were driven outward by curiosity about a wider world. In Our Time brought progress and war hand in hand. All That is Solid Melts into Air arrives in our own fast, fragmented present of screens and endless information. Along the way, visitors leave a handprint as early humans did, write down the need they think matters most, and meet their own reflections in a wall of mirrors.",
       "We hid quotations in every corner, voices from many centuries and languages, all speaking of loneliness. Read together, they say the same thing: someone, somewhere, has felt this before. Loneliness may be part of being human, but so is the hand that reaches back. Those who walked before us are still walking with us. You will never walk alone.",
+    ],
+    statementZh: [
+      "《你永远不会独行》始于一个字。“孤独”二字，拆开来看，都是“一个人”。我们想问：当这两个孤单的身影并肩而立，会发生什么？贯穿整个人类历史的孤独，会不会其实是我们共同拥有的东西？",
+      "展览由汇同学生在全球史课程中的作品构成，以四个章节走过人类文明。“幸存者”携手面对自然的挑战；“探索者”在对更广阔世界的好奇中走向远方；“我们的时代”里，进步与战争相伴而来；“一切坚固的东西都烟消云散了”则抵达我们自己的当下：快速、碎片化，充满屏幕与无尽的信息。一路上，观众可以像早期人类一样留下手印，写下自己认为最重要的需求，并在一面镜墙中遇见自己的倒影。",
+      "我们在每一个角落都藏了引文，来自不同世纪、不同语言的声音，都在诉说孤独。把它们放在一起读，它们说的是同一件事：某个人，在某个地方，也曾这样感受过。孤独或许是人之为人的一部分，但那只回握过来的手也是。走在我们之前的人，仍与我们同行。你永远不会独行。",
     ],
     titleNote: ywnwa.titleNote,
     preface: ywnwa.preface,
