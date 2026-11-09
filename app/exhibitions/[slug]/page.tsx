@@ -99,7 +99,7 @@ export default async function ExhibitionPage({ params }: { params: Promise<{ slu
           {e.statement.length > 0 && (
           <section id="statement" className="scroll-mt-28">
             <h2 className="label border-b border-wine/25 pb-3 text-wine">Curatorial statement</h2>
-            <div className="mt-6 max-w-[38rem] space-y-5 border-l-2 border-vermilion pl-6 font-display text-statement italic text-wine">
+            <div className="mt-6 max-w-[38rem] space-y-5 border-l border-vermilion/50 pl-5 text-lede">
               {e.statement.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </section>

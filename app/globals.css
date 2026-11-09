@@ -48,26 +48,26 @@
   --font-title: var(--font-pinyon), "Pinyon Script", cursive;             /* the site title only */
 
   /* --- Type scale: fluid, deliberately uneven --------------------------- */
-  --text-display-xl: clamp(4.25rem, 13.5vw, 13.5rem);
+  --text-display-xl: clamp(4.25rem, 10.8vw, 13.5rem);
   --text-display-xl--line-height: 0.86;
   --text-display-xl--letter-spacing: -0.045em;
-  --text-display-l: clamp(2.75rem, 6.5vw, 6.25rem);
+  --text-display-l: clamp(2.75rem, 5.2vw, 6.25rem);
   --text-display-l--line-height: 1;
   --text-display-l--letter-spacing: -0.015em;
-  --text-display-m: clamp(2.1rem, 4.2vw, 3.9rem);
+  --text-display-m: clamp(2.1rem, 3.36vw, 3.9rem);
   --text-display-m--line-height: 1;
   --text-display-m--letter-spacing: -0.015em;
-  --text-title: clamp(1.45rem, 2.1vw, 2rem);
+  --text-title: clamp(1.45rem, 1.68vw, 2rem);
   --text-title--line-height: 1.08;
-  --text-statement: clamp(1.6rem, 3.1vw, 2.9rem);
+  --text-statement: clamp(1.6rem, 2.48vw, 2.9rem);
   --text-statement--line-height: 1.2;
-  --text-lede: clamp(1.15rem, 1.5vw, 1.4rem);
+  --text-lede: clamp(1.15rem, 1.2vw, 1.4rem);
   --text-lede--line-height: 1.45;
   --text-body: 1rem;
   --text-body--line-height: 1.7;
   --text-caption: 0.875rem;
   --text-caption--line-height: 1.5;
-  --text-label: 0.875rem;
+  --text-label: 0.95rem;
   --text-label--line-height: 1.35;
   --text-label--letter-spacing: 0.07em;
 
@@ -86,8 +86,8 @@
 /* --- Layout tokens (used through the utilities below) ------------------- */
 :root {
   --page-margin: clamp(1.25rem, 4.5vw, 4rem);
-  --gutter: clamp(1rem, 2vw, 2rem);
-  --section-space: clamp(6rem, 14vw, 13rem);
+  --gutter: clamp(1rem, 1.6vw, 2rem);
+  --section-space: clamp(6rem, 11.2vw, 13rem);
   --header-h: 4.5rem;
   color-scheme: light;
 }
@@ -101,6 +101,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+  }
+  /* On tablets and computers the whole site is set 20% smaller (her request, 2026-11-09); phones keep full size for legibility. */
+  @media (min-width: 48rem) {
+    html { font-size: 80%; }
   }
   body {
     background-color: var(--color-ivory);

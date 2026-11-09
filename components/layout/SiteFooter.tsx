@@ -17,14 +17,14 @@ export function SiteFooter() {
             <p className="font-display text-display-m text-wine">
               Thank you for <em className="text-vermilion">looking</em>.
             </p>
-            <p className="mt-6 max-w-sm text-caption text-ink">
+            <p className="mt-6 max-w-md text-lede text-ink">
               {site.name}. {site.tagline}
             </p>
           </div>
 
           <nav aria-label="Footer" className="col-span-2 md:col-span-1 md:col-start-6 lg:col-start-8 lg:col-span-2">
             <p className="label mb-5 text-ink">Index</p>
-            <ul className="space-y-2 text-caption">
+            <ul className="space-y-3 text-lede">
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="link-draw">
@@ -37,10 +37,10 @@ export function SiteFooter() {
 
           <div className="col-span-2 md:col-span-2 md:col-start-7 lg:col-start-10 lg:col-span-3">
             <p className="label mb-5 text-ink">Correspondence</p>
-            <a href={`mailto:${site.email}`} className="link-draw text-caption break-all">
+            <a href={`mailto:${site.email}`} className="link-draw text-lede break-all">
               {site.email}
             </a>
-            <ul className="mt-4 space-y-2 text-caption">
+            <ul className="mt-5 space-y-3 text-lede">
               {site.socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} className="link-draw" {...(s.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>
