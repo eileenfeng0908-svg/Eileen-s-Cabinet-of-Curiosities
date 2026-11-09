@@ -24,7 +24,8 @@ const MAX_ZOOM = 6;
  * gallery has its own address (#shenzhen, #tokyo…), so the browser's back
  * button and shared links work too.
  */
-export function Atlas({ map }: { map: ReactNode }) {
+/** `after` shows below the map only while no city is open. */
+export function Atlas({ map, after }: { map: ReactNode; after?: ReactNode }) {
   const view = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -338,6 +339,7 @@ export function Atlas({ map }: { map: ReactNode }) {
             </button>
           </div>
         </div>
+        {after}
       </div>
     </div>
   );

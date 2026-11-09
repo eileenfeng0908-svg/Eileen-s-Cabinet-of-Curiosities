@@ -85,15 +85,16 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         {c.slug === "life" && (
           <section aria-label="The atlas">
             <p className="mb-10 max-w-xl font-display text-lede italic text-wine">Not everywhere I’ve been. Just the places I’ve kept.</p>
-            <Atlas map={<AtlasMap />} />
-          </section>
-        )}
-
-        {c.slug === "life" && (
-          <section id="dream-trips" aria-labelledby="dream-trips-title" className="scroll-mt-24">
-            <SectionHeading id="dream-trips-title" number="II" kicker="Not yet" title="Dream" italic="Trips" align="offset" />
-            <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Places I haven’t been, but hope to one day.</p>
-            <DreamTrips />
+            <Atlas
+              map={<AtlasMap />}
+              after={
+                <section id="dream-trips" aria-labelledby="dream-trips-title" className="mt-[var(--section-space)] scroll-mt-24">
+                  <SectionHeading id="dream-trips-title" number="II" kicker="Not yet" title="Dream" italic="Trips" align="offset" />
+                  <p className="mb-14 mt-6 font-display text-lede italic text-wine lg:ml-[calc(2/12*100%)]">Places I haven’t been, but hope to one day.</p>
+                  <DreamTrips />
+                </section>
+              }
+            />
           </section>
         )}
 
