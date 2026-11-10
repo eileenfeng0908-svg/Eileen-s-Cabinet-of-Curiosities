@@ -93,7 +93,7 @@ export const projects: Project[] = [
       aspect: 958 / 956,
       caption: "“NYC dressed in happiness”, FARM Rio",
     },
-    // Summary and body written by Claude at Eileen's request (2026-11-09).
+    // Summary and body written by Claude at Eileen’s request (2026-11-09). 4th on the homepage.
     summary:
       "An interactive music website made for the What Makes Us Human? exhibition. It opens with one instruction, “Press play. Listen before you name it.”, and asks visitors to feel a piece of music before they put words to it.",
     credits: [
